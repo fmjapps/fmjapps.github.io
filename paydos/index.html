@@ -41,6 +41,7 @@
       <li><span class="perm">PACKAGE_USAGE_STATS</span><span>İsteğe bağlıdır: yalnızca “izin verilen uygulamalar” listesini son kullanılana göre sıralamak için, cihaz üzerinde okunur. Verilmezse liste alfabetik sıralanır, hiçbir özellik bozulmaz.</span></li>
       <li><span class="perm">POST_NOTIFICATIONS</span><span>Süre aktifken kalan zamanı gösteren sabit bildirimi göstermek için.</span></li>
       <li><span class="perm">FOREGROUND_SERVICE</span><span>Geri sayımın, Uygulama arka plandayken de kesintisiz çalışmasını sağlar.</span></li>
+      <li><span class="perm">RECEIVE_BOOT_COMPLETED</span><span>Telefon yeniden başlatıldığında aktif kilit oturumunu <b>kapatmak</b> için. Kilidi yeniden başlatmadan sonra geri getirmek için değil: PIN'ini ve kurtarma cevabını unutan bir ebeveynin telefonu kalıcı olarak kilitli kalmasın diye, yeniden başlatma her zaman kilidi kaldırır.</span></li>
       <li><span class="perm">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</span><span>Pil tasarrufunun geri sayımı durdurmasını engellemek için, senin onayınla istenir.</span></li>
       <li><span class="perm">INTERNET</span><span>Yalnızca AdMob'un reklamı yüklemesi için kullanılır; Uygulama başka hiçbir amaçla ağa bağlanmaz.</span></li>
       <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Reklam isteği göndermeden önce bağlantı olup olmadığını kontrol etmek için.</span></li>
@@ -117,6 +118,7 @@
       <li><span class="perm">PACKAGE_USAGE_STATS</span><span>Optional: used on-device only, to sort the allowed-apps list by recency. Without it the list falls back to alphabetical and nothing else changes.</span></li>
       <li><span class="perm">POST_NOTIFICATIONS</span><span>Shows the ongoing notification with the time remaining while a session is active.</span></li>
       <li><span class="perm">FOREGROUND_SERVICE</span><span>Keeps the countdown running while the App is in the background.</span></li>
+      <li><span class="perm">RECEIVE_BOOT_COMPLETED</span><span>Used to <b>end</b> an active lock session when the phone restarts — not to restore the lock after a restart. So that a parent who forgets both the PIN and the recovery answer is never locked out of their phone for good, a restart always clears the lock.</span></li>
       <li><span class="perm">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</span><span>Requested with your consent, so battery saving doesn't stop the countdown.</span></li>
       <li><span class="perm">INTERNET</span><span>Used only so AdMob can load an ad; the App connects to the network for nothing else.</span></li>
       <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Checks whether there is a connection before requesting an ad.</span></li>
