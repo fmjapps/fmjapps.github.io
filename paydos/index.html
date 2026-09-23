@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paydos — Gizlilik Politikası</title>
+<meta name="description" content="Paydos çocuk ekran kilidi uygulamasının gizlilik politikası: toplanan veriler, izinler, cihazda saklama ve reklamlar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D18;
+    --surface:#12162B;
+    --rule:#232A47;
+    --text:#EDEFF7;
+    --text-dim:#9AA2C4;
+    --gold:#FFC94B;
+    --blue:#6FA8FF;
+    --green:#5FE0A6;
+    --red:#FF6E6E;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    margin:0;
+    padding:0 20px;
+    padding-block:56px 80px;
+  }
+  .page{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:8px;}
+  .spectrum{
+    height:4px;width:96px;border-radius:2px;margin-bottom:20px;
+    background:linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue));
+  }
+  .eyebrow{
+    display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;}
+  h1{
+    font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(28px,5vw,36px);
+    line-height:1.15;letter-spacing:-0.01em;margin:0 0 6px;text-wrap:balance;
+  }
+  .updated{color:var(--text-dim);font-size:14px;margin-bottom:8px;font-variant-numeric:tabular-nums;}
+  .lede{color:var(--text-dim);font-size:16px;line-height:1.7;max-width:60ch;margin:18px 0 8px;}
+  section{padding-top:34px;border-top:1px solid var(--rule);margin-top:34px;}
+  section:first-of-type{margin-top:38px;}
+  h2{
+    font-family:'Sora',sans-serif;font-weight:600;font-size:19px;color:var(--gold);
+    margin:0 0 12px;display:flex;align-items:baseline;gap:10px;text-wrap:balance;
+  }
+  h2 .num{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--text-dim);font-variant-numeric:tabular-nums;}
+  p{color:#C7CADB;font-size:15.5px;line-height:1.75;max-width:64ch;margin:0 0 14px;}
+  p:last-child{margin-bottom:0;}
+  ul{color:#C7CADB;font-size:15.5px;line-height:1.75;max-width:64ch;margin:0 0 14px;padding-left:20px;}
+  li{margin-bottom:8px;}
+  a{color:var(--blue);text-decoration-color:rgba(111,168,255,0.4);text-underline-offset:3px;}
+  a:hover{text-decoration-color:var(--blue);}
+  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;background:var(--surface);
+    border:1px solid var(--rule);color:var(--text-dim);font-size:13px;padding:6px 12px;border-radius:999px;
+  }
+  .chip b{color:var(--text);font-weight:600;}
+  .perms{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:12px;}
+  .perms li{
+    display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
+    max-width:64ch;margin:0;
+  }
+  .perm{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;
+    color:var(--gold);background:var(--surface);border:1px solid var(--rule);
+    border-radius:8px;padding:4px 9px;white-space:nowrap;margin-top:3px;
+  }
+  .callout{
+    margin-top:16px;padding:15px 17px;border-radius:12px;background:var(--surface);
+    border:1px solid var(--rule);color:var(--text-dim);font-size:14.5px;line-height:1.7;max-width:64ch;
+  }
+  .callout b{color:var(--text);font-weight:600;}
+  .lang-divider{
+    margin:60px 0 0;display:flex;align-items:center;gap:16px;color:var(--text-dim);
+    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .lang-divider::before,.lang-divider::after{content:"";height:1px;background:var(--rule);flex:1;}
+  footer{
+    margin-top:44px;padding-top:22px;border-top:1px solid var(--rule);color:var(--text-dim);
+    font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+  @media (max-width:520px){
+    .perms li{grid-template-columns:1fr;gap:6px;}
+    .perm{justify-self:start;}
+  }
+  @media (max-width:480px){
+    body{padding-block:40px 64px;}
+    section{padding-top:26px;margin-top:26px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="spectrum" aria-hidden="true"></div>
+  <div class="eyebrow"><span class="dot"></span>Paydos · Çocuk Ekran Kilidi</div>
+  <h1>Gizlilik Politikası</h1>
+  <div class="updated">Son güncelleme: 9 Eylül 2026 · Sürüm 1.1</div>
+  <p class="lede">Kısası: Paydos'un kendi sunucusu yok, telefonunda ne olduğunu görmüyoruz. Ayarladığın süre, seçtiğin uygulamalar ve PIN'in yalnızca kendi telefonunda saklanıyor. Uygulama içinde gösterdiğimiz reklamlar için Google'ın AdMob altyapısını kullanıyoruz — bunun ne anlama geldiği aşağıda (madde 04) açıkça anlatılıyor.</p>
+
+  <div class="chip-row">
+    <span class="chip"><b>Kendi sunucumuz:</b>&nbsp;yok</span>
+    <span class="chip"><b>Analitik/izleme:</b>&nbsp;yok</span>
+    <span class="chip"><b>Reklam:</b>&nbsp;Google AdMob</span>
+    <span class="chip"><b>Veriler:</b>&nbsp;yalnızca cihazda</span>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>Ne topluyoruz</h2>
+    <p>Paydos'un kendi sunucusu, veritabanı ya da analitik altyapısı yok. Ad, e-posta, telefon numarası, konum, fotoğraf, kişi listesi gibi hiçbir kişisel veriyi istemiyoruz, toplamıyoruz ve satmıyoruz. Uygulama içinde gösterdiğimiz reklamlar için Google AdMob kullanıyoruz; bu, cihazının reklam kimliğinin (Advertising ID) Google'a aktarılması anlamına gelir — detaylar için madde 04'e bakabilirsin.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>İzinler ve ne için kullanılıyor</h2>
+    <p>Paydos'un kilit özelliğinin çalışması için Android'in birkaç özel iznini istiyoruz. Her biri sadece şu işi görüyor, başka hiçbir amaçla kullanılmıyor:</p>
+    <ul class="perms">
+      <li><span class="perm">AccessibilityService</span><span>Süre aktifken hangi uygulamanın ekranda olduğunu (sadece paket adını) anlık olarak görür; izin verilenler listesinde değilse kilit ekranını açar. Ekran içeriğini okumaz, kaydetmez, hiçbir yere göndermez.</span></li>
+      <li><span class="perm">BIND_DEVICE_ADMIN</span><span>Kilit aktifken uygulamanın çocuk tarafından kolayca kaldırılmasını (uninstall) zorlaştırır. Başka hiçbir cihaz ayarına dokunmaz.</span></li>
+      <li><span class="perm">PACKAGE_USAGE_STATS</span><span>Tamamen isteğe bağlı: sadece &ldquo;izin verilen uygulamalar&rdquo; listesini son kullanılana/en çok kullanılana göre sıralamak için, cihaz üzerinde okunur. Verilmezse liste alfabetik sıralanır, hiçbir özellik bozulmaz.</span></li>
+      <li><span class="perm">POST_NOTIFICATIONS</span><span>Süre aktifken kalan zamanı gösteren sabit bir bildirim göstermek için. Bildirim içeriği cihazdan hiç çıkmaz.</span></li>
+    </ul>
+    <div class="callout"><b>Not:</b> Bu izinlerin hiçbiri Paydos'a internete veri gönderme yeteneği vermez — hepsi cihaz üzerinde, cihazdan çıkmadan çalışır.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>Veriler nerede saklanıyor</h2>
+    <p>Ayarladığın süre, seçtiğin izinli uygulama listesi ve belirlediğin PIN, telefonunun kendi hafızasında (Android SharedPreferences) tutuluyor. PIN düz metin olarak değil, tuzlanmış (salted) SHA-256 özeti olarak saklanıyor — yani Paydos'un kendisi de PIN'ini &ldquo;okuyamaz&rdquo;, sadece girilenle eşleşip eşleşmediğini doğrulayabilir. Uygulamayı silersen bu veriler de telefonundan silinir.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>Üçüncü taraflar</h2>
+    <p>Paydos, uygulama içinde reklam göstermek için <b>Google AdMob</b> (Google Mobile Ads SDK) kullanıyor. Reklam sadece ebeveynin telefonu elinde tuttuğu anlarda gösteriliyor — kilit ekranını doğru PIN ile kaldırdığında; çocuğun gördüğü kilit ekranında hiçbir zaman reklam yok, çocuğun kullandığı hiçbir akışta reklam gösterilmiyor.</p>
+    <p>AdMob'un çalışabilmesi için cihazının <b>reklam kimliği</b>ni (Advertising ID — Google Ayarları'ndan sıfırlanabilen, kişisel olmayan bir tanımlayıcı) okuyor ve reklam gösterme/ölçümleme amacıyla Google'a aktarıyor. Bu, ad-soyad, e-posta ya da telefon numaran gibi doğrudan kimliğini ortaya koyan bir bilgi değil.</p>
+    <p>Google'ın bu veriyi nasıl işlediğini <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google'ın reklam teknolojileri sayfasından</a> ve genel olarak <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a>'ndan okuyabilirsin. Reklam kişiselleştirmesini telefonunun <b>Ayarlar → Google → Reklamlar</b> menüsünden kapatabilir ya da reklam kimliğini sıfırlayabilirsin.</p>
+    <p>Bunun dışında Paydos hiçbir üçüncü taraf kütüphane, analitik servisi ya da başka bir reklam ağıyla veri paylaşmıyor.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>Çocukların gizliliği</h2>
+    <p>Paydos bir ebeveynin, çocuğunun telefon kullanımını yönetmesi için tasarlandı; ama çocuktan (ya da ebeveynden) hiçbir kişisel veri toplamaz, hesap oluşturmaz, iletişim bilgisi istemez. Uygulama içinde kimin çocuk kimin ebeveyn olduğuna dair bir kayıt bile tutulmaz — sadece PIN bilen kişi &ldquo;ebeveyn&rdquo; sayılır.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>Politika değişiklikleri</h2>
+    <p>Bu politikada bir değişiklik yaparsak, bu sayfayı güncelleriz ve sayfanın en üstündeki &ldquo;son güncelleme&rdquo; tarihini değiştiririz. Uygulamayı kullanmaya devam etmen, güncel politikayı kabul ettiğin anlamına gelir.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>İletişim</h2>
+    <p>Sorun, öneri ya da gizlilikle ilgili bir sorunuz için: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
+  </section>
+
+  <div class="lang-divider">English version below</div>
+
+  <section lang="en">
+    <h2>What we collect</h2>
+    <div class="updated">Last updated: September 9, 2026 · Version 1.1</div>
+    <p>Short version: Paydos has no server of its own. The duration you set, the apps you allow, and your PIN stay on your own phone. We use Google AdMob to show ads inside the app — see &ldquo;Third parties&rdquo; below for what that means.</p>
+    <p>Paydos has no server, database, or analytics of its own. It never asks for your name, email, location, photos, or contacts. It uses Google AdMob to show ads, which means your device's advertising ID is shared with Google.</p>
+  </section>
+
+  <section lang="en">
+    <h2>Permissions and what they're for</h2>
+    <ul class="perms">
+      <li><span class="perm">AccessibilityService</span><span>Reads only the package name of the app currently on screen while a session is active, to show the lock screen if it isn't on the allowed list. Never reads, stores, or transmits screen content.</span></li>
+      <li><span class="perm">BIND_DEVICE_ADMIN</span><span>Makes the app harder for a child to uninstall while a session is active. Touches nothing else on the device.</span></li>
+      <li><span class="perm">PACKAGE_USAGE_STATS</span><span>Fully optional: used on-device only, to sort the allowed-apps list by recency/frequency. Without it, the list just falls back to alphabetical.</span></li>
+      <li><span class="perm">POST_NOTIFICATIONS</span><span>Shows an ongoing notification with the time remaining. Never leaves the device.</span></li>
+    </ul>
+  </section>
+
+  <section lang="en">
+    <h2>Where data lives</h2>
+    <p>Your duration, allowed-apps list, and PIN are stored locally in Android SharedPreferences. The PIN is stored as a salted SHA-256 hash, never in plain text. Uninstalling the app removes all of it.</p>
+  </section>
+
+  <section lang="en">
+    <h2>Third parties &amp; children's privacy</h2>
+    <p>Paydos uses <b>Google AdMob</b> (Google Mobile Ads SDK) to show ads. Ads only appear at moments only a parent reaches — right after the correct PIN is entered to end a session early; the screen the child sees never shows ads, and no part of the child-facing flow does either.</p>
+    <p>To do this, AdMob reads your device's <b>advertising ID</b> (a resettable, non-personal identifier from Android Settings) and shares it with Google for ad delivery and measurement. This is not your name, email, or phone number. You can read how Google handles this at <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's ad technology page</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>, and you can turn off ad personalization or reset your advertising ID from <b>Settings → Google → Ads</b> on your phone.</p>
+    <p>Beyond that, Paydos shares no data with any other third-party library, analytics service, or ad network. It's built for a parent to manage a child's phone use, but collects no personal data from either parent or child, and keeps no account of who is who beyond &ldquo;whoever knows the PIN.&rdquo;</p>
+  </section>
+
+  <section lang="en">
+    <h2>Changes &amp; contact</h2>
+    <p>If this ever changes again, this page will be updated and the date above will change. Questions: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
+  </section>
+
+  <footer>
+    <span>Paydos — Çocuk Ekran Kilidi</span>
+    <span>contact@fmjapps.com</span>
+  </footer>
+</div>
+</body>
+</html>
