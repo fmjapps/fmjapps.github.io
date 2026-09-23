@@ -4,200 +4,175 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Paydos — Gizlilik Politikası</title>
-<meta name="description" content="Paydos çocuk ekran kilidi uygulamasının gizlilik politikası: toplanan veriler, izinler, cihazda saklama ve reklamlar.">
+<meta name="description" content="Paydos çocuk ekran kilidi uygulamasının gizlilik politikası: toplanan veriler, izinler, reklamlar ve verilerin nerede saklandığı.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0A0D18;
-    --surface:#12162B;
-    --rule:#232A47;
-    --text:#EDEFF7;
-    --text-dim:#9AA2C4;
-    --gold:#FFC94B;
-    --blue:#6FA8FF;
-    --green:#5FE0A6;
-    --red:#FF6E6E;
-    color-scheme:dark;
-  }
-  *{box-sizing:border-box;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    margin:0;
-    padding:0 20px;
-    padding-block:56px 80px;
-  }
-  .page{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:8px;}
-  .spectrum{
-    height:4px;width:96px;border-radius:2px;margin-bottom:20px;
-    background:linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue));
-  }
-  .eyebrow{
-    display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:0.08em;
-    text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;
-  }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;}
-  h1{
-    font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(28px,5vw,36px);
-    line-height:1.15;letter-spacing:-0.01em;margin:0 0 6px;text-wrap:balance;
-  }
-  .updated{color:var(--text-dim);font-size:14px;margin-bottom:8px;font-variant-numeric:tabular-nums;}
-  .lede{color:var(--text-dim);font-size:16px;line-height:1.7;max-width:60ch;margin:18px 0 8px;}
-  section{padding-top:34px;border-top:1px solid var(--rule);margin-top:34px;}
-  section:first-of-type{margin-top:38px;}
-  h2{
-    font-family:'Sora',sans-serif;font-weight:600;font-size:19px;color:var(--gold);
-    margin:0 0 12px;display:flex;align-items:baseline;gap:10px;text-wrap:balance;
-  }
-  h2 .num{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--text-dim);font-variant-numeric:tabular-nums;}
-  p{color:#C7CADB;font-size:15.5px;line-height:1.75;max-width:64ch;margin:0 0 14px;}
-  p:last-child{margin-bottom:0;}
-  ul{color:#C7CADB;font-size:15.5px;line-height:1.75;max-width:64ch;margin:0 0 14px;padding-left:20px;}
-  li{margin-bottom:8px;}
-  a{color:var(--blue);text-decoration-color:rgba(111,168,255,0.4);text-underline-offset:3px;}
-  a:hover{text-decoration-color:var(--blue);}
-  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px;}
-  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;}
-  .chip{
-    display:inline-flex;align-items:center;gap:6px;background:var(--surface);
-    border:1px solid var(--rule);color:var(--text-dim);font-size:13px;padding:6px 12px;border-radius:999px;
-  }
-  .chip b{color:var(--text);font-weight:600;}
-  .perms{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:12px;}
-  .perms li{
-    display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
-    max-width:64ch;margin:0;
-  }
-  .perm{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;
-    color:var(--gold);background:var(--surface);border:1px solid var(--rule);
-    border-radius:8px;padding:4px 9px;white-space:nowrap;margin-top:3px;
-  }
-  .callout{
-    margin-top:16px;padding:15px 17px;border-radius:12px;background:var(--surface);
-    border:1px solid var(--rule);color:var(--text-dim);font-size:14.5px;line-height:1.7;max-width:64ch;
-  }
-  .callout b{color:var(--text);font-weight:600;}
-  .lang-divider{
-    margin:60px 0 0;display:flex;align-items:center;gap:16px;color:var(--text-dim);
-    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-  }
-  .lang-divider::before,.lang-divider::after{content:"";height:1px;background:var(--rule);flex:1;}
-  footer{
-    margin-top:44px;padding-top:22px;border-top:1px solid var(--rule);color:var(--text-dim);
-    font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
-  }
-  @media (max-width:520px){
-    .perms li{grid-template-columns:1fr;gap:6px;}
-    .perm{justify-self:start;}
-  }
-  @media (max-width:480px){
-    body{padding-block:40px 64px;}
-    section{padding-top:26px;margin-top:26px;}
-  }
-</style>
+<link rel="stylesheet" href="../policy.css">
 </head>
 <body>
 <div class="page">
   <div class="spectrum" aria-hidden="true"></div>
   <div class="eyebrow"><span class="dot"></span>Paydos · Çocuk Ekran Kilidi</div>
   <h1>Gizlilik Politikası</h1>
-  <div class="updated">Son güncelleme: 9 Eylül 2026 · Sürüm 1.1</div>
-  <p class="lede">Kısası: Paydos'un kendi sunucusu yok, telefonunda ne olduğunu görmüyoruz. Ayarladığın süre, seçtiğin uygulamalar ve PIN'in yalnızca kendi telefonunda saklanıyor. Uygulama içinde gösterdiğimiz reklamlar için Google'ın AdMob altyapısını kullanıyoruz — bunun ne anlama geldiği aşağıda (madde 04) açıkça anlatılıyor.</p>
+  <div class="updated">Son güncelleme: 23 Eylül 2026</div>
+  <p class="lede">Bu sayfa, Paydos mobil uygulamasının (“Uygulama”) hangi bilgileri işlediğini, hangi hizmetleri kullandığını ve bu verilerin nasıl kullanıldığını açıklar.</p>
 
   <div class="chip-row">
-    <span class="chip"><b>Kendi sunucumuz:</b>&nbsp;yok</span>
-    <span class="chip"><b>Analitik/izleme:</b>&nbsp;yok</span>
-    <span class="chip"><b>Reklam:</b>&nbsp;Google AdMob</span>
+    <span class="chip"><b>Hesap verisi:</b>&nbsp;toplanmaz</span>
     <span class="chip"><b>Veriler:</b>&nbsp;yalnızca cihazda</span>
+    <span class="chip"><b>Reklam:</b>&nbsp;Google AdMob</span>
+    <span class="chip"><b>Satın alma:</b>&nbsp;yok</span>
   </div>
 
   <section>
-    <h2><span class="num">01</span>Ne topluyoruz</h2>
-    <p>Paydos'un kendi sunucusu, veritabanı ya da analitik altyapısı yok. Ad, e-posta, telefon numarası, konum, fotoğraf, kişi listesi gibi hiçbir kişisel veriyi istemiyoruz, toplamıyoruz ve satmıyoruz. Uygulama içinde gösterdiğimiz reklamlar için Google AdMob kullanıyoruz; bu, cihazının reklam kimliğinin (Advertising ID) Google'a aktarılması anlamına gelir — detaylar için madde 04'e bakabilirsin.</p>
+    <h2><span class="num">01</span>Topladığımız veriler</h2>
+    <p>Uygulama; isim, e-posta, telefon numarası, konum, fotoğraf ya da kişi listesi gibi hiçbir kişisel bilgi toplamaz ve bize ait bir sunucuya hiçbir veri göndermez. Paydos'un kendi sunucusu, veritabanı ya da analitik altyapısı yoktur.</p>
+    <p>Ayarladığın süre, seçtiğin izinli uygulama listesi ve belirlediğin PIN yalnızca cihazının yerel depolamasında saklanır. Uygulamayı kaldırdığında bu veriler cihazından silinir.</p>
+    <p>Uygulama içinde reklam göstermek için Google AdMob kullanılır; bu, cihazının reklam kimliğinin (advertising ID) Google'a aktarılması anlamına gelir. Ayrıntılar için madde 03'e bakabilirsin.</p>
   </section>
 
   <section>
     <h2><span class="num">02</span>İzinler ve ne için kullanılıyor</h2>
-    <p>Paydos'un kilit özelliğinin çalışması için Android'in birkaç özel iznini istiyoruz. Her biri sadece şu işi görüyor, başka hiçbir amaçla kullanılmıyor:</p>
+    <p>Uygulamanın kilit özelliğinin çalışması için Android'in birkaç iznine ihtiyaç duyulur. Her izin yalnızca aşağıdaki iş için kullanılır:</p>
     <ul class="perms">
-      <li><span class="perm">AccessibilityService</span><span>Süre aktifken hangi uygulamanın ekranda olduğunu (sadece paket adını) anlık olarak görür; izin verilenler listesinde değilse kilit ekranını açar. Ekran içeriğini okumaz, kaydetmez, hiçbir yere göndermez.</span></li>
-      <li><span class="perm">BIND_DEVICE_ADMIN</span><span>Kilit aktifken uygulamanın çocuk tarafından kolayca kaldırılmasını (uninstall) zorlaştırır. Başka hiçbir cihaz ayarına dokunmaz.</span></li>
-      <li><span class="perm">PACKAGE_USAGE_STATS</span><span>Tamamen isteğe bağlı: sadece &ldquo;izin verilen uygulamalar&rdquo; listesini son kullanılana/en çok kullanılana göre sıralamak için, cihaz üzerinde okunur. Verilmezse liste alfabetik sıralanır, hiçbir özellik bozulmaz.</span></li>
-      <li><span class="perm">POST_NOTIFICATIONS</span><span>Süre aktifken kalan zamanı gösteren sabit bir bildirim göstermek için. Bildirim içeriği cihazdan hiç çıkmaz.</span></li>
+      <li><span class="perm">AccessibilityService</span><span>Süre aktifken ekranda hangi uygulamanın açık olduğunu (yalnızca paket adını) görür; izin verilenler listesinde değilse kilit ekranını açar. Ekran içeriğini okumaz, kaydetmez, hiçbir yere göndermez.</span></li>
+      <li><span class="perm">BIND_DEVICE_ADMIN</span><span>Kilit aktifken Uygulamanın çocuk tarafından kolayca kaldırılmasını zorlaştırır. Başka hiçbir cihaz ayarına dokunmaz.</span></li>
+      <li><span class="perm">PACKAGE_USAGE_STATS</span><span>İsteğe bağlıdır: yalnızca “izin verilen uygulamalar” listesini son kullanılana göre sıralamak için, cihaz üzerinde okunur. Verilmezse liste alfabetik sıralanır, hiçbir özellik bozulmaz.</span></li>
+      <li><span class="perm">POST_NOTIFICATIONS</span><span>Süre aktifken kalan zamanı gösteren sabit bildirimi göstermek için.</span></li>
+      <li><span class="perm">FOREGROUND_SERVICE</span><span>Geri sayımın, Uygulama arka plandayken de kesintisiz çalışmasını sağlar.</span></li>
+      <li><span class="perm">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</span><span>Pil tasarrufunun geri sayımı durdurmasını engellemek için, senin onayınla istenir.</span></li>
+      <li><span class="perm">INTERNET</span><span>Yalnızca AdMob'un reklamı yüklemesi için kullanılır; Uygulama başka hiçbir amaçla ağa bağlanmaz.</span></li>
+      <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Reklam isteği göndermeden önce bağlantı olup olmadığını kontrol etmek için.</span></li>
     </ul>
-    <div class="callout"><b>Not:</b> Bu izinlerin hiçbiri Paydos'a internete veri gönderme yeteneği vermez — hepsi cihaz üzerinde, cihazdan çıkmadan çalışır.</div>
+    <div class="callout"><b>Not:</b> Bu izinler içinde cihazdan dışarı veri çıkabilecek tek yol <b>INTERNET</b> iznidir ve o da yalnızca AdMob reklam isteği için kullanılır. Kilit, PIN, uygulama listesi ve bildirim tarafındaki hiçbir bilgi cihazdan çıkmaz.</div>
   </section>
 
   <section>
-    <h2><span class="num">03</span>Veriler nerede saklanıyor</h2>
-    <p>Ayarladığın süre, seçtiğin izinli uygulama listesi ve belirlediğin PIN, telefonunun kendi hafızasında (Android SharedPreferences) tutuluyor. PIN düz metin olarak değil, tuzlanmış (salted) SHA-256 özeti olarak saklanıyor — yani Paydos'un kendisi de PIN'ini &ldquo;okuyamaz&rdquo;, sadece girilenle eşleşip eşleşmediğini doğrulayabilir. Uygulamayı silersen bu veriler de telefonundan silinir.</p>
+    <h2><span class="num">03</span>Reklamlar — Google AdMob</h2>
+    <p>Uygulama, Google AdMob aracılığıyla reklam gösterir. Reklam yalnızca ebeveynin telefonu elinde tuttuğu anlarda — kilit doğru PIN ile kaldırıldığında — gösterilir. Çocuğun gördüğü kilit ekranında hiçbir zaman reklam çıkmaz ve çocuğun kullandığı hiçbir akışta reklam gösterilmez.</p>
+    <p>AdMob, reklamları sunmak ve ölçmek amacıyla reklam kimliği (advertising ID), cihaz ve yaklaşık konum bilgisi gibi verileri toplayabilir. Reklam kimliği; ad-soyad, e-posta ya da telefon numarası gibi doğrudan kimliğini ortaya koyan bir bilgi değildir, cihaz ayarlarından sıfırlanabilir. Bu verilerin toplanması ve kullanımı Google'ın gizlilik politikasına tabidir: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a> — reklam tarafı için ayrıca <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a></p>
+    <p>Reklam kişiselleştirmesini telefonunun <b>Ayarlar → Google → Reklamlar</b> menüsünden kapatabilir ya da reklam kimliğini sıfırlayabilirsin.</p>
   </section>
 
   <section>
-    <h2><span class="num">04</span>Üçüncü taraflar</h2>
-    <p>Paydos, uygulama içinde reklam göstermek için <b>Google AdMob</b> (Google Mobile Ads SDK) kullanıyor. Reklam sadece ebeveynin telefonu elinde tuttuğu anlarda gösteriliyor — kilit ekranını doğru PIN ile kaldırdığında; çocuğun gördüğü kilit ekranında hiçbir zaman reklam yok, çocuğun kullandığı hiçbir akışta reklam gösterilmiyor.</p>
-    <p>AdMob'un çalışabilmesi için cihazının <b>reklam kimliği</b>ni (Advertising ID — Google Ayarları'ndan sıfırlanabilen, kişisel olmayan bir tanımlayıcı) okuyor ve reklam gösterme/ölçümleme amacıyla Google'a aktarıyor. Bu, ad-soyad, e-posta ya da telefon numaran gibi doğrudan kimliğini ortaya koyan bir bilgi değil.</p>
-    <p>Google'ın bu veriyi nasıl işlediğini <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google'ın reklam teknolojileri sayfasından</a> ve genel olarak <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gizlilik Politikası</a>'ndan okuyabilirsin. Reklam kişiselleştirmesini telefonunun <b>Ayarlar → Google → Reklamlar</b> menüsünden kapatabilir ya da reklam kimliğini sıfırlayabilirsin.</p>
-    <p>Bunun dışında Paydos hiçbir üçüncü taraf kütüphane, analitik servisi ya da başka bir reklam ağıyla veri paylaşmıyor.</p>
+    <h2><span class="num">04</span>Bildirimler</h2>
+    <p>Süre aktifken Uygulama, kalan zamanı gösteren sabit bir bildirim gösterir. Bu bildirim tamamen cihazında oluşturulur; bunun için hiçbir sunucu kullanılmaz ve hiçbir veri gönderilmez.</p>
   </section>
 
   <section>
-    <h2><span class="num">05</span>Çocukların gizliliği</h2>
-    <p>Paydos bir ebeveynin, çocuğunun telefon kullanımını yönetmesi için tasarlandı; ama çocuktan (ya da ebeveynden) hiçbir kişisel veri toplamaz, hesap oluşturmaz, iletişim bilgisi istemez. Uygulama içinde kimin çocuk kimin ebeveyn olduğuna dair bir kayıt bile tutulmaz — sadece PIN bilen kişi &ldquo;ebeveyn&rdquo; sayılır.</p>
+    <h2><span class="num">05</span>Üçüncü taraflar</h2>
+    <p>Uygulama yalnızca aşağıdaki Google hizmetini kullanır; bunun dışında hiçbir üçüncü tarafla veri paylaşmaz:</p>
+    <ul>
+      <li><b>Google AdMob</b> — reklam gösterimi</li>
+    </ul>
+    <p>Google'ın gizlilik politikasına tabidir: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
   </section>
 
   <section>
-    <h2><span class="num">06</span>Politika değişiklikleri</h2>
-    <p>Bu politikada bir değişiklik yaparsak, bu sayfayı güncelleriz ve sayfanın en üstündeki &ldquo;son güncelleme&rdquo; tarihini değiştiririz. Uygulamayı kullanmaya devam etmen, güncel politikayı kabul ettiğin anlamına gelir.</p>
+    <h2><span class="num">06</span>Çocukların gizliliği</h2>
+    <p>Uygulama, bir ebeveynin çocuğunun telefon kullanımını yönetmesi için tasarlanmıştır; ancak çocuktan da ebeveynden de hiçbir kişisel veri toplamaz, hesap oluşturmaz, iletişim bilgisi istemez. Uygulama içinde kimin çocuk kimin ebeveyn olduğuna dair bir kayıt tutulmaz — yalnızca PIN'i bilen kişi “ebeveyn” sayılır.</p>
   </section>
 
   <section>
-    <h2><span class="num">07</span>İletişim</h2>
-    <p>Sorun, öneri ya da gizlilikle ilgili bir sorunuz için: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
+    <h2><span class="num">07</span>Verilerin saklanması ve silinmesi</h2>
+    <p>Ayarladığın süre, izinli uygulama listesi ve PIN, telefonunun kendi hafızasında (Android SharedPreferences) tutulur. PIN düz metin olarak değil, tuzlanmış (salted) SHA-256 özeti olarak saklanır — yani Uygulama PIN'ini “okuyamaz”, yalnızca girilenle eşleşip eşleşmediğini doğrulayabilir.</p>
+    <p>Bu veriler yalnızca cihazında tutulduğu için, Uygulamayı kaldırmak ya da cihaz ayarlarından uygulama verilerini temizlemek onları tamamen siler.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span>Haklarınız</h2>
+    <p>Bize ait bir sunucuda kişisel verin saklanmadığı için silme ya da erişim talebi gerektiren bir kaydımız bulunmuyor. Yine de bu politikayla ilgili her türlü soru ya da talep için aşağıdaki adresten bize ulaşabilirsin.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">09</span>Değişiklikler</h2>
+    <p>Bu politika zaman zaman güncellenebilir; güncel hali her zaman bu sayfada yer alır ve yukarıdaki “son güncelleme” tarihi buna göre değişir.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">10</span>İletişim</h2>
+    <p>Bu politikayla ilgili sorular için: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
   </section>
 
   <div class="lang-divider">English version below</div>
 
+  <h1 lang="en">Privacy Policy</h1>
+  <div class="updated" lang="en">Last updated: September 23, 2026</div>
+  <p class="lede" lang="en">This page explains what information the Paydos mobile app (the “App”) processes, which services it uses, and how that data is handled.</p>
+
   <section lang="en">
-    <h2>What we collect</h2>
-    <div class="updated">Last updated: September 9, 2026 · Version 1.1</div>
-    <p>Short version: Paydos has no server of its own. The duration you set, the apps you allow, and your PIN stay on your own phone. We use Google AdMob to show ads inside the app — see &ldquo;Third parties&rdquo; below for what that means.</p>
-    <p>Paydos has no server, database, or analytics of its own. It never asks for your name, email, location, photos, or contacts. It uses Google AdMob to show ads, which means your device's advertising ID is shared with Google.</p>
+    <h2><span class="num">01</span>What we collect</h2>
+    <p>The App collects no personal information — no name, email, phone number, location, photos, or contacts — and sends no data to any server of ours. Paydos has no server, database, or analytics of its own.</p>
+    <p>The duration you set, the allowed-apps list you choose, and the PIN you pick are stored only in your device's local storage. Uninstalling the App removes them from your device.</p>
+    <p>The App uses Google AdMob to show ads, which means your device's advertising ID is shared with Google. See section 03 for details.</p>
   </section>
 
   <section lang="en">
-    <h2>Permissions and what they're for</h2>
+    <h2><span class="num">02</span>Permissions and what they're for</h2>
+    <p>The App needs a few Android permissions for its lock feature to work. Each one is used only for the purpose listed below:</p>
     <ul class="perms">
-      <li><span class="perm">AccessibilityService</span><span>Reads only the package name of the app currently on screen while a session is active, to show the lock screen if it isn't on the allowed list. Never reads, stores, or transmits screen content.</span></li>
-      <li><span class="perm">BIND_DEVICE_ADMIN</span><span>Makes the app harder for a child to uninstall while a session is active. Touches nothing else on the device.</span></li>
-      <li><span class="perm">PACKAGE_USAGE_STATS</span><span>Fully optional: used on-device only, to sort the allowed-apps list by recency/frequency. Without it, the list just falls back to alphabetical.</span></li>
-      <li><span class="perm">POST_NOTIFICATIONS</span><span>Shows an ongoing notification with the time remaining. Never leaves the device.</span></li>
+      <li><span class="perm">AccessibilityService</span><span>While a session is active, reads only the package name of the app currently on screen, to show the lock screen if it isn't on the allowed list. Never reads, stores, or transmits screen content.</span></li>
+      <li><span class="perm">BIND_DEVICE_ADMIN</span><span>Makes the App harder for a child to uninstall while a session is active. Touches nothing else on the device.</span></li>
+      <li><span class="perm">PACKAGE_USAGE_STATS</span><span>Optional: used on-device only, to sort the allowed-apps list by recency. Without it the list falls back to alphabetical and nothing else changes.</span></li>
+      <li><span class="perm">POST_NOTIFICATIONS</span><span>Shows the ongoing notification with the time remaining while a session is active.</span></li>
+      <li><span class="perm">FOREGROUND_SERVICE</span><span>Keeps the countdown running while the App is in the background.</span></li>
+      <li><span class="perm">REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</span><span>Requested with your consent, so battery saving doesn't stop the countdown.</span></li>
+      <li><span class="perm">INTERNET</span><span>Used only so AdMob can load an ad; the App connects to the network for nothing else.</span></li>
+      <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Checks whether there is a connection before requesting an ad.</span></li>
     </ul>
+    <div class="callout"><b>Note:</b> The only permission here that can send anything off the device is <b>INTERNET</b>, and it is used solely for AdMob ad requests. Nothing from the lock, the PIN, the app list, or the notification ever leaves your device.</div>
   </section>
 
   <section lang="en">
-    <h2>Where data lives</h2>
-    <p>Your duration, allowed-apps list, and PIN are stored locally in Android SharedPreferences. The PIN is stored as a salted SHA-256 hash, never in plain text. Uninstalling the app removes all of it.</p>
+    <h2><span class="num">03</span>Ads — Google AdMob</h2>
+    <p>The App shows ads through Google AdMob. Ads appear only at moments only a parent reaches — right after the lock is lifted with the correct PIN. The lock screen the child sees never shows ads, and no part of the child-facing flow does either.</p>
+    <p>To deliver and measure ads, AdMob may collect data such as the advertising ID, device information, and approximate location. The advertising ID is not your name, email, or phone number, and it can be reset from your device settings. Google's handling of this data is governed by its privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a> — and for ads specifically, <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a></p>
+    <p>You can turn off ad personalization or reset your advertising ID from <b>Settings → Google → Ads</b> on your phone.</p>
   </section>
 
   <section lang="en">
-    <h2>Third parties &amp; children's privacy</h2>
-    <p>Paydos uses <b>Google AdMob</b> (Google Mobile Ads SDK) to show ads. Ads only appear at moments only a parent reaches — right after the correct PIN is entered to end a session early; the screen the child sees never shows ads, and no part of the child-facing flow does either.</p>
-    <p>To do this, AdMob reads your device's <b>advertising ID</b> (a resettable, non-personal identifier from Android Settings) and shares it with Google for ad delivery and measurement. This is not your name, email, or phone number. You can read how Google handles this at <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's ad technology page</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>, and you can turn off ad personalization or reset your advertising ID from <b>Settings → Google → Ads</b> on your phone.</p>
-    <p>Beyond that, Paydos shares no data with any other third-party library, analytics service, or ad network. It's built for a parent to manage a child's phone use, but collects no personal data from either parent or child, and keeps no account of who is who beyond &ldquo;whoever knows the PIN.&rdquo;</p>
+    <h2><span class="num">04</span>Notifications</h2>
+    <p>While a session is active, the App shows an ongoing notification with the time remaining. It is created entirely on your device; no server is involved and no data is sent.</p>
   </section>
 
   <section lang="en">
-    <h2>Changes &amp; contact</h2>
-    <p>If this ever changes again, this page will be updated and the date above will change. Questions: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
+    <h2><span class="num">05</span>Third parties</h2>
+    <p>The App uses only the following Google service and shares data with no other third party:</p>
+    <ul>
+      <li><b>Google AdMob</b> — ad delivery</li>
+    </ul>
+    <p>Governed by Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">06</span>Children's privacy</h2>
+    <p>The App is built for a parent to manage a child's phone use, but it collects no personal data from either the child or the parent, creates no account, and asks for no contact details. It keeps no record of who is the child and who is the parent — whoever knows the PIN is treated as the parent.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">07</span>Data retention and deletion</h2>
+    <p>Your duration, allowed-apps list, and PIN are stored in your phone's own storage (Android SharedPreferences). The PIN is stored as a salted SHA-256 hash, never in plain text — the App cannot “read” your PIN, only check whether what was entered matches.</p>
+    <p>Because this data lives only on your device, uninstalling the App or clearing its data from device settings removes it completely.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">08</span>Your rights</h2>
+    <p>Since no personal data of yours is stored on any server of ours, there is no record for us to delete or disclose. Even so, you can reach us at the address below with any question or request about this policy.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">09</span>Changes</h2>
+    <p>This policy may be updated from time to time; the current version always lives on this page and the “last updated” date above changes accordingly.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">10</span>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
   </section>
 
   <footer>
-    <span>Paydos — Çocuk Ekran Kilidi</span>
+    <span>Paydos</span>
     <span>contact@fmjapps.com</span>
   </footer>
 </div>
