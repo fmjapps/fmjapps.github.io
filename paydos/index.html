@@ -79,6 +79,7 @@
   <section>
     <h2><span class="num">07</span>Verilerin saklanması ve silinmesi</h2>
     <p>Ayarladığın süre, izinli uygulama listesi ve PIN, telefonunun kendi hafızasında (Android SharedPreferences) tutulur. PIN düz metin olarak değil, tuzlanmış (salted) SHA-256 özeti olarak saklanır — yani Uygulama PIN'ini “okuyamaz”, yalnızca girilenle eşleşip eşleşmediğini doğrulayabilir.</p>
+    <p>PIN'ini unutursan diye belirlediğin kurtarma sorusunun cevabı da aynı şekilde, kendi tuzuyla SHA-256 özeti olarak saklanır; cevabın kendisi hiçbir yerde tutulmaz. Sorunun metni de saklanmaz — Uygulamanın içindeki hazır soru listesindeki sıra numarası tutulur. Bu veriler de yalnızca cihazındadır.</p>
     <p>Bu veriler yalnızca cihazında tutulduğu için, Uygulamayı kaldırmak ya da cihaz ayarlarından uygulama verilerini temizlemek onları tamamen siler.</p>
   </section>
 
@@ -157,6 +158,7 @@
   <section lang="en">
     <h2><span class="num">07</span>Data retention and deletion</h2>
     <p>Your duration, allowed-apps list, and PIN are stored in your phone's own storage (Android SharedPreferences). The PIN is stored as a salted SHA-256 hash, never in plain text — the App cannot “read” your PIN, only check whether what was entered matches.</p>
+    <p>The answer to the recovery question you set in case you forget your PIN is stored the same way, as a SHA-256 hash with its own salt; the answer itself is never kept. The question's text isn't stored either — only its position in the App's built-in list of questions. This data also stays on your device only.</p>
     <p>Because this data lives only on your device, uninstalling the App or clearing its data from device settings removes it completely.</p>
   </section>
 
