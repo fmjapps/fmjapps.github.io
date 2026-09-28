@@ -5,6 +5,7 @@ Uygulamaların gizlilik politikalarının yayınlandığı depo. GitHub Pages il
 
 Her uygulama kendi klasöründe:
 
+- `ezber/` → https://fmjapps.github.io/privacy/ezber/
 - `paydos/` → https://fmjapps.github.io/privacy/paydos/
 - `prizma/` → https://fmjapps.github.io/privacy/prizma/
 
