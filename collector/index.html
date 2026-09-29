@@ -23,20 +23,21 @@
     <span class="chip"><b>Veriler:</b>&nbsp;yalnızca cihazda</span>
     <span class="chip"><b>Reklam:</b>&nbsp;Google AdMob</span>
     <span class="chip"><b>Satın alma:</b>&nbsp;Google Play</span>
+    <span class="chip"><b>Sıralama:</b>&nbsp;Google Play Games</span>
   </div>
 
   <section>
     <h2><span class="num">01</span>Topladığımız veriler</h2>
     <p>Oyun; isim, e-posta, telefon numarası, konum, fotoğraf ya da kişi listesi gibi hiçbir kişisel bilgi toplamaz, hesap açmanı istemez ve bize ait bir sunucuya hiçbir veri göndermez. Oyunun kendi sunucusu, veritabanı ya da analitik altyapısı yoktur.</p>
     <p>Oyun ilerlemen (kasa, itibar, aletler, koleksiyon, rütbe), istatistiklerin, başarımların, günlük görevlerin ve ayarların (dil, ses, titreşim, bildirim tercihi) yalnızca cihazının yerel depolamasında saklanır.</p>
-    <p>Oyun içinde reklam göstermek için Google AdMob, satın almalar için Google Play kullanılır. Bu hizmetlerin işlediği veriler için madde 03 ve 04'e bakabilirsin.</p>
+    <p>Oyun içinde reklam göstermek için Google AdMob, satın almalar için Google Play, genel sıralama ve başarımlar için Google Play Games kullanılır. Bu hizmetlerin işlediği veriler için madde 03, 04 ve 05'e bakabilirsin.</p>
   </section>
 
   <section>
     <h2><span class="num">02</span>İzinler ve ne için kullanılıyor</h2>
     <p>Oyun aşağıdaki Android izinlerini kullanır. Her izin yalnızca yanında yazan iş için kullanılır:</p>
     <ul class="perms">
-      <li><span class="perm">INTERNET</span><span>Reklamların yüklenmesi (Google AdMob) ve satın almaların Google Play ile doğrulanması için. Oyun başka hiçbir amaçla ağa bağlanmaz; oyunun kendisi internetsiz de oynanır.</span></li>
+      <li><span class="perm">INTERNET</span><span>Reklamların yüklenmesi (Google AdMob), satın almaların Google Play ile doğrulanması ve puanın/başarımların Google Play Games'e gönderilmesi için. Oyun başka hiçbir amaçla ağa bağlanmaz; oyunun kendisi internetsiz de oynanır.</span></li>
       <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Reklam istemeden önce bağlantı olup olmadığını kontrol etmek için.</span></li>
       <li><span class="perm">com.android.vending.BILLING</span><span>Google Play üzerinden uygulama içi satın alma (Reklamsız Koleksiyoncu, anahtar paketleri) yapabilmek için.</span></li>
       <li><span class="perm">POST_NOTIFICATIONS</span><span>Dükkân anahtarların dolduğunda sana hatırlatma bildirimi göstermek için. Ayarlardan kapatılabilir.</span></li>
@@ -51,7 +52,7 @@
       <li><span class="perm">FOREGROUND_SERVICE</span><span>Google kütüphaneleri (reklam ve satın alma) tarafından eklenir. Oyunun kendisi ön planda çalışan bir hizmet başlatmaz.</span></li>
       <li><span class="perm">DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</span><span>Android'in kendi güvenlik iznidir (AndroidX tarafından eklenir): oyunun iç yayınlarının yalnızca oyunun kendi bileşenlerince alınmasını sağlar. Hiçbir veriye erişim vermez.</span></li>
     </ul>
-    <div class="callout"><b>Not:</b> Bu izinler içinde cihazdan dışarı veri çıkabilecek tek yol <b>INTERNET</b> iznidir ve o da yalnızca AdMob reklam istekleri ve Google Play satın alma doğrulaması için kullanılır. Oyun ilerlemen, koleksiyonun ve ayarların hiçbir zaman cihazından çıkmaz.</div>
+    <div class="callout"><b>Not:</b> Bu izinler içinde cihazdan dışarı veri çıkabilecek tek yol <b>INTERNET</b> iznidir ve o da yalnızca AdMob reklam istekleri, Google Play satın alma doğrulaması ve Google Play Games'e puan ile başarım gönderimi için kullanılır. Bunun dışında oyun ilerlemen, koleksiyonun ve ayarların cihazından çıkmaz.</div>
   </section>
 
   <section>
@@ -68,43 +69,51 @@
   </section>
 
   <section>
-    <h2><span class="num">05</span>Bildirimler</h2>
+    <h2><span class="num">05</span>Sıralama ve başarımlar — Google Play Games</h2>
+    <p>Oyun, genel sıralama ve başarımlar için Google Play Games Hizmetleri'ni kullanır. Telefonunda Google Play Games'e giriş yapmışsan oyun açılışta otomatik olarak bağlanır; sıralama puanın (doğru kararlarının sayısı ve hızına göre hesaplanan tek bir sayı) ve açtığın başarımlar Google'ın sunucularına gönderilir. Puanın, Play Games profil adın ve avatarınla sıralamada görünebilir.</p>
+    <p>Bu özellik isteğe bağlıdır: Play Games'e giriş yapmazsan hiçbir puan ya da başarım gönderilmez ve oyunun tamamı normal şekilde oynanır. Profil görünürlüğünü ve Play Games verilerini Google Play Games uygulamasının ayarlarından yönetebilir ya da silebilirsin. Bu veriler Google'ın gizlilik politikasına tabidir: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>Bildirimler</h2>
     <p>Oyun, dükkân anahtarların dolduğunda bir hatırlatma bildirimi gösterebilir. Bu bildirim tamamen cihazında zamanlanır ve oluşturulur; bunun için hiçbir sunucu kullanılmaz ve hiçbir veri gönderilmez. Bildirimleri oyunun <b>Ayarlar</b> ekranından ya da telefonunun bildirim ayarlarından kapatabilirsin.</p>
   </section>
 
   <section>
-    <h2><span class="num">06</span>Üçüncü taraflar</h2>
+    <h2><span class="num">07</span>Üçüncü taraflar</h2>
     <p>Oyun yalnızca aşağıdaki Google hizmetlerini kullanır; bunun dışında hiçbir üçüncü tarafla veri paylaşmaz:</p>
     <ul>
       <li><b>Google AdMob</b> — reklam gösterimi</li>
       <li><b>Google Play Faturalandırma</b> — uygulama içi satın almalar</li>
+      <li><b>Google Play Games Hizmetleri</b> — genel sıralama ve başarımlar (isteğe bağlı)</li>
     </ul>
     <p>Google'ın gizlilik politikasına tabidir: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
   </section>
 
   <section>
-    <h2><span class="num">07</span>Çocukların gizliliği</h2>
+    <h2><span class="num">08</span>Çocukların gizliliği</h2>
     <p>Oyun 13 yaş altındaki çocuklara yönelik değildir ve bilerek çocuklardan kişisel veri toplamaz. Oyun kimseden kişisel veri istemez, hesap oluşturmaz, iletişim bilgisi sormaz.</p>
   </section>
 
   <section>
-    <h2><span class="num">08</span>Verilerin saklanması ve silinmesi</h2>
+    <h2><span class="num">09</span>Verilerin saklanması ve silinmesi</h2>
     <p>Oyun ilerlemen, istatistiklerin ve ayarların telefonunun kendi hafızasında (oyunun yerel depolamasında) tutulur. Bu veriler yalnızca cihazında olduğu için, oyunun <b>Ayarlar → İlerlemeyi sıfırla</b> seçeneği, oyunu kaldırmak ya da cihaz ayarlarından uygulama verilerini temizlemek onları tamamen siler.</p>
     <p>Satın aldığın kalıcı ürünler (Reklamsız Koleksiyoncu) Google Play hesabına bağlıdır; oyunu yeniden kurduğunda <b>Ayarlar → Satın alımları geri yükle</b> ile geri alabilirsin.</p>
+    <p>Google Play Games'e gönderilen puan ve başarımlar Google hesabına bağlıdır; bunları Google Play Games ayarlarından yönetebilir ya da silebilirsin.</p>
   </section>
 
   <section>
-    <h2><span class="num">09</span>Haklarınız</h2>
+    <h2><span class="num">10</span>Haklarınız</h2>
     <p>Bize ait bir sunucuda kişisel verin saklanmadığı için silme ya da erişim talebi gerektiren bir kaydımız bulunmuyor. Yine de bu politikayla ilgili her türlü soru ya da talep için aşağıdaki adresten bize ulaşabilirsin.</p>
   </section>
 
   <section>
-    <h2><span class="num">10</span>Değişiklikler</h2>
+    <h2><span class="num">11</span>Değişiklikler</h2>
     <p>Bu politika zaman zaman güncellenebilir; güncel hali her zaman bu sayfada yer alır ve yukarıdaki “son güncelleme” tarihi buna göre değişir.</p>
   </section>
 
   <section>
-    <h2><span class="num">11</span>İletişim</h2>
+    <h2><span class="num">12</span>İletişim</h2>
     <p>Bu politikayla ilgili sorular için: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
   </section>
 
@@ -118,14 +127,14 @@
     <h2><span class="num">01</span>What we collect</h2>
     <p>The Game collects no personal information — no name, email, phone number, location, photos, or contacts — asks you to create no account, and sends no data to any server of ours. The Game has no server, database, or analytics of its own.</p>
     <p>Your game progress (cash, reputation, tools, collection, rank), statistics, achievements, daily tasks, and settings (language, sound, vibration, notification preference) are stored only in your device's local storage.</p>
-    <p>The Game uses Google AdMob to show ads and Google Play for purchases. See sections 03 and 04 for the data these services handle.</p>
+    <p>The Game uses Google AdMob to show ads, Google Play for purchases, and Google Play Games for the global leaderboard and achievements. See sections 03, 04 and 05 for the data these services handle.</p>
   </section>
 
   <section lang="en">
     <h2><span class="num">02</span>Permissions and what they're for</h2>
     <p>The Game uses the following Android permissions. Each one is used only for the purpose listed next to it:</p>
     <ul class="perms">
-      <li><span class="perm">INTERNET</span><span>To load ads (Google AdMob) and to verify purchases with Google Play. The Game connects to the network for nothing else; the game itself plays offline.</span></li>
+      <li><span class="perm">INTERNET</span><span>To load ads (Google AdMob), to verify purchases with Google Play, and to send your score and achievements to Google Play Games. The Game connects to the network for nothing else; the game itself plays offline.</span></li>
       <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Checks whether there is a connection before requesting an ad.</span></li>
       <li><span class="perm">com.android.vending.BILLING</span><span>Enables in-app purchases (Ad-free Collector, key packs) through Google Play.</span></li>
       <li><span class="perm">POST_NOTIFICATIONS</span><span>Shows a reminder notification when your shop keys have refilled. Can be turned off in Settings.</span></li>
@@ -140,7 +149,7 @@
       <li><span class="perm">FOREGROUND_SERVICE</span><span>Added by Google libraries (ads and billing). The Game itself never starts a foreground service.</span></li>
       <li><span class="perm">DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</span><span>Android's own security permission (added by AndroidX): makes sure the Game's internal broadcasts are received only by the Game's own components. Grants access to no data.</span></li>
     </ul>
-    <div class="callout"><b>Note:</b> The only permission here that can send anything off the device is <b>INTERNET</b>, and it is used solely for AdMob ad requests and Google Play purchase verification. Your game progress, collection, and settings never leave your device.</div>
+    <div class="callout"><b>Note:</b> The only permission here that can send anything off the device is <b>INTERNET</b>, and it is used solely for AdMob ad requests, Google Play purchase verification, and sending your score and achievements to Google Play Games. Apart from that, your game progress, collection, and settings never leave your device.</div>
   </section>
 
   <section lang="en">
@@ -157,43 +166,51 @@
   </section>
 
   <section lang="en">
-    <h2><span class="num">05</span>Notifications</h2>
+    <h2><span class="num">05</span>Leaderboard and achievements — Google Play Games</h2>
+    <p>The Game uses Google Play Games Services for a global leaderboard and achievements. If you are signed in to Google Play Games on your phone, the Game connects automatically when it starts; your ranking score (a single number based on how many correct calls you make and how fast) and the achievements you unlock are sent to Google's servers. Your score may appear on the leaderboard with your Play Games profile name and avatar.</p>
+    <p>This feature is optional: if you don't sign in to Play Games, no score or achievement is sent and the whole game remains playable. You can manage your profile visibility and Play Games data, or delete it, from the Google Play Games app settings. This data is governed by Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">06</span>Notifications</h2>
     <p>The Game may show a reminder notification when your shop keys have refilled. It is scheduled and created entirely on your device; no server is involved and no data is sent. You can turn notifications off in the Game's <b>Settings</b> or in your phone's notification settings.</p>
   </section>
 
   <section lang="en">
-    <h2><span class="num">06</span>Third parties</h2>
+    <h2><span class="num">07</span>Third parties</h2>
     <p>The Game uses only the following Google services and shares data with no other third party:</p>
     <ul>
       <li><b>Google AdMob</b> — ad delivery</li>
       <li><b>Google Play Billing</b> — in-app purchases</li>
+      <li><b>Google Play Games Services</b> — global leaderboard and achievements (optional)</li>
     </ul>
     <p>Governed by Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
   </section>
 
   <section lang="en">
-    <h2><span class="num">07</span>Children's privacy</h2>
+    <h2><span class="num">08</span>Children's privacy</h2>
     <p>The Game is not directed at children under 13 and does not knowingly collect personal data from children. It asks no one for personal data, creates no account, and requests no contact details.</p>
   </section>
 
   <section lang="en">
-    <h2><span class="num">08</span>Data retention and deletion</h2>
+    <h2><span class="num">09</span>Data retention and deletion</h2>
     <p>Your game progress, statistics, and settings are kept in your phone's own storage (the Game's local storage). Because this data lives only on your device, the Game's <b>Settings → Reset progress</b> option, uninstalling the Game, or clearing its data from device settings removes it completely.</p>
     <p>Permanent purchases (Ad-free Collector) are tied to your Google Play account; after reinstalling you can get them back with <b>Settings → Restore purchases</b>.</p>
+    <p>The score and achievements sent to Google Play Games are tied to your Google account; you can manage or delete them from your Google Play Games settings.</p>
   </section>
 
   <section lang="en">
-    <h2><span class="num">09</span>Your rights</h2>
+    <h2><span class="num">10</span>Your rights</h2>
     <p>Since no personal data of yours is stored on any server of ours, there is no record for us to delete or disclose. Even so, you can reach us at the address below with any question or request about this policy.</p>
   </section>
 
   <section lang="en">
-    <h2><span class="num">10</span>Changes</h2>
+    <h2><span class="num">11</span>Changes</h2>
     <p>This policy may be updated from time to time; the current version always lives on this page and the “last updated” date above changes accordingly.</p>
   </section>
 
   <section lang="en">
-    <h2><span class="num">11</span>Contact</h2>
+    <h2><span class="num">12</span>Contact</h2>
     <p>Questions about this policy: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
   </section>
 
