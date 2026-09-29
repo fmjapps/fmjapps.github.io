@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FMJ Apps</title>
+<meta name="description" content="FMJ Apps — Android oyunları ve uygulamaları. Android games and apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D18;
+    --surface:#12162B;
+    --rule:#232A47;
+    --text:#EDEFF7;
+    --text-dim:#9AA2C4;
+    --gold:#FFC94B;
+    --blue:#6FA8FF;
+    --green:#5FE0A6;
+    --red:#FF6E6E;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    margin:0;
+    padding:0 20px;
+    padding-block:56px 80px;
+  }
+  .page{max-width:640px;margin:0 auto;}
+  .spectrum{
+    height:4px;width:96px;border-radius:2px;margin-bottom:20px;
+    background:linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue));
+  }
+  h1{
+    font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(28px,5vw,36px);
+    line-height:1.15;letter-spacing:-0.01em;margin:0 0 6px;
+  }
+  p{color:var(--text-dim);font-size:16px;line-height:1.7;max-width:60ch;margin:14px 0 0;}
+  .apps{list-style:none;margin:34px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .apps li{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--surface);border:1px solid var(--rule);border-radius:14px;
+    padding:18px 20px;
+  }
+  .row{display:flex;flex-direction:column;gap:2px;}
+  .name{font-family:'Sora',sans-serif;font-weight:600;font-size:17px;}
+  .sub{font-size:13px;color:var(--text-dim);}
+  a{color:var(--blue);text-decoration-color:rgba(111,168,255,0.4);text-underline-offset:3px;}
+  a:hover{text-decoration-color:var(--blue);}
+  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px;}
+  .apps a{font-size:13px;white-space:nowrap;}
+  footer{
+    margin-top:44px;padding-top:22px;border-top:1px solid var(--rule);
+    color:var(--text-dim);font-size:13px;line-height:1.8;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="spectrum" aria-hidden="true"></div>
+  <h1>FMJ Apps</h1>
+  <p>Android için küçük oyunlar ve uygulamalar.<br>Small games and apps for Android.</p>
+
+  <ul class="apps">
+    <li>
+      <span class="row">
+        <span class="name">Koleksiyoncu: Sahte mi Gerçek mi?</span>
+        <span class="sub">The Collector: Real or Fake · Antika dükkânı çıkarım oyunu</span>
+      </span>
+      <a href="/privacy/collector/">Gizlilik · Privacy</a>
+    </li>
+    <li>
+      <span class="row">
+        <span class="name">Ezber: Replik, Sunum, Şiir</span>
+        <span class="sub">Replik, şiir ve sunum ezberleme</span>
+      </span>
+      <a href="/privacy/ezber/">Gizlilik · Privacy</a>
+    </li>
+    <li>
+      <span class="row">
+        <span class="name">Kayıp Eşya Bürosu</span>
+        <span class="sub">Gar kayıp eşya bürosu çıkarım oyunu</span>
+      </span>
+      <a href="/privacy/kayip/">Gizlilik · Privacy</a>
+    </li>
+    <li>
+      <span class="row">
+        <span class="name">Paydos</span>
+        <span class="sub">Çocuk ekran kilidi</span>
+      </span>
+      <a href="/privacy/paydos/">Gizlilik · Privacy</a>
+    </li>
+    <li>
+      <span class="row">
+        <span class="name">Prizma</span>
+        <span class="sub">Işın ve ayna bulmaca oyunu</span>
+      </span>
+      <a href="/privacy/prizma/">Gizlilik · Privacy</a>
+    </li>
+  </ul>
+
+  <footer>
+    İletişim · Contact: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+  </footer>
+</div>
+</body>
+</html>
