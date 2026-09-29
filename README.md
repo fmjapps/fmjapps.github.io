@@ -7,6 +7,7 @@ Her uygulama kendi klasöründe:
 
 - `collector/` → https://fmjapps.github.io/privacy/collector/
 - `ezber/` → https://fmjapps.github.io/privacy/ezber/
+- `kayip/` → https://fmjapps.github.io/privacy/kayip/
 - `paydos/` → https://fmjapps.github.io/privacy/paydos/
 - `prizma/` → https://fmjapps.github.io/privacy/prizma/
 
