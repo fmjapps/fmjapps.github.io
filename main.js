@@ -28,13 +28,13 @@
     'nav.games': 'Games', 'nav.apps': 'Apps', 'nav.values': 'Principles', 'nav.contact': 'Contact',
     'theme': 'Toggle theme', 'shots': 'Screenshots', 'close': 'Close', 'sc.prev': 'Previous', 'sc.next': 'Next', 'sc.drag': 'Drag to spin',
     'hero.eyebrow': 'Simple, reliable mobile apps',
-    'hero.title': 'Games that fit a short break, <span class="grad">apps that just work.</span>',
-    'hero.lede': "FMJ Apps builds games and apps for everyday life. None of them ask you to sign up, and your settings and progress stay on your phone. A five-minute shift, the daily puzzle or a poem to learn by heart: each one does what you opened it for.",
-    'hero.ctaGames': 'See the games', 'hero.ctaApps': 'Apps',
+    'hero.title': 'Simple, reliable <span class="grad">games and apps.</span>',
+    'hero.lede': 'Deduction games, a light puzzle, a memorization assistant and a screen lock for kids. All for Android, and none of them ask you to sign up.',
+    'hero.ctaGames': 'Games', 'hero.ctaApps': 'Apps',
     'stat.games': 'games', 'stat.apps': 'apps', 'stat.account': 'accounts required',
     'mq.daily': 'Something new every day', 'mq.offline': 'Plays offline', 'mq.langs': '9 languages',
     'games.title': 'Games',
-    'games.lede': 'Games built on attention, not luck. Every visitor, every fake, every puzzle has exactly one right answer you can find.',
+    'games.lede': 'Games built on attention, not luck. Every visitor, every fake, every puzzle has a right answer you can find.',
     'status.test': 'In closed testing',
     'status.soon': 'In review · Coming soon to Google Play',
     'join.btn': 'Join the test', 'feedback': 'Send feedback',
@@ -57,13 +57,13 @@
     'paydos.f1': 'Pick the time and the apps', 'paydos.f2': 'PIN-protected full-screen lock', 'paydos.f3': 'No data leaves the phone', 'paydos.f4': 'Completely free, 9 languages',
     'values.title': 'How we build',
     'v1.t': 'No accounts', 'v1.d': 'None of our apps ask you to sign up or hand over an email. Open it and go.',
-    'v2.t': 'Your data stays put', 'v2.d': 'Your progress, texts and settings live on your device. Nothing is sent to a server of ours.',
-    'v3.t': 'Fair play', 'v3.d': 'You win by paying attention, not by guessing. Daily content is the same for everyone in the world.',
-    'v4.t': 'Short and calm', 'v4.d': 'Sessions of a few minutes, calm music, no pointless notifications. Put it down when your break is over.',
-    'contact.title': 'Get in touch',
-    'contact.lede': 'Got an idea, a bug to report or a question? Fill in the form or email us directly. Turkish or English, both are fine.',
+    'v2.t': 'Your data on your phone', 'v2.d': 'Our apps have no servers of their own. Your progress, texts and settings are stored on your phone; in Prizma you can also use Google Play Games cloud saves if you like.',
+    'v3.t': 'Fair play', 'v3.d': 'You win by paying attention, not by guessing. In Lost & Found Office and Prizma, each day’s content is the same for everyone in the world.',
+    'v4.t': 'Nine languages', 'v4.d': 'Our games and apps come in nine or ten languages, English and Turkish among them, and open in your phone’s language.',
+    'contact.title': 'Write to us',
+    'contact.lede': 'Got an idea, a bug to report or a question? Write to us here. English or Turkish, both are fine.',
     'contact.mailLabel': 'Email',
-    'contact.mail': 'Send an email', 'contact.copy': 'Copy address', 'contact.copied': 'Address copied',
+    'contact.mail': 'Send an email', 'contact.copy': 'Copy', 'contact.copied': 'Address copied',
     'contact.testT': 'Want to become a tester?',
     'contact.testD': 'Lost & Found Office, The Collector and Memorize are in closed testing. Join in three steps and try them before launch.',
     'form.name': 'Your name', 'form.email': 'Your email', 'form.subject': 'What is it about?', 'form.message': 'Your message', 'form.send': 'Send',
@@ -224,6 +224,7 @@
     var ring = document.getElementById('scRing');
     var dotsWrap = document.getElementById('scDots');
     var caps = sc.querySelectorAll('.sc-cap');
+    var word = document.getElementById('scWord');
     var tabs = sc.querySelectorAll('.sc-tab');
     var originals = Array.prototype.slice.call(ring.querySelectorAll('.sc-card'));
     originals.forEach(function (c) { c.remove(); });
@@ -289,7 +290,23 @@
         cards.forEach(function (c, i) { c.classList.toggle('front', i === bi); c.tabIndex = i === bi ? 0 : -1; });
         var app = cards[bi]._app, card = cards[bi];
         var id = card.getAttribute('href').slice(1);
-        caps.forEach(function (cp) { cp.classList.toggle('on', cp.getAttribute('data-app') === id); });
+        caps.forEach(function (cp) {
+          var on = cp.getAttribute('data-app') === id;
+          cp.classList.toggle('on', on);
+          if (on && word) {
+            var name = cp.querySelector('strong').textContent;
+            word.classList.add('fade');
+            clearTimeout(word._t);
+            word._t = setTimeout(function () {
+              // Uzun adlar sahneye sığsın diye yazı boyutu küçülür
+              word.textContent = name;
+              word.style.fontSize = '';
+              var max = stage.clientWidth * 0.96, w = word.scrollWidth;
+              if (w > max) word.style.fontSize = (parseFloat(getComputedStyle(word).fontSize) * max / w).toFixed(1) + 'px';
+              word.classList.remove('fade');
+            }, 250);
+          }
+        });
         Array.prototype.forEach.call(dotsWrap.children, function (b, i) { b.classList.toggle('on', i === app); });
         var acc = card.style.getPropertyValue('--acc');
         stage.style.setProperty('--acc', acc);

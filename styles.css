@@ -743,3 +743,53 @@ section { position: relative; }
 .app-card .app-media { margin-top: auto; padding-top: 32px; }
 .app-card .p-actions { margin-top: 0; padding-top: 24px; }
 @media (max-width: 520px) { .nav-in { gap: 10px; } .brand { font-size: 18px; } .tools { gap: 6px; } }
+
+/* =========================================================
+   Giriş v3: ortalı başlık, sahneyi kaplayan vitrin
+   ========================================================= */
+.hero { padding-block: 132px 40px; }
+@media (max-width: 760px) { .hero { padding-block: 104px 24px; } }
+.hero-in, .hero-in[class] { grid-template-columns: 1fr; gap: 28px; justify-items: center; }
+.hero-copy { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.hero h1 { max-width: 15ch; margin-top: 0; font-size: clamp(38px, 6.4vw, 76px); line-height: 1.04; }
+.hero .lede { max-width: 56ch; margin-top: 20px; }
+.hero .cta { justify-content: center; margin-top: 28px; }
+.showcase { width: 100%; max-width: 1040px; }
+.sc-stage { --cw: 250px; --r: 250px; height: 610px; }
+@media (max-width: 1100px) { .sc-stage { --cw: 220px; --r: 215px; height: 540px; } }
+@media (max-width: 520px) { .sc-stage { --cw: 170px; --r: 160px; height: 420px; } }
+.sc-ring { z-index: 1; }
+.sc-glow { inset: 10% 22% 18%; }
+.sc-word {
+  position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%);
+  z-index: 0; pointer-events: none; white-space: nowrap;
+  font: 800 clamp(64px, 12vw, 176px)/1 'Sora', sans-serif; letter-spacing: -0.04em;
+  color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--acc) 55%, transparent);
+  opacity: .55; transition: opacity .35s var(--ease);
+}
+.sc-word.fade { opacity: 0; }
+:root[data-theme="light"] .sc-word { opacity: .7; }
+
+/* =========================================================
+   İletişim v3: tek sade kart
+   ========================================================= */
+.contact-head { max-width: 640px; margin: 0 auto 36px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.contact-head h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.1; margin-top: 10px; }
+.contact-head p { color: var(--dim); font-size: 17px; margin-top: 12px; }
+.mail-line {
+  display: inline-flex; align-items: center; gap: 4px; margin-top: 22px; padding: 5px 5px 5px 16px;
+  border-radius: 999px; background: var(--surface); border: 1px solid var(--line-2);
+}
+.mail-line a { font: 600 16px 'Sora', sans-serif; text-decoration: none; color: var(--text); }
+.mail-line a:hover { color: var(--brand-ink); }
+.copy-btn {
+  display: inline-flex; align-items: center; gap: 6px; margin-inline-start: 8px; padding: 7px 12px; border-radius: 999px; cursor: pointer;
+  border: 0; background: var(--surface-2); color: var(--dim); font: 600 13px 'Inter', sans-serif; transition: color .2s, background-color .2s;
+}
+.copy-btn:hover { color: var(--text); background: color-mix(in srgb, var(--brand) 18%, var(--surface-2)); }
+.copy-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.contact-one { max-width: 760px; margin-inline: auto; }
+.contact-one .cform { padding: 32px; border-radius: 28px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.6); }
+@media (max-width: 520px) { .contact-one .cform { padding: 22px 18px; border-radius: 22px; } .mail-line a { font-size: 14.5px; } }
+.contact-one .f-foot { justify-content: flex-end; }
+.contact-one .f-status { text-align: start; }
