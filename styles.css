@@ -1232,3 +1232,33 @@ main, .links, .brand-tag, .foot { transition: opacity .25s; }
 .brand-text { min-width: 0; }
 .brand-tag { overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .tools { flex: none; }
+
+/* Uygulamanın kendi sayfasına giden düğme */
+.p-more {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px; height: 38px; padding: 0 16px; border-radius: 11px;
+  border: 1px solid var(--line-2); background: color-mix(in srgb, var(--surface) 55%, transparent);
+  font: 600 14px 'Inter', sans-serif; color: var(--text); text-decoration: none; white-space: nowrap;
+  transition: border-color .25s, transform .25s var(--ease), background-color .25s;
+}
+.p-more b { font-weight: 600; transition: transform .25s var(--ease); }
+.p-more:hover { border-color: var(--acc); transform: translateY(-1px); }
+.p-more:hover b { transform: translateX(4px); }
+[dir="rtl"] .p-more b { transform: scaleX(-1); }
+/* Teste katıl düğmesi olmayan uygulamalarda asıl düğme budur */
+.p-actions:not(:has(.btn)) .p-more { background: color-mix(in srgb, var(--acc) 18%, transparent); border-color: color-mix(in srgb, var(--acc) 45%, transparent); color: var(--acc-ink, var(--text)); }
+/* Masaüstü: üst satırda durum ve küçük bağlantılar, alt satırda düğmeler */
+@media (min-width: 901px) {
+  .ap-body .p-actions::before { content: ""; flex-basis: 100%; order: 2; margin-top: -4px; }
+  .ap-body .p-actions .status, .ap-body .p-actions .link { order: 1; }
+  .ap-body .p-actions .btn, .ap-body .p-actions .p-more { order: 3; }
+}
+/* Telefon: üstte durum ve küçük bağlantı, altta yan yana iki düğme */
+@media (max-width: 900px) {
+  .ap-body .p-actions .p-more { grid-row: 2; grid-column: 2; height: 44px; }
+  .ap-body .p-actions:has(.btn) a[href^="/privacy"] { display: none; }
+  .ap-body .p-actions:has(.btn) a[data-subject] {
+    grid-row: 1; grid-column: 2; justify-self: end; height: auto; padding: 0; border: 0; border-radius: 0;
+    font-weight: 500; font-size: 13.5px; color: var(--dim); text-decoration: underline; text-underline-offset: 4px;
+  }
+  .ap-body .p-actions:not(:has(.btn)) a[data-subject] { grid-column: 1; }
+}

@@ -235,6 +235,86 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://fmjapps.com/kayip-esya-burosu/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/kayip-esya-burosu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/lost-and-found-office/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/lost-and-found-office/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/en/lost-and-found-office/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/kayip-esya-burosu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/lost-and-found-office/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/lost-and-found-office/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/koleksiyoner/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/koleksiyoner/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/the-collector/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/the-collector/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/en/the-collector/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/koleksiyoner/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/the-collector/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/the-collector/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/prizma/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/prizma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/prizma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/prizma/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/en/prizma/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/prizma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/prizma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/prizma/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/ezber/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/ezber/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/memorize/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/memorize/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/en/memorize/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/ezber/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/memorize/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/memorize/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/paydos/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/paydos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/paydos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/paydos/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/en/paydos/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/paydos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/paydos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/paydos/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://fmjapps.com/privacy/</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>

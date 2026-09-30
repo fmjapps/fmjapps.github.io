@@ -54,10 +54,12 @@
   var ariaEls = document.querySelectorAll('[data-i18n-aria]');
   var phEls = document.querySelectorAll('[data-i18n-ph]');
   var imgEls = document.querySelectorAll('img[data-en]');
+  var pageEls = document.querySelectorAll('a[data-en-href]');
   textEls.forEach(function (el) { el._tr = el.textContent; });
   htmlEls.forEach(function (el) { el._tr = el.innerHTML; });
   ariaEls.forEach(function (el) { el._tr = el.getAttribute('aria-label'); });
   imgEls.forEach(function (el) { el._tr = el.getAttribute('src'); });
+  pageEls.forEach(function (el) { el._tr = el.getAttribute('href'); });
 
   function t(key) {
     if (curLang === 'tr') return TR[key];
@@ -111,6 +113,8 @@
     phEls.forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (el.disabled) return; el.setAttribute('placeholder', t(k)); });
     // Türkçe dışındaki dillerde İngilizce ekran görüntüleri gösterilir
     imgEls.forEach(function (el) { el.src = d ? el.getAttribute('data-en') : el._tr; });
+    // Uygulama sayfaları Türkçe ve İngilizce; diğer dillerde İngilizcesi açılır
+    pageEls.forEach(function (el) { el.setAttribute('href', d ? el.getAttribute('data-en-href') : el._tr); });
     document.title = d && d['meta.title'] ? d['meta.title'] : trMeta.title;
     document.querySelector('meta[name=description]').content = d && d['meta.desc'] ? d['meta.desc'] : trMeta.desc;
     splitWords();

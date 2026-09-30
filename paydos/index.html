@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paydos · Çocuklar için ekran süresi kilidi (Android)</title>
+<meta name="description" content="Süreyi ve izin verdiğin uygulamaları seç, telefonu çocuğuna ver. Süre dolunca ekran kilitlenir ve yalnızca senin PIN'inle açılır.">
+<meta name="theme-color" content="#0A0A1F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Apps">
+<meta property="og:title" content="Paydos">
+<meta property="og:description" content="Süreyi ve izin verdiğin uygulamaları seç, telefonu çocuğuna ver. Süre dolunca ekran kilitlenir ve yalnızca senin PIN'inle açılır.">
+<meta property="og:image" content="https://fmjapps.com/assets/og-paydos.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://fmjapps.com/paydos/">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fmjapps.com/paydos/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/paydos/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/paydos/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/paydos/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://fmjapps.com/paydos/#app","name":"Paydos","description":"Süreyi ve izin verdiğin uygulamaları seç, telefonu çocuğuna ver. Süre dolunca ekran kilitlenir ve yalnızca senin PIN'inle açılır.","url":"https://fmjapps.com/paydos/","operatingSystem":"Android","applicationCategory":"UtilitiesApplication","inLanguage":"tr","image":"https://fmjapps.com/assets/paydos-icon.webp","screenshot":["https://fmjapps.com/assets/paydos-3.webp","https://fmjapps.com/assets/paydos-2.webp","https://fmjapps.com/assets/paydos-1.webp","https://fmjapps.com/assets/paydos-5.webp","https://fmjapps.com/assets/paydos-4.webp"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"FMJ Apps","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Apps","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Paydos","item":"https://fmjapps.com/paydos/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Paydos ücretsiz mi?","acceptedAnswer":{"@type":"Answer","text":"Evet, tamamen ücretsiz; uygulama içi satın alma yok. Uygulamada yalnızca ebeveyne gösterilen reklamlar var."}},{"@type":"Question","name":"Çocuğum reklam görür mü?","acceptedAnswer":{"@type":"Answer","text":"Çocuğun süre dolduğunda gördüğü ekranda reklam gösterilmez. Reklamlar ebeveynin kilidi kurduğu ekranda, PIN girilirken ve kilit kaldırıldığında çıkar."}},{"@type":"Question","name":"PIN'imi unutursam ne olur?","acceptedAnswer":{"@type":"Answer","text":"Kurarken belirlediğin kurtarma sorusunu yanıtlayabilirsin. O da olmazsa telefonu yeniden başlatman yeter: yeniden başlatma kilidi her zaman kaldırır."}},{"@type":"Question","name":"Paydos neden Erişilebilirlik izni istiyor?","acceptedAnswer":{"@type":"Answer","text":"Süre işlerken hangi uygulamanın açık olduğunu görebilmek için. Yalnızca açık olan uygulamanın adına bakar; ekran içeriğini okumaz, kaydetmez, hiçbir yere göndermez."}},{"@type":"Question","name":"Çocuğumla ilgili veri toplanıyor mu?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Paydos çocuktan da ebeveynden de kişisel veri toplamaz, hesap oluşturmaz. Ayarların yalnızca telefonunda durur."}},{"@type":"Question","name":"Ne zaman yayınlanacak?","acceptedAnswer":{"@type":"Answer","text":"Paydos, Google Play'in yayın onayını bekliyor. Onay çıkınca indirme bağlantısı bu sayfada olacak."}}]}]}</script>
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app.css">
+<script src="/app.js"></script>
+</head>
+<body style="--acc:#6E8BFF">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="FMJ Apps · Ana sayfa">
+      <img src="/assets/logo-mark.png" alt="" width="128" height="128">
+      <span class="brand-text"><span class="brand-name">FMJ Apps</span><span class="brand-tag">Sade, güvenilir oyunlar ve uygulamalar</span></span>
+    </a>
+    <nav class="links" aria-label="FMJ Apps">
+      <a href="/#oyunlar">Oyunlar</a>
+      <a href="/#uygulamalar">Uygulamalar</a>
+      <a href="/#iletisim">İletişim</a>
+    </nav>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Dil">
+        <span aria-current="true">TR</span><a href="/en/paydos/" hreflang="en" lang="en" data-set-lang="en">EN</a>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="icerik">
+  <section class="page hero" data-label="Paydos">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs">
+        <li><a href="/">FMJ Apps</a></li>
+        <li><a href="/#uygulamalar">Uygulamalar</a></li>
+        <li aria-current="page">Paydos</li>
+      </ol></nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="id">
+            <img src="/assets/paydos-icon.webp" alt="" width="256" height="256">
+            <div>
+              <p class="kind">UYGULAMA · ANDROID</p>
+              <h1>Paydos</h1>
+              <p class="tagline">Çocuk ekran kilidi</p>
+            </div>
+          </div>
+          <p class="lede">Paydos, telefonu çocuğuna belirli bir süreliğine ve yalnızca senin seçtiğin uygulamalarla vermeni sağlar. Süre dolduğunda ya da çocuk izin verilmeyen bir uygulamayı açmaya çalıştığında tam ekran bir kilit devreye girer ve yalnızca senin belirlediğin PIN ile kapanır.</p>
+          <ul class="chips"><li>Android</li><li>Tamamen ücretsiz</li><li>Hesap yok</li><li>9 dil</li></ul>
+          <p class="status soon"><i></i>Onay aşamasında · Çok yakında Google Play'de</p>
+          <div class="cta">
+            
+            <a class="btn solid" href="/#iletisim">Geri bildirim yaz</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <div class="phone back"><img src="/assets/paydos-2.webp" alt="" width="540" height="1200"></div>
+          <div class="phone front"><img src="/assets/paydos-3.webp" alt="" width="540" height="1200"></div>
+        </div>
+      </div>
+    </div>
+    <a class="more-hint" href="#goruntuler">Aşağı kaydır</a>
+  </section>
+
+  <section class="page alt shots-page" id="goruntuler" style="--n:5" data-label="Ekran görüntüleri">
+    <div class="wrap"><header class="sec-head reveal"><h2>Ekran görüntüleri</h2></header></div>
+    <div class="gallery reveal" id="gallery" tabindex="0" role="group" aria-label="Ekran görüntüleri">
+      <figure><div class="phone"><img src="/assets/paydos-3.webp" alt="Paydos: Süre ve PIN ayarları" width="540" height="1200"></div><figcaption>Süre ve PIN ayarları</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/paydos-2.webp" alt="Paydos: İzin verilen uygulamalar listesi" width="540" height="1200"></div><figcaption>İzin verilen uygulamalar listesi</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/paydos-1.webp" alt="Paydos: Kilit ekranı ve izinli uygulamalar" width="540" height="1200"></div><figcaption>Kilit ekranı ve izinli uygulamalar</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/paydos-5.webp" alt="Paydos: Süre dolduğunda kilit ekranı" width="540" height="1200"></div><figcaption>Süre dolduğunda kilit ekranı</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/paydos-4.webp" alt="Paydos: Erişilebilirlik izni açıklaması" width="540" height="1200"></div><figcaption>Erişilebilirlik izni açıklaması</figcaption></figure>
+    </div>
+    <div class="gdots" id="gdots" aria-hidden="true"></div>
+  </section>
+
+  <section class="page" data-label="Nasıl çalışır?">
+    <div class="wrap">
+      <header class="sec-head reveal"><h2>Nasıl çalışır?</h2></header>
+      <ol class="steps reveal">
+        <li><h3>Süreyi seç</h3><p>15 dakika, 30 dakika, 1 saat ya da kendi belirlediğin bir süre.</p></li>
+        <li><h3>Uygulamaları işaretle</h3><p>Bu süre boyunca hangi uygulamalara izin verdiğini seç. Her seferinde farklı uygulamalara izin verebilirsin.</p></li>
+        <li><h3>Telefonu ver</h3><p>Çocuğun kalan süreyi ve açabileceği uygulamaları görür.</p></li>
+        <li><h3>Süre dolunca</h3><p>Tam ekran kilit gelir. Geri tuşuyla ya da uygulamayı kapatıp açarak atlatılamaz; yalnızca senin PIN'inle kapanır.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page alt split" data-label="Öne çıkanlar">
+    <div class="split-in stack">
+      <div class="half" data-label="Öne çıkanlar · 1/2"><div class="wrap">
+        <header class="sec-head reveal"><h2>Öne çıkanlar</h2><span class="m-only">1 / 2</span></header>
+        <ul class="feats reveal">
+          <li><h3>Tek ekranda kurulum</h3><p>Süreyi seç, uygulamaları işaretle, kilidi başlat.</p></li>
+          <li><h3>Yalnızca izin verdiklerin</h3><p>Çocuk izin verilmeyen bir uygulamayı açmaya çalıştığında kilit ekranı gelir.</p></li>
+          <li><h3>Kolay bulunan liste</h3><p>Uygulama listesini son kullanılana, en çok kullanılana ya da alfabeye göre sıralayabilirsin.</p></li>
+          <li><h3>PIN'i unutursan</h3><p>Kurtarma sorusu var. Ayrıca telefonu yeniden başlatmak kilidi her zaman kaldırır; telefon kilitli kalmaz.</p></li>
+        </ul>
+      </div></div>
+      <div class="half" data-label="Öne çıkanlar · 2/2"><div class="wrap">
+        <div class="sec-head reveal m-only" aria-hidden="true"><p class="h2">Öne çıkanlar</p><span>2 / 2</span></div>
+        <ul class="feats reveal">
+          <li><h3>Hiçbir şey telefondan çıkmaz</h3><p>Süre, uygulama listesi ve PIN yalnızca telefonunda saklanır. PIN düz metin olarak tutulmaz.</p></li>
+          <li><h3>Ne gördüğü belli</h3><p>Paydos yalnızca o an açık olan uygulamanın adını görür. Ekrandaki yazıları, fotoğrafları ya da girdiğin bilgileri okumaz.</p></li>
+          <li><h3>Hesap yok</h3><p>Kayıt olmak, e-posta vermek ya da giriş yapmak gerekmez.</p></li>
+          <li><h3>9 dil</h3><p>Türkçe, İngilizce, İspanyolca, Fransızca, Rusça, Portekizce, Endonezce, Hintçe ve Arapça.</p></li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page split" data-label="Künye">
+    <div class="split-in two">
+      <div class="half" data-label="Künye"><div class="wrap reveal">
+        <header class="sec-head"><h2>Künye</h2></header>
+        <dl class="info">
+          <div><dt>Tür</dt><dd>Araç · ebeveyn denetimi</dd></div>
+          <div><dt>Google Play'deki adı</dt><dd>Paydos - Çocuk Ekran Kilidi</dd></div>
+          <div><dt>Platform</dt><dd>Android (Google Play)</dd></div>
+          <div><dt>Fiyat</dt><dd>Tamamen ücretsiz. Uygulama içi satın alma yok.</dd></div>
+          <div><dt>Reklam</dt><dd>Var, yalnızca ebeveyne: kurulum ekranında, PIN girerken ve kilit kaldırıldığında. Çocuğun gördüğü &quot;süre doldu&quot; ekranında reklam gösterilmez.</dd></div>
+          <div><dt>Hesap</dt><dd>Gerekmez</dd></div>
+          <div><dt>Veriler</dt><dd>Süre, uygulama listesi ve PIN yalnızca telefonda</dd></div>
+          <div><dt>Diller</dt><dd>Türkçe, İngilizce, İspanyolca, Fransızca, Rusça, Portekizce, Endonezce, Hintçe, Arapça</dd></div>
+        </dl>
+        <p class="under"><a class="link" href="/privacy/paydos/">Gizlilik politikası</a></p>
+      </div></div>
+      <div class="half" data-label="Sık sorulanlar"><div class="wrap faq reveal">
+        <header class="sec-head"><h2>Sık sorulanlar</h2></header>
+        <details name="faq" open><summary>Paydos ücretsiz mi?</summary><p>Evet, tamamen ücretsiz; uygulama içi satın alma yok. Uygulamada yalnızca ebeveyne gösterilen reklamlar var.</p></details>
+        <details name="faq"><summary>Çocuğum reklam görür mü?</summary><p>Çocuğun süre dolduğunda gördüğü ekranda reklam gösterilmez. Reklamlar ebeveynin kilidi kurduğu ekranda, PIN girilirken ve kilit kaldırıldığında çıkar.</p></details>
+        <details name="faq"><summary>PIN'imi unutursam ne olur?</summary><p>Kurarken belirlediğin kurtarma sorusunu yanıtlayabilirsin. O da olmazsa telefonu yeniden başlatman yeter: yeniden başlatma kilidi her zaman kaldırır.</p></details>
+        <details name="faq"><summary>Paydos neden Erişilebilirlik izni istiyor?</summary><p>Süre işlerken hangi uygulamanın açık olduğunu görebilmek için. Yalnızca açık olan uygulamanın adına bakar; ekran içeriğini okumaz, kaydetmez, hiçbir yere göndermez.</p></details>
+        <details name="faq"><summary>Çocuğumla ilgili veri toplanıyor mu?</summary><p>Hayır. Paydos çocuktan da ebeveynden de kişisel veri toplamaz, hesap oluşturmaz. Ayarların yalnızca telefonunda durur.</p></details>
+        <details name="faq"><summary>Ne zaman yayınlanacak?</summary><p>Paydos, Google Play'in yayın onayını bekliyor. Onay çıkınca indirme bağlantısı bu sayfada olacak.</p></details>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page alt" id="katil" data-label="Çok yakında Google Play'de">
+    <div class="wrap">
+    <div class="join reveal">
+      <h2>Çok yakında Google Play'de</h2>
+      <p class="join-lede">Paydos, Google Play'in yayın onayını bekliyor. Onay çıkınca indirme bağlantısı bu sayfada olacak. O zamana kadar aklına takılan her şeyi bize yazabilirsin.</p>
+      <div class="cta"><a class="btn small tint" href="/#iletisim">Geri bildirim yaz</a></div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<div class="page last" data-label="FMJ Apps'ten diğerleri">
+  <section class="others-sec">
+    <div class="wrap">
+      <header class="sec-head reveal"><h2>FMJ Apps'ten diğerleri</h2></header>
+      <ul class="others reveal">
+        <li><a href="/kayip-esya-burosu/" style="--acc:#9CC98F"><img src="/assets/kayip-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Kayıp Eşya Bürosu</strong><small>Günlük çıkarım oyunu</small></span></a></li>
+        <li><a href="/koleksiyoner/" style="--acc:#E2B75E"><img src="/assets/koleksiyoncu-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Koleksiyoner</strong><small>Antika dükkânı oyunu</small></span></a></li>
+        <li><a href="/prizma/" style="--acc:#3EF0C8"><img src="/assets/prizma-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Prizma</strong><small>Işık ve ayna bulmacası</small></span></a></li>
+        <li><a href="/ezber/" style="--acc:#2FC4A8"><img src="/assets/ezber-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Ezber</strong><small>Eller serbest ezber asistanı</small></span></a></li>
+      </ul>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-brand"><strong>FMJ Apps</strong><span>Android oyunları ve uygulamaları</span></div>
+      <div class="foot-col">
+        <span class="foot-h">Gizlilik politikaları</span>
+        <a href="/privacy/kayip/">Kayıp Eşya Bürosu</a>
+        <a href="/privacy/collector/">Koleksiyoner</a>
+        <a href="/privacy/prizma/">Prizma</a>
+        <a href="/privacy/ezber/">Ezber</a>
+        <a href="/privacy/paydos/">Paydos</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">İletişim</span>
+        <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+        <a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener">Google Play geliştirici sayfası</a>
+      </div>
+    </div>
+    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Apps · Şimdilik yalnızca Android'de, Google Play üzerinden. iOS sürümü yok.</p></div>
+  </footer>
+</div>
+
+<nav class="pager" id="pager" aria-label="Sayfalar"></nav>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ezber · Replik, şiir ve sunum ezberleme uygulaması (Android)</title>
+<meta name="description" content="Metnini sana okur, sıra sana gelince dinler, takıldığında suflörlük yapar. Replik, şiir ve sunumları telefona dokunmadan ezberle.">
+<meta name="theme-color" content="#0A0A1F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Apps">
+<meta property="og:title" content="Ezber: Replik, Sunum, Şiir">
+<meta property="og:description" content="Metnini sana okur, sıra sana gelince dinler, takıldığında suflörlük yapar. Replik, şiir ve sunumları telefona dokunmadan ezberle.">
+<meta property="og:image" content="https://fmjapps.com/assets/og-ezber.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://fmjapps.com/ezber/">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fmjapps.com/ezber/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/ezber/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/memorize/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/memorize/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://fmjapps.com/ezber/#app","name":"Ezber: Replik, Sunum, Şiir","description":"Metnini sana okur, sıra sana gelince dinler, takıldığında suflörlük yapar. Replik, şiir ve sunumları telefona dokunmadan ezberle.","url":"https://fmjapps.com/ezber/","operatingSystem":"Android","applicationCategory":"EducationalApplication","inLanguage":"tr","image":"https://fmjapps.com/assets/ezber-icon.webp","screenshot":["https://fmjapps.com/assets/ezber-1.webp","https://fmjapps.com/assets/ezber-2.webp","https://fmjapps.com/assets/ezber-3.webp"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"FMJ Apps","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Apps","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Ezber","item":"https://fmjapps.com/ezber/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ezber nelerde işe yarar?","acceptedAnswer":{"@type":"Answer","text":"Tiyatro replikleri, şiirler, okul gösterileri, konuşmalar ve sunumlar için. Her biri için ayrı çalışma yolu var: karakterli prova, üst üste ekleme, kademeli silme ve süre tutan sunum provası."}},{"@type":"Question","name":"Sesim kaydediliyor mu?","acceptedAnswer":{"@type":"Answer","text":"Provada hayır. Mikrofon yalnızca sıra sana geldiğinde açılır; ses telefonda anlık işlenir, bir dosyaya yazılmaz ve hiçbir yere gönderilmez. Replikleri kendi sesinle kaydetmek istersen bunu ayrıca, \"Sesle kaydet\" özelliğiyle sen başlatırsın; o kayıtlar da yalnızca telefonunda durur."}},{"@type":"Question","name":"Metinlerim bir yere gönderiliyor mu?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Metinlerin, ayarların ve çalışma geçmişin yalnızca telefonunda saklanır."}},{"@type":"Question","name":"Reklam var mı?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Uygulamada reklam yok, hesap açman da gerekmiyor."}},{"@type":"Question","name":"Hangi dosyalardan metin alabilirim?","acceptedAnswer":{"@type":"Answer","text":"TXT, PDF ve Word dosyalarından ya da bir fotoğraftan. İstersen metni doğrudan yapıştırabilirsin."}},{"@type":"Question","name":"iOS sürümü var mı?","acceptedAnswer":{"@type":"Answer","text":"Şimdilik yok. Uygulama yalnızca Android'de, Google Play üzerinden yayınlanıyor."}}]}]}</script>
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app.css">
+<script src="/app.js"></script>
+</head>
+<body style="--acc:#2FC4A8">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="FMJ Apps · Ana sayfa">
+      <img src="/assets/logo-mark.png" alt="" width="128" height="128">
+      <span class="brand-text"><span class="brand-name">FMJ Apps</span><span class="brand-tag">Sade, güvenilir oyunlar ve uygulamalar</span></span>
+    </a>
+    <nav class="links" aria-label="FMJ Apps">
+      <a href="/#oyunlar">Oyunlar</a>
+      <a href="/#uygulamalar">Uygulamalar</a>
+      <a href="/#iletisim">İletişim</a>
+    </nav>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Dil">
+        <span aria-current="true">TR</span><a href="/en/memorize/" hreflang="en" lang="en" data-set-lang="en">EN</a>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="icerik">
+  <section class="page hero" data-label="Ezber">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs">
+        <li><a href="/">FMJ Apps</a></li>
+        <li><a href="/#uygulamalar">Uygulamalar</a></li>
+        <li aria-current="page">Ezber</li>
+      </ol></nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="id">
+            <img src="/assets/ezber-icon.webp" alt="" width="256" height="256">
+            <div>
+              <p class="kind">UYGULAMA · ANDROID</p>
+              <h1>Ezber: Replik, Sunum, Şiir</h1>
+              <p class="tagline">Eller serbest ezber asistanı</p>
+            </div>
+          </div>
+          <p class="lede">Tiyatro repliği, 23 Nisan şiiri, okul gösterisi, konuşma ya da sunum… Ezber metnini sana okur, sıra sana gelince dinler ve takıldığında suflör gibi yardım eder. Telefona dokunmadan, yürürken ya da yolculukta çalışabilirsin.</p>
+          <ul class="chips"><li>Android</li><li>Hesap yok</li><li>Reklam yok</li><li>10 dil</li></ul>
+          <p class="status"><i></i>Kapalı testte</p>
+          <div class="cta">
+            <a class="btn solid" href="#katil">Teste katıl</a>
+            <a class="btn ghost" href="/#iletisim">Geri bildirim yaz</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <div class="phone back"><img src="/assets/ezber-2.webp" alt="" width="540" height="1200"></div>
+          <div class="phone front"><img src="/assets/ezber-1.webp" alt="" width="540" height="1200"></div>
+        </div>
+      </div>
+    </div>
+    <a class="more-hint" href="#goruntuler">Aşağı kaydır</a>
+  </section>
+
+  <section class="page alt shots-page" id="goruntuler" style="--n:3" data-label="Ekran görüntüleri">
+    <div class="wrap"><header class="sec-head reveal"><h2>Ekran görüntüleri</h2></header></div>
+    <div class="gallery reveal" id="gallery" tabindex="0" role="group" aria-label="Ekran görüntüleri">
+      <figure><div class="phone"><img src="/assets/ezber-1.webp" alt="Ezber: Replik, Sunum, Şiir: Prova ekranı: replikler sırayla okunuyor" width="540" height="1200"></div><figcaption>Prova ekranı: replikler sırayla okunuyor</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/ezber-2.webp" alt="Ezber: Replik, Sunum, Şiir: Karakter ve ses seçimi" width="540" height="1200"></div><figcaption>Karakter ve ses seçimi</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/ezber-3.webp" alt="Ezber: Replik, Sunum, Şiir: Prova modları" width="540" height="1200"></div><figcaption>Prova modları</figcaption></figure>
+    </div>
+    <div class="gdots" id="gdots" aria-hidden="true"></div>
+  </section>
+
+  <section class="page" data-label="Nasıl çalışır?">
+    <div class="wrap">
+      <header class="sec-head reveal"><h2>Nasıl çalışır?</h2></header>
+      <ol class="steps reveal">
+        <li><h3>Metnini ekle</h3><p>Yapıştır ya da TXT, PDF, Word dosyasından veya fotoğraftan aktar. Karakterler ve replikler kendiliğinden ayrılır.</p></li>
+        <li><h3>Karakterini seç</h3><p>Hangi karakter olduğunu seç; diğer karakterler farklı seslerle okunur.</p></li>
+        <li><h3>Provaya başla</h3><p>Sıra sana gelince uygulama dinler; repliğini söyleyip susunca devam eder.</p></li>
+        <li><h3>Takılırsan</h3><p>Suflör önce ilk kelimeleri fısıldar, gerekirse repliğin tamamını okur.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page alt split" data-label="Öne çıkanlar">
+    <div class="split-in stack">
+      <div class="half" data-label="Öne çıkanlar · 1/2"><div class="wrap">
+        <header class="sec-head reveal"><h2>Öne çıkanlar</h2><span class="m-only">1 / 2</span></header>
+        <ul class="feats reveal">
+          <li><h3>Eller serbest prova</h3><p>Telefona dokunmadan çalışırsın: uygulama okur, dinler, sen susunca devam eder.</p></li>
+          <li><h3>Her kaynaktan metin</h3><p>TXT, PDF, Word ya da fotoğraf. Emin olunamayan satırlar işaretlenir, tek dokunuşla düzeltilir.</p></li>
+          <li><h3>Şiir için üst üste ekleme</h3><p>Önce 1. dize, sonra 1–2, sonra 1–3… Şiir parça parça yerine oturur.</p></li>
+          <li><h3>Kademeli silme</h3><p>Her hatasız turda daha fazla kelime gizlenir.</p></li>
+        </ul>
+      </div></div>
+      <div class="half" data-label="Öne çıkanlar · 2/2"><div class="wrap">
+        <div class="sec-head reveal m-only" aria-hidden="true"><p class="h2">Öne çıkanlar</p><span>2 / 2</span></div>
+        <ul class="feats reveal">
+          <li><h3>Zorlandığın satırlar</h3><p>Takıldığın satırları hatırlar, istersen yalnızca onları çalıştırır.</p></li>
+          <li><h3>Sunum provası</h3><p>Süre sayacı, hedef süre ve konuşma hızı (kelime/dakika). Anahtar kelime ipuçlarıyla metne bağlı kalmadan akışı ezberlersin.</p></li>
+          <li><h3>Metinlerin sende kalır</h3><p>Metinlerin telefonunda durur. Provada sesin kaydedilmez; telefonda anlık işlenir ve hiçbir yere gönderilmez.</p></li>
+          <li><h3>10 dil</h3><p>Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce, Rusça, İtalyanca, Arapça ve Endonezce.</p></li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page split" data-label="Künye">
+    <div class="split-in two">
+      <div class="half" data-label="Künye"><div class="wrap reveal">
+        <header class="sec-head"><h2>Künye</h2></header>
+        <dl class="info">
+          <div><dt>Tür</dt><dd>Eğitim · ezber ve prova</dd></div>
+          <div><dt>Google Play'deki adı</dt><dd>Ezber: Replik, Sunum, Şiir</dd></div>
+          <div><dt>Platform</dt><dd>Android (Google Play)</dd></div>
+          <div><dt>Fiyat</dt><dd>Ücretsiz. İsteğe bağlı Pro aboneliği Google Play üzerinden alınır.</dd></div>
+          <div><dt>Reklam</dt><dd>Yok</dd></div>
+          <div><dt>Hesap</dt><dd>Gerekmez</dd></div>
+          <div><dt>Mikrofon</dt><dd>Yalnızca sıra sana geldiğinde açılır. Ses telefonda işlenir, kaydedilmez ve gönderilmez.</dd></div>
+          <div><dt>Diller</dt><dd>Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce, Rusça, İtalyanca, Arapça, Endonezce</dd></div>
+        </dl>
+        <p class="under"><a class="link" href="/privacy/ezber/">Gizlilik politikası</a></p>
+      </div></div>
+      <div class="half" data-label="Sık sorulanlar"><div class="wrap faq reveal">
+        <header class="sec-head"><h2>Sık sorulanlar</h2></header>
+        <details name="faq" open><summary>Ezber nelerde işe yarar?</summary><p>Tiyatro replikleri, şiirler, okul gösterileri, konuşmalar ve sunumlar için. Her biri için ayrı çalışma yolu var: karakterli prova, üst üste ekleme, kademeli silme ve süre tutan sunum provası.</p></details>
+        <details name="faq"><summary>Sesim kaydediliyor mu?</summary><p>Provada hayır. Mikrofon yalnızca sıra sana geldiğinde açılır; ses telefonda anlık işlenir, bir dosyaya yazılmaz ve hiçbir yere gönderilmez. Replikleri kendi sesinle kaydetmek istersen bunu ayrıca, &quot;Sesle kaydet&quot; özelliğiyle sen başlatırsın; o kayıtlar da yalnızca telefonunda durur.</p></details>
+        <details name="faq"><summary>Metinlerim bir yere gönderiliyor mu?</summary><p>Hayır. Metinlerin, ayarların ve çalışma geçmişin yalnızca telefonunda saklanır.</p></details>
+        <details name="faq"><summary>Reklam var mı?</summary><p>Hayır. Uygulamada reklam yok, hesap açman da gerekmiyor.</p></details>
+        <details name="faq"><summary>Hangi dosyalardan metin alabilirim?</summary><p>TXT, PDF ve Word dosyalarından ya da bir fotoğraftan. İstersen metni doğrudan yapıştırabilirsin.</p></details>
+        <details name="faq"><summary>iOS sürümü var mı?</summary><p>Şimdilik yok. Uygulama yalnızca Android'de, Google Play üzerinden yayınlanıyor.</p></details>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page alt" id="katil" data-label="Kapalı teste katıl">
+    <div class="wrap">
+    <div class="join reveal">
+      <h2>Kapalı teste katıl</h2>
+      <p class="join-lede">Üç adımda test kullanıcısı olursun. Her adımda Play Store'da kullandığın Google hesabıyla giriş yapmış olman yeterli.</p>
+      <ol class="jsteps">
+        <li><b>01</b><strong>Test grubuna katıl</strong><p>Açılan Google Grubu sayfasında &quot;Gruba katıl&quot;a bas.</p><a class="btn small tint" href="https://groups.google.com/g/memorize-testers" target="_blank" rel="noopener">Gruba git</a></li>
+        <li><b>02</b><strong>Test kullanıcısı ol</strong><p>Açılan Play sayfasında &quot;Test kullanıcısı ol&quot;a bas. Gruba yeni katıldıysan sayfanın hazır olması birkaç dakika sürebilir.</p><a class="btn small tint" href="https://play.google.com/apps/testing/com.fmjapps.ezberasistani" target="_blank" rel="noopener">Test kullanıcısı ol</a></li>
+        <li><b>03</b><strong>Google Play'den indir</strong><p>Uygulama artık Play Store'da sana görünüyor. Yükle ve dene.</p><a class="btn small tint" href="https://play.google.com/store/apps/details?id=com.fmjapps.ezberasistani" target="_blank" rel="noopener">Play'de aç</a></li>
+      </ol>
+      <p class="join-note">Bir uygulamanın yayına çıkabilmesi için test kullanıcılarının onu en az 14 gün yüklü tutması gerekiyor. Bu süre boyunca silmezsen bize çok yardımcı olursun.</p>
+    </div>
+    </div>
+  </section>
+</main>
+
+<div class="page last" data-label="FMJ Apps'ten diğerleri">
+  <section class="others-sec">
+    <div class="wrap">
+      <header class="sec-head reveal"><h2>FMJ Apps'ten diğerleri</h2></header>
+      <ul class="others reveal">
+        <li><a href="/kayip-esya-burosu/" style="--acc:#9CC98F"><img src="/assets/kayip-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Kayıp Eşya Bürosu</strong><small>Günlük çıkarım oyunu</small></span></a></li>
+        <li><a href="/koleksiyoner/" style="--acc:#E2B75E"><img src="/assets/koleksiyoncu-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Koleksiyoner</strong><small>Antika dükkânı oyunu</small></span></a></li>
+        <li><a href="/prizma/" style="--acc:#3EF0C8"><img src="/assets/prizma-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Prizma</strong><small>Işık ve ayna bulmacası</small></span></a></li>
+        <li><a href="/paydos/" style="--acc:#6E8BFF"><img src="/assets/paydos-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Paydos</strong><small>Çocuk ekran kilidi</small></span></a></li>
+      </ul>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-brand"><strong>FMJ Apps</strong><span>Android oyunları ve uygulamaları</span></div>
+      <div class="foot-col">
+        <span class="foot-h">Gizlilik politikaları</span>
+        <a href="/privacy/kayip/">Kayıp Eşya Bürosu</a>
+        <a href="/privacy/collector/">Koleksiyoner</a>
+        <a href="/privacy/prizma/">Prizma</a>
+        <a href="/privacy/ezber/">Ezber</a>
+        <a href="/privacy/paydos/">Paydos</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">İletişim</span>
+        <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+        <a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener">Google Play geliştirici sayfası</a>
+      </div>
+    </div>
+    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Apps · Şimdilik yalnızca Android'de, Google Play üzerinden. iOS sürümü yok.</p></div>
+  </footer>
+</div>
+
+<nav class="pager" id="pager" aria-label="Sayfalar"></nav>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kayıp Eşya Bürosu · Günlük çıkarım oyunu (Android)</title>
+<meta name="description" content="Gardaki kayıp eşya bürosunda her gün altı ziyaretçi: eşyayı sahibine ver, sahtekârı yakala. Herkese aynı mesai, internetsiz oynanır.">
+<meta name="theme-color" content="#0A0A1F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Apps">
+<meta property="og:title" content="Kayıp Eşya Bürosu">
+<meta property="og:description" content="Gardaki kayıp eşya bürosunda her gün altı ziyaretçi: eşyayı sahibine ver, sahtekârı yakala. Herkese aynı mesai, internetsiz oynanır.">
+<meta property="og:image" content="https://fmjapps.com/assets/og-kayip.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://fmjapps.com/kayip-esya-burosu/">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fmjapps.com/kayip-esya-burosu/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/kayip-esya-burosu/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/lost-and-found-office/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/en/lost-and-found-office/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MobileApplication","@id":"https://fmjapps.com/kayip-esya-burosu/#app","name":"Kayıp Eşya Bürosu","description":"Gardaki kayıp eşya bürosunda her gün altı ziyaretçi: eşyayı sahibine ver, sahtekârı yakala. Herkese aynı mesai, internetsiz oynanır.","url":"https://fmjapps.com/kayip-esya-burosu/","operatingSystem":"Android","applicationCategory":"GameApplication","inLanguage":"tr","image":"https://fmjapps.com/assets/kayip-icon.webp","screenshot":["https://fmjapps.com/assets/kayip-1.webp","https://fmjapps.com/assets/kayip-2.webp","https://fmjapps.com/assets/kayip-3.webp"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"FMJ Apps","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Apps","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Kayıp Eşya Bürosu","item":"https://fmjapps.com/kayip-esya-burosu/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kayıp Eşya Bürosu ücretsiz mi?","acceptedAnswer":{"@type":"Answer","text":"Evet, indirmesi ve oynaması ücretsiz. Günün mesaisi her gün herkese açık. Arşivdeki eski mesailer mesai kartıyla oynanır; her gün bedava kart gelir, daha fazlasını ödüllü reklam izleyerek ya da dükkândan alabilirsin."}},{"@type":"Question","name":"Oyunda reklam var mı?","acceptedAnswer":{"@type":"Answer","text":"Yalnızca sen istediğinde izlediğin ödüllü reklam var. Oyunun arasına giren reklam ya da ekranda duran banner yok."}},{"@type":"Question","name":"İnternet olmadan oynanır mı?","acceptedAnswer":{"@type":"Answer","text":"Evet. Mesai internet olmadan da oynanır."}},{"@type":"Question","name":"Satın alma sıralamada öne geçirir mi?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Sıralama puanı yalnızca günün mesaisinden gelir; arşiv mesaileri ve satın almalar puana eklenmez."}},{"@type":"Question","name":"Yeni mesai ne zaman geliyor?","acceptedAnswer":{"@type":"Answer","text":"Mesai dünyanın her yerinde aynı anda, UTC gece yarısında yenilenir. Türkiye saatiyle 03.00."}},{"@type":"Question","name":"iOS sürümü var mı?","acceptedAnswer":{"@type":"Answer","text":"Şimdilik yok. Oyun yalnızca Android'de, Google Play üzerinden yayınlanıyor."}}]}]}</script>
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/app.css">
+<script src="/app.js"></script>
+</head>
+<body style="--acc:#9CC98F;--acc-2:#E9D9B4">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="FMJ Apps · Ana sayfa">
+      <img src="/assets/logo-mark.png" alt="" width="128" height="128">
+      <span class="brand-text"><span class="brand-name">FMJ Apps</span><span class="brand-tag">Sade, güvenilir oyunlar ve uygulamalar</span></span>
+    </a>
+    <nav class="links" aria-label="FMJ Apps">
+      <a href="/#oyunlar">Oyunlar</a>
+      <a href="/#uygulamalar">Uygulamalar</a>
+      <a href="/#iletisim">İletişim</a>
+    </nav>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Dil">
+        <span aria-current="true">TR</span><a href="/en/lost-and-found-office/" hreflang="en" lang="en" data-set-lang="en">EN</a>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="icerik">
+  <section class="page hero" data-label="Kayıp Eşya Bürosu">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb"><ol class="crumbs">
+        <li><a href="/">FMJ Apps</a></li>
+        <li><a href="/#oyunlar">Oyunlar</a></li>
+        <li aria-current="page">Kayıp Eşya Bürosu</li>
+      </ol></nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="id">
+            <img src="/assets/kayip-icon.webp" alt="" width="256" height="256">
+            <div>
+              <p class="kind">OYUN · ANDROID</p>
+              <h1>Kayıp Eşya Bürosu</h1>
+              <p class="tagline">Günlük çıkarım oyunu</p>
+            </div>
+          </div>
+          <p class="lede">Merkez Gar'ın kayıp eşya bürosunda tezgâhın arkasındasın, tezgâhın üstünde de ofisin kedisi Pamuk. Her gün kapıdan altı ziyaretçi girer: kimi gerçekten valizini arıyor, kimi panoda gördüğü eşyaya göz koymuş bir sahtekâr, kimi de dürüst ama eşyası henüz gelmemiş. Kimin kim olduğunu bulmak sana kalmış.</p>
+          <ul class="chips"><li>Android</li><li>Ücretsiz</li><li>İnternetsiz oynanır</li><li>9 dil</li></ul>
+          <p class="status"><i></i>Kapalı testte</p>
+          <div class="cta">
+            <a class="btn solid" href="#katil">Teste katıl</a>
+            <a class="btn ghost" href="/#iletisim">Geri bildirim yaz</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <div class="phone back"><img src="/assets/kayip-2.webp" alt="" width="540" height="1200"></div>
+          <div class="phone front"><img src="/assets/kayip-1.webp" alt="" width="540" height="1200"></div>
+        </div>
+      </div>
+    </div>
+    <a class="more-hint" href="#goruntuler">Aşağı kaydır</a>
+  </section>
+
+  <section class="page alt shots-page" id="goruntuler" style="--n:3" data-label="Ekran görüntüleri">
+    <div class="wrap"><header class="sec-head reveal"><h2>Ekran görüntüleri</h2></header></div>
+    <div class="gallery reveal" id="gallery" tabindex="0" role="group" aria-label="Ekran görüntüleri">
+      <figure><div class="phone"><img src="/assets/kayip-1.webp" alt="Kayıp Eşya Bürosu: Ziyaretçiyle soru cevap ekranı" width="540" height="1200"></div><figcaption>Ziyaretçiyle soru cevap ekranı</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/kayip-2.webp" alt="Kayıp Eşya Bürosu: Raftaki eşyanın tutanağı" width="540" height="1200"></div><figcaption>Raftaki eşyanın tutanağı</figcaption></figure>
+      <figure><div class="phone"><img src="/assets/kayip-3.webp" alt="Kayıp Eşya Bürosu: Süslenmiş ofis ve Pamuk" width="540" height="1200"></div><figcaption>Süslenmiş ofis ve Pamuk</figcaption></figure>
+    </div>
+    <div class="gdots" id="gdots" aria-hidden="true"></div>
+  </section>
+
+  <section class="page" data-label="Nasıl oynanır?">
+    <div class="wrap">
+      <header class="sec-head reveal"><h2>Nasıl oynanır?</h2></header>
+      <ol class="steps reveal">
+        <li><h3>Dinle</h3><p>Ziyaretçi eşyasını anlatır. Rafa bak, tutanağı aç: bulunduğu saat, ayırt edici işareti, içindekiler.</p></li>
+        <li><h3>Sor</h3><p>Her ziyaretçiye en fazla üç soru sorabilirsin. İçinde ne vardı? Kimliğinizi görebilir miyim? Tam olarak ne zaman kaybettiniz?</p></li>
+        <li><h3>Karşılaştır</h3><p>Sahtekârlar panodaki bilgileri bilir ama çantanın içinde ne olduğunu bilemez. Tek bir çelişki yeter.</p></li>
+        <li><h3>Karar ver</h3><p>Teslim et, reddet ya da &quot;burada değil&quot; de. Doğru karar puan kazandırır, tahminle oynayan puan kaybeder.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page alt split" data-label="Öne çıkanlar">
+    <div class="split-in stack">
+      <div class="half" data-label="Öne çıkanlar · 1/2"><div class="wrap">
+        <header class="sec-head reveal"><h2>Öne çıkanlar</h2><span class="m-only">1 / 2</span></header>
+        <ul class="feats reveal">
+          <li><h3>Her gün yeni bir mesai</h3><p>Pazartesi sakin başlar, Pazar büro tıklım tıklım olur. Bir mesai beş dakika sürer.</p></li>
+          <li><h3>Herkese aynı ziyaretçiler</h3><p>Dünyadaki herkes aynı gün aynı ziyaretçileri karşılar. Sonucunu paylaş, kim daha dikkatli görelim.</p></li>
+          <li><h3>Tek bir doğru cevap</h3><p>Her mesai kurallarla üretilir ve her ziyaretçinin tek bir doğru cevabı vardır. Şansa değil, dikkatine güven.</p></li>
+          <li><h3>Pamuk ve hediyeleri</h3><p>Pamuk'u sev, miyavlasın, mırlasın. Her mesaiden sonra garın bir köşesinden sana küçük bir hediye getirir.</p></li>
+        </ul>
+      </div></div>
+      <div class="half" data-label="Öne çıkanlar · 2/2"><div class="wrap">
+        <div class="sec-head reveal m-only" aria-hidden="true"><p class="h2">Öne çıkanlar</p><span>2 / 2</span></div>
+        <ul class="feats reveal">
+          <li><h3>Kendi ofisin</h3><p>Teşekkür notlarıyla ofisini süsle: saksı çiçeği, eski radyo, gar feneri, oyuncak tren ve daha fazlası.</p></li>
+          <li><h3>Hep bir hedef</h3><p>Stajyerden Büro Müdürlüğüne beş rütbe, her gün yenilenen görevler, 20'den fazla başarım, günlük seri ve seri kalkanı.</p></li>
+          <li><h3>30 günlük arşiv</h3><p>Kaçırdığın günlerin mesaisini arşivden oynayabilirsin.</p></li>
+          <li><h3>Sakin bir köşe</h3><p>Sakin müzik, sıcak bir ofis ve kısa oturumlar.</p></li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page split" data-label="Künye">
+    <div class="split-in two">
+      <div class="half" data-label="Künye"><div class="wrap reveal">
+        <header class="sec-head"><h2>Künye</h2></header>
+        <dl class="info">
+          <div><dt>Tür</dt><dd>Bulmaca · günlük çıkarım oyunu</dd></div>
+          <div><dt>Platform</dt><dd>Android (Google Play)</dd></div>
+          <div><dt>Fiyat</dt><dd>Ücretsiz. İsteğe bağlı mesai kartı paketleri var.</dd></div>
+          <div><dt>Reklam</dt><dd>Yalnızca kendi isteğinle izlediğin ödüllü reklam. Araya giren reklam ya da banner yok.</dd></div>
+          <div><dt>İnternet</dt><dd>Gerekmez</dd></div>
+          <div><dt>Hesap</dt><dd>Gerekmez. İlerlemen telefonunda durur.</dd></div>
+          <div><dt>Sıralama</dt><dd>Google Play Games ile, isteğe bağlı</dd></div>
+          <div><dt>Diller</dt><dd>Türkçe, İngilizce, İspanyolca, Fransızca, Portekizce, Arapça, Hintçe, Bengalce, Çince</dd></div>
+        </dl>
+        <p class="under"><a class="link" href="/privacy/kayip/">Gizlilik politikası</a></p>
+      </div></div>
+      <div class="half" data-label="Sık sorulanlar"><div class="wrap faq reveal">
+        <header class="sec-head"><h2>Sık sorulanlar</h2></header>
+        <details name="faq" open><summary>Kayıp Eşya Bürosu ücretsiz mi?</summary><p>Evet, indirmesi ve oynaması ücretsiz. Günün mesaisi her gün herkese açık. Arşivdeki eski mesailer mesai kartıyla oynanır; her gün bedava kart gelir, daha fazlasını ödüllü reklam izleyerek ya da dükkândan alabilirsin.</p></details>
+        <details name="faq"><summary>Oyunda reklam var mı?</summary><p>Yalnızca sen istediğinde izlediğin ödüllü reklam var. Oyunun arasına giren reklam ya da ekranda duran banner yok.</p></details>
+        <details name="faq"><summary>İnternet olmadan oynanır mı?</summary><p>Evet. Mesai internet olmadan da oynanır.</p></details>
+        <details name="faq"><summary>Satın alma sıralamada öne geçirir mi?</summary><p>Hayır. Sıralama puanı yalnızca günün mesaisinden gelir; arşiv mesaileri ve satın almalar puana eklenmez.</p></details>
+        <details name="faq"><summary>Yeni mesai ne zaman geliyor?</summary><p>Mesai dünyanın her yerinde aynı anda, UTC gece yarısında yenilenir. Türkiye saatiyle 03.00.</p></details>
+        <details name="faq"><summary>iOS sürümü var mı?</summary><p>Şimdilik yok. Oyun yalnızca Android'de, Google Play üzerinden yayınlanıyor.</p></details>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page alt" id="katil" data-label="Kapalı teste katıl">
+    <div class="wrap">
+    <div class="join reveal">
+      <h2>Kapalı teste katıl</h2>
+      <p class="join-lede">Üç adımda test kullanıcısı olursun. Her adımda Play Store'da kullandığın Google hesabıyla giriş yapmış olman yeterli.</p>
+      <ol class="jsteps">
+        <li><b>01</b><strong>Test grubuna katıl</strong><p>Açılan Google Grubu sayfasında &quot;Gruba katıl&quot;a bas.</p><a class="btn small tint" href="https://groups.google.com/g/kayip-esya-testers" target="_blank" rel="noopener">Gruba git</a></li>
+        <li><b>02</b><strong>Test kullanıcısı ol</strong><p>Açılan Play sayfasında &quot;Test kullanıcısı ol&quot;a bas. Gruba yeni katıldıysan sayfanın hazır olması birkaç dakika sürebilir.</p><a class="btn small tint" href="https://play.google.com/apps/testing/com.oyunatolyesi.kayipesya" target="_blank" rel="noopener">Test kullanıcısı ol</a></li>
+        <li><b>03</b><strong>Google Play'den indir</strong><p>Uygulama artık Play Store'da sana görünüyor. Yükle ve dene.</p><a class="btn small tint" href="https://play.google.com/store/apps/details?id=com.oyunatolyesi.kayipesya" target="_blank" rel="noopener">Play'de aç</a></li>
+      </ol>
+      <p class="join-note">Bir uygulamanın yayına çıkabilmesi için test kullanıcılarının onu en az 14 gün yüklü tutması gerekiyor. Bu süre boyunca silmezsen bize çok yardımcı olursun.</p>
+    </div>
+    </div>
+  </section>
+</main>
+
+<div class="page last" data-label="FMJ Apps'ten diğerleri">
+  <section class="others-sec">
+    <div class="wrap">
+      <header class="sec-head reveal"><h2>FMJ Apps'ten diğerleri</h2></header>
+      <ul class="others reveal">
+        <li><a href="/koleksiyoner/" style="--acc:#E2B75E"><img src="/assets/koleksiyoncu-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Koleksiyoner</strong><small>Antika dükkânı oyunu</small></span></a></li>
+        <li><a href="/prizma/" style="--acc:#3EF0C8"><img src="/assets/prizma-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Prizma</strong><small>Işık ve ayna bulmacası</small></span></a></li>
+        <li><a href="/ezber/" style="--acc:#2FC4A8"><img src="/assets/ezber-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Ezber</strong><small>Eller serbest ezber asistanı</small></span></a></li>
+        <li><a href="/paydos/" style="--acc:#6E8BFF"><img src="/assets/paydos-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>Paydos</strong><small>Çocuk ekran kilidi</small></span></a></li>
+      </ul>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-brand"><strong>FMJ Apps</strong><span>Android oyunları ve uygulamaları</span></div>
+      <div class="foot-col">
+        <span class="foot-h">Gizlilik politikaları</span>
+        <a href="/privacy/kayip/">Kayıp Eşya Bürosu</a>
+        <a href="/privacy/collector/">Koleksiyoner</a>
+        <a href="/privacy/prizma/">Prizma</a>
+        <a href="/privacy/ezber/">Ezber</a>
+        <a href="/privacy/paydos/">Paydos</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">İletişim</span>
+        <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+        <a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener">Google Play geliştirici sayfası</a>
+      </div>
+    </div>
+    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Apps · Şimdilik yalnızca Android'de, Google Play üzerinden. iOS sürümü yok.</p></div>
+  </footer>
+</div>
+
+<nav class="pager" id="pager" aria-label="Sayfalar"></nav>
+</body>
+</html>
