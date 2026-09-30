@@ -1,15 +1,15 @@
 # Gizlilik Politikaları
 
 Uygulamaların gizlilik politikalarının yayınlandığı depo. GitHub Pages ile
-`https://fmjapps.github.io/privacy/` adresinde yayınlanır.
+`https://fmjapps.com/privacy/` adresinde yayınlanır.
 
 Her uygulama kendi klasöründe:
 
-- `collector/` → https://fmjapps.github.io/privacy/collector/
-- `ezber/` → https://fmjapps.github.io/privacy/ezber/
-- `kayip/` → https://fmjapps.github.io/privacy/kayip/
-- `paydos/` → https://fmjapps.github.io/privacy/paydos/
-- `prizma/` → https://fmjapps.github.io/privacy/prizma/
+- `collector/` → https://fmjapps.com/privacy/collector/
+- `ezber/` → https://fmjapps.com/privacy/ezber/
+- `kayip/` → https://fmjapps.com/privacy/kayip/
+- `paydos/` → https://fmjapps.com/privacy/paydos/
+- `prizma/` → https://fmjapps.com/privacy/prizma/
 
 Yeni bir uygulama eklerken: yeni bir klasör açıp içine `index.html` koymak ve
 kök dizindeki `index.html` listesine bir satır eklemek yeterli.
