@@ -464,5 +464,5 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 [dir="rtl"] .pager { right: auto; left: 22px; }
 [dir="rtl"] .pager button span { right: auto; left: 22px; }
 @media (max-width: 760px) { [dir="rtl"] .pager { left: 6px; } }
-:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(.kind, .foot-h, .more-hint, .sec-head span) { letter-spacing: 0; text-transform: none; }
-:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(h1, h2, h3, .h2, .brand-name, summary, strong) { letter-spacing: 0; line-height: 1.3; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(.kind, .foot-h, .more-hint, .sec-head span) { letter-spacing: 0; text-transform: none; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(h1, h2, h3, .h2, .brand-name, summary, strong) { letter-spacing: 0; line-height: 1.3; }

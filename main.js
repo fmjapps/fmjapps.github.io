@@ -27,7 +27,8 @@
   // Türkçe metin HTML'de durur. Diğer diller i18n/<kod>.json dosyalarından, seçilince yüklenir.
   var LANGS = [
     ['tr', 'Türkçe'], ['en', 'English'], ['es', 'Español'], ['pt', 'Português'], ['fr', 'Français'], ['de', 'Deutsch'],
-    ['ru', 'Русский'], ['ar', 'العربية'], ['hi', 'हिन्दी'], ['bn', 'বাংলা'], ['zh', '中文'], ['id', 'Bahasa Indonesia']
+    ['it', 'Italiano'], ['ru', 'Русский'], ['ar', 'العربية'], ['hi', 'हिन्दी'], ['zh', '中文'],
+    ['ja', '日本語'], ['ko', '한국어'], ['id', 'Bahasa Indonesia']
   ];
   var RTL = { ar: true };
   // Yalnızca kodda geçen Türkçe metinler (sayfadakiler HTML'den okunur)

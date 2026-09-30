@@ -51,7 +51,7 @@
    "tag": "Jogo diário de dedução",
    "title": "Lost & Found Office · Um jogo diário de dedução para Android",
    "desc": "Seis visitantes por dia nos achados e perdidos da estação: devolva os itens aos donos e pegue os impostores. Mesmo turno para todos, funciona offline.",
-   "lede": "Você está atrás do balcão dos achados e perdidos da Estação Central, e em cima dele fica Pamuk, o gato do escritório. Todo dia, seis visitantes entram pela porta. Alguns estão mesmo procurando a mala, outros são impostores que viram um item no mural, e há os que são honestos, mas o item deles simplesmente ainda não apareceu. Descobrir quem é quem fica por sua conta.",
+   "lede": "Você está atrás do balcão dos achados e perdidos da Estação Central, e em cima dele fica Pamuk, a gata do escritório. Todo dia, seis visitantes entram pela porta. Alguns estão mesmo procurando a mala, outros são impostores que viram um item no mural, e há os que são honestos, mas o item deles simplesmente ainda não apareceu. Descobrir quem é quem fica por sua conta.",
    "chips": [
     "Android",
     "Grátis",
@@ -80,7 +80,7 @@
    "alts": [
     "Fazendo perguntas a um visitante",
     "O registro de um item da prateleira",
-    "Um escritório decorado, com o gato Pamuk"
+    "Um escritório decorado, com a gata Pamuk"
    ],
    "feats": [
     [
@@ -96,8 +96,8 @@
      "Cada turno é gerado por regras, e cada visitante tem exatamente uma resposta certa. Confie no seu olho, não na sorte."
     ],
     [
-     "Os presentinhos do Pamuk",
-     "Faça carinho no Pamuk e ele mia e ronrona. Depois de cada turno, ele traz para você um pequeno tesouro achado em algum canto da estação."
+     "Os presentinhos da Pamuk",
+     "Faça carinho na Pamuk e ela mia e ronrona. Depois de cada turno, ela traz para você um pequeno tesouro achado em algum canto da estação."
     ],
     [
      "Um escritório só seu",

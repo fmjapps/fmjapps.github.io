@@ -8,9 +8,9 @@ const { UI, APPS } = require('./content.cjs');
 
 const ROOT = path.join(__dirname, '..');
 const BASE = 'https://fmjapps.com';
-const HOME_LANGS = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'ru', 'ar', 'hi', 'bn', 'zh', 'id'];
-const NAMES = { tr: 'Türkçe', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', ru: 'Русский', ar: 'العربية', hi: 'हिन्दी', bn: 'বাংলা', zh: '中文', id: 'Bahasa Indonesia' };
-const LOCALE = { tr: 'tr_TR', en: 'en_US', es: 'es_ES', pt: 'pt_BR', fr: 'fr_FR', de: 'de_DE', ru: 'ru_RU', ar: 'ar_AR', hi: 'hi_IN', bn: 'bn_BD', zh: 'zh_CN', id: 'id_ID' };
+const HOME_LANGS = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+const NAMES = { tr: 'Türkçe', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', it: 'Italiano', ru: 'Русский', ar: 'العربية', hi: 'हिन्दी', zh: '中文', ja: '日本語', ko: '한국어', id: 'Bahasa Indonesia' };
+const LOCALE = { tr: 'tr_TR', en: 'en_US', es: 'es_ES', pt: 'pt_BR', fr: 'fr_FR', de: 'de_DE', it: 'it_IT', ru: 'ru_RU', ar: 'ar_AR', hi: 'hi_IN', zh: 'zh_CN', ja: 'ja_JP', ko: 'ko_KR', id: 'id_ID' };
 const RTL = { ar: true };
 
 // İngilizce metin çevirilerin kaynağıdır; her derlemede lang/en.json olarak yazılır

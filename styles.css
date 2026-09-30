@@ -1207,8 +1207,8 @@ main, .links, .brand-tag, .foot { transition: opacity .25s; }
 /* Uzun çevirilerde slogan ve başlıklar taşmasın */
 @media (min-width: 901px) { .ap-slogan { white-space: normal; text-wrap: balance; } }
 .sh-kick, .ap-label, .w-label { letter-spacing: .1em; }
-:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(.sh-kick, .ap-label, .sec-num, .mc-label) { letter-spacing: 0; text-transform: none; }
-:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(h1, h2, h3, .sh-name, .ap-slogan, .brand-name) { letter-spacing: 0; line-height: 1.2; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(.sh-kick, .ap-label, .sec-num, .mc-label) { letter-spacing: 0; text-transform: none; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(h1, h2, h3, .sh-name, .ap-slogan, .brand-name) { letter-spacing: 0; line-height: 1.2; }
 
 /* Arapça: sağdan sola */
 [dir="rtl"] .sh-solid b, [dir="rtl"] .sc-cap i { display: inline-block; transform: scaleX(-1); }
