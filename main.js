@@ -77,10 +77,36 @@
     'join.s2t': 'Become a tester', 'join.s2d': 'On the Play page that opens, tap “Become a tester”. If you’ve only just joined the group, the page may take a few minutes to be ready.', 'join.s2b': 'Become a tester',
     'join.s3t': 'Download from Google Play', 'join.s3d': 'The app now shows up for you on the Play Store. Install it and give it a try.', 'join.s3b': 'Open in Play',
     'join.note': 'For an app to launch, testers need to keep it installed for at least 14 days. Keeping it on your phone for that long really helps us.',
+    'hero.h1': 'FMJ Apps: simple, reliable games and apps',
+    'hero.kayip': 'Six visitors come to your station office every day. Check the report, ask three questions, catch the impostor.',
+    'hero.kol': 'In the antique shop your grandfather left you, inspect pocket watches, coins and paintings. Spot the fake, haggle.',
+    'hero.prizma': 'Place the mirrors and guide the beam to its targets. 60 levels, four difficulties and a new puzzle every day.',
+    'hero.ezber': 'It reads your script to you, listens when it’s your turn and whispers like a prompter when you get stuck.',
+    'hero.paydos': 'Pick the time and tick the allowed apps. When time is up the screen locks, and only your PIN opens it.',
+    'hero.explore': 'Explore', 'hero.foot': 'FMJ Apps · Simple, reliable games and apps', 'hero.down': 'Scroll down ↓',
+    'status.soon2': 'In Google Play review',
+    'ph.pick': 'Pick a topic first', 'ph.msg': 'Type your message…', 'ph.name': 'Your name', 'ph.mail': 'Your email',
+    'chat.hello': 'Hi! What are you writing about?',
+    'chat.askMsg': 'Go ahead, we’re listening.',
+    'chat.askName': 'Thanks! What name should we use when we reply?',
+    'chat.askMail': 'Last one: which email should we reply to?',
+    'chat.badMail': 'That email looks incomplete. Could you type it again?',
+    'chat.ok': 'Your message reached us. We’ll reply to {email} as soon as we can.',
+    'chat.err': 'Something went wrong and the message wasn’t sent. You can try again or write to contact@fmjapps.com.',
+    'chat.retry': 'Try again', 'chat.done': 'Message sent', 'chat.again': 'Write a new message',
     'foot.tag': 'Games and apps for Android', 'foot.privacy': 'Privacy policies', 'foot.contact': 'Contact',
     'foot.play': 'Google Play developer page', 'foot.top': 'Back to top ↑'
   };
   var TR = {
+    'ph.pick': 'Önce bir konu seç', 'ph.msg': 'Mesajını yaz…', 'ph.name': 'Adın', 'ph.mail': 'E-posta adresin',
+    'chat.hello': 'Merhaba! Ne hakkında yazıyorsun?',
+    'chat.askMsg': 'Anlat bakalım, dinliyoruz.',
+    'chat.askName': 'Teşekkürler! Sana hangi isimle dönelim?',
+    'chat.askMail': 'Son olarak, cevabı hangi e-posta adresine yazalım?',
+    'chat.badMail': 'Bu e-posta adresi eksik görünüyor, bir daha yazar mısın?',
+    'chat.ok': 'Mesajın bize ulaştı. En kısa sürede {email} adresine dönüş yapacağız.',
+    'chat.err': 'Bir sorun çıktı, mesaj gönderilemedi. Tekrar deneyebilir ya da contact@fmjapps.com adresine yazabilirsin.',
+    'chat.retry': 'Tekrar dene', 'chat.done': 'Mesajın gönderildi',
     'contact.copied': 'Adres kopyalandı',
     'form.sending': 'Gönderiliyor…',
     'form.ok': 'Teşekkürler! Mesajın bize ulaştı, en kısa sürede dönüş yapacağız.',
@@ -95,6 +121,7 @@
   var textEls = document.querySelectorAll('[data-i18n]');
   var htmlEls = document.querySelectorAll('[data-i18n-html]');
   var ariaEls = document.querySelectorAll('[data-i18n-aria]');
+  var phEls = document.querySelectorAll('[data-i18n-ph]');
   var imgEls = document.querySelectorAll('img[data-en]');
   textEls.forEach(function (el) { el._tr = el.textContent; });
   htmlEls.forEach(function (el) { el._tr = el.innerHTML; });
@@ -121,12 +148,34 @@
     textEls.forEach(function (el) { var k = el.getAttribute('data-i18n'); el.textContent = en && EN[k] ? EN[k] : el._tr; });
     htmlEls.forEach(function (el) { var k = el.getAttribute('data-i18n-html'); el.innerHTML = en && EN[k] ? EN[k] : el._tr; });
     ariaEls.forEach(function (el) { var k = el.getAttribute('data-i18n-aria'); el.setAttribute('aria-label', en && EN[k] ? EN[k] : el._tr); });
+    phEls.forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (el.disabled) return; el.setAttribute('placeholder', t(k)); });
     imgEls.forEach(function (el) { el.src = en ? el.getAttribute('data-en') : el._tr; });
     document.title = META[lang].title;
     document.querySelector('meta[name=description]').content = META[lang].desc;
     splitWords();
     if (typeof rebuildShowcase === 'function') rebuildShowcase();
+    if (typeof fitNames === 'function') fitNames();
   }
+  // Sahnedeki uygulama adı kendi sütununa sığacak kadar küçülür
+  function fitNames() {
+    document.querySelectorAll('.sh-name').forEach(function (h) {
+      h.style.fontSize = '';
+      var box = h.parentNode.clientWidth;
+      if (!box) return;
+      var size = parseFloat(getComputedStyle(h).fontSize);
+      var longest = 0;
+      // En uzun kelime satıra sığmalı
+      var probe = document.createElement('span');
+      probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;width:max-content;font:inherit;letter-spacing:inherit';
+      h.appendChild(probe);
+      h.textContent.trim().split(/\s+/).forEach(function (w) { probe.textContent = w; longest = Math.max(longest, probe.offsetWidth); });
+      probe.remove();
+      if (longest > box) h.style.fontSize = (size * box / longest * 0.98).toFixed(1) + 'px';
+    });
+  }
+  window.addEventListener('resize', fitNames);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNames);
+
   applyLang(root.getAttribute('data-lang') === 'en' ? 'en' : 'tr');
 
   document.getElementById('langBtn').addEventListener('click', function () {
@@ -310,6 +359,8 @@
         Array.prototype.forEach.call(dotsWrap.children, function (b, i) { b.classList.toggle('on', i === app); });
         var acc = card.style.getPropertyValue('--acc');
         stage.style.setProperty('--acc', acc);
+        var heroEl = document.getElementById('hero');
+        if (heroEl) heroEl.style.setProperty('--acc', acc);
         sc.style.setProperty('--acc-now', acc);
       }
     }
@@ -570,7 +621,7 @@
     });
   })();
 
-  /* ---------- İletişim: e-posta ve form ---------- */
+  /* ---------- İletişim: e-posta kopyalama ---------- */
   document.getElementById('copyMail').addEventListener('click', function () {
     var mail = this.getAttribute('data-mail');
     var done = function () { showToast(t('contact.copied')); };
@@ -578,70 +629,157 @@
     else location.href = 'mailto:' + mail;
   });
 
+  /* ---------- İletişim: sohbet gibi ilerleyen form ---------- */
   (function () {
-    var form = document.getElementById('cform');
-    var status = document.getElementById('fStatus');
-    var msg = form.elements.message;
-    var count = document.getElementById('msgCount');
+    var msgs = document.getElementById('msgs');
+    var form = document.getElementById('composer');
+    var input = document.getElementById('chatIn');
+    var send = document.getElementById('chatSend');
+    var reset = document.getElementById('chatReset');
+    var hp = form.querySelector('input[name=website]');
+    var SUBJECTS = [
+      { v: 'general', key: null, label: 'FMJ Apps' },
+      { v: 'kayip', key: 'kayip.name' }, { v: 'koleksiyoncu', key: 'kol.short' }, { v: 'prizma', key: 'prizma.name' },
+      { v: 'ezber', key: 'ezber.short' }, { v: 'paydos', key: 'paydos.name' }
+    ];
+    // Adımlar: 0 konu, 1 mesaj, 2 ad, 3 e-posta, 4 gönderiliyor/bitti
+    var stepN = 0, data = {};
 
-    msg.addEventListener('input', function () { count.textContent = msg.value.length + ' / 4000'; });
-
-    // Uygulama kartındaki "Geri bildirim yaz" konuyu seçip forma götürür
-    document.querySelectorAll('[data-subject]').forEach(function (a) {
-      a.addEventListener('click', function () {
-        var r = form.querySelector('input[name=subject][value="' + a.getAttribute('data-subject') + '"]');
-        if (r) r.checked = true;
-        setTimeout(function () { (form.elements.name.value ? msg : form.elements.name).focus({ preventScroll: true }); }, 600);
+    function label(sub) {
+      if (!sub.key) return sub.label;
+      var el = document.querySelector('[data-i18n="' + sub.key + '"]');
+      return el ? el.textContent : sub.v;
+    }
+    function bubble(text, who) {
+      var d = document.createElement('div');
+      d.className = 'bub ' + who;
+      d.textContent = text;
+      msgs.appendChild(d);
+      msgs.scrollTop = msgs.scrollHeight;
+      return d;
+    }
+    function typing(then) {
+      var d = document.createElement('div');
+      d.className = 'bub them typing';
+      d.innerHTML = '<i></i><i></i><i></i>';
+      msgs.appendChild(d);
+      setTimeout(function () { d.remove(); then(); }, reduced ? 50 : 650);
+    }
+    function ask(key, ph, enable) {
+      typing(function () {
+        bubble(t(key), 'them');
+        input.setAttribute('placeholder', t(ph));
+        input.disabled = send.disabled = !enable;
+        if (enable) input.focus({ preventScroll: true });
       });
+    }
+    function chooseSubject(sub) {
+      var ch = msgs.querySelector('.choices');
+      if (ch) ch.remove();
+      data.subject = sub.v;
+      data.subjectLabel = label(sub);
+      bubble(data.subjectLabel, 'me');
+      stepN = 1;
+      ask('chat.askMsg', 'ph.msg', true);
+    }
+    function start(preset) {
+      msgs.innerHTML = '';
+      data = {};
+      stepN = 0;
+      reset.hidden = true;
+      input.value = '';
+      input.disabled = send.disabled = true;
+      input.setAttribute('placeholder', t('ph.pick'));
+      bubble(t('chat.hello'), 'them');
+      var ch = document.createElement('div');
+      ch.className = 'choices';
+      SUBJECTS.forEach(function (sub) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = label(sub);
+        b.addEventListener('click', function () { chooseSubject(sub); });
+        ch.appendChild(b);
+      });
+      msgs.appendChild(ch);
+      if (preset) {
+        var sub = SUBJECTS.filter(function (x) { return x.v === preset; })[0];
+        if (sub) chooseSubject(sub);
+      }
+    }
+    function autosize() { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; }
+    input.addEventListener('input', autosize);
+    // Enter gönderir, Shift+Enter yeni satır açar
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
     });
 
-    function setStatus(text, cls) {
-      status.className = 'f-status' + (cls ? ' ' + cls : '');
-      status.textContent = text;
-    }
-    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = form.elements.name.value.trim();
-      var email = form.elements.email.value.trim();
-      var text = msg.value.trim();
-      var bad = [];
-      if (!name) bad.push(form.elements.name);
-      if (!validEmail(email)) bad.push(form.elements.email);
-      if (text.length < 2) bad.push(msg);
-      form.querySelectorAll('.field').forEach(function (f) { f.classList.remove('bad'); });
-      if (bad.length) {
-        bad.forEach(function (el) { el.closest('.field').classList.add('bad'); });
-        bad[0].focus();
-        setStatus(t('form.check'), 'err');
-        return;
-      }
-      var subject = form.querySelector('input[name=subject]:checked');
+    function submitAll() {
+      stepN = 4;
+      input.disabled = send.disabled = true;
+      input.setAttribute('placeholder', t('form.sending'));
+      var wait = bubble(t('form.sending'), 'them');
+      wait.classList.add('muted');
       var payload = {
-        name: name, email: email, message: text,
-        subject: subject ? subject.value : 'general',
-        subjectLabel: subject ? subject.parentNode.textContent.trim() : 'FMJ Apps',
-        website: form.elements.website.value,
-        lang: root.getAttribute('data-lang')
+        name: data.name, email: data.email, message: data.message,
+        subject: data.subject, subjectLabel: data.subjectLabel,
+        website: hp.value, lang: root.getAttribute('data-lang')
       };
-      form.classList.add('sending');
-      setStatus(t('form.sending'));
       fetch(FORM_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then(function () {
-          form.classList.remove('sending');
-          form.classList.add('sent');
-          setStatus(t('form.ok'), 'ok');
-          msg.value = '';
-          count.textContent = '0 / 4000';
-          setTimeout(function () { form.classList.remove('sent'); }, 900);
+          wait.remove();
+          bubble(t('chat.ok').replace('{email}', data.email), 'them').classList.add('ok');
+          input.setAttribute('placeholder', t('chat.done'));
+          reset.hidden = false;
         })
         .catch(function () {
-          form.classList.remove('sending');
-          setStatus(t('form.err'), 'err');
+          wait.remove();
+          var b = bubble(t('chat.err'), 'them');
+          b.classList.add('err');
+          var retry = document.createElement('button');
+          retry.type = 'button';
+          retry.className = 'retry';
+          retry.textContent = t('chat.retry');
+          retry.addEventListener('click', function () { retry.remove(); submitAll(); });
+          b.appendChild(retry);
+          reset.hidden = false;
         });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = input.value.trim();
+      if (!v || stepN < 1 || stepN > 3) return;
+      input.value = '';
+      autosize();
+      if (stepN === 1) {
+        if (v.length < 2) return;
+        data.message = v;
+        bubble(v, 'me');
+        stepN = 2;
+        ask('chat.askName', 'ph.name', true);
+      } else if (stepN === 2) {
+        data.name = v.slice(0, 80);
+        bubble(data.name, 'me');
+        stepN = 3;
+        ask('chat.askMail', 'ph.mail', true);
+      } else if (stepN === 3) {
+        bubble(v, 'me');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { ask('chat.badMail', 'ph.mail', true); return; }
+        data.email = v;
+        submitAll();
+      }
     });
+    reset.addEventListener('click', function () { start(); });
+
+    // Uygulama kartlarındaki "Geri bildirim yaz" sohbeti o konuyla başlatır
+    document.querySelectorAll('[data-subject]').forEach(function (a) {
+      a.addEventListener('click', function () { start(a.getAttribute('data-subject')); });
+    });
+
+    // Dil değişince henüz başlanmamış sohbet yeni dilde yeniden kurulur
+    document.getElementById('langBtn').addEventListener('click', function () { if (stepN === 0) start(); });
+    start();
   })();
 
   document.getElementById('year').textContent = new Date().getFullYear();

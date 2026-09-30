@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FMJ Apps · Android oyunları ve uygulamaları</title>
-<meta name="description" content="FMJ Apps gündelik hayat için sade, güvenilir mobil oyunlar ve uygulamalar yapar: Kayıp Eşya Bürosu, Koleksiyoncu, Prizma, Ezber ve Paydos.">
+<meta name="description" content="FMJ Apps gündelik hayat için sade, güvenilir mobil oyunlar ve uygulamalar yapar: Kayıp Eşya Bürosu, Koleksiyoner, Prizma, Ezber ve Paydos.">
 <meta name="theme-color" content="#0A0A1F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FMJ Apps">
@@ -65,23 +65,64 @@
 
 <main id="top">
 
-  <!-- GİRİŞ -->
-  <section class="hero">
-    <div class="hero-bg" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div></div>
-    <div class="wrap hero-in">
-      <div class="hero-copy">
-        <h1 class="reveal" data-i18n-html="hero.title">Sade, güvenilir <span class="grad">oyunlar ve uygulamalar.</span></h1>
-        <p class="lede reveal" data-i18n="hero.lede">Çıkarım oyunları, bir ışık bulmacası, bir ezber asistanı ve bir çocuk ekran kilidi. Hepsi Android için, hiçbiri kayıt olmanı istemez.</p>
+  <!-- GİRİŞ: dönen vitrin sahnesi -->
+  <section class="hero sh" id="hero">
+    <h1 class="sr-only" data-i18n="hero.h1">FMJ Apps: sade, güvenilir oyunlar ve uygulamalar</h1>
+    <div class="wrap sh-in" id="showcase">
+      <div class="sh-info" id="scCaps">
+          <article class="sc-cap sh-panel" data-app="kayip">
+            <p class="sh-kick"><i></i><span data-i18n="status.test">Kapalı testte</span></p>
+            <h2 class="sh-name" data-i18n="kayip.name">Kayıp Eşya Bürosu</h2>
+            <p class="sh-desc" data-i18n="hero.kayip">Gardaki bürona her gün altı ziyaretçi gelir. Tutanağa bak, üç soru sor, sahtekârı yakala.</p>
+            <div class="sh-actions">
+              <a class="btn sh-solid" href="#kayip"><span data-i18n="hero.explore">İncele</span> <b aria-hidden="true">→</b></a>
+              <button class="btn sh-ghost" type="button" data-join="kayip" data-i18n="join.btn">Teste katıl</button>
+            </div>
+          </article>
+          <article class="sc-cap sh-panel" data-app="koleksiyoncu">
+            <p class="sh-kick"><i></i><span data-i18n="status.test">Kapalı testte</span></p>
+            <h2 class="sh-name" data-i18n="kol.short">Koleksiyoner</h2>
+            <p class="sh-desc" data-i18n="hero.kol">Dedenden kalan antika dükkânında cep saatlerini, sikkeleri ve tabloları incele. Sahteyi yakala, pazarlık et.</p>
+            <div class="sh-actions">
+              <a class="btn sh-solid" href="#koleksiyoncu"><span data-i18n="hero.explore">İncele</span> <b aria-hidden="true">→</b></a>
+              <button class="btn sh-ghost" type="button" data-join="koleksiyoncu" data-i18n="join.btn">Teste katıl</button>
+            </div>
+          </article>
+          <article class="sc-cap sh-panel" data-app="prizma">
+            <p class="sh-kick soon"><i></i><span data-i18n="status.soon2">Google Play onayında</span></p>
+            <h2 class="sh-name" data-i18n="prizma.name">Prizma</h2>
+            <p class="sh-desc" data-i18n="hero.prizma">Aynaları yerleştir, ışını hedeflere ulaştır. 60 bölüm, dört zorluk ve her gün yeni bir bulmaca.</p>
+            <div class="sh-actions">
+              <a class="btn sh-solid" href="#prizma"><span data-i18n="hero.explore">İncele</span> <b aria-hidden="true">→</b></a>
+              <a class="btn sh-ghost" href="#iletisim" data-subject="prizma" data-i18n="feedback">Geri bildirim yaz</a>
+            </div>
+          </article>
+          <article class="sc-cap sh-panel" data-app="ezber">
+            <p class="sh-kick"><i></i><span data-i18n="status.test">Kapalı testte</span></p>
+            <h2 class="sh-name" data-i18n="ezber.short">Ezber</h2>
+            <p class="sh-desc" data-i18n="hero.ezber">Metnini sana okur, sıra sana gelince dinler, takıldığında suflör gibi fısıldar.</p>
+            <div class="sh-actions">
+              <a class="btn sh-solid" href="#ezber"><span data-i18n="hero.explore">İncele</span> <b aria-hidden="true">→</b></a>
+              <button class="btn sh-ghost" type="button" data-join="ezber" data-i18n="join.btn">Teste katıl</button>
+            </div>
+          </article>
+          <article class="sc-cap sh-panel" data-app="paydos">
+            <p class="sh-kick soon"><i></i><span data-i18n="status.soon2">Google Play onayında</span></p>
+            <h2 class="sh-name" data-i18n="paydos.name">Paydos</h2>
+            <p class="sh-desc" data-i18n="hero.paydos">Süreyi seç, izin verilen uygulamaları işaretle. Süre dolunca ekran kilitlenir; kilidi yalnız senin şifren açar.</p>
+            <div class="sh-actions">
+              <a class="btn sh-solid" href="#paydos"><span data-i18n="hero.explore">İncele</span> <b aria-hidden="true">→</b></a>
+              <a class="btn sh-ghost" href="#iletisim" data-subject="paydos" data-i18n="feedback">Geri bildirim yaz</a>
+            </div>
+          </article>
       </div>
-      <div class="showcase reveal" id="showcase">
+      <div class="sh-ring">
         <div class="sc-tabs" role="tablist">
           <button class="sc-tab on" type="button" role="tab" aria-selected="true" data-set="games"><span data-i18n="nav.games">Oyunlar</span><em>3</em></button>
           <button class="sc-tab" type="button" role="tab" aria-selected="false" data-set="apps"><span data-i18n="nav.apps">Uygulamalar</span><em>2</em></button>
           <i class="sc-ind" aria-hidden="true"></i>
         </div>
         <div class="sc-stage" id="scStage" data-i18n-aria="sc.drag" aria-label="Sürükleyerek çevir">
-          <div class="sc-glow" aria-hidden="true"></div>
-          <div class="sc-word" id="scWord" aria-hidden="true"></div>
           <div class="sc-ring" id="scRing">
           <a class="sc-card" href="#kayip" data-set="games" style="--acc:#9CC98F" tabindex="-1" draggable="false">
             <span class="sc-phone"><img draggable="false" src="assets/kayip-1.webp" data-en="assets/kayip-1-en.webp" alt="" width="540" height="1200"></span>
@@ -100,19 +141,16 @@
           </a>
           </div>
         </div>
-        <div class="sc-caps" id="scCaps">
-          <a class="sc-cap" href="#kayip" data-app="kayip"><img src="assets/kayip-icon.webp" alt="" width="256" height="256"><span><strong data-i18n="kayip.name">Kayıp Eşya Bürosu</strong><em data-i18n="kayip.tag">Günlük çıkarım oyunu</em></span><i aria-hidden="true">→</i></a>
-          <a class="sc-cap" href="#koleksiyoncu" data-app="koleksiyoncu"><img src="assets/koleksiyoncu-icon.webp" alt="" width="256" height="256"><span><strong data-i18n="kol.short">Koleksiyoncu</strong><em data-i18n="kol.tag">Antika ve rehin dükkânı oyunu</em></span><i aria-hidden="true">→</i></a>
-          <a class="sc-cap" href="#prizma" data-app="prizma"><img src="assets/prizma-icon.webp" alt="" width="256" height="256"><span><strong data-i18n="prizma.name">Prizma</strong><em data-i18n="prizma.tag">Işık ve ayna bulmacası</em></span><i aria-hidden="true">→</i></a>
-          <a class="sc-cap" href="#ezber" data-app="ezber"><img src="assets/ezber-icon.webp" alt="" width="256" height="256"><span><strong data-i18n="ezber.short">Ezber</strong><em data-i18n="ezber.tag">Eller serbest ezber asistanı</em></span><i aria-hidden="true">→</i></a>
-          <a class="sc-cap" href="#paydos" data-app="paydos"><img src="assets/paydos-icon.webp" alt="" width="256" height="256"><span><strong data-i18n="paydos.name">Paydos</strong><em data-i18n="paydos.tag">Çocuk ekran kilidi</em></span><i aria-hidden="true">→</i></a>
-        </div>
         <div class="sc-nav">
           <button class="sc-arrow" type="button" data-dir="-1" data-i18n-aria="sc.prev" aria-label="Önceki">‹</button>
           <div class="sc-dots" id="scDots"></div>
           <button class="sc-arrow" type="button" data-dir="1" data-i18n-aria="sc.next" aria-label="Sonraki">›</button>
         </div>
       </div>
+    </div>
+    <div class="wrap sh-foot">
+      <span data-i18n="hero.foot">FMJ Apps · Sade, güvenilir oyunlar ve uygulamalar</span>
+      <a href="#oyunlar" class="sh-down" data-i18n="hero.down">Aşağı kaydır ↓</a>
     </div>
   </section>
 
@@ -161,13 +199,13 @@
         </div>
       </article>
 
-      <!-- Koleksiyoncu -->
+      <!-- Koleksiyoner -->
       <article class="product flip" id="koleksiyoncu" style="--acc:#E2B75E;--acc-2:#8A5A2B;--acc-ink:var(--kol-ink);--ratio:540/1200">
         <div class="p-copy reveal">
           <div class="p-id">
             <img class="p-icon" src="assets/koleksiyoncu-icon.webp" alt="" width="256" height="256">
             <div>
-              <h3 data-i18n="kol.name">Koleksiyoncu: Antika Dedektifi</h3>
+              <h3 data-i18n="kol.name">Koleksiyoner: Antika Dedektifi</h3>
               <p class="p-tag" data-i18n="kol.tag">Antika ve rehin dükkânı oyunu</p>
             </div>
           </div>
@@ -356,30 +394,14 @@
           <button class="copy-btn" type="button" id="copyMail" data-mail="contact@fmjapps.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a2 2 0 0 0 2 2h2.5"/></svg><span data-i18n="contact.copy">Kopyala</span></button>
         </div>
       </header>
-      <div class="contact-one">
-        <form class="cform reveal" id="cform" novalidate>
-          <div class="f-row">
-            <label class="field"><span data-i18n="form.name">Adın</span><input name="name" type="text" autocomplete="name" maxlength="80" required></label>
-            <label class="field"><span data-i18n="form.email">E-posta adresin</span><input name="email" type="email" autocomplete="email" maxlength="120" required></label>
-          </div>
-          <fieldset class="field">
-            <legend data-i18n="form.subject">Ne hakkında?</legend>
-            <div class="subjects">
-              <label class="subj"><input type="radio" name="subject" value="general" checked><img src="assets/logo-mark.png" alt="" width="128" height="128"><span>FMJ Apps</span></label>
-              <label class="subj"><input type="radio" name="subject" value="kayip"><img src="assets/kayip-icon.webp" alt="" width="256" height="256"><span data-i18n="kayip.name">Kayıp Eşya Bürosu</span></label>
-              <label class="subj"><input type="radio" name="subject" value="koleksiyoncu"><img src="assets/koleksiyoncu-icon.webp" alt="" width="256" height="256"><span data-i18n="kol.short">Koleksiyoncu</span></label>
-              <label class="subj"><input type="radio" name="subject" value="prizma"><img src="assets/prizma-icon.webp" alt="" width="256" height="256"><span data-i18n="prizma.name">Prizma</span></label>
-              <label class="subj"><input type="radio" name="subject" value="ezber"><img src="assets/ezber-icon.webp" alt="" width="256" height="256"><span data-i18n="ezber.short">Ezber</span></label>
-              <label class="subj"><input type="radio" name="subject" value="paydos"><img src="assets/paydos-icon.webp" alt="" width="256" height="256"><span data-i18n="paydos.name">Paydos</span></label>
-            </div>
-          </fieldset>
-          <label class="field"><span data-i18n="form.message">Mesajın</span><textarea name="message" rows="5" maxlength="4000" required></textarea><small class="count" id="msgCount">0 / 4000</small></label>
+      <div class="chat reveal" id="chat">
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <form class="composer" id="composer" novalidate autocomplete="off">
+          <textarea id="chatIn" rows="1" maxlength="4000" disabled data-i18n-ph="ph.msg" placeholder="Önce bir konu seç"></textarea>
           <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
-          <div class="f-foot">
-            <p class="f-status" id="fStatus" role="status" aria-live="polite"></p>
-            <button class="btn primary" type="submit" id="fSubmit"><span class="spin" aria-hidden="true"></span><span data-i18n="form.send">Gönder</span></button>
-          </div>
+          <button type="submit" id="chatSend" data-i18n-aria="form.send" aria-label="Gönder" disabled>→</button>
         </form>
+        <button class="chat-reset" type="button" id="chatReset" hidden data-i18n="chat.again">Yeni mesaj yaz</button>
       </div>
     </div>
   </section>
@@ -394,7 +416,7 @@
     <div class="foot-col">
       <span class="foot-h" data-i18n="foot.privacy">Gizlilik politikaları</span>
       <a href="/privacy/kayip/" data-i18n="kayip.name">Kayıp Eşya Bürosu</a>
-      <a href="/privacy/collector/" data-i18n="kol.short">Koleksiyoncu</a>
+      <a href="/privacy/collector/" data-i18n="kol.short">Koleksiyoner</a>
       <a href="/privacy/prizma/">Prizma</a>
       <a href="/privacy/ezber/" data-i18n="ezber.short">Ezber</a>
       <a href="/privacy/paydos/">Paydos</a>

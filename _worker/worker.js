@@ -8,7 +8,7 @@ const SHOWN_TO = 'contact@fmjapps.com';
 const SUBJECTS = {
   general: 'FMJ Apps (genel)',
   kayip: 'Kayıp Eşya Bürosu',
-  koleksiyoncu: 'Koleksiyoncu',
+  koleksiyoncu: 'Koleksiyoner',
   prizma: 'Prizma',
   ezber: 'Ezber',
   paydos: 'Paydos'
