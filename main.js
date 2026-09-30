@@ -25,7 +25,7 @@
   // Türkçe metin HTML'de; İngilizcesi burada. Türkçeye dönünce ilk hâli geri yüklenir.
   var EN = {
     'skip': 'Skip to content',
-    'nav.games': 'Games', 'nav.apps': 'Apps', 'nav.values': 'Principles', 'nav.contact': 'Contact',
+    'nav.games': 'Games', 'nav.apps': 'Apps', 'nav.works': 'Our work', 'works.title': 'Our games and apps', 'nav.values': 'Principles', 'nav.contact': 'Contact',
     'theme': 'Toggle theme', 'shots': 'Screenshots', 'close': 'Close', 'sc.prev': 'Previous', 'sc.next': 'Next', 'sc.drag': 'Drag to spin',
     'hero.eyebrow': 'Simple, reliable mobile apps',
     'hero.title': 'Simple, reliable <span class="grad">games and apps.</span>',
@@ -85,6 +85,10 @@
     'hero.paydos': 'Pick the time and tick the allowed apps. When time is up the screen locks, and only your PIN opens it.',
     'hero.explore': 'Explore', 'hero.foot': 'FMJ Apps · Simple, reliable games and apps', 'hero.down': 'Scroll down ↓',
     'status.soon2': 'In Google Play review',
+    'slogan.games': 'Games that keep you company every day.',
+    'slogan.apps': 'Apps you can rely on every day.',
+    'android.only': 'Android only · Google Play',
+    'android.note': 'Android only for now, on Google Play. No iOS version.',
     'ph.pick': 'Pick a topic first', 'ph.msg': 'Type your message…', 'ph.name': 'Your name', 'ph.mail': 'Your email',
     'chat.hello': 'Hi! What are you writing about?',
     'chat.askMsg': 'Go ahead, we’re listening.',
@@ -229,7 +233,7 @@
         navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['oyunlar', 'uygulamalar', 'ilkeler', 'iletisim'].forEach(function (id) { secObs.observe(document.getElementById(id)); });
+    [].forEach(function (id) { secObs.observe(document.getElementById(id)); });
   }
 
   /* ---------- Kaydırınca belirme ---------- */
@@ -467,6 +471,174 @@
       }).observe(stage);
     }
     requestAnimationFrame(frame);
+  })();
+
+  /* ---------- Reels gibi sayfa geçişi ---------- */
+  var goToPage = function () {};
+  (function () {
+    var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+    if (!pages.length) return;
+    var pager = document.getElementById('pager');
+    var modal = document.getElementById('joinModal');
+    var navLinks = document.querySelectorAll('.links a');
+    var cur = 0, anim = null, lockUntil = 0;
+
+    function top(el) { return el.getBoundingClientRect().top + window.scrollY; }
+    function label(p) {
+      var k = p.getAttribute('data-page');
+      if (k === 'hero') return root.getAttribute('data-lang') === 'en' ? 'Home' : 'Giriş';
+      var h = p.querySelector('.ap-body h3, .sec-head h2, .contact-head h2');
+      return h ? h.textContent.trim().split(':')[0] : k;
+    }
+    function buildPager() {
+      pager.innerHTML = '';
+      pages.forEach(function (p, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', label(p));
+        b.innerHTML = '<span>' + label(p) + '</span>';
+        var acc = p.style.getPropertyValue('--acc');
+        if (acc) b.style.setProperty('--pager-acc', acc);
+        b.addEventListener('click', function () { goTo(i); });
+        pager.appendChild(b);
+      });
+      mark();
+    }
+    function mark() {
+      Array.prototype.forEach.call(pager.children, function (b, i) { b.classList.toggle('on', i === cur); });
+      pages[cur].classList.add('in');
+      var p = pages[cur], g = p.getAttribute('data-group'), id = p.id;
+      var target = g === 'games' ? '#oyunlar' : g === 'apps' ? '#uygulamalar' : id ? '#' + id : '';
+      navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === target); });
+    }
+    // Şu an ekranın üstüne en yakın sayfa
+    function nearest() {
+      var best = 0, bd = Infinity;
+      pages.forEach(function (p, i) {
+        var r = p.getBoundingClientRect();
+        var d = r.top <= 1 && r.bottom > innerHeight * 0.5 ? 0 : Math.abs(r.top);
+        if (d < bd) { bd = d; best = i; }
+      });
+      return best;
+    }
+    function tween(to) {
+      cancelAnimationFrame(anim);
+      var from = window.scrollY, dist = to - from, t0 = performance.now(), dur = 720;
+      if (Math.abs(dist) < 2) { lockUntil = performance.now() + 300; return; }
+      document.documentElement.style.scrollBehavior = 'auto';
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / dur);
+        var e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+        window.scrollTo(0, from + dist * e);
+        if (k < 1) anim = requestAnimationFrame(step);
+        else { anim = null; lockUntil = performance.now() + 420; document.documentElement.style.scrollBehavior = ''; }
+      })(t0);
+    }
+    function goTo(i, dir) {
+      i = Math.max(0, Math.min(pages.length - 1, i));
+      var p = pages[i];
+      // Yukarı dönerken uzun sayfanın altına gelinir
+      var y = top(p);
+      if (dir < 0 && p.offsetHeight > innerHeight + 4) y = y + p.offsetHeight - innerHeight;
+      cur = i;
+      mark();
+      tween(y);
+    }
+    goToPage = goTo;
+    function busy() { return anim !== null || performance.now() < lockUntil; }
+    // Sayfa ekrana sığmıyorsa önce kendi içinde kayar
+    function nativeFirst(dir) {
+      var r = pages[cur].getBoundingClientRect();
+      // Sayfa ekrandan az biraz uzunsa (80 pikselden az) iç kaydırma yapılmaz
+      if (pages[cur].offsetHeight - innerHeight < 80) return dir > 0 && cur === pages.length - 1;
+      if (dir > 0 && r.bottom > innerHeight + 2) return true;
+      if (dir < 0 && r.top < -2) return true;
+      if (dir > 0 && cur === pages.length - 1) return true; // alttaki bilgi alanı
+      return false;
+    }
+    function scrollableInside(target, dir) {
+      var el = target.closest && target.closest('.msgs, .modal-card, textarea');
+      if (!el) return false;
+      if (dir > 0) return el.scrollTop + el.clientHeight < el.scrollHeight - 1;
+      return el.scrollTop > 0;
+    }
+
+    window.addEventListener('scroll', function () { if (!anim) { var n = nearest(); if (n !== cur) { cur = n; mark(); } } }, { passive: true });
+
+    window.addEventListener('wheel', function (e) {
+      if (e.ctrlKey || !modal.hidden) return;
+      var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
+      if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      if (scrollableInside(e.target, dir)) return;
+      if (anim) { e.preventDefault(); return; }
+      if (nativeFirst(dir)) return;
+      e.preventDefault();
+      if (busy() || Math.abs(e.deltaY) < 3) return;
+      goTo(cur + dir, dir);
+    }, { passive: false });
+
+    var ty = null, tx = 0, tMode = null;
+    window.addEventListener('touchstart', function (e) {
+      if (!modal.hidden || e.touches.length > 1) { ty = null; return; }
+      ty = e.touches[0].clientY; tx = e.touches[0].clientX; tMode = null;
+    }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (ty === null) return;
+      var dy = ty - e.touches[0].clientY, dx = tx - e.touches[0].clientX;
+      if (tMode === null) {
+        if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+        var dir = dy > 0 ? 1 : -1;
+        if (Math.abs(dx) > Math.abs(dy) || scrollableInside(e.target, dir) || nativeFirst(dir)) tMode = 'native';
+        else tMode = 'page';
+      }
+      if (tMode === 'page') e.preventDefault();
+    }, { passive: false });
+    window.addEventListener('touchend', function (e) {
+      if (ty === null) return;
+      var dy = ty - e.changedTouches[0].clientY;
+      if (tMode === 'page' && Math.abs(dy) > 28 && !busy()) goTo(cur + (dy > 0 ? 1 : -1), dy > 0 ? 1 : -1);
+      ty = null;
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey) return;
+      var t = e.target;
+      if (t.closest && t.closest('input, textarea, select, [contenteditable], .sc-stage, .screen, .sc-tabs')) return;
+      var dir = 0;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) dir = 1;
+      else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) dir = -1;
+      else if (e.key === 'Home') { e.preventDefault(); goTo(0); return; }
+      else if (e.key === 'End') { e.preventDefault(); goTo(pages.length - 1); return; }
+      if (!dir || nativeFirst(dir)) return;
+      e.preventDefault();
+      if (!busy()) goTo(cur + dir, dir);
+    });
+
+    // #kayip, #oyunlar, #iletisim gibi bağlantılar ilgili sayfaya kayar
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented) return;
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      var el = id === 'top' ? pages[0] : document.getElementById(id);
+      var p = el && el.closest('.page');
+      if (!p) return;
+      if (a.closest('.sc-card') && !a.classList.contains('front')) return;
+      e.preventDefault();
+      goTo(pages.indexOf(p));
+      try { history.replaceState(null, '', id === 'top' ? location.pathname : '#' + id); } catch (err) {}
+    });
+
+    buildPager();
+    document.getElementById('langBtn').addEventListener('click', function () { setTimeout(buildPager, 0); });
+    var start = location.hash.slice(1);
+    var el = start && document.getElementById(start);
+    if (el && el.closest('.page')) {
+      window.addEventListener('load', function () {
+        var p = el.closest('.page');
+        setTimeout(function () { window.scrollTo(0, top(p)); cur = pages.indexOf(p); mark(); }, 0);
+      });
+    }
   })();
 
   /* ---------- Ekran görüntüsü kaydırıcıları ---------- */

@@ -936,3 +936,220 @@ section { position: relative; }
 @media (max-width: 520px) {
   .hero.sh { min-height: 100vh; min-height: 100svh; justify-content: center; padding-block: 72px 20px; }
 }
+
+/* =========================================================
+   Yapımlar: seçicili tek bölüm
+   ========================================================= */
+.works {
+  position: relative; padding-block: 100px 70px;
+  background: radial-gradient(900px 480px at 80% 0%, color-mix(in srgb, var(--brand) 12%, transparent), transparent 70%), var(--bg-2);
+  border-block: 1px solid var(--line);
+}
+.works .anchor { position: absolute; top: 0; }
+@media (max-width: 760px) { .works { padding-block: 72px 40px; } }
+.works-head { text-align: center; }
+.works-head h2 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.1; margin-top: 10px; }
+.switcher { display: flex; justify-content: center; gap: 28px; margin-top: 30px; flex-wrap: wrap; }
+.w-group { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.w-label { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.w-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.w-tab {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px 7px 7px; border-radius: 99px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line-2); color: var(--dim); font: 600 14.5px 'Inter', sans-serif;
+  transition: color .2s, border-color .25s, background-color .25s, transform .25s var(--ease), box-shadow .25s;
+}
+.w-tab img { width: 34px; height: 34px; border-radius: 10px; transition: transform .3s var(--ease); }
+.w-tab:hover { color: var(--text); transform: translateY(-2px); }
+.w-tab:hover img { transform: rotate(-6deg) scale(1.06); }
+.w-tab.on { color: var(--text); border-color: var(--tab-acc, var(--brand)); background: color-mix(in srgb, var(--tab-acc, var(--brand)) 14%, var(--surface)); box-shadow: 0 10px 26px -14px var(--tab-acc, var(--brand)); }
+@media (max-width: 520px) {
+  .switcher { gap: 16px; margin-top: 22px; }
+  .w-tab { padding: 5px 12px 5px 5px; font-size: 13px; gap: 8px; }
+  .w-tab img { width: 28px; height: 28px; border-radius: 8px; }
+}
+.panes { display: grid; margin-top: 20px; }
+.pane {
+  grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(18px);
+  transition: opacity .45s var(--ease), transform .45s var(--ease), visibility 0s .45s;
+}
+.pane.active { opacity: 1; visibility: visible; transform: none; transition: opacity .5s var(--ease) .05s, transform .5s var(--ease) .05s, visibility 0s; }
+.pane.product + .product { border-top: 0; }
+.works .product { padding-block: 40px 20px; }
+.works .product.flip .p-copy { order: 0; }
+.works .phone { width: min(236px, 62vw); }
+.works .p-media { padding: 0; gap: 12px; }
+.works .product { padding-block: 28px 0; gap: 48px; }
+.works-head h2 { margin-top: 6px; }
+@media (max-width: 900px) { .works .product { gap: 28px; } }
+@media (max-width: 520px) {
+  .switcher { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; gap: 14px; margin-inline: -16px; padding: 2px 16px 8px; scrollbar-width: none; scroll-snap-type: x proximity; }
+  .switcher::-webkit-scrollbar { display: none; }
+  .w-group { align-items: flex-start; flex: none; }
+  .w-row { flex-wrap: nowrap; }
+  .w-tab { scroll-snap-align: start; white-space: nowrap; }
+}
+.pane { align-self: start; }
+
+/* =========================================================
+   Reels gibi tam ekran sayfalar
+   ========================================================= */
+.page { min-height: 100vh; min-height: 100svh; }
+.app-page {
+  position: relative; display: flex; align-items: center; overflow: hidden;
+  padding-block: 92px 44px;
+  background:
+    radial-gradient(55% 70% at 78% 50%, color-mix(in srgb, var(--acc) 26%, transparent), transparent 70%),
+    radial-gradient(40% 50% at 0% 100%, color-mix(in srgb, var(--acc) 10%, transparent), transparent 70%),
+    var(--bg);
+  border-top: 1px solid var(--line);
+}
+.app-page > .wrap { width: 100%; }
+.app-page .anchor, .works .anchor { position: absolute; top: 0; }
+.ap-label { display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+.ap-label::before { content: ""; width: 26px; height: 2px; border-radius: 2px; background: var(--acc); }
+.ap-label b { color: var(--acc); font-weight: 700; letter-spacing: .08em; }
+:root[data-theme="light"] .ap-label b { color: color-mix(in srgb, var(--acc) 60%, #000); }
+.ap-body.product { padding-block: 26px 0; grid-template-columns: 1.05fr .95fr; gap: 64px; border: 0; }
+.ap-body .p-media { padding: 0; }
+.ap-body .phone { width: min(262px, 64vw); }
+.ap-body h3 { font-size: clamp(28px, 3.4vw, 44px); }
+
+/* Sayfa gelince içerik kademeli belirir */
+.js .app-page .p-id, .js .app-page .p-desc, .js .app-page .feats, .js .app-page .p-actions, .js .app-page .p-media, .js .app-page .ap-label {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.js .app-page.in .ap-label { transition-delay: 0s; }
+.js .app-page.in .p-id { transition-delay: .08s; }
+.js .app-page.in .p-desc { transition-delay: .16s; }
+.js .app-page.in .feats { transition-delay: .24s; }
+.js .app-page.in .p-actions { transition-delay: .32s; }
+.js .app-page.in .p-media { transition-delay: .12s; }
+.js .app-page.in .p-id, .js .app-page.in .p-desc, .js .app-page.in .feats, .js .app-page.in .p-actions, .js .app-page.in .p-media, .js .app-page.in .ap-label { opacity: 1; transform: none; }
+
+.values.page, .contact.page { display: flex; flex-direction: column; justify-content: center; }
+.values.page > .wrap, .contact.page > .wrap { width: 100%; }
+.contact.page { padding-block: 96px 48px; }
+.contact.page .msgs { max-height: min(460px, 42vh); }
+
+@media (max-width: 900px) {
+  .ap-body.product { grid-template-columns: 1fr; gap: 18px; padding-top: 16px; }
+  .ap-body .p-media { order: -1; gap: 8px; }
+  .ap-body .phone { width: min(170px, 44vw); padding: 7px; border-radius: 28px; }
+  .ap-body .phone .screen { border-radius: 22px; }
+  .ap-body .p-id { gap: 12px; }
+  .ap-body .p-icon { width: 52px; height: 52px; border-radius: 15px; }
+  .ap-body h3 { font-size: 24px; }
+  .ap-body .p-desc { font-size: 15px; margin-top: 12px; }
+  .ap-body .feats { margin-top: 12px; gap: 6px; }
+  .ap-body .feats li { font-size: 12.5px; padding: 5px 10px 5px 8px; }
+  .ap-body .p-actions { margin-top: 16px; }
+  .app-page { padding-block: 76px 24px; align-items: flex-start; }
+}
+
+/* Sağ kenarda sayfa noktaları */
+.pager { position: fixed; top: 50%; right: 22px; transform: translateY(-50%); z-index: 45; display: flex; flex-direction: column; gap: 10px; }
+.pager button {
+  position: relative; width: 10px; height: 10px; padding: 0; border: 0; border-radius: 99px; cursor: pointer;
+  background: color-mix(in srgb, var(--text) 28%, transparent); transition: height .35s var(--ease), background-color .35s;
+}
+.pager button::after { content: ""; position: absolute; inset: -6px -8px; }
+.pager button.on { height: 28px; background: var(--pager-acc, var(--brand-2)); }
+.pager button span {
+  position: absolute; right: 22px; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; pointer-events: none;
+  font: 600 12.5px 'Inter', sans-serif; color: var(--text); background: var(--surface); border: 1px solid var(--line-2);
+  padding: 5px 10px; border-radius: 8px; opacity: 0; transition: opacity .2s, transform .2s var(--ease);
+}
+.pager button:hover span, .pager button:focus-visible span { opacity: 1; transform: translateY(-50%); }
+@media (max-width: 760px) { .pager { right: 8px; gap: 7px; } .pager button { width: 6px; height: 6px; } .pager button.on { height: 18px; } .pager button span { display: none; } }
+@media (max-width: 900px) {
+  .ap-body .phone { width: min(134px, 36vw); padding: 6px; border-radius: 24px; }
+  .ap-body .phone .screen { border-radius: 19px; }
+  .ap-body .p-desc { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .ap-body .feats { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 2px 16px 4px; scrollbar-width: none; }
+  .ap-body .feats::-webkit-scrollbar { display: none; }
+  .ap-body .feats li { flex: none; white-space: nowrap; }
+  .ap-body .p-actions { gap: 10px 14px; }
+  .ap-label { font-size: 11.5px; }
+}
+@media (max-width: 900px) {
+  .ap-body.product { grid-template-columns: minmax(0, 1fr); }
+  .ap-body .p-copy, .ap-body .p-media { min-width: 0; }
+}
+@media (max-width: 560px) {
+  .values.page { padding-block: 84px 28px; }
+  .values .sec-head { margin-bottom: 22px; }
+  .value-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .value { padding: 16px 14px; border-radius: 18px; }
+  .value svg { width: 36px; height: 36px; padding: 8px; border-radius: 11px; }
+  .value h3 { font-size: 15px; margin-top: 12px; }
+  .value p { font-size: 12.5px; line-height: 1.5; }
+}
+
+/* Alçak ekranlarda sayfalar tek ekrana sığsın */
+@media (min-width: 901px) and (max-height: 860px) {
+  .hero.sh { padding-block: 80px 16px; }
+  .sh .sc-stage { --cw: 200px; --r: 200px; height: 470px; }
+  .sh .sc-ring { top: 14px; }
+  .sh-name { font-size: clamp(42px, 5.6vw, 80px); }
+  .sh-info { min-height: 320px; }
+  .app-page { padding-block: 78px 24px; }
+  .ap-body.product { padding-top: 14px; }
+  .ap-body .phone { width: min(222px, 60vw); }
+  .contact.page { padding-block: 80px 24px; }
+  .contact-head { margin-bottom: 20px; }
+  .contact.page .msgs { min-height: 180px; max-height: 32vh; }
+  .values.page .sec-head { margin-bottom: 26px; }
+}
+
+/* Grup sloganı: oyunların ve uygulamaların ilk sayfası */
+.ap-slogan {
+  font: 800 clamp(28px, 3.6vw, 52px)/1.06 'Sora', sans-serif; letter-spacing: -.04em; margin: 0 0 22px; max-width: 24ch;
+  background: linear-gradient(95deg, var(--text) 30%, var(--acc)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+:root[data-theme="light"] .ap-slogan { background: linear-gradient(95deg, var(--text) 30%, color-mix(in srgb, var(--acc) 65%, #000)); -webkit-background-clip: text; background-clip: text; }
+.js .app-page .ap-slogan { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.js .app-page.in .ap-slogan { opacity: 1; transform: none; }
+.js .app-page.in .ap-label { transition-delay: .1s; }
+
+/* Yalnızca Android rozeti */
+.android-pill {
+  display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px 6px 9px; border-radius: 99px;
+  border: 1px solid var(--line-2); background: color-mix(in srgb, var(--surface) 60%, transparent); color: var(--dim); font-size: 13px; font-weight: 500;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.android-pill svg { width: 16px; height: 16px; fill: #3DDC84; }
+.sh-foot { align-items: center; }
+.sh-foot .sh-slogan { margin-inline-start: 14px; margin-inline-end: auto; }
+@media (max-width: 760px) { .sh-foot .sh-slogan { display: none; } }
+@media (max-width: 520px) {
+  .sh-foot, .sh-foot[class] { display: flex; justify-content: center; margin-top: 6px; }
+  .sh-foot .android-pill, .sh-foot .android-pill span { display: inline-flex; }
+  .sh-down { display: none; }
+}
+
+/* Telefonda uygulama sayfasının alt kısmı düzenli */
+@media (max-width: 900px) {
+  .ap-slogan { font-size: clamp(22px, 6.4vw, 30px); margin-bottom: 12px; max-width: none; }
+  .ap-body .feats { flex-wrap: wrap; overflow: visible; margin-inline: 0; padding: 0; }
+  .ap-body .feats li { font-size: 12px; padding: 4px 9px 4px 7px; }
+  .ap-body .p-actions { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin-top: 14px; }
+  .ap-body .p-actions .status { grid-column: 1; grid-row: 1; }
+  .ap-body .p-actions a[href^="/privacy"] { grid-column: 2; grid-row: 1; justify-self: end; }
+  .ap-body .p-actions .btn, .ap-body .p-actions a[data-subject] { grid-row: 2; }
+  .ap-body .p-actions .btn { grid-column: 1; height: 44px; justify-content: center; }
+  .ap-body .p-actions a[data-subject] {
+    grid-column: 2; display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 16px; border-radius: 11px;
+    border: 1px solid var(--line-2); text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px;
+  }
+}
+@media (max-width: 900px) { .ap-body .p-actions:not(:has(.btn)) a[data-subject] { grid-column: 1 / -1; } }
+@media (max-width: 900px) {
+  .ap-body .p-actions:has(.btn) a[data-subject] { grid-column: 2; }
+  .ap-body .phone { width: min(116px, 32vw); padding: 5px; border-radius: 20px; }
+  .ap-body .phone .screen { border-radius: 16px; }
+  .ap-body .p-desc { -webkit-line-clamp: 3; }
+  .ap-body .feats li { font-size: 11.5px; }
+  .ap-body .p-id h3 { font-size: 22px; }
+}
+@media (min-width: 901px) { .ap-slogan { max-width: none; font-size: clamp(26px, 3vw, 44px); white-space: nowrap; } }
