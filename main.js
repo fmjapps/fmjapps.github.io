@@ -86,7 +86,7 @@
     'hero.explore': 'Explore', 'hero.foot': 'FMJ Apps · Simple, reliable games and apps', 'hero.down': 'Scroll down ↓',
     'status.soon2': 'In Google Play review',
     'slogan.games': 'Games that keep you company every day.',
-    'slogan.apps': 'Apps you can rely on every day.',
+    'slogan.apps': 'Apps you can rely on any time.',
     'android.only': 'Android only · Google Play',
     'android.note': 'Android only for now, on Google Play. No iOS version.',
     'ph.pick': 'Pick a topic first', 'ph.msg': 'Type your message…', 'ph.name': 'Your name', 'ph.mail': 'Your email',
