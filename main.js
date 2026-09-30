@@ -4,6 +4,7 @@
 
   var root = document.documentElement;
   root.classList.add('js');
+  // Hareketi azalt açıksa yalnız büyük hareketler (paralaks, eğilme) kapanır; halka yavaş döner
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -25,7 +26,7 @@
   var EN = {
     'skip': 'Skip to content',
     'nav.games': 'Games', 'nav.apps': 'Apps', 'nav.values': 'Principles', 'nav.contact': 'Contact',
-    'theme': 'Toggle theme', 'shots': 'Screenshots', 'close': 'Close', 'sc.prev': 'Previous', 'sc.next': 'Next',
+    'theme': 'Toggle theme', 'shots': 'Screenshots', 'close': 'Close', 'sc.prev': 'Previous', 'sc.next': 'Next', 'sc.drag': 'Drag to spin',
     'hero.eyebrow': 'Simple, reliable mobile apps',
     'hero.title': 'Games that fit a short break, <span class="grad">apps that just work.</span>',
     'hero.lede': "FMJ Apps builds games and apps for everyday life. None of them ask you to sign up, and your settings and progress stay on your phone. A five-minute shift, the daily puzzle or a poem to learn by heart: each one does what you opened it for.",
@@ -124,6 +125,7 @@
     document.title = META[lang].title;
     document.querySelector('meta[name=description]').content = META[lang].desc;
     splitWords();
+    if (typeof rebuildShowcase === 'function') rebuildShowcase();
   }
   applyLang(root.getAttribute('data-lang') === 'en' ? 'en' : 'tr');
 
@@ -187,7 +189,7 @@
     var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains('reveal'); });
     el.style.setProperty('--d', (sibs.indexOf(el) * 0.08) + 's');
   });
-  if ('IntersectionObserver' in window && !reduced) {
+  if ('IntersectionObserver' in window) {
     var revObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); }
@@ -201,7 +203,7 @@
   /* ---------- Sayaçlar ---------- */
   document.querySelectorAll('.stats dt').forEach(function (dt) {
     var end = parseInt(dt.textContent, 10);
-    if (reduced || !end) return;
+    if (!end) return;
     dt.textContent = '0';
     setTimeout(function () {
       var start = performance.now();
@@ -213,31 +215,26 @@
     }, 500);
   });
 
-  /* ---------- Vitrin: oyunlar / uygulamalar ---------- */
+  /* ---------- Vitrin: sürekli dönen 3D halka ---------- */
+  var rebuildShowcase = function () {};
   (function () {
     var sc = document.getElementById('showcase');
     if (!sc) return;
     var stage = document.getElementById('scStage');
+    var ring = document.getElementById('scRing');
     var dotsWrap = document.getElementById('scDots');
+    var caps = sc.querySelectorAll('.sc-cap');
     var tabs = sc.querySelectorAll('.sc-tab');
-    var all = Array.prototype.slice.call(stage.querySelectorAll('.sc-card'));
-    var set = 'games', list = [], idx = 0, timer = null, paused = false;
+    var originals = Array.prototype.slice.call(ring.querySelectorAll('.sc-card'));
+    originals.forEach(function (c) { c.remove(); });
 
-    function render() {
-      var n = list.length;
-      all.forEach(function (c) { c.classList.remove('p0', 'pl', 'pr'); c.tabIndex = -1; });
-      list.forEach(function (c, i) {
-        var d = (i - idx + n) % n;
-        if (d === 0) { c.classList.add('p0'); c.tabIndex = 0; }
-        else if (d === 1) c.classList.add('pr');
-        else if (d === n - 1) c.classList.add('pl');
-      });
-      var acc = list[idx].style.getPropertyValue('--acc');
-      stage.style.setProperty('--acc', acc);
-      sc.style.setProperty('--acc-now', acc);
-      Array.prototype.forEach.call(dotsWrap.children, function (b, i) { b.classList.toggle('on', i === idx); });
-    }
-    function build(newSet, first) {
+    var SLOTS = 6, STEP = 360 / SLOTS, SPEED = 9; // derece/saniye
+    var set = 'games', apps = [], cards = [];
+    var angle = 0, vel = 0, target = null, hover = false, drag = null, visible = true, front = -1;
+
+    function norm(a) { a = ((a + 180) % 360 + 360) % 360 - 180; return a; }
+
+    function build(newSet, animate) {
       set = newSet;
       sc.setAttribute('data-set', set);
       tabs.forEach(function (tb) {
@@ -245,63 +242,163 @@
         tb.classList.toggle('on', on);
         tb.setAttribute('aria-selected', on);
       });
-      var old = list;
-      list = all.filter(function (c) { return c.getAttribute('data-set') === set; });
-      idx = 0;
-      dotsWrap.innerHTML = '';
-      list.forEach(function (_, i) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.setAttribute('aria-label', String(i + 1));
-        b.addEventListener('click', function () { go(i, true); });
-        dotsWrap.appendChild(b);
+      var fill = function () {
+        ring.innerHTML = '';
+        apps = originals.filter(function (c) { return c.getAttribute('data-set') === set; });
+        cards = [];
+        // Halka dolu görünsün diye uygulamalar tekrarlanır (3 → 6, 2 → 6)
+        for (var i = 0; i < SLOTS; i++) {
+          var src = apps[i % apps.length];
+          var c = src.cloneNode(true);
+          c._app = i % apps.length;
+          c.style.setProperty('--a', (i * STEP) + 'deg');
+          ring.appendChild(c);
+          cards.push(c);
+        }
+        dotsWrap.innerHTML = '';
+        apps.forEach(function (a, i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', String(i + 1));
+          b.addEventListener('click', function () { spinTo(i); });
+          dotsWrap.appendChild(b);
+        });
+        angle = 0; vel = 0; target = null; front = -1;
+        paint();
+      };
+      if (animate) {
+        ring.classList.add('swap');
+        setTimeout(function () { fill(); ring.classList.remove('swap'); }, 330);
+      } else fill();
+    }
+    rebuildShowcase = function () { build(set, false); };
+
+    // Önde en yakın kartı bulup parlaklık, ad kutusu ve renkleri günceller
+    function paint() {
+      ring.style.transform = 'translateZ(calc(var(--r) * -1)) rotateY(' + angle.toFixed(2) + 'deg)';
+      var best = 999, bi = 0;
+      cards.forEach(function (c, i) {
+        var a = norm(i * STEP + angle);
+        var k = Math.cos(a * Math.PI / 180); // 1 önde, -1 arkada
+        c.style.setProperty('--lit', (0.28 + 0.72 * Math.max(0, k)).toFixed(3));
+        c.style.setProperty('--sat', (0.5 + 0.5 * Math.max(0, k)).toFixed(3));
+        if (Math.abs(a) < best) { best = Math.abs(a); bi = i; }
       });
-      if (first || reduced) { all.forEach(function (c) { c.classList.remove('out'); }); render(); return; }
-      old.forEach(function (c) { c.classList.remove('p0', 'pl', 'pr'); c.classList.add('out'); });
-      setTimeout(function () { old.forEach(function (c) { c.classList.remove('out'); }); render(); }, 260);
+      if (bi !== front) {
+        front = bi;
+        cards.forEach(function (c, i) { c.classList.toggle('front', i === bi); c.tabIndex = i === bi ? 0 : -1; });
+        var app = cards[bi]._app, card = cards[bi];
+        var id = card.getAttribute('href').slice(1);
+        caps.forEach(function (cp) { cp.classList.toggle('on', cp.getAttribute('data-app') === id); });
+        Array.prototype.forEach.call(dotsWrap.children, function (b, i) { b.classList.toggle('on', i === app); });
+        var acc = card.style.getPropertyValue('--acc');
+        stage.style.setProperty('--acc', acc);
+        sc.style.setProperty('--acc-now', acc);
+      }
     }
-    function go(i, user) {
-      idx = (i + list.length) % list.length;
-      render();
-      if (user) restart();
+
+    // i. uygulamayı en kısa yoldan öne getirir
+    function spinTo(appIdx) {
+      var bestA = null;
+      cards.forEach(function (c, i) {
+        if (c._app !== appIdx) return;
+        var d = norm(-(i * STEP) - angle);
+        if (bestA === null || Math.abs(d) < Math.abs(bestA)) bestA = d;
+      });
+      target = angle + bestA;
+      vel = 0;
     }
-    function restart() {
-      clearInterval(timer);
-      if (!reduced) timer = setInterval(function () { if (!paused && !document.hidden) go(idx + 1); }, 3800);
+    function step(dir) {
+      var snapped = Math.round(angle / STEP) * STEP;
+      target = snapped - dir * STEP;
+      vel = 0;
     }
+
+    var last = performance.now();
+    function frame(now) {
+      var dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (!drag) {
+        if (target !== null) {
+          var d = target - angle;
+          angle += d * Math.min(1, dt * 7);
+          if (Math.abs(d) < 0.05) { angle = target; target = null; }
+        } else if (Math.abs(vel) > 0.5) {
+          angle += vel * dt;
+          vel *= Math.pow(0.04, dt); // savrulma yavaşça söner
+        } else if (!hover) {
+          angle -= (reduced ? SPEED * 0.6 : SPEED) * dt;
+        }
+      }
+      paint();
+      if (visible) requestAnimationFrame(frame);
+    }
+
+    // Fareyle ya da parmakla sürükleme
+    stage.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      drag = { x: e.clientX, a: angle, t: performance.now(), moved: false, lastX: e.clientX, lastT: performance.now() };
+      target = null; vel = 0;
+      drag.id = e.pointerId;
+    });
+    stage.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) > 4) {
+        // Gerçek sürükleme başladıysa imleci yakala; basit tıklama bağlantıya gider
+        drag.moved = true;
+        stage.setPointerCapture(drag.id);
+        stage.classList.add('dragging');
+      }
+      if (!drag.moved) return;
+      angle = drag.a + dx * 0.32;
+      var now = performance.now();
+      if (now - drag.lastT > 0) vel = (e.clientX - drag.lastX) * 0.32 / ((now - drag.lastT) / 1000);
+      drag.lastX = e.clientX; drag.lastT = now;
+    });
+    function endDrag(e) {
+      if (!drag) return;
+      var moved = drag.moved;
+      drag = null;
+      stage.classList.remove('dragging');
+      vel = Math.max(-400, Math.min(400, vel));
+      if (!moved) vel = 0;
+      stage._moved = moved;
+    }
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+    // Sürüklemeden tıklandıysa: öndeki karta basınca bölümüne gider, yandakine basınca öne gelir
+    ring.addEventListener('click', function (e) {
+      var c = e.target.closest('.sc-card');
+      if (!c) return;
+      if (stage._moved) { e.preventDefault(); stage._moved = false; return; }
+      if (!c.classList.contains('front')) { e.preventDefault(); spinTo(c._app); }
+    });
+    stage.addEventListener('mouseenter', function () { hover = true; });
+    stage.addEventListener('mouseleave', function () { hover = false; });
 
     tabs.forEach(function (tb) {
       tb.addEventListener('click', function () {
-        if (tb.getAttribute('data-set') !== set) { build(tb.getAttribute('data-set')); restart(); }
+        if (tb.getAttribute('data-set') !== set) build(tb.getAttribute('data-set'), true);
       });
     });
     sc.querySelectorAll('.sc-arrow').forEach(function (b) {
-      b.addEventListener('click', function () { go(idx + parseInt(b.getAttribute('data-dir'), 10), true); });
+      b.addEventListener('click', function () { step(parseInt(b.getAttribute('data-dir'), 10)); });
     });
-    // Yandaki karta tıklayınca öne gelir; öndekine tıklayınca bölümüne gider
-    all.forEach(function (c) {
-      c.addEventListener('click', function (e) {
-        if (!c.classList.contains('p0')) { e.preventDefault(); go(list.indexOf(c), true); }
-      });
-    });
-    // Parmakla kaydırma
-    var sx = null;
-    stage.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
-    stage.addEventListener('touchend', function (e) {
-      if (sx === null) return;
-      var dx = e.changedTouches[0].clientX - sx;
-      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1), true);
-      sx = null;
-    });
-    sc.addEventListener('mouseenter', function () { paused = true; });
-    sc.addEventListener('mouseleave', function () { paused = false; });
     sc.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') go(idx + 1, true);
-      if (e.key === 'ArrowLeft') go(idx - 1, true);
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
     });
 
-    build('games', true);
-    restart();
+    build('games', false);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        var was = visible;
+        visible = en[0].isIntersecting;
+        if (visible && !was) { last = performance.now(); requestAnimationFrame(frame); }
+      }).observe(stage);
+    }
+    requestAnimationFrame(frame);
   })();
 
   /* ---------- Ekran görüntüsü kaydırıcıları ---------- */
@@ -350,7 +447,7 @@
 
     // Görünürken kendiliğinden ilerler; kullanıcı dokununca durur
     function tick() { if (visible && !userTouched && !document.hidden) go(index + 1); }
-    if (!reduced && 'IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         visible = entries[0].isIntersecting;
         if (visible && !timer) timer = setInterval(tick, 3200);
