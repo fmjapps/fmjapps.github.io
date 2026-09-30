@@ -1,111 +1,363 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FMJ Apps</title>
-<meta name="description" content="FMJ Apps — Android oyunları ve uygulamaları. Android games and apps.">
+<title>FMJ Apps · Android oyunları ve uygulamaları</title>
+<meta name="description" content="FMJ Apps: Kayıp Eşya Bürosu, Koleksiyoncu ve Prizma oyunları; Ezber ve Paydos uygulamaları. Hesap istemeyen, sade ve özenli Android yapımları.">
+<meta name="theme-color" content="#070B17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Apps">
+<meta property="og:title" content="FMJ Apps">
+<meta property="og:description" content="Kısa molalara sığan oyunlar, işini gören uygulamalar. Android için.">
+<meta property="og:url" content="https://fmjapps.github.io/">
+<link rel="canonical" href="https://fmjapps.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0A0D18;
-    --surface:#12162B;
-    --rule:#232A47;
-    --text:#EDEFF7;
-    --text-dim:#9AA2C4;
-    --gold:#FFC94B;
-    --blue:#6FA8FF;
-    --green:#5FE0A6;
-    --red:#FF6E6E;
-    color-scheme:dark;
-  }
-  *{box-sizing:border-box;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    margin:0;
-    padding:0 20px;
-    padding-block:56px 80px;
-  }
-  .page{max-width:640px;margin:0 auto;}
-  .spectrum{
-    height:4px;width:96px;border-radius:2px;margin-bottom:20px;
-    background:linear-gradient(90deg, var(--red), var(--gold), var(--green), var(--blue));
-  }
-  h1{
-    font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(28px,5vw,36px);
-    line-height:1.15;letter-spacing:-0.01em;margin:0 0 6px;
-  }
-  p{color:var(--text-dim);font-size:16px;line-height:1.7;max-width:60ch;margin:14px 0 0;}
-  .apps{list-style:none;margin:34px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
-  .apps li{
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-    background:var(--surface);border:1px solid var(--rule);border-radius:14px;
-    padding:18px 20px;
-  }
-  .row{display:flex;flex-direction:column;gap:2px;}
-  .name{font-family:'Sora',sans-serif;font-weight:600;font-size:17px;}
-  .sub{font-size:13px;color:var(--text-dim);}
-  a{color:var(--blue);text-decoration-color:rgba(111,168,255,0.4);text-underline-offset:3px;}
-  a:hover{text-decoration-color:var(--blue);}
-  a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px;}
-  .apps a{font-size:13px;white-space:nowrap;}
-  footer{
-    margin-top:44px;padding-top:22px;border-top:1px solid var(--rule);
-    color:var(--text-dim);font-size:13px;line-height:1.8;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-theme'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    if (!l) l = /^tr/i.test(navigator.language || '') ? 'tr' : 'en';
+    d.className = 'js';
+    d.setAttribute('data-theme', t);
+    d.setAttribute('data-lang', l);
+  })();
+</script>
 </head>
 <body>
-<div class="page">
-  <div class="spectrum" aria-hidden="true"></div>
-  <h1>FMJ Apps</h1>
-  <p>Android için küçük oyunlar ve uygulamalar.<br>Small games and apps for Android.</p>
 
-  <ul class="apps">
-    <li>
-      <span class="row">
-        <span class="name">Koleksiyoncu: Sahte mi Gerçek mi?</span>
-        <span class="sub">The Collector: Real or Fake · Antika dükkânı çıkarım oyunu</span>
-      </span>
-      <a href="/privacy/collector/">Gizlilik · Privacy</a>
-    </li>
-    <li>
-      <span class="row">
-        <span class="name">Ezber: Replik, Sunum, Şiir</span>
-        <span class="sub">Replik, şiir ve sunum ezberleme</span>
-      </span>
-      <a href="/privacy/ezber/">Gizlilik · Privacy</a>
-    </li>
-    <li>
-      <span class="row">
-        <span class="name">Kayıp Eşya Bürosu</span>
-        <span class="sub">Gar kayıp eşya bürosu çıkarım oyunu</span>
-      </span>
-      <a href="/privacy/kayip/">Gizlilik · Privacy</a>
-    </li>
-    <li>
-      <span class="row">
-        <span class="name">Paydos</span>
-        <span class="sub">Çocuk ekran kilidi</span>
-      </span>
-      <a href="/privacy/paydos/">Gizlilik · Privacy</a>
-    </li>
-    <li>
-      <span class="row">
-        <span class="name">Prizma</span>
-        <span class="sub">Işın ve ayna bulmaca oyunu</span>
-      </span>
-      <a href="/privacy/prizma/">Gizlilik · Privacy</a>
-    </li>
-  </ul>
+<a class="skip" href="#oyunlar" data-i18n="skip">İçeriğe geç</a>
 
-  <footer>
-    İletişim · Contact: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
-  </footer>
-</div>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="FMJ Apps">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8CB8FF"/><stop offset="1" stop-color="#2E6BFF"/></linearGradient></defs>
+        <rect width="32" height="32" rx="9" fill="url(#mg)"/>
+        <path d="M9 23V9h8M9 16h6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="22.5" cy="20.5" r="3" fill="#fff"/>
+      </svg>
+      <span>FMJ Apps</span>
+    </a>
+    <nav class="links" aria-label="Bölümler">
+      <a href="#oyunlar" data-i18n="nav.games">Oyunlar</a>
+      <a href="#uygulamalar" data-i18n="nav.apps">Uygulamalar</a>
+      <a href="#ilkeler" data-i18n="nav.values">İlkeler</a>
+      <a href="#iletisim" data-i18n="nav.contact">İletişim</a>
+    </nav>
+    <div class="tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language"><span class="on-tr">EN</span><span class="on-en">TR</span></button>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="Temayı değiştir">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- GİRİŞ -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div></div>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow reveal" data-i18n="hero.eyebrow">Android için bağımsız stüdyo</p>
+        <h1 class="reveal" data-i18n-html="hero.title">Kısa molalara sığan oyunlar, <span class="grad">işini gören uygulamalar.</span></h1>
+        <p class="lede reveal" data-i18n="hero.lede">FMJ Apps'in yapımları hesap açmanı istemez, verini telefonunda bırakır, sade kalır. Beş dakikalık bir mesai, bir bulmaca ya da ezberlenecek bir şiir; ne için açtıysan onu yapar.</p>
+        <div class="cta reveal">
+          <a class="btn primary" href="#oyunlar" data-i18n="hero.ctaGames">Oyunları gör</a>
+          <a class="btn ghost" href="#uygulamalar" data-i18n="hero.ctaApps">Uygulamalar</a>
+        </div>
+        <dl class="stats reveal">
+          <div><dt>3</dt><dd data-i18n="stat.games">oyun</dd></div>
+          <div><dt>2</dt><dd data-i18n="stat.apps">uygulama</dd></div>
+          <div><dt>0</dt><dd data-i18n="stat.account">zorunlu hesap</dd></div>
+        </dl>
+      </div>
+      <div class="orbit reveal" id="orbit" aria-hidden="true">
+        <a class="orb o1" href="#kayip" tabindex="-1"><img src="assets/kayip-icon.webp" alt="" width="256" height="256"></a>
+        <a class="orb o2" href="#koleksiyoncu" tabindex="-1"><img src="assets/koleksiyoncu-icon.webp" alt="" width="256" height="256"></a>
+        <a class="orb o3" href="#prizma" tabindex="-1"><img src="assets/prizma-icon.webp" alt="" width="256" height="256"></a>
+        <a class="orb o4" href="#ezber" tabindex="-1"><img src="assets/ezber-icon.webp" alt="" width="256" height="256"></a>
+        <a class="orb o5" href="#paydos" tabindex="-1"><img src="assets/paydos-icon.webp" alt="" width="256" height="256"></a>
+        <div class="ring r1"></div><div class="ring r2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OYUNLAR -->
+  <section class="games" id="oyunlar">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="sec-num">01</span>
+        <h2 data-i18n="games.title">Oyunlar</h2>
+        <p data-i18n="games.lede">Şansa değil, dikkate dayanan oyunlar. Her ziyaretçinin, her sahtenin, her bulmacanın bulunabilir tek bir doğru cevabı var.</p>
+      </header>
+
+      <!-- Kayıp Eşya Bürosu -->
+      <article class="product" id="kayip" style="--acc:#9CC98F;--acc-2:#E9D9B4;--acc-ink:var(--kayip-ink);--ratio:540/1200">
+        <div class="p-copy reveal">
+          <div class="p-id">
+            <img class="p-icon" src="assets/kayip-icon.webp" alt="" width="256" height="256">
+            <div>
+              <h3 data-i18n="kayip.name">Kayıp Eşya Bürosu</h3>
+              <p class="p-tag" data-i18n="kayip.tag">Günlük çıkarım oyunu</p>
+            </div>
+          </div>
+          <p class="p-desc" data-i18n="kayip.desc">Merkez Gar'ın kayıp eşya bürosunda tezgâhın arkasındasın, tezgâhın üstünde de ofisin kedisi Pamuk. Her gün altı ziyaretçi gelir: kimi gerçekten valizini arıyor, kimi panodaki eşyaya göz koymuş bir sahtekâr. Tutanağa bak, üç soru sor, kararını ver.</p>
+          <ul class="feats">
+            <li data-i18n="kayip.f1">Her gün yeni bir mesai</li>
+            <li data-i18n="kayip.f2">Dünyada herkese aynı ziyaretçiler</li>
+            <li data-i18n="kayip.f3">Pamuk'un getirdiği hediyeler</li>
+            <li data-i18n="kayip.f4">İnternetsiz oynanır</li>
+          </ul>
+          <div class="p-actions">
+            <span class="status"><i></i><span data-i18n="status.test">Kapalı testte · Yakında Google Play'de</span></span>
+            <a class="btn small acc" href="https://groups.google.com/g/kayip-esya-testers" target="_blank" rel="noopener" data-i18n="kayip.join">Teste katıl</a>
+            <a class="link" href="/privacy/kayip/" data-i18n="privacy">Gizlilik</a>
+          </div>
+        </div>
+        <div class="p-media reveal">
+          <div class="phone" data-tilt>
+            <div class="screen shots" tabindex="0" data-i18n-aria="shots" aria-label="Ekran görüntüleri">
+              <img src="assets/kayip-1.webp" data-en="assets/kayip-1-en.webp" alt="" loading="lazy" width="540" height="1200">
+              <img src="assets/kayip-2.webp" data-en="assets/kayip-2-en.webp" alt="" loading="lazy" width="540" height="1200">
+              <img src="assets/kayip-3.webp" data-en="assets/kayip-3-en.webp" alt="" loading="lazy" width="540" height="1200">
+            </div>
+          </div>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- Koleksiyoncu -->
+      <article class="product flip" id="koleksiyoncu" style="--acc:#E2B75E;--acc-2:#8A5A2B;--acc-ink:var(--kol-ink);--ratio:540/960">
+        <div class="p-copy reveal">
+          <div class="p-id">
+            <img class="p-icon" src="assets/koleksiyoncu-icon.webp" alt="" width="256" height="256">
+            <div>
+              <h3 data-i18n="kol.name">Koleksiyoncu: Sahte mi Gerçek mi?</h3>
+              <p class="p-tag" data-i18n="kol.tag">Antika dükkânı dedektifliği</p>
+            </div>
+          </div>
+          <p class="p-desc" data-i18n="kol.desc">Dedenin antika dükkânı artık senin. Müşteriler cep saati, sikke ve tablo getiriyor; eşyayı çevir, büyüteci gezdir, kataloğu aç. Sahteyi yakala, pazarlık et ve on sekiz büyük ustanın eserlerini tek bir vitrinde topla.</p>
+          <ul class="feats">
+            <li data-i18n="kol.f1">Büyüteç, UV lamba, mihenk taşı</li>
+            <li data-i18n="kol.f2">Satıcılarla pazarlık</li>
+            <li data-i18n="kol.f3">18 ustalık koleksiyon</li>
+            <li data-i18n="kol.f4">8–10 dakikalık dükkân günleri</li>
+          </ul>
+          <div class="p-actions">
+            <span class="status"><i></i><span data-i18n="status.test">Kapalı testte · Yakında Google Play'de</span></span>
+            <a class="link" href="/privacy/collector/" data-i18n="privacy">Gizlilik</a>
+          </div>
+        </div>
+        <div class="p-media reveal">
+          <div class="phone" data-tilt>
+            <div class="screen shots" tabindex="0" data-i18n-aria="shots" aria-label="Ekran görüntüleri">
+              <img src="assets/koleksiyoncu-1.webp" data-en="assets/koleksiyoncu-1-en.webp" alt="" loading="lazy" width="540" height="960">
+              <img src="assets/koleksiyoncu-2.webp" data-en="assets/koleksiyoncu-2-en.webp" alt="" loading="lazy" width="540" height="960">
+              <img src="assets/koleksiyoncu-3.webp" data-en="assets/koleksiyoncu-3-en.webp" alt="" loading="lazy" width="540" height="960">
+            </div>
+          </div>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- Prizma -->
+      <article class="product" id="prizma" style="--acc:#3EF0C8;--acc-2:#7B6CFF;--acc-ink:var(--prizma-ink);--ratio:540/960">
+        <div class="p-copy reveal">
+          <div class="p-id">
+            <img class="p-icon" src="assets/prizma-icon.webp" alt="" width="256" height="256">
+            <div>
+              <h3 data-i18n="prizma.name">Prizma</h3>
+              <p class="p-tag" data-i18n="prizma.tag">Işık ve ayna bulmacası</p>
+            </div>
+          </div>
+          <p class="p-desc" data-i18n="prizma.desc">Aynaları yerleştir, ışını doğru hedeflere ulaştır. Işını ikiye bölen prizmalar ve onu başka bir köşeye taşıyan portallarla bulmacalar gittikçe derinleşir. Bölümler bitince sonsuz mod her seferinde yepyeni bir bulmaca kurar.</p>
+          <ul class="feats">
+            <li data-i18n="prizma.f1">Kolay'dan Usta'ya 4 zorluk</li>
+            <li data-i18n="prizma.f2">Sonsuz mod</li>
+            <li data-i18n="prizma.f3">Play Games sıralaması</li>
+            <li data-i18n="prizma.f4">Neon görünüm, kodla üretilen müzik</li>
+          </ul>
+          <div class="p-actions">
+            <span class="status"><i></i><span data-i18n="status.test">Kapalı testte · Yakında Google Play'de</span></span>
+            <a class="link" href="/privacy/prizma/" data-i18n="privacy">Gizlilik</a>
+          </div>
+        </div>
+        <div class="p-media reveal">
+          <div class="phone" data-tilt>
+            <div class="screen shots" tabindex="0" data-i18n-aria="shots" aria-label="Ekran görüntüleri">
+              <img src="assets/prizma-1.webp" alt="" loading="lazy" width="540" height="960">
+              <img src="assets/prizma-2.webp" alt="" loading="lazy" width="540" height="960">
+              <img src="assets/prizma-3.webp" alt="" loading="lazy" width="540" height="960">
+            </div>
+          </div>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- UYGULAMALAR -->
+  <section class="apps" id="uygulamalar">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="sec-num">02</span>
+        <h2 data-i18n="apps.title">Uygulamalar</h2>
+        <p data-i18n="apps.lede">Tek bir işi iyi yapan, gereksiz izin istemeyen araçlar.</p>
+      </header>
+
+      <div class="app-grid">
+        <article class="app-card reveal" id="ezber" style="--acc:#2FC4A8;--ratio:540/1200">
+          <div class="app-top">
+            <img class="p-icon" src="assets/ezber-icon.webp" alt="" width="256" height="256">
+            <div>
+              <h3 data-i18n="ezber.name">Ezber: Replik, Sunum, Şiir</h3>
+              <p class="p-tag" data-i18n="ezber.tag">Eller serbest ezber asistanı</p>
+            </div>
+          </div>
+          <p class="p-desc" data-i18n="ezber.desc">Metnini sana okur, sıra sana gelince dinler, takıldığında suflör gibi fısıldar. Tiyatro repliği, 23 Nisan şiiri ya da iş sunumu; telefona dokunmadan, yürürken bile çalış.</p>
+          <ul class="feats">
+            <li data-i18n="ezber.f1">Sesli prova ve suflör</li>
+            <li data-i18n="ezber.f2">PDF, Word ya da fotoğraftan aktar</li>
+            <li data-i18n="ezber.f3">Hesap yok, reklam yok</li>
+            <li data-i18n="ezber.f4">10 dil</li>
+          </ul>
+          <div class="app-media">
+            <div class="phone mini" data-tilt>
+              <div class="screen shots" tabindex="0" data-i18n-aria="shots" aria-label="Ekran görüntüleri">
+                <img src="assets/ezber-1.webp" data-en="assets/ezber-1-en.webp" alt="" loading="lazy" width="540" height="1200">
+                <img src="assets/ezber-2.webp" data-en="assets/ezber-2-en.webp" alt="" loading="lazy" width="540" height="1200">
+                <img src="assets/ezber-3.webp" data-en="assets/ezber-3-en.webp" alt="" loading="lazy" width="540" height="1200">
+              </div>
+            </div>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <div class="p-actions">
+            <span class="status"><i></i><span data-i18n="status.test">Kapalı testte · Yakında Google Play'de</span></span>
+            <a class="link" href="/privacy/ezber/" data-i18n="privacy">Gizlilik</a>
+          </div>
+        </article>
+
+        <article class="app-card reveal" id="paydos" style="--acc:#6E8BFF;--ratio:540/1080">
+          <div class="app-top">
+            <img class="p-icon" src="assets/paydos-icon.webp" alt="" width="256" height="256">
+            <div>
+              <h3 data-i18n="paydos.name">Paydos</h3>
+              <p class="p-tag" data-i18n="paydos.tag">Çocuk ekran kilidi</p>
+            </div>
+          </div>
+          <p class="p-desc" data-i18n="paydos.desc">Telefonu çocuğuna belli bir süreliğine ver, yalnızca senin seçtiğin uygulamalar açık kalsın. Süre dolunca ekran kilitlenir; kilit geri tuşuyla atlatılamaz, yalnızca senin PIN'inle açılır.</p>
+          <ul class="feats">
+            <li data-i18n="paydos.f1">Süre ve uygulama seçimi</li>
+            <li data-i18n="paydos.f2">PIN korumalı tam ekran kilit</li>
+            <li data-i18n="paydos.f3">Veri toplamaz, internete çıkmaz</li>
+            <li data-i18n="paydos.f4">Reklamsız</li>
+          </ul>
+          <div class="app-media">
+            <div class="phone mini" data-tilt>
+              <div class="screen shots" tabindex="0" data-i18n-aria="shots" aria-label="Ekran görüntüleri">
+                <img src="assets/paydos-1.webp" alt="" loading="lazy" width="540" height="1080">
+                <img src="assets/paydos-2.webp" alt="" loading="lazy" width="540" height="1080">
+                <img src="assets/paydos-3.webp" alt="" loading="lazy" width="540" height="1080">
+              </div>
+            </div>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <div class="p-actions">
+            <span class="status"><i></i><span data-i18n="status.test">Kapalı testte · Yakında Google Play'de</span></span>
+            <a class="link" href="/privacy/paydos/" data-i18n="privacy">Gizlilik</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLKELER -->
+  <section class="values" id="ilkeler">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="sec-num">03</span>
+        <h2 data-i18n="values.title">Nasıl yapıyoruz</h2>
+      </header>
+      <div class="value-grid">
+        <div class="value reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/><path d="M4 4l16 16"/></svg>
+          <h3 data-i18n="v1.t">Hesap yok</h3>
+          <p data-i18n="v1.d">Hiçbir yapımımız kayıt olmanı, e-posta vermeni istemez. Aç ve başla.</p>
+        </div>
+        <div class="value reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10 6h4"/><path d="M9.5 13.5l1.8 1.8 3.4-3.6"/></svg>
+          <h3 data-i18n="v2.t">Verin telefonunda</h3>
+          <p data-i18n="v2.d">İlerlemen, metinlerin, ayarların cihazında kalır. Kendi sunucumuza hiçbir şey gönderilmez.</p>
+        </div>
+        <div class="value reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 7h14"/><path d="M5 7l-2.5 6a3 3 0 0 0 5 0L5 7ZM19 7l-2.5 6a3 3 0 0 0 5 0L19 7Z"/><path d="M8.5 21h7"/></svg>
+          <h3 data-i18n="v3.t">Adil oyun</h3>
+          <p data-i18n="v3.d">Tahminle değil dikkatle kazanılır. Günlük içerik dünyadaki herkese aynıdır.</p>
+        </div>
+        <div class="value reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+          <h3 data-i18n="v4.t">Kısa ve sakin</h3>
+          <p data-i18n="v4.d">Birkaç dakikalık oturumlar, sakin müzik, gereksiz bildirim yok. Mola bitince bırakırsın.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="contact" id="iletisim">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <div>
+          <h2 data-i18n="contact.title">Bir fikrin ya da bir hata mı buldun?</h2>
+          <p data-i18n="contact.lede">Geri bildirimlerin doğrudan bir sonraki sürüme giriyor. Yaz, okuyup cevaplayalım.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:contact@fmjapps.com" data-i18n="contact.mail">E-posta gönder</a>
+          <button class="btn ghost" type="button" id="copyMail" data-mail="contact@fmjapps.com"><span data-i18n="contact.copy">Adresi kopyala</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <strong>FMJ Apps</strong>
+      <span data-i18n="foot.tag">Android oyunları ve uygulamaları</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.privacy">Gizlilik politikaları</span>
+      <a href="/privacy/kayip/" data-i18n="kayip.name">Kayıp Eşya Bürosu</a>
+      <a href="/privacy/collector/" data-i18n="kol.short">Koleksiyoncu</a>
+      <a href="/privacy/prizma/">Prizma</a>
+      <a href="/privacy/ezber/" data-i18n="ezber.short">Ezber</a>
+      <a href="/privacy/paydos/">Paydos</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">İletişim</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+      <a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener" data-i18n="foot.play">Google Play geliştirici sayfası</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Apps</span>
+    <a class="muted" href="#top" data-i18n="foot.top">Başa dön ↑</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="main.js" defer></script>
 </body>
 </html>
