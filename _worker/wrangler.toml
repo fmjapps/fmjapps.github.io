@@ -1,0 +1,16 @@
+# fmjapps.com iletişim formu (Cloudflare Worker)
+# Yayınlamak için bu klasörde: npx wrangler deploy
+# Alıcı adres gizli değişkende tutulur: npx wrangler secret put DESTINATION
+# (Cloudflare Email Routing'de doğrulanmış bir adres olmalı.)
+name = "fmj-contact-form"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = false
+
+routes = [
+  { pattern = "form.fmjapps.com", custom_domain = true }
+]
+
+# E-postanın "Kime" satırında contact@fmjapps.com görünür.
+[[send_email]]
+name = "MAIL"
