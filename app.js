@@ -23,6 +23,13 @@
       a.addEventListener('click', function () { store('fmj-lang', a.getAttribute('data-set-lang')); });
     });
 
+    // Dil menüsü dışarı tıklanınca ya da Esc ile kapanır
+    var menu = document.getElementById('lang');
+    if (menu) {
+      document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
+    }
+
     gallery();
     pager();
   });
@@ -129,8 +136,8 @@
     // Sayfa ekrana sığmıyorsa önce kendi içinde kayar
     function nativeFirst(dir) {
       var p = pages[cur], r = p.getBoundingClientRect();
-      // Sayfa ekrandan az biraz uzunsa (80 pikselden az) iç kaydırma yapılmaz
-      if (p.offsetHeight - innerHeight < 80) return false;
+      // Ekrana sığan sayfada iç kaydırma yoktur; taşan sayfanın sonu her zaman görülebilir
+      if (p.offsetHeight - innerHeight < 8) return false;
       if (dir > 0 && r.bottom > innerHeight + 2) return true;
       if (dir < 0 && r.top < -2) return true;
       return false;
@@ -140,7 +147,8 @@
     window.addEventListener('scroll', function () { if (!anim) { var n = nearest(); if (n !== cur) { cur = n; mark(); } } }, { passive: true });
 
     window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey) return;
+      // Dil menüsü açıkken teker menüyü kaydırır
+      if (e.ctrlKey || (e.target.closest && e.target.closest('.lang-menu'))) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (anim) { e.preventDefault(); return; }
@@ -152,7 +160,7 @@
 
     var ty = null, tx = 0, mode = null;
     window.addEventListener('touchstart', function (e) {
-      if (e.touches.length > 1) { ty = null; return; }
+      if (e.touches.length > 1 || (e.target.closest && e.target.closest('.lang-menu'))) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; mode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {

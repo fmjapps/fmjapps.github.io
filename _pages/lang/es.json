@@ -1,0 +1,700 @@
+{
+ "ui": {
+  "home": "Inicio",
+  "games": "Juegos",
+  "apps": "Apps",
+  "contact": "Contacto",
+  "tagline": "Juegos y apps sencillos y fiables",
+  "theme": "Cambiar tema",
+  "langLabel": "Idioma",
+  "skip": "Ir al contenido",
+  "statusTest": "En prueba cerrada",
+  "statusSoon": "En revisión · Muy pronto en Google Play",
+  "join": "Únete a la prueba",
+  "feedback": "Enviar comentarios",
+  "privacy": "Política de privacidad",
+  "shots": "Capturas de pantalla",
+  "features": "Lo más destacado",
+  "info": "De un vistazo",
+  "faq": "Preguntas y respuestas",
+  "joinTitle": "Únete a la prueba cerrada",
+  "joinLede": "Puedes ser tester en tres pasos. Solo necesitas tener la sesión iniciada con la cuenta de Google que usas en Play Store.",
+  "s1t": "Únete al grupo de prueba",
+  "s1d": "En la página del Grupo de Google que se abre, toca “Unirse al grupo”.",
+  "s1b": "Ir al grupo",
+  "s2t": "Hazte tester",
+  "s2d": "En la página de Play que se abre, toca “Convertirme en tester”. Si acabas de unirte al grupo, la página puede tardar unos minutos en estar lista.",
+  "s2b": "Hazte tester",
+  "s3t": "Descárgala en Google Play",
+  "s3d": "La app ya te aparece en Play Store. Instálala y pruébala.",
+  "s3b": "Abrir en Play",
+  "joinNote": "Para que una app pueda publicarse, los testers tienen que mantenerla instalada al menos 14 días. Si la dejas en tu teléfono todo ese tiempo, nos ayudas muchísimo.",
+  "soonTitle": "Muy pronto en Google Play",
+  "soonLede": "{name} está esperando la aprobación de Google Play para publicarse. El enlace de descarga aparecerá en esta página en cuanto se apruebe. Mientras tanto, escríbenos para lo que quieras.",
+  "others": "Más de FMJ Apps",
+  "all": "Ver todo",
+  "footTag": "Juegos y apps para Android",
+  "footPrivacy": "Políticas de privacidad",
+  "footContact": "Contacto",
+  "footPlay": "Página de desarrollador en Google Play",
+  "android": "Por ahora solo en Android, a través de Google Play. No hay versión para iOS.",
+  "game": "Juego",
+  "app": "App",
+  "scroll": "Desliza hacia abajo",
+  "pages": "Páginas"
+ },
+ "apps": {
+  "kayip": {
+   "slug": "lost-and-found-office",
+   "name": "Lost & Found Office",
+   "short": "Lost & Found Office",
+   "tag": "Juego diario de deducción",
+   "title": "Lost & Found Office · Juego diario de deducción para Android",
+   "desc": "Seis visitantes al día en objetos perdidos de una estación: devuelve cada objeto a su dueño y atrapa a los impostores. El mismo turno para todos, sin conexión.",
+   "lede": "Estás detrás del mostrador de la oficina de objetos perdidos de la Estación Central, y encima de él descansa Pamuk, el gato de la oficina. Cada día entran seis visitantes por la puerta. Algunos buscan de verdad su maleta, otros son impostores que le han echado el ojo a algún objeto del tablón, y otros son sinceros, pero su objeto simplemente todavía no ha aparecido. Averiguar quién es quién te toca a ti.",
+   "chips": [
+    "Android",
+    "Gratis",
+    "Sin conexión",
+    "9 idiomas"
+   ],
+   "howTitle": "Cómo se juega",
+   "how": [
+    [
+     "Escucha",
+     "Cada visitante describe su objeto. Mira la estantería y abre el acta: cuándo se encontró, qué marca lo distingue, qué lleva dentro."
+    ],
+    [
+     "Pregunta",
+     "Puedes hacerle hasta tres preguntas a cada visitante. ¿Qué había dentro? ¿Me enseña su documento? ¿Cuándo lo perdió exactamente?"
+    ],
+    [
+     "Compara",
+     "Los impostores saben lo que pone en el tablón, pero no pueden saber qué hay dentro del bolso. Basta una contradicción."
+    ],
+    [
+     "Decide",
+     "Entrégalo, niégate o di que no está aquí. Si aciertas, ganas puntos; si juegas a adivinar, los pierdes."
+    ]
+   ],
+   "alts": [
+    "Interrogando a un visitante",
+    "El acta de un objeto de la estantería",
+    "Una oficina decorada, con Pamuk"
+   ],
+   "feats": [
+    [
+     "Un turno nuevo cada día",
+     "El lunes empieza tranquilo; el domingo la oficina está a rebosar. Un turno dura unos cinco minutos."
+    ],
+    [
+     "Los mismos visitantes para todo el mundo",
+     "Todo el mundo recibe a los mismos visitantes el mismo día. Comparte tu resultado y comprueba quién tiene mejor ojo."
+    ],
+    [
+     "Una sola respuesta correcta",
+     "Cada turno se genera con reglas y cada visitante tiene una única respuesta correcta. Fíate de tu ojo, no de la suerte."
+    ],
+    [
+     "Pamuk y sus regalos",
+     "Acaricia a Pamuk y verás cómo maúlla y ronronea. Después de cada turno te trae un pequeño tesoro de algún rincón de la estación."
+    ],
+    [
+     "Una oficina a tu gusto",
+     "Decora tu oficina con notas de agradecimiento: una maceta, una radio antigua, una lámpara de estación, un tren de juguete y más."
+    ],
+    [
+     "Siempre hay algo por conseguir",
+     "Cinco rangos, de Becario a Director de la oficina, misiones diarias nuevas, más de 20 logros y una racha diaria con escudo de racha."
+    ],
+    [
+     "Un archivo de 30 días",
+     "¿Te has perdido un día? Juega su turno desde el archivo."
+    ],
+    [
+     "Un rincón tranquilo",
+     "Música relajada, una oficina acogedora y partidas cortas."
+    ]
+   ],
+   "info": [
+    [
+     "Género",
+     "Puzle · juego diario de deducción"
+    ],
+    [
+     "Plataforma",
+     "Android (Google Play)"
+    ],
+    [
+     "Precio",
+     "Gratis. Paquetes de tarjetas de turno opcionales."
+    ],
+    [
+     "Anuncios",
+     "Solo anuncios con recompensa que tú decides ver. Sin anuncios intersticiales ni banners."
+    ],
+    [
+     "Internet",
+     "No hace falta"
+    ],
+    [
+     "Cuenta",
+     "No hace falta. Tu progreso se queda en tu teléfono."
+    ],
+    [
+     "Clasificaciones",
+     "A través de Google Play Games, opcional"
+    ],
+    [
+     "Idiomas",
+     "Inglés, turco, español, francés, portugués, árabe, hindi, bengalí, chino"
+    ]
+   ],
+   "faq": [
+    [
+     "¿Lost & Found Office es gratis?",
+     "Sí, descargarlo y jugar es gratis. El turno del día está abierto para todo el mundo, todos los días. Los turnos anteriores del archivo se juegan con tarjetas de turno: cada día recibes tarjetas gratis y puedes conseguir más viendo un anuncio con recompensa o en la tienda."
+    ],
+    [
+     "¿Tiene anuncios?",
+     "Solo anuncios con recompensa que tú decides ver. Nada interrumpe la partida y no hay ningún banner en pantalla."
+    ],
+    [
+     "¿Funciona sin conexión?",
+     "Sí. Un turno se juega sin conexión a internet."
+    ],
+    [
+     "¿Las compras ayudan en la clasificación?",
+     "No. La puntuación de la clasificación sale solo del turno del día; los turnos del archivo y las compras no le suman nada."
+    ],
+    [
+     "¿Cuándo llega el turno nuevo?",
+     "El turno se renueva en el mismo instante en todas partes: a medianoche UTC."
+    ],
+    [
+     "¿Hay versión para iOS?",
+     "Por ahora no. El juego solo está disponible en Android, a través de Google Play."
+    ]
+   ]
+  },
+  "koleksiyoncu": {
+   "slug": "the-collector",
+   "name": "The Collector: Real or Fake",
+   "short": "The Collector",
+   "tag": "Juego de detectives en una tienda de antigüedades",
+   "title": "The Collector: Real or Fake · Juego de detectives en una tienda de antigüedades para Android",
+   "desc": "Lleva la tienda de antigüedades de tu abuelo: examina relojes, monedas y cuadros, descubre las falsificaciones, regatea y reúne obras de dieciocho maestros.",
+   "lede": "La vieja tienda de antigüedades de tu abuelo ahora es tuya. En un cajón hay un cuaderno con tapas de cuero, y en su primera página, el sueño que dejó a medias: reunir en una sola vitrina una obra auténtica de cada uno de dieciocho grandes maestros. Pero el mercado está lleno de falsificaciones.",
+   "chips": [
+    "Android",
+    "Gratis",
+    "Sin conexión",
+    "9 idiomas"
+   ],
+   "howTitle": "Cómo se juega",
+   "how": [
+    [
+     "Examina",
+     "Los clientes traen relojes de bolsillo, monedas y cuadros. Dale la vuelta a cada pieza: mira la esfera, la tapa trasera, la maquinaria. Mueve la lupa con el dedo."
+    ],
+    [
+     "Consulta el catálogo",
+     "¿Qué maestro trabajó en qué años? ¿Qué punzón usaba? ¿Qué pigmento todavía no existía? Lee el catálogo y pillarás al falsificador."
+    ],
+    [
+     "Regatea",
+     "Vendedores codiciosos, desesperados o que no tienen ni idea… Haz la oferta adecuada y llévate un auténtico tesoro por casi nada."
+    ],
+    [
+     "Vende o guarda",
+     "Vende las piezas auténticas en subasta o guárdalas en tu vitrina, donde cada día te dan ingresos por visitantes."
+    ]
+   ],
+   "alts": [
+    "Examinando la esfera de un reloj de bolsillo",
+    "La tapa trasera bajo la lupa",
+    "El catálogo de maestros",
+    "La pantalla principal de la tienda",
+    "La historia inicial"
+   ],
+   "feats": [
+    [
+     "Examina de verdad",
+     "Detalles minúsculos como los números de serie, los punzones y las fechas delatan la verdad."
+    ],
+    [
+     "El catálogo es tu reglamento",
+     "Toda falsificación rompe alguna regla del catálogo. Descubrir cuál te toca a ti."
+    ],
+    [
+     "Hazte con tus herramientas",
+     "Balanza, calibre, piedra de toque, lámpara UV y análisis de pigmentos. Cada herramienta destapa un tipo nuevo de falsificación."
+    ],
+    [
+     "El reloj corre",
+     "Cada herramienta gasta tiempo de tienda. A las 18:00 se baja la persiana."
+    ],
+    [
+     "Una vitrina de dieciocho",
+     "Reúne las dieciocho obras y cumple el sueño de tu abuelo."
+    ],
+    [
+     "Siempre hay algo por conseguir",
+     "Cinco rangos, de Aprendiz a Tasador Legendario, con maestros nuevos en cada rango. Tareas diarias nuevas y más de 20 logros."
+    ],
+    [
+     "Tu ojo, no la suerte",
+     "Cada pieza se genera con reglas, y toda falsificación se puede descubrir con las herramientas que tienes."
+    ],
+    [
+     "Partidas cortas",
+     "Una jornada de tienda dura 8–10 minutos. Música relajada, un ambiente cálido y clientes nuevos cada día."
+    ]
+   ],
+   "info": [
+    [
+     "Género",
+     "Puzle · juego de antigüedades y empeños"
+    ],
+    [
+     "Plataforma",
+     "Android (Google Play)"
+    ],
+    [
+     "Precio",
+     "Gratis. Paquete sin anuncios y paquetes de llaves opcionales."
+    ],
+    [
+     "Anuncios",
+     "Solo anuncios con recompensa que tú decides ver a cambio de una llave extra de la tienda. Sin anuncios intersticiales ni banners."
+    ],
+    [
+     "Internet",
+     "No hace falta"
+    ],
+    [
+     "Cuenta",
+     "No hace falta. Tu progreso se queda en tu teléfono."
+    ],
+    [
+     "Clasificación y logros",
+     "A través de Google Play Games"
+    ],
+    [
+     "Idiomas",
+     "Inglés, turco, español, francés, portugués, árabe, hindi, bengalí, chino"
+    ]
+   ],
+   "faq": [
+    [
+     "¿The Collector es gratis?",
+     "Sí, descargarlo y jugar es gratis. Hay compras opcionales: un paquete sin anuncios permanente y paquetes de llaves de un solo uso."
+    ],
+    [
+     "¿Tiene anuncios?",
+     "Solo anuncios con recompensa que tú decides ver a cambio de una llave extra de la tienda. No hay anuncios intersticiales ni banners. Con el paquete sin anuncios consigues la llave sin ver ningún anuncio."
+    ],
+    [
+     "¿Funciona sin conexión?",
+     "Sí, el juego en sí se juega sin conexión."
+    ],
+    [
+     "¿Descubrir una falsificación es cuestión de suerte?",
+     "No. Cada pieza se genera con reglas, y toda falsificación se puede descubrir con las herramientas que tienes."
+    ],
+    [
+     "¿Hay versión para iOS?",
+     "Por ahora no. El juego solo está disponible en Android, a través de Google Play."
+    ]
+   ]
+  },
+  "prizma": {
+   "slug": "prizma",
+   "name": "Prizma",
+   "short": "Prizma",
+   "tag": "Rompecabezas de luz y espejos",
+   "title": "Prizma · Rompecabezas de luz y espejos para Android",
+   "desc": "Coloca espejos y guía el rayo hasta sus objetivos. 60 niveles, un rompecabezas diario igual para todos y rompecabezas recién generados sin fin.",
+   "lede": "Prizma es un juego de rompecabezas que se resuelve con rayos de luz y espejos. En cada nivel diriges las fuentes de luz hacia los objetivos correctos con los espejos que colocas. Más adelante, los bloques de prisma dividen el rayo en dos y los portales lo llevan a otro punto.",
+   "chips": [
+    "Android",
+    "Gratis",
+    "60 niveles",
+    "9 idiomas"
+   ],
+   "howTitle": "Cómo se juega",
+   "how": [
+    [
+     "Coloca un espejo",
+     "Cada espejo desvía el rayo 90 grados. Ponlo en la casilla correcta y el rayo encuentra su camino."
+    ],
+    [
+     "Divídelo, llévalo",
+     "Un bloque de prisma divide el rayo en dos, así que un solo rayo puede alimentar dos objetivos. Los portales llevan el rayo a otro sitio."
+    ],
+    [
+     "Ilumina los objetivos",
+     "El nivel queda resuelto cuando el rayo llega a todos los objetivos. Si hay un objetivo blanco, la luz de todas las fuentes tiene que juntarse en él."
+    ],
+    [
+     "Si te atascas",
+     "Deshaz tu último movimiento o pide una pista: coloca por ti el siguiente espejo."
+    ]
+   ],
+   "alts": [
+    "Un rayo guiado hasta su objetivo con espejos",
+    "Un bloque de prisma dividiendo el rayo",
+    "Un nivel con portales",
+    "Un rompecabezas de nivel Maestro",
+    "La lista de los 60 niveles",
+    "Menú principal"
+   ],
+   "feats": [
+    [
+     "60 niveles",
+     "De un solo espejo a prismas y portales, cada vez un poco más difícil. Cada nivel limita cuántos espejos tienes."
+    ],
+    [
+     "Rompecabezas diario",
+     "El mismo rompecabezas para todos, cada día. Sigue resolviéndolos y tu racha crece."
+    ],
+    [
+     "Rompecabezas sin fin",
+     "Rompecabezas recién generados en Fácil, Medio, Difícil y Maestro."
+    ],
+    [
+     "Modo a ciegas",
+     "En Difícil y Maestro primero preparas el recorrido y después disparas el rayo."
+    ],
+    [
+     "Clasificación y logros",
+     "Compara tu puntuación con la de otros jugadores a través de Google Play Games."
+    ],
+    [
+     "Modo para daltónicos",
+     "Si te cuesta distinguir los colores, actívalo en los ajustes."
+    ],
+    [
+     "Tus ajustes",
+     "La música, los efectos de sonido y la vibración tienen cada uno su propio interruptor."
+    ],
+    [
+     "Un mundo oscuro y de neón",
+     "Rayos brillantes sobre un tablero oscuro; la música y los sonidos se generan dentro del propio juego."
+    ]
+   ],
+   "info": [
+    [
+     "Género",
+     "Puzle"
+    ],
+    [
+     "Plataforma",
+     "Android (Google Play)"
+    ],
+    [
+     "Precio",
+     "Gratis. Una compra única quita el límite de créditos de rompecabezas."
+    ],
+    [
+     "Anuncios",
+     "Un banner en la pantalla de juego, además de anuncios con recompensa que tú decides ver (a cambio de créditos de rompecabezas extra o de una pista)."
+    ],
+    [
+     "Cuenta",
+     "No hace falta. Tu progreso se queda en tu teléfono."
+    ],
+    [
+     "Clasificación",
+     "A través de Google Play Games, opcional"
+    ],
+    [
+     "Idiomas",
+     "Inglés, turco, español, francés, portugués, ruso, árabe, hindi, chino"
+    ]
+   ],
+   "faq": [
+    [
+     "¿Prizma es gratis?",
+     "Sí, descargarlo y jugar es gratis. Hay un límite diario de créditos de rompecabezas; puedes conseguir más viendo un anuncio con recompensa o quitar el límite para siempre con una compra única."
+    ],
+    [
+     "¿Tiene anuncios?",
+     "Hay un banner en la pantalla de juego. Los anuncios con recompensa solo se abren cuando tú quieres, a cambio de créditos de rompecabezas extra o de una pista."
+    ],
+    [
+     "¿Necesito una cuenta?",
+     "No. Si quieres aparecer en la clasificación, basta con iniciar sesión en Google Play Games; todo el juego se puede jugar sin ella."
+    ],
+    [
+     "¿Cuándo sale?",
+     "Prizma está esperando la aprobación de Google Play para publicarse. El enlace de descarga aparecerá en esta página cuando se apruebe."
+    ],
+    [
+     "¿Hay versión para iOS?",
+     "Por ahora no. El juego solo estará disponible en Android, a través de Google Play."
+    ]
+   ]
+  },
+  "ezber": {
+   "slug": "memorize",
+   "name": "Memorize: Lines, Speech, Poems",
+   "short": "Memorize",
+   "tag": "Memoriza sin usar las manos",
+   "title": "Memorize · Aprende papeles, poemas y discursos sin usar las manos (Android)",
+   "desc": "Te lee tu texto, te escucha cuando llega tu turno y te apunta cuando te quedas en blanco. Aprende papeles, poemas y presentaciones sin tocar el teléfono.",
+   "lede": "Un papel de teatro, un poema para el colegio, un discurso o una presentación… Memorize te lee tu texto, te escucha cuando llega tu turno y te susurra como un apuntador cuando te quedas en blanco. Ensaya sin tocar el teléfono, mientras caminas o vas en el transporte.",
+   "chips": [
+    "Android",
+    "Sin cuenta",
+    "Sin anuncios",
+    "10 idiomas"
+   ],
+   "howTitle": "Cómo funciona",
+   "how": [
+    [
+     "Añade tu texto",
+     "Pégalo o impórtalo desde TXT, PDF, Word o una foto. Los personajes y las réplicas se separan solos."
+    ],
+    [
+     "Elige tu personaje",
+     "Elige quién eres; los demás personajes se leen con voces distintas."
+    ],
+    [
+     "Empieza a ensayar",
+     "Cuando llega tu turno, la app escucha; di tu réplica y, cuando te callas, sigue adelante."
+    ],
+    [
+     "Si te quedas en blanco",
+     "El apuntador te susurra las primeras palabras y, si hace falta, la réplica entera."
+    ]
+   ],
+   "alts": [
+    "Pantalla de ensayo con las réplicas leídas por turnos",
+    "Elección de personajes y voces",
+    "Modos de ensayo"
+   ],
+   "feats": [
+    [
+     "Ensayo sin manos",
+     "No hace falta tocar el teléfono: la app lee, escucha y sigue adelante cuando dejas de hablar."
+    ],
+    [
+     "Texto de donde sea",
+     "TXT, PDF, Word o una foto. Las líneas dudosas se marcan y se corrigen con un toque."
+    ],
+    [
+     "Un poema, verso a verso",
+     "El verso 1, luego el 1 y el 2, luego del 1 al 3… El poema se te va quedando poco a poco."
+    ],
+    [
+     "Ocultación progresiva",
+     "Después de cada ronda perfecta desaparecen más palabras."
+    ],
+    [
+     "Las réplicas que más te cuestan",
+     "Recuerda dónde te trabas y te deja practicar solo esas réplicas."
+    ],
+    [
+     "Práctica de presentaciones",
+     "Cronómetro, tiempo objetivo y ritmo al hablar (palabras por minuto). Las pistas con palabras clave te ayudan a aprenderte el hilo en vez de leer palabra por palabra."
+    ],
+    [
+     "Tus textos se quedan contigo",
+     "Tus textos se quedan en tu teléfono. Tu voz no se graba durante el ensayo; se procesa en el teléfono y nunca se envía a ningún sitio."
+    ],
+    [
+     "10 idiomas",
+     "Inglés, turco, alemán, francés, español, portugués, ruso, italiano, árabe e indonesio."
+    ]
+   ],
+   "info": [
+    [
+     "Categoría",
+     "Educación · memorización y ensayo"
+    ],
+    [
+     "Plataforma",
+     "Android (Google Play)"
+    ],
+    [
+     "Precio",
+     "Gratis. Hay una suscripción Pro opcional a través de Google Play."
+    ],
+    [
+     "Anuncios",
+     "Ninguno"
+    ],
+    [
+     "Cuenta",
+     "No hace falta"
+    ],
+    [
+     "Micrófono",
+     "Solo se enciende cuando es tu turno. El audio se procesa en el teléfono; nunca se graba ni se envía."
+    ],
+    [
+     "Idiomas",
+     "Inglés, turco, alemán, francés, español, portugués, ruso, italiano, árabe, indonesio"
+    ]
+   ],
+   "faq": [
+    [
+     "¿Para qué sirve Memorize?",
+     "Para papeles de teatro, poemas, actuaciones del colegio, discursos y presentaciones. Cada cosa tiene su forma de practicar: ensayo con personajes, verso a verso, ocultación progresiva y práctica de presentaciones con cronómetro."
+    ],
+    [
+     "¿Se graba mi voz?",
+     "Durante el ensayo, no. El micrófono solo se enciende cuando es tu turno; el audio se procesa en el teléfono en tiempo real, no se guarda en ningún archivo y no se envía a ningún sitio. Si quieres grabar réplicas con tu propia voz, lo inicias tú con “Grabar voces”, y esas grabaciones también se quedan solo en tu teléfono."
+    ],
+    [
+     "¿Mis textos se envían a algún sitio?",
+     "No. Tus textos, tus ajustes y tu historial de práctica se guardan solo en tu teléfono."
+    ],
+    [
+     "¿Tiene anuncios?",
+     "No. La app no tiene anuncios y no necesita cuenta."
+    ],
+    [
+     "¿Qué archivos puedo importar?",
+     "Archivos TXT, PDF y Word, o una foto. También puedes pegar el texto sin más."
+    ],
+    [
+     "¿Hay versión para iOS?",
+     "Por ahora no. La app solo está disponible en Android, a través de Google Play."
+    ]
+   ]
+  },
+  "paydos": {
+   "slug": "paydos",
+   "name": "Paydos",
+   "short": "Paydos",
+   "tag": "Bloqueo de pantalla para niños",
+   "title": "Paydos · Bloqueo de tiempo de pantalla para niños (Android)",
+   "desc": "Elige el tiempo y las apps que permites y entrega el teléfono. Cuando se acaba el tiempo, la pantalla se bloquea y solo tu PIN la desbloquea.",
+   "lede": "Con Paydos puedes dejarle tu teléfono a tu hijo durante un tiempo determinado y solo con las apps que tú elijas. Cuando se acaba el tiempo, o si tu hijo intenta abrir una app que no está permitida, aparece un bloqueo a pantalla completa que solo se quita con el PIN que tú has puesto.",
+   "chips": [
+    "Android",
+    "Totalmente gratis",
+    "Sin cuenta",
+    "9 idiomas"
+   ],
+   "howTitle": "Cómo funciona",
+   "how": [
+    [
+     "Elige el tiempo",
+     "15 minutos, 30 minutos, 1 hora o el tiempo que tú quieras."
+    ],
+    [
+     "Marca las apps",
+     "Elige qué apps están permitidas durante ese tiempo. Puedes permitir apps distintas cada vez."
+    ],
+    [
+     "Entrega el teléfono",
+     "Tu hijo puede ver el tiempo que le queda y las apps que puede abrir."
+    ],
+    [
+     "Cuando se acaba el tiempo",
+     "Aparece un bloqueo a pantalla completa. No se puede esquivar con el botón de atrás ni volviendo a abrir la app; solo tu PIN lo quita."
+    ]
+   ],
+   "alts": [
+    "Ajustes de tiempo y PIN",
+    "La lista de apps permitidas",
+    "Pantalla de bloqueo con las apps permitidas",
+    "Pantalla de bloqueo cuando se acaba el tiempo",
+    "Explicación del permiso de accesibilidad"
+   ],
+   "feats": [
+    [
+     "Todo se configura en una pantalla",
+     "Elige el tiempo, marca las apps y activa el bloqueo."
+    ],
+    [
+     "Solo lo que tú permites",
+     "Si tu hijo intenta abrir una app que no está permitida, aparece la pantalla de bloqueo."
+    ],
+    [
+     "Una lista cómoda",
+     "Ordena la lista de apps por uso reciente, por las más usadas o alfabéticamente."
+    ],
+    [
+     "Si olvidas el PIN",
+     "Hay una pregunta de recuperación. Y reiniciar el teléfono siempre quita el bloqueo, así que el teléfono nunca se queda bloqueado."
+    ],
+    [
+     "Nada sale del teléfono",
+     "El tiempo, la lista de apps y el PIN se guardan solo en tu teléfono. El PIN nunca se guarda como texto sin cifrar."
+    ],
+    [
+     "Claro con lo que ve",
+     "Paydos solo ve el nombre de la app que está abierta. No lee textos, fotos ni nada de lo que escribes."
+    ],
+    [
+     "Sin cuenta",
+     "Sin registro, sin correo, sin inicio de sesión."
+    ],
+    [
+     "9 idiomas",
+     "Inglés, turco, español, francés, ruso, portugués, indonesio, hindi y árabe."
+    ]
+   ],
+   "info": [
+    [
+     "Categoría",
+     "Herramientas · control parental"
+    ],
+    [
+     "Plataforma",
+     "Android (Google Play)"
+    ],
+    [
+     "Precio",
+     "Totalmente gratis. Sin compras dentro de la app."
+    ],
+    [
+     "Anuncios",
+     "Sí, pero solo los ve el padre o la madre: en la pantalla de configuración, al introducir el PIN y después de desbloquear. La pantalla de “se acabó el tiempo” que ve tu hijo no tiene anuncios."
+    ],
+    [
+     "Cuenta",
+     "No hace falta"
+    ],
+    [
+     "Datos",
+     "El tiempo, la lista de apps y el PIN se quedan en el teléfono"
+    ],
+    [
+     "Idiomas",
+     "Inglés, turco, español, francés, ruso, portugués, indonesio, hindi, árabe"
+    ]
+   ],
+   "faq": [
+    [
+     "¿Paydos es gratis?",
+     "Sí, totalmente gratis y sin compras dentro de la app. La app muestra anuncios, pero solo al padre o a la madre."
+    ],
+    [
+     "¿Mi hijo verá anuncios?",
+     "La pantalla que ve tu hijo cuando se acaba el tiempo no tiene anuncios. Los anuncios aparecen en la pantalla donde el padre o la madre configura el bloqueo, al introducir el PIN y después de quitar el bloqueo."
+    ],
+    [
+     "¿Y si olvido mi PIN?",
+     "Puedes responder a la pregunta de recuperación que elegiste al configurarlo. Si tampoco funciona, basta con reiniciar el teléfono: un reinicio siempre quita el bloqueo."
+    ],
+    [
+     "¿Por qué Paydos pide el permiso de accesibilidad?",
+     "Para ver qué app está abierta mientras corre el temporizador. Solo mira el nombre de la app abierta; nunca lee, guarda ni envía lo que hay en pantalla."
+    ],
+    [
+     "¿Se recoge algún dato sobre mi hijo?",
+     "No. Paydos no recoge ningún dato personal del niño ni de los padres y no crea ninguna cuenta. Tus ajustes se quedan en tu teléfono."
+    ],
+    [
+     "¿Cuándo sale?",
+     "Paydos está esperando la aprobación de Google Play para publicarse. El enlace de descarga aparecerá en esta página cuando se apruebe."
+    ]
+   ]
+  }
+ }
+}

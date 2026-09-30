@@ -80,10 +80,27 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .links a { text-decoration: none; color: var(--dim); font-size: 14px; font-weight: 500; padding: 8px 12px; border-radius: 10px; transition: color .2s, background-color .2s; }
 .links a:hover { color: var(--text); background: var(--line); }
 .tools { display: flex; gap: 8px; align-items: center; }
-.seg { display: inline-flex; height: 36px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--surface); overflow: hidden; }
-.seg a, .seg span { display: grid; place-items: center; padding: 0 10px; font: 600 12.5px 'Inter', sans-serif; letter-spacing: .04em; text-decoration: none; color: var(--dim); }
-.seg span { background: color-mix(in srgb, var(--acc) 20%, transparent); color: var(--text); }
-.seg a:hover { color: var(--text); }
+/* Dil menüsü: betik olmadan da açılır */
+.lang { position: relative; }
+.lang summary { list-style: none; }
+.lang summary::-webkit-details-marker { display: none; }
+.chip-btn {
+  height: 36px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--surface); color: var(--text); cursor: pointer;
+  font: 600 12.5px 'Inter', sans-serif; letter-spacing: .04em; display: inline-flex; align-items: center; gap: 7px; padding: 0 11px;
+  transition: border-color .2s, transform .2s var(--ease); user-select: none;
+}
+.chip-btn:hover, .lang[open] .chip-btn { border-color: var(--ink); }
+.chip-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.lang-menu {
+  position: absolute; inset-inline-end: 0; top: calc(100% + 8px); z-index: 60; min-width: 210px; padding: 6px;
+  max-height: min(70vh, 480px); overflow-y: auto; overscroll-behavior: contain;
+  background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow);
+}
+.lang-menu a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 12px; border-radius: 9px; text-decoration: none; color: var(--dim); font-size: 14.5px; }
+.lang-menu b { font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--faint); }
+.lang-menu a:hover, .lang-menu a:focus-visible { background: var(--line); color: var(--text); }
+.lang-menu a.on { color: var(--text); background: color-mix(in srgb, var(--acc) 16%, transparent); }
+.lang-menu a.on b { color: var(--ink); }
 .icon-btn {
   width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--surface);
   color: var(--text); cursor: pointer; display: inline-grid; place-items: center; padding: 0;
@@ -316,11 +333,12 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
   .join { padding: 0; border: 0; background: none; border-radius: 0; }
   .join-lede { font-size: 14.5px; line-height: 1.5; margin-top: 8px; }
   .jsteps { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 16px; }
-  .jsteps li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; padding: 14px; align-items: baseline;
+  .jsteps li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; padding: 12px 14px; align-items: baseline;
     background: var(--surface); border-color: color-mix(in srgb, var(--acc) 26%, var(--line)); }
   .jsteps p, .jsteps .btn { grid-column: 1 / -1; }
   .jsteps p { font-size: 13.5px; line-height: 1.45; }
-  .jsteps .btn { margin-top: 8px; }
+  .jsteps .btn { margin-top: 6px; height: 38px; }
+  .join h2 { font-size: 23px; }
   .join-note { font-size: 12.5px; line-height: 1.45; margin-top: 12px; }
 }
 
@@ -356,8 +374,95 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
   .foot-bottom { margin-top: 12px; padding-top: 10px; font-size: 12px; line-height: 1.45; }
 }
 
+/* ---------- Kısa ekranlar: içerik sıkışır, sayfa ekrana sığar ---------- */
+@media (max-width: 900px) {
+  .hero { padding-bottom: 50px; }
+  .crumbs { margin-bottom: 14px; }
+  .id { gap: 14px; margin-bottom: 16px; }
+  .id img { width: 60px; height: 60px; border-radius: 16px; }
+  h1 { font-size: clamp(25px, 7vw, 34px); }
+  .tagline { font-size: 15.5px; margin-top: 5px; }
+  .lede { font-size: 15.5px; line-height: 1.55; }
+  .chips { margin-top: 14px; gap: 6px; }
+  .chips li { font-size: 12.5px; padding: 5px 10px; }
+  .status { margin-top: 16px; }
+  .cta { margin-top: 12px; gap: 10px; }
+  .cta .btn { height: 46px; }
+}
+@media (max-width: 900px) and (max-height: 860px) {
+  .more-hint { display: none; }
+  .hero { padding-bottom: 22px; }
+}
+/* Kısa telefon ekranları (adres çubuğu açıkken ~650 piksel) */
+@media (max-width: 900px) and (max-height: 760px) {
+  .page, .half { padding-block: 70px 14px; }
+  .hero { padding-bottom: 14px; }
+  .sec-head { margin-bottom: 12px; }
+  .sec-head h2, .sec-head .h2 { font-size: 22px; }
+  .lede { font-size: 14.5px; line-height: 1.5; }
+  .id img { width: 54px; height: 54px; }
+  .steps { gap: 8px; }
+  .steps li { padding: 10px 12px; column-gap: 12px; }
+  .steps li::before { width: 32px; height: 32px; font-size: 15px; border-radius: 10px; }
+  .steps h3 { font-size: 15.5px; margin-bottom: 2px; }
+  .steps p { font-size: 13px; line-height: 1.42; }
+  .feats { gap: 8px; }
+  .feats li { padding: 10px 14px; }
+  .feats h3 { font-size: 15px; margin-bottom: 3px; }
+  .feats h3::before { display: none; }
+  .feats p { font-size: 13px; line-height: 1.42; }
+  .info { padding-block: 2px; }
+  .info div { padding-block: 4px; }
+  .info dt { font-size: 11.5px; }
+  .info dd { font-size: 13px; line-height: 1.4; }
+  .under { margin-top: 8px; font-size: 13.5px; }
+  .faq summary { padding-block: 10px; font-size: 14.5px; }
+  .faq p { font-size: 13.5px; line-height: 1.5; padding-bottom: 12px; }
+  .join h2 { font-size: 21px; }
+  .join-lede { font-size: 13.5px; line-height: 1.42; margin-top: 6px; }
+  .jsteps { gap: 8px; margin-top: 12px; }
+  .jsteps li { padding: 10px 12px; }
+  .jsteps strong { font-size: 15.5px; }
+  .jsteps p { font-size: 12.5px; line-height: 1.4; }
+  .jsteps .btn { height: 36px; font-size: 13.5px; margin-top: 4px; }
+  .join-note { font-size: 12px; margin-top: 10px; }
+  .others a { padding: 8px 12px; }
+  .others img { width: 40px; height: 40px; }
+  .others-sec { padding-bottom: 14px; }
+  .foot { padding-block: 12px 10px; font-size: 13px; }
+}
+@media (min-width: 901px) and (max-height: 780px) {
+  .page { padding-block: 84px 24px; }
+  .crumbs { margin-bottom: 18px; }
+  .id { margin-bottom: 16px; }
+  .id img { width: 72px; height: 72px; border-radius: 19px; }
+  h1 { font-size: clamp(28px, 3.6vw, 42px); }
+  .lede { font-size: 16px; line-height: 1.55; }
+  .chips { margin-top: 16px; }
+  .status { margin-top: 18px; }
+  .cta { margin-top: 14px; }
+  .more-hint { display: none; }
+  .sec-head { margin-bottom: 20px; }
+  .info div { padding-block: 8px; }
+  .info dd { font-size: 14px; }
+  .faq summary { padding-block: 11px; font-size: 15.5px; }
+  .faq p { font-size: 14.5px; padding-bottom: 12px; }
+  .feats li { padding: 16px 18px; }
+  .feats p { font-size: 14px; }
+}
+
 /* ---------- Belirme ---------- */
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .js .reveal + .reveal, .js .wrap + .reveal { transition-delay: .1s; }
 .js .in .reveal { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js .reveal { transform: none; transition-duration: .4s; } .status i::after, .more-hint::after { animation: none; } }
+
+/* ---------- Sağdan sola diller ve Latin dışı yazılar ---------- */
+[dir="rtl"] .crumbs li + li::before { content: "‹"; }
+[dir="rtl"] .hero-media .phone.front { transform: translateX(calc(var(--pw) * .14)) rotate(3deg); }
+[dir="rtl"] .hero-media .phone.back { transform: translateX(calc(var(--pw) * -.47)) translateY(18px) rotate(-7deg); }
+[dir="rtl"] .pager { right: auto; left: 22px; }
+[dir="rtl"] .pager button span { right: auto; left: 22px; }
+@media (max-width: 760px) { [dir="rtl"] .pager { left: 6px; } }
+:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(.kind, .foot-h, .more-hint, .sec-head span) { letter-spacing: 0; text-transform: none; }
+:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(h1, h2, h3, .h2, .brand-name, summary, strong) { letter-spacing: 0; line-height: 1.3; }

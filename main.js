@@ -113,8 +113,8 @@
     phEls.forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (el.disabled) return; el.setAttribute('placeholder', t(k)); });
     // Türkçe dışındaki dillerde İngilizce ekran görüntüleri gösterilir
     imgEls.forEach(function (el) { el.src = d ? el.getAttribute('data-en') : el._tr; });
-    // Uygulama sayfaları Türkçe ve İngilizce; diğer dillerde İngilizcesi açılır
-    pageEls.forEach(function (el) { el.setAttribute('href', d ? el.getAttribute('data-en-href') : el._tr); });
+    // Uygulama sayfaları her dilde var: /en/... adresi seçili dile çevrilir
+    pageEls.forEach(function (el) { el.setAttribute('href', d ? el.getAttribute('data-en-href').replace('/en/', '/' + lang + '/') : el._tr); });
     document.title = d && d['meta.title'] ? d['meta.title'] : trMeta.title;
     document.querySelector('meta[name=description]').content = d && d['meta.desc'] ? d['meta.desc'] : trMeta.desc;
     splitWords();

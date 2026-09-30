@@ -1,5 +1,6 @@
 // Uygulama sayfalarını üretir: node _pages/build.cjs
-// Çıktı: /<adres>/index.html (Türkçe), /en/<adres>/index.html (İngilizce), sitemap.xml
+// Çıktı: /<adres>/index.html (Türkçe), /<dil>/<adres>/index.html (diğer diller), sitemap.xml
+// Türkçe ve İngilizce metin content.cjs içinde; diğer diller lang/<dil>.json dosyalarından okunur.
 // Ayrıca ana sayfadaki yapılandırılmış veriyi uygulama sayfalarının adresleriyle günceller.
 const fs = require('fs');
 const path = require('path');
@@ -8,22 +9,41 @@ const { UI, APPS } = require('./content.cjs');
 const ROOT = path.join(__dirname, '..');
 const BASE = 'https://fmjapps.com';
 const HOME_LANGS = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'ru', 'ar', 'hi', 'bn', 'zh', 'id'];
-const LANGS = ['tr', 'en'];
+const NAMES = { tr: 'Türkçe', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', ru: 'Русский', ar: 'العربية', hi: 'हिन्दी', bn: 'বাংলা', zh: '中文', id: 'Bahasa Indonesia' };
+const LOCALE = { tr: 'tr_TR', en: 'en_US', es: 'es_ES', pt: 'pt_BR', fr: 'fr_FR', de: 'de_DE', ru: 'ru_RU', ar: 'ar_AR', hi: 'hi_IN', bn: 'bn_BD', zh: 'zh_CN', id: 'id_ID' };
+const RTL = { ar: true };
+
+// İngilizce metin çevirilerin kaynağıdır; her derlemede lang/en.json olarak yazılır
+const LANG_DIR = path.join(__dirname, 'lang');
+fs.writeFileSync(path.join(LANG_DIR, 'en.json'), JSON.stringify({ ui: UI.en, apps: Object.fromEntries(APPS.map(a => [a.id, a.en])) }, null, 1) + '\n');
+// Çevirisi olan diller eklenir; adresler ve uygulama adları İngilizcedekiyle aynıdır
+// Metinler app.text[dil] altında tutulur ("id" hem alan adı hem Endonezcenin kodu olduğu için ayrı durur)
+APPS.forEach(a => { a.text = { tr: a.tr, en: a.en }; });
+const LANGS = HOME_LANGS.filter(l => {
+  if (l === 'tr' || l === 'en') return true;
+  const f = path.join(LANG_DIR, l + '.json');
+  if (!fs.existsSync(f)) return false;
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  UI[l] = d.ui;
+  APPS.forEach(a => { a.text[l] = Object.assign({}, d.apps[a.id], { slug: a.en.slug, name: a.en.name, short: a.en.short }); });
+  return true;
+});
 const PRIVACY = [['kayip', '/privacy/kayip/'], ['koleksiyoncu', '/privacy/collector/'], ['prizma', '/privacy/prizma/'], ['ezber', '/privacy/ezber/'], ['paydos', '/privacy/paydos/']];
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const urlOf = (app, lang) => (lang === 'tr' ? '/' : '/en/') + app[lang].slug + '/';
-const homeOf = (lang, hash) => (lang === 'tr' ? '/' : '/?lang=en') + (hash ? '#' + hash : '');
-const shot = (s, lang) => '/assets/' + s[0] + (lang === 'en' && s[1] ? '-en' : '') + '.webp';
+const urlOf = (app, lang) => (lang === 'tr' ? '/' : '/' + lang + '/') + app.text[lang].slug + '/';
+const homeOf = (lang, hash) => (lang === 'tr' ? '/' : '/?lang=' + lang) + (hash ? '#' + hash : '');
+// Türkçe dışındaki dillerde İngilizce ekran görüntüleri kullanılır
+const shot = (s, lang) => '/assets/' + s[0] + (lang !== 'tr' && s[1] ? '-en' : '') + '.webp';
 
 const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'";
 
 function page(app, lang) {
-  const t = UI[lang], c = app[lang], other = lang === 'tr' ? 'en' : 'tr';
+  const t = UI[lang], c = app.text[lang];
   const url = BASE + urlOf(app, lang);
   const group = app.kind === 'game' ? t.games : t.apps;
   const groupHash = app.kind === 'game' ? 'oyunlar' : 'uygulamalar';
-  const og = BASE + '/assets/og-' + app.id + (lang === 'en' ? '-en' : '') + '.jpg';
+  const og = BASE + '/assets/og-' + app.id + (lang !== 'tr' ? '-en' : '') + '.jpg';
   const isTest = app.status === 'test';
   const half = Math.ceil(c.feats.length / 2);
 
@@ -66,10 +86,10 @@ function page(app, lang) {
     </div>`;
 
   const others = APPS.filter(a => a !== app).map(a => `
-        <li><a href="${urlOf(a, lang)}" style="--acc:${a.acc}"><img src="/assets/${a.id}-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>${esc(a[lang].short)}</strong><small>${esc(a[lang].tag)}</small></span></a></li>`).join('');
+        <li><a href="${urlOf(a, lang)}" style="--acc:${a.acc}"><img src="/assets/${a.id}-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>${esc(a.text[lang].short)}</strong><small>${esc(a.text[lang].tag)}</small></span></a></li>`).join('');
 
   return `<!doctype html>
-<html lang="${lang}" data-theme="dark">
+<html lang="${lang}"${RTL[lang] ? ' dir="rtl"' : ''} data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="${CSP}">
@@ -86,11 +106,10 @@ function page(app, lang) {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="${url}">
-<meta property="og:locale" content="${lang === 'tr' ? 'tr_TR' : 'en_US'}">
+<meta property="og:locale" content="${LOCALE[lang]}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="${url}">
-<link rel="alternate" hreflang="tr" href="${BASE + urlOf(app, 'tr')}">
-<link rel="alternate" hreflang="en" href="${BASE + urlOf(app, 'en')}">
+${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app, l)}">`).join('\n')}
 <link rel="alternate" hreflang="x-default" href="${BASE + urlOf(app, 'en')}">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>
 <link rel="icon" href="/assets/favicon.png" type="image/png">
@@ -116,9 +135,12 @@ function page(app, lang) {
       <a href="${homeOf(lang, 'iletisim')}">${esc(t.contact)}</a>
     </nav>
     <div class="tools">
-      <div class="seg" role="group" aria-label="${esc(t.langLabel)}">
-        ${LANGS.map(l => l === lang ? `<span aria-current="true">${l.toUpperCase()}</span>` : `<a href="${urlOf(app, l)}" hreflang="${l}" lang="${l}" data-set-lang="${l}">${l.toUpperCase()}</a>`).join('')}
-      </div>
+      <details class="lang" id="lang">
+        <summary class="chip-btn" aria-label="${esc(t.langLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span>${lang.toUpperCase()}</span></summary>
+        <ul class="lang-menu">${LANGS.map(l => `
+          <li><a href="${urlOf(app, l)}" hreflang="${l}" lang="${l}" data-set-lang="${l}"${l === lang ? ' class="on" aria-current="true"' : ''}><span>${NAMES[l]}</span><b>${l.toUpperCase()}</b></a></li>`).join('')}
+        </ul>
+      </details>
       <button class="icon-btn" id="themeBtn" type="button" aria-label="${esc(t.theme)}">
         <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
         <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
@@ -225,7 +247,7 @@ function page(app, lang) {
       <div class="foot-brand"><strong>FMJ Apps</strong><span>${esc(t.footTag)}</span></div>
       <div class="foot-col">
         <span class="foot-h">${esc(t.footPrivacy)}</span>
-        ${PRIVACY.map(([id, href]) => `<a href="${href}">${esc(APPS.find(a => a.id === id)[lang].short)}</a>`).join('\n        ')}
+        ${PRIVACY.map(([id, href]) => `<a href="${href}">${esc(APPS.find(a => a.id === id).text[lang].short)}</a>`).join('\n        ')}
       </div>
       <div class="foot-col">
         <span class="foot-h">${esc(t.footContact)}</span>

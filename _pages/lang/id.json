@@ -1,0 +1,700 @@
+{
+ "ui": {
+  "home": "Beranda",
+  "games": "Game",
+  "apps": "Aplikasi",
+  "contact": "Kontak",
+  "tagline": "Game dan aplikasi yang simpel dan andal",
+  "theme": "Ganti tema",
+  "langLabel": "Bahasa",
+  "skip": "Langsung ke konten",
+  "statusTest": "Dalam uji coba tertutup",
+  "statusSoon": "Sedang ditinjau · Segera hadir di Google Play",
+  "join": "Ikut uji coba",
+  "feedback": "Kirim masukan",
+  "privacy": "Kebijakan privasi",
+  "shots": "Tangkapan layar",
+  "features": "Keunggulan",
+  "info": "Sekilas info",
+  "faq": "Tanya jawab",
+  "joinTitle": "Ikut uji coba tertutup",
+  "joinLede": "Kamu bisa jadi penguji dalam tiga langkah. Kamu cukup tetap masuk dengan akun Google yang kamu pakai di Play Store.",
+  "s1t": "Gabung ke grup penguji",
+  "s1d": "Di halaman Google Grup yang terbuka, ketuk “Gabung ke grup”.",
+  "s1b": "Buka grup",
+  "s2t": "Jadi penguji",
+  "s2d": "Di halaman Play yang terbuka, ketuk “Jadi penguji”. Kalau kamu baru saja bergabung ke grup, halamannya mungkin baru siap setelah beberapa menit.",
+  "s2b": "Jadi penguji",
+  "s3t": "Unduh dari Google Play",
+  "s3d": "Sekarang aplikasinya sudah muncul untukmu di Play Store. Pasang dan cobalah.",
+  "s3b": "Buka di Play",
+  "joinNote": "Agar sebuah aplikasi bisa dirilis, para penguji perlu membiarkannya terpasang minimal 14 hari. Kalau kamu tidak menghapusnya selama itu, kami sangat terbantu.",
+  "soonTitle": "Segera hadir di Google Play",
+  "soonLede": "{name} sedang menunggu persetujuan rilis dari Google Play. Tautan unduhnya akan muncul di halaman ini begitu disetujui. Sementara itu, tulis saja ke kami tentang apa pun.",
+  "others": "Lainnya dari FMJ Apps",
+  "all": "Lihat semua",
+  "footTag": "Game dan aplikasi untuk Android",
+  "footPrivacy": "Kebijakan privasi",
+  "footContact": "Kontak",
+  "footPlay": "Halaman pengembang di Google Play",
+  "android": "Untuk saat ini hanya di Android, lewat Google Play. Tidak ada versi iOS.",
+  "game": "Game",
+  "app": "Aplikasi",
+  "scroll": "Gulir ke bawah",
+  "pages": "Halaman"
+ },
+ "apps": {
+  "kayip": {
+   "slug": "lost-and-found-office",
+   "name": "Lost & Found Office",
+   "short": "Lost & Found Office",
+   "tag": "Game deduksi harian",
+   "title": "Lost & Found Office · Game deduksi harian untuk Android",
+   "desc": "Enam pengunjung sehari di kantor barang hilang stasiun: kembalikan barang ke pemiliknya, tangkap si penipu. Giliran jaga sama untuk semua, bisa tanpa internet.",
+   "lede": "Kamu bertugas di balik meja kantor barang hilang Stasiun Pusat, dan di atas meja itu duduk Pamuk, si kucing kantor. Setiap hari enam pengunjung masuk lewat pintu. Ada yang memang mencari kopernya, ada penipu yang melihat sebuah barang di papan pengumuman, dan ada yang jujur tapi barangnya memang belum ditemukan. Siapa yang mana, kamu yang harus mencari tahu.",
+   "chips": [
+    "Android",
+    "Gratis",
+    "Tanpa internet",
+    "9 bahasa"
+   ],
+   "howTitle": "Cara bermain",
+   "how": [
+    [
+     "Dengarkan",
+     "Setiap pengunjung menceritakan barangnya. Periksa rak dan buka laporannya: kapan ditemukan, ciri khasnya, apa isinya."
+    ],
+    [
+     "Tanyakan",
+     "Kamu boleh mengajukan sampai tiga pertanyaan ke tiap pengunjung. Isinya apa? Boleh lihat kartu identitasnya? Kapan persisnya barang itu hilang?"
+    ],
+    [
+     "Bandingkan",
+     "Penipu tahu apa yang tertulis di papan, tapi tidak mungkin tahu isi tasnya. Satu jawaban yang tidak cocok sudah cukup."
+    ],
+    [
+     "Putuskan",
+     "Serahkan, tolak, atau bilang barangnya tidak ada di sini. Keputusan yang tepat memberimu poin; asal tebak malah menguranginya."
+    ]
+   ],
+   "alts": [
+    "Menanyai seorang pengunjung",
+    "Laporan untuk sebuah barang di rak",
+    "Kantor yang sudah dihias, bersama Pamuk si kucing"
+   ],
+   "feats": [
+    [
+     "Giliran jaga baru setiap hari",
+     "Hari Senin masih sepi; hari Minggu kantor sudah penuh sesak. Satu giliran jaga selesai dalam kira-kira lima menit."
+    ],
+    [
+     "Pengunjung yang sama untuk semua orang",
+     "Semua orang di dunia bertemu pengunjung yang sama pada hari yang sama. Bagikan hasilmu dan lihat siapa yang lebih jeli."
+    ],
+    [
+     "Hanya satu jawaban yang benar",
+     "Setiap giliran jaga dibuat berdasarkan aturan, dan untuk setiap pengunjung hanya ada satu jawaban yang benar. Andalkan ketelitianmu, bukan keberuntungan."
+    ],
+    [
+     "Pamuk dan hadiahnya",
+     "Elus Pamuk, dia akan mengeong dan mendengkur. Setiap selesai giliran jaga, dia membawakanmu harta kecil dari salah satu sudut stasiun."
+    ],
+    [
+     "Kantor milikmu sendiri",
+     "Hias kantormu dengan kartu ucapan terima kasih: tanaman pot, radio tua, lampu stasiun, kereta mainan, dan lain-lain."
+    ],
+    [
+     "Selalu ada yang dikejar",
+     "Lima pangkat dari Anak Magang sampai Kepala Kantor, misi harian yang selalu baru, 20+ pencapaian, dan runtunan harian lengkap dengan perisai runtunan."
+    ],
+    [
+     "Arsip 30 hari",
+     "Terlewat satu hari? Mainkan giliran jaganya dari arsip."
+    ],
+    [
+     "Sudut yang tenang",
+     "Musik yang tenang, kantor yang nyaman, dan sesi yang singkat."
+    ]
+   ],
+   "info": [
+    [
+     "Genre",
+     "Teka-teki · game deduksi harian"
+    ],
+    [
+     "Platform",
+     "Android (Google Play)"
+    ],
+    [
+     "Harga",
+     "Gratis. Ada paket kartu giliran jaga, tidak wajib dibeli."
+    ],
+    [
+     "Iklan",
+     "Hanya iklan berhadiah yang kamu pilih sendiri untuk ditonton. Tanpa iklan sela, tanpa banner."
+    ],
+    [
+     "Internet",
+     "Tidak perlu"
+    ],
+    [
+     "Akun",
+     "Tidak perlu. Progresmu tersimpan di ponselmu."
+    ],
+    [
+     "Papan peringkat",
+     "Lewat Google Play Games, opsional"
+    ],
+    [
+     "Bahasa",
+     "Inggris, Turki, Spanyol, Prancis, Portugis, Arab, Hindi, Bengali, Mandarin"
+    ]
+   ],
+   "faq": [
+    [
+     "Apakah Lost & Found Office gratis?",
+     "Ya, gratis diunduh dan dimainkan. Giliran jaga harian terbuka untuk semua orang setiap hari. Giliran jaga lama di arsip dimainkan dengan kartu giliran jaga: kamu mendapat kartu gratis setiap hari dan bisa menambahnya dengan menonton iklan berhadiah atau lewat toko."
+    ],
+    [
+     "Apakah ada iklan?",
+     "Hanya iklan berhadiah yang kamu pilih sendiri untuk ditonton. Tidak ada yang menyela permainan dan tidak ada banner di layar."
+    ],
+    [
+     "Apakah bisa dimainkan tanpa internet?",
+     "Ya. Giliran jaga bisa dimainkan tanpa koneksi internet."
+    ],
+    [
+     "Apakah pembelian berpengaruh di papan peringkat?",
+     "Tidak. Skor papan peringkat hanya berasal dari giliran jaga harian; giliran jaga dari arsip dan pembelian tidak menambah apa pun."
+    ],
+    [
+     "Kapan giliran jaga baru datang?",
+     "Giliran jaga berganti pada saat yang sama di seluruh dunia: tengah malam UTC."
+    ],
+    [
+     "Apakah ada versi iOS?",
+     "Untuk saat ini belum. Game ini hanya tersedia di Android, lewat Google Play."
+    ]
+   ]
+  },
+  "koleksiyoncu": {
+   "slug": "the-collector",
+   "name": "The Collector: Real or Fake",
+   "short": "The Collector",
+   "tag": "Game detektif toko antik",
+   "title": "The Collector: Real or Fake · Game detektif toko antik untuk Android",
+   "desc": "Kelola toko antik kakekmu: periksa jam, koin, dan lukisan, kenali yang palsu, tawar harganya, dan lengkapi koleksi karya delapan belas maestro.",
+   "lede": "Toko barang antik tua milik kakekmu kini jadi milikmu. Di sebuah laci tersimpan buku catatan bersampul kulit, dan di halaman pertamanya tertulis impian kakek yang belum terwujud: mengumpulkan satu karya asli dari delapan belas maestro besar dalam satu etalase. Sayangnya, pasar penuh dengan barang palsu.",
+   "chips": [
+    "Android",
+    "Gratis",
+    "Tanpa internet",
+    "9 bahasa"
+   ],
+   "howTitle": "Cara bermain",
+   "how": [
+    [
+     "Periksa",
+     "Pelanggan membawa jam saku, koin, dan lukisan. Bolak-balik setiap barang: periksa pelat jamnya, tutup belakangnya, mesinnya. Geser kaca pembesar dengan jarimu."
+    ],
+    [
+     "Buka katalog",
+     "Pembuat mana yang berkarya pada tahun berapa? Cap apa yang dipakainya? Pigmen mana yang waktu itu belum ada? Baca katalognya dan si pemalsu akan ketahuan."
+    ],
+    [
+     "Tawar",
+     "Ada penjual yang serakah, yang terdesak, dan yang tidak tahu apa-apa… Ajukan tawaran yang pas dan bawa pulang harta karun asli dengan harga receh."
+    ],
+    [
+     "Jual atau simpan",
+     "Jual barang asli di lelang, atau simpan di etalasemu dan dapatkan pemasukan dari pengunjung setiap hari."
+    ]
+   ],
+   "alts": [
+    "Memeriksa pelat jam saku",
+    "Tutup belakang jam di bawah kaca pembesar",
+    "Katalog para pembuat",
+    "Layar utama toko",
+    "Cerita pembuka"
+   ],
+   "feats": [
+    [
+     "Benar-benar memeriksa",
+     "Detail kecil seperti nomor seri, cap, dan tanggal membongkar kebenarannya."
+    ],
+    [
+     "Katalog adalah pedomanmu",
+     "Setiap barang palsu melanggar satu aturan di katalog. Aturan yang mana, kamu yang harus menemukannya."
+    ],
+    [
+     "Lengkapi peralatanmu",
+     "Timbangan, jangka sorong, batu uji, lampu UV, dan uji pigmen. Setiap alat membongkar jenis pemalsuan yang baru."
+    ],
+    [
+     "Waktu terus berjalan",
+     "Setiap alat memakan waktu toko. Pukul 18.00 toko tutup."
+    ],
+    [
+     "Etalase berisi delapan belas karya",
+     "Kumpulkan kedelapan belas karya dan wujudkan impian kakekmu."
+    ],
+    [
+     "Selalu ada yang dikejar",
+     "Lima pangkat dari Murid sampai Penaksir Legendaris, dengan pembuat baru di setiap pangkat. Tugas harian yang selalu baru dan 20+ pencapaian."
+    ],
+    [
+     "Ketelitian, bukan keberuntungan",
+     "Setiap barang dibuat berdasarkan aturan, dan setiap barang palsu bisa ketahuan dengan alat yang kamu punya."
+    ],
+    [
+     "Sesi singkat",
+     "Satu hari di toko selesai dalam 8–10 menit. Musik yang tenang, suasana yang hangat, dan pelanggan baru setiap hari."
+    ]
+   ],
+   "info": [
+    [
+     "Genre",
+     "Teka-teki · game toko antik dan pegadaian"
+    ],
+    [
+     "Platform",
+     "Android (Google Play)"
+    ],
+    [
+     "Harga",
+     "Gratis. Ada paket bebas iklan dan paket kunci, tidak wajib dibeli."
+    ],
+    [
+     "Iklan",
+     "Hanya iklan berhadiah yang kamu pilih sendiri untuk ditonton demi satu kunci toko tambahan. Tanpa iklan sela, tanpa banner."
+    ],
+    [
+     "Internet",
+     "Tidak perlu"
+    ],
+    [
+     "Akun",
+     "Tidak perlu. Progresmu tersimpan di ponselmu."
+    ],
+    [
+     "Papan peringkat dan pencapaian",
+     "Lewat Google Play Games"
+    ],
+    [
+     "Bahasa",
+     "Inggris, Turki, Spanyol, Prancis, Portugis, Arab, Hindi, Bengali, Mandarin"
+    ]
+   ],
+   "faq": [
+    [
+     "Apakah The Collector gratis?",
+     "Ya, gratis diunduh dan dimainkan. Ada pembelian opsional: paket bebas iklan yang berlaku selamanya dan paket kunci sekali pakai."
+    ],
+    [
+     "Apakah ada iklan?",
+     "Hanya iklan berhadiah yang kamu pilih sendiri untuk ditonton demi satu kunci toko tambahan. Tidak ada iklan sela dan tidak ada banner. Dengan paket bebas iklan, kamu mendapat kuncinya tanpa perlu menonton iklan."
+    ],
+    [
+     "Apakah bisa dimainkan tanpa internet?",
+     "Ya, game-nya sendiri bisa dimainkan tanpa internet."
+    ],
+    [
+     "Apakah mengenali barang palsu itu soal untung-untungan?",
+     "Tidak. Setiap barang dibuat berdasarkan aturan, dan setiap barang palsu bisa ketahuan dengan alat yang kamu punya."
+    ],
+    [
+     "Apakah ada versi iOS?",
+     "Untuk saat ini belum. Game ini hanya tersedia di Android, lewat Google Play."
+    ]
+   ]
+  },
+  "prizma": {
+   "slug": "prizma",
+   "name": "Prizma",
+   "short": "Prizma",
+   "tag": "Teka-teki cahaya dan cermin",
+   "title": "Prizma · Game teka-teki cahaya dan cermin untuk Android",
+   "desc": "Pasang cermin dan arahkan sinar ke sasarannya. 60 level, teka-teki harian yang sama untuk semua orang, dan teka-teki baru tanpa batas.",
+   "lede": "Prizma adalah game teka-teki yang dipecahkan dengan sinar cahaya dan cermin. Di setiap level, kamu mengarahkan sumber cahaya ke sasaran yang tepat dengan cermin yang kamu pasang. Makin jauh, muncul balok prisma yang membelah sinar jadi dua dan portal yang memindahkannya ke tempat lain.",
+   "chips": [
+    "Android",
+    "Gratis",
+    "60 level",
+    "9 bahasa"
+   ],
+   "howTitle": "Cara bermain",
+   "how": [
+    [
+     "Pasang cermin",
+     "Setiap cermin membelokkan sinar 90 derajat. Letakkan di kotak yang tepat dan sinar akan menemukan jalannya."
+    ],
+    [
+     "Belah dan pindahkan",
+     "Balok prisma membelah sinar jadi dua, jadi satu sinar bisa menyalakan dua sasaran. Portal memindahkan sinar ke tempat lain."
+    ],
+    [
+     "Nyalakan sasarannya",
+     "Level selesai saat sinar mencapai semua sasaran. Kalau ada sasaran putih, cahaya dari semua sumber harus bertemu di sana."
+    ],
+    [
+     "Kalau kamu buntu",
+     "Batalkan langkah terakhirmu, atau minta petunjuk: cermin berikutnya akan dipasangkan untukmu."
+    ]
+   ],
+   "alts": [
+    "Sinar yang diarahkan ke sasarannya dengan cermin",
+    "Balok prisma yang membelah sinar",
+    "Level dengan portal",
+    "Teka-teki tingkat Ahli",
+    "Daftar 60 level",
+    "Menu utama"
+   ],
+   "feats": [
+    [
+     "60 level",
+     "Dari satu cermin sampai prisma dan portal, makin sulit selangkah demi selangkah. Di setiap level, jumlah cermin yang boleh kamu pakai dibatasi."
+    ],
+    [
+     "Teka-teki harian",
+     "Teka-teki yang sama untuk semua orang, setiap hari. Terus pecahkan dan runtunanmu makin panjang."
+    ],
+    [
+     "Teka-teki tanpa batas",
+     "Teka-teki yang selalu baru di tingkat Mudah, Sedang, Sulit, dan Ahli."
+    ],
+    [
+     "Mode buta",
+     "Di tingkat Sulit dan Ahli, kamu mengatur jalurnya dulu, baru menyalakan sinarnya."
+    ],
+    [
+     "Papan peringkat dan pencapaian",
+     "Bandingkan skormu dengan pemain lain lewat Google Play Games."
+    ],
+    [
+     "Mode buta warna",
+     "Kalau warnanya sulit dibedakan, nyalakan mode ini di pengaturan."
+    ],
+    [
+     "Pengaturanmu",
+     "Musik, efek suara, dan getaran punya tombolnya masing-masing."
+    ],
+    [
+     "Dunia gelap bercahaya neon",
+     "Sinar yang berpendar di atas papan gelap; musik dan suaranya dibuat langsung di dalam game."
+    ]
+   ],
+   "info": [
+    [
+     "Genre",
+     "Teka-teki"
+    ],
+    [
+     "Platform",
+     "Android (Google Play)"
+    ],
+    [
+     "Harga",
+     "Gratis. Pembelian satu kali menghapus batas kredit teka-teki."
+    ],
+    [
+     "Iklan",
+     "Satu banner di layar permainan, ditambah iklan berhadiah yang kamu pilih sendiri untuk ditonton (demi kredit teka-teki tambahan atau petunjuk)."
+    ],
+    [
+     "Akun",
+     "Tidak perlu. Progresmu tersimpan di ponselmu."
+    ],
+    [
+     "Papan peringkat",
+     "Lewat Google Play Games, opsional"
+    ],
+    [
+     "Bahasa",
+     "Inggris, Turki, Spanyol, Prancis, Portugis, Rusia, Arab, Hindi, Mandarin"
+    ]
+   ],
+   "faq": [
+    [
+     "Apakah Prizma gratis?",
+     "Ya, gratis diunduh dan dimainkan. Kredit teka-teki dibatasi per hari; kamu bisa menambahnya dengan menonton iklan berhadiah, atau menghapus batasnya untuk selamanya dengan pembelian satu kali."
+    ],
+    [
+     "Apakah ada iklan?",
+     "Ada satu banner di layar permainan. Iklan berhadiah hanya muncul kalau kamu yang memilihnya, sebagai ganti kredit teka-teki tambahan atau petunjuk."
+    ],
+    [
+     "Apakah aku perlu akun?",
+     "Tidak. Kalau kamu ingin tampil di papan peringkat, cukup masuk ke Google Play Games; seluruh game tetap bisa dimainkan tanpanya."
+    ],
+    [
+     "Kapan dirilis?",
+     "Prizma sedang menunggu persetujuan rilis dari Google Play. Tautan unduhnya akan muncul di halaman ini begitu disetujui."
+    ],
+    [
+     "Apakah ada versi iOS?",
+     "Untuk saat ini belum. Game ini hanya akan tersedia di Android, lewat Google Play."
+    ]
+   ]
+  },
+  "ezber": {
+   "slug": "memorize",
+   "name": "Memorize: Lines, Speech, Poems",
+   "short": "Memorize",
+   "tag": "Menghafal tanpa pegang ponsel",
+   "title": "Memorize · Hafalkan dialog, puisi, dan pidato tanpa pegang ponsel (Android)",
+   "desc": "Membacakan naskahmu, mendengarkan saat giliranmu, dan membisikkan saat kamu lupa. Hafalkan dialog, puisi, dan presentasi tanpa menyentuh ponsel.",
+   "lede": "Dialog panggung, puisi untuk sekolah, pidato, atau presentasi… Memorize membacakan naskahmu, mendengarkan saat giliranmu tiba, dan berbisik seperti pembisik panggung saat kamu lupa. Berlatihlah tanpa menyentuh ponsel, sambil jalan kaki atau di perjalanan.",
+   "chips": [
+    "Android",
+    "Tanpa akun",
+    "Tanpa iklan",
+    "10 bahasa"
+   ],
+   "howTitle": "Cara kerjanya",
+   "how": [
+    [
+     "Masukkan naskahmu",
+     "Tempel langsung, atau impor dari TXT, PDF, Word, atau foto. Tokoh dan dialognya dipisahkan otomatis."
+    ],
+    [
+     "Pilih tokohmu",
+     "Pilih kamu jadi siapa; tokoh lain dibacakan dengan suara yang berbeda-beda."
+    ],
+    [
+     "Mulai berlatih",
+     "Saat giliranmu tiba, aplikasi mendengarkan; ucapkan dialogmu, dan latihan berlanjut begitu kamu berhenti bicara."
+    ],
+    [
+     "Kalau kamu lupa",
+     "Pembisik membisikkan kata-kata pertamanya, lalu seluruh barisnya kalau perlu."
+    ]
+   ],
+   "alts": [
+    "Layar latihan dengan dialog yang dibacakan bergiliran",
+    "Memilih tokoh dan suara",
+    "Mode latihan"
+   ],
+   "feats": [
+    [
+     "Latihan tanpa pegang ponsel",
+     "Ponsel tidak perlu disentuh: aplikasi membaca, mendengarkan, dan melanjutkan begitu kamu berhenti bicara."
+    ],
+    [
+     "Naskah dari mana saja",
+     "TXT, PDF, Word, atau foto. Baris yang kurang jelas ditandai dan bisa diperbaiki dengan sekali ketuk."
+    ],
+    [
+     "Hafalkan puisi sedikit demi sedikit",
+     "Baris 1, lalu 1–2, lalu 1–3… Puisinya menempel di kepala bagian demi bagian."
+    ],
+    [
+     "Disembunyikan bertahap",
+     "Setiap kali satu putaran sempurna, makin banyak kata yang menghilang."
+    ],
+    [
+     "Baris yang masih sulit",
+     "Aplikasi mengingat di mana kamu tersendat, dan kamu bisa melatih baris-baris itu saja."
+    ],
+    [
+     "Latihan presentasi",
+     "Pengatur waktu, target durasi, dan kecepatan bicara (kata per menit). Petunjuk kata kunci membantumu menguasai alurnya, bukan membaca kata demi kata."
+    ],
+    [
+     "Naskahmu tetap milikmu",
+     "Naskahmu tersimpan di ponselmu. Suaramu tidak direkam selama latihan; suara diproses di ponsel dan tidak pernah dikirim ke mana pun."
+    ],
+    [
+     "10 bahasa",
+     "Inggris, Turki, Jerman, Prancis, Spanyol, Portugis, Rusia, Italia, Arab, dan Indonesia."
+    ]
+   ],
+   "info": [
+    [
+     "Kategori",
+     "Pendidikan · menghafal dan berlatih"
+    ],
+    [
+     "Platform",
+     "Android (Google Play)"
+    ],
+    [
+     "Harga",
+     "Gratis. Tersedia langganan Pro opsional lewat Google Play."
+    ],
+    [
+     "Iklan",
+     "Tidak ada"
+    ],
+    [
+     "Akun",
+     "Tidak perlu"
+    ],
+    [
+     "Mikrofon",
+     "Hanya menyala saat giliranmu. Suara diproses di ponsel, tidak pernah direkam atau dikirim."
+    ],
+    [
+     "Bahasa",
+     "Inggris, Turki, Jerman, Prancis, Spanyol, Portugis, Rusia, Italia, Arab, Indonesia"
+    ]
+   ],
+   "faq": [
+    [
+     "Memorize cocok untuk apa?",
+     "Dialog panggung, puisi, pentas sekolah, pidato, dan presentasi. Masing-masing punya cara latihannya sendiri: latihan dengan tokoh, menambah baris sedikit demi sedikit, penyembunyian bertahap, dan latihan presentasi dengan pengatur waktu."
+    ],
+    [
+     "Apakah suaraku direkam?",
+     "Selama latihan, tidak. Mikrofon hanya menyala saat giliranmu; suara diproses langsung di ponsel, tidak disimpan ke file, dan tidak dikirim ke mana pun. Kalau kamu ingin merekam dialog dengan suaramu sendiri, kamu sendiri yang memulainya lewat “Rekam suara”, dan rekaman itu pun hanya tersimpan di ponselmu."
+    ],
+    [
+     "Apakah naskahku dikirim ke suatu tempat?",
+     "Tidak. Naskah, pengaturan, dan riwayat latihanmu hanya disimpan di ponselmu."
+    ],
+    [
+     "Apakah ada iklan?",
+     "Tidak. Aplikasi ini tanpa iklan dan tidak perlu akun."
+    ],
+    [
+     "File apa saja yang bisa kuimpor?",
+     "File TXT, PDF, dan Word, atau foto. Kamu juga bisa langsung menempelkan naskahmu."
+    ],
+    [
+     "Apakah ada versi iOS?",
+     "Untuk saat ini belum. Aplikasi ini hanya tersedia di Android, lewat Google Play."
+    ]
+   ]
+  },
+  "paydos": {
+   "slug": "paydos",
+   "name": "Paydos",
+   "short": "Paydos",
+   "tag": "Kunci waktu layar untuk anak",
+   "title": "Paydos · Kunci waktu layar untuk anak (Android)",
+   "desc": "Pilih durasi dan aplikasi yang kamu izinkan, lalu serahkan ponselnya. Saat waktu habis, layar terkunci dan hanya PIN-mu yang bisa membukanya.",
+   "lede": "Dengan Paydos, kamu bisa meminjamkan ponselmu ke anakmu selama waktu tertentu, hanya dengan aplikasi yang kamu pilih. Saat waktunya habis, atau saat anakmu mencoba membuka aplikasi yang tidak diizinkan, muncul kunci layar penuh yang hanya bisa ditutup dengan PIN yang kamu buat.",
+   "chips": [
+    "Android",
+    "Sepenuhnya gratis",
+    "Tanpa akun",
+    "9 bahasa"
+   ],
+   "howTitle": "Cara kerjanya",
+   "how": [
+    [
+     "Pilih durasinya",
+     "15 menit, 30 menit, 1 jam, atau durasi yang kamu tentukan sendiri."
+    ],
+    [
+     "Centang aplikasinya",
+     "Pilih aplikasi mana yang boleh dibuka selama waktu itu. Setiap kali, kamu bisa mengizinkan aplikasi yang berbeda."
+    ],
+    [
+     "Serahkan ponselnya",
+     "Anakmu bisa melihat sisa waktu dan aplikasi yang boleh dibukanya."
+    ],
+    [
+     "Saat waktu habis",
+     "Muncul kunci layar penuh. Kunci ini tidak bisa diakali dengan tombol kembali atau dengan membuka ulang aplikasi; hanya PIN-mu yang bisa menutupnya."
+    ]
+   ],
+   "alts": [
+    "Pengaturan durasi dan PIN",
+    "Daftar aplikasi yang diizinkan",
+    "Layar kunci dengan aplikasi yang diizinkan",
+    "Layar kunci saat waktu habis",
+    "Penjelasan tentang izin aksesibilitas"
+   ],
+   "feats": [
+    [
+     "Atur di satu layar",
+     "Pilih durasinya, centang aplikasinya, nyalakan kuncinya."
+    ],
+    [
+     "Hanya yang kamu izinkan",
+     "Kalau anakmu mencoba membuka aplikasi yang tidak diizinkan, layar kunci langsung muncul."
+    ],
+    [
+     "Daftar yang mudah",
+     "Urutkan daftar aplikasi menurut yang terakhir dipakai, yang paling sering dipakai, atau abjad."
+    ],
+    [
+     "Kalau kamu lupa PIN",
+     "Ada pertanyaan pemulihan. Lagi pula, menyalakan ulang ponsel selalu menghapus kuncinya, jadi ponsel tidak akan pernah terkunci terus."
+    ],
+    [
+     "Tidak ada yang keluar dari ponsel",
+     "Durasi, daftar aplikasi, dan PIN hanya disimpan di ponselmu. PIN tidak pernah disimpan sebagai teks biasa."
+    ],
+    [
+     "Terbuka soal apa yang dilihatnya",
+     "Paydos hanya melihat nama aplikasi yang sedang dibuka. Paydos tidak membaca teks, foto, atau apa pun yang kamu ketik."
+    ],
+    [
+     "Tanpa akun",
+     "Tanpa pendaftaran, tanpa email, tanpa login."
+    ],
+    [
+     "9 bahasa",
+     "Inggris, Turki, Spanyol, Prancis, Rusia, Portugis, Indonesia, Hindi, dan Arab."
+    ]
+   ],
+   "info": [
+    [
+     "Kategori",
+     "Alat · kontrol orang tua"
+    ],
+    [
+     "Platform",
+     "Android (Google Play)"
+    ],
+    [
+     "Harga",
+     "Sepenuhnya gratis. Tanpa pembelian dalam aplikasi."
+    ],
+    [
+     "Iklan",
+     "Ada, hanya ditampilkan ke orang tua: di layar pengaturan, saat memasukkan PIN, dan setelah kunci dibuka. Layar “waktu habis” yang dilihat anakmu tidak berisi iklan."
+    ],
+    [
+     "Akun",
+     "Tidak perlu"
+    ],
+    [
+     "Data",
+     "Durasi, daftar aplikasi, dan PIN tetap di ponsel"
+    ],
+    [
+     "Bahasa",
+     "Inggris, Turki, Spanyol, Prancis, Rusia, Portugis, Indonesia, Hindi, Arab"
+    ]
+   ],
+   "faq": [
+    [
+     "Apakah Paydos gratis?",
+     "Ya, sepenuhnya gratis, tanpa pembelian dalam aplikasi. Aplikasi ini menampilkan iklan, tapi hanya ke orang tua."
+    ],
+    [
+     "Apakah anakku akan melihat iklan?",
+     "Layar yang dilihat anakmu saat waktu habis tidak berisi iklan. Iklan muncul di layar tempat orang tua mengatur kunci, saat PIN dimasukkan, dan setelah kunci dibuka."
+    ],
+    [
+     "Bagaimana kalau aku lupa PIN?",
+     "Kamu bisa menjawab pertanyaan pemulihan yang kamu pilih saat pengaturan awal. Kalau itu juga gagal, nyalakan ulang saja ponselnya: kuncinya selalu hilang setelah ponsel dinyalakan ulang."
+    ],
+    [
+     "Kenapa Paydos meminta izin aksesibilitas?",
+     "Untuk melihat aplikasi mana yang sedang dibuka selama waktu berjalan. Paydos hanya melihat nama aplikasi yang terbuka; isi layar tidak pernah dibaca, disimpan, atau dikirim."
+    ],
+    [
+     "Apakah ada data tentang anakku yang dikumpulkan?",
+     "Tidak. Paydos tidak mengumpulkan data pribadi apa pun dari anak maupun orang tua, dan tidak membuat akun. Pengaturanmu tetap di ponselmu."
+    ],
+    [
+     "Kapan dirilis?",
+     "Paydos sedang menunggu persetujuan rilis dari Google Play. Tautan unduhnya akan muncul di halaman ini begitu disetujui."
+    ]
+   ]
+  }
+ }
+}
