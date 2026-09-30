@@ -5,6 +5,7 @@ import { EmailMessage } from 'cloudflare:email';
 const ALLOWED_ORIGINS = ['https://fmjapps.com', 'https://www.fmjapps.com', 'http://localhost:5190'];
 const FROM = 'form@fmjapps.com';
 const SHOWN_TO = 'contact@fmjapps.com';
+const MAX_BODY = 12000;
 const SUBJECTS = {
   general: 'FMJ Apps (genel)',
   kayip: 'Kayıp Eşya Bürosu',
@@ -56,12 +57,24 @@ export default {
     if (request.method !== 'POST') return json({ ok: false, error: 'method' }, 405, origin);
     if (!ALLOWED_ORIGINS.includes(origin)) return json({ ok: false, error: 'origin' }, 403, origin);
 
+    // Aynı IP'den dakikada en çok 5 mesaj
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    if (env.LIMITER) {
+      const { success } = await env.LIMITER.limit({ key: ip });
+      if (!success) return json({ ok: false, error: 'rate' }, 429, origin);
+    }
+
+    // Aşırı büyük gövdeler okunmadan reddedilir
+    if (Number(request.headers.get('Content-Length') || 0) > MAX_BODY) return json({ ok: false, error: 'size' }, 413, origin);
     let data;
     try {
-      data = await request.json();
+      const text = await request.text();
+      if (text.length > MAX_BODY) return json({ ok: false, error: 'size' }, 413, origin);
+      data = JSON.parse(text);
     } catch {
       return json({ ok: false, error: 'json' }, 400, origin);
     }
+    if (!data || typeof data !== 'object') return json({ ok: false, error: 'json' }, 400, origin);
 
     // Bal küpü alanı: gerçek kullanıcı bunu boş bırakır, bot doldurur
     if (data.website) return json({ ok: true }, 200, origin);
@@ -70,14 +83,13 @@ export default {
     const email = clean(data.email, 120).replace(/\n/g, '');
     const message = clean(data.message, 4000);
     const subjectKey = Object.hasOwn(SUBJECTS, data.subject) ? data.subject : 'general';
-    const lang = data.lang === 'en' ? 'en' : 'tr';
+    const lang = /^[a-z]{2}$/.test(String(data.lang)) ? data.lang : 'tr';
 
     if (!name || message.length < 2 || !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]{2,}$/.test(email)) {
       return json({ ok: false, error: 'invalid' }, 400, origin);
     }
 
     const subjectLabel = SUBJECTS[subjectKey];
-    const ip = request.headers.get('CF-Connecting-IP') || '-';
     const country = request.cf && request.cf.country ? request.cf.country : '-';
     const body = [
       `Konu: ${subjectLabel}`,

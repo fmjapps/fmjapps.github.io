@@ -1153,3 +1153,82 @@ section { position: relative; }
   .ap-body .p-id h3 { font-size: 22px; }
 }
 @media (min-width: 901px) { .ap-slogan { max-width: none; font-size: clamp(26px, 3vw, 44px); white-space: nowrap; } }
+
+/* Marka sloganı: girişte belirgin yerde */
+.sh-info { grid-template-rows: auto auto; align-content: center; row-gap: clamp(22px, 4vh, 44px); }
+.sh-info .sh-panel { grid-area: 2 / 1; }
+.hero .sh-tagline {
+  grid-area: 1 / 1; margin: 0; max-width: none;
+  font: 600 clamp(17px, 1.55vw, 22px)/1.3 'Sora', sans-serif; letter-spacing: -.01em;
+  display: flex; align-items: center; gap: 12px; color: var(--text);
+}
+.hero .sh-tagline::before { content: ""; flex: none; width: 28px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--brand-2), var(--brand)); }
+.sh-tagline.m { display: none; }
+@media (max-width: 900px) {
+  .sh-info .sh-tagline { display: none; }
+  .hero .sh-tagline.m { display: flex; justify-content: center; text-align: center; font-size: 16px; margin-bottom: 14px; }
+  .hero .sh-tagline.m::before { display: none; }
+  .sh-info { row-gap: 0; }
+  .sh-info .sh-panel { grid-area: 1 / 1; }
+}
+
+/* Marka sloganı: logonun yanında, adın altında */
+.sh-info { grid-template-rows: auto; row-gap: 0; }
+.sh-info .sh-panel { grid-area: 1 / 1; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-tag { font: 500 12px/1.3 'Inter', sans-serif; letter-spacing: 0; color: var(--dim); margin-top: 3px; white-space: nowrap; }
+@media (max-width: 520px) { .brand-tag { font-size: 10.5px; margin-top: 2px; } .brand { gap: 9px; } }
+@media (max-width: 370px) { .brand-tag { display: none; } }
+
+/* =========================================================
+   Dil menüsü, çeviri beklerken gizleme, sağdan sola düzen
+   ========================================================= */
+.i18n-wait main, .i18n-wait .links, .i18n-wait .brand-tag, .i18n-wait .foot { opacity: 0; }
+main, .links, .brand-tag, .foot { transition: opacity .25s; }
+.lang { position: relative; }
+#langBtn { gap: 6px; padding: 0 10px 0 8px; }
+#langBtn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
+.lang-menu {
+  position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 70; margin: 0; padding: 6px; list-style: none;
+  width: 210px; max-height: min(70vh, 460px); overflow-y: auto;
+  background: var(--surface); border: 1px solid var(--line-2); border-radius: 16px; box-shadow: 0 24px 50px -20px rgba(0,0,0,.6);
+  animation: pop .22s var(--ease);
+}
+.lang-menu[hidden] { display: none; }
+.lang-menu li {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 10px; cursor: pointer;
+  font-size: 14.5px; font-weight: 500; color: var(--dim); outline: none;
+}
+.lang-menu li b { font-size: 11px; font-weight: 600; letter-spacing: .06em; color: var(--faint); }
+.lang-menu li:hover, .lang-menu li:focus-visible { background: var(--line); color: var(--text); }
+.lang-menu li.on { color: var(--text); background: color-mix(in srgb, var(--brand) 16%, transparent); }
+.lang-menu li.on b { color: var(--brand-ink); }
+
+/* Uzun çevirilerde slogan ve başlıklar taşmasın */
+@media (min-width: 901px) { .ap-slogan { white-space: normal; text-wrap: balance; } }
+.sh-kick, .ap-label, .w-label { letter-spacing: .1em; }
+:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(.sh-kick, .ap-label, .sec-num, .mc-label) { letter-spacing: 0; text-transform: none; }
+:root:is([lang="zh"], [lang="hi"], [lang="bn"], [lang="ar"]) :is(h1, h2, h3, .sh-name, .ap-slogan, .brand-name) { letter-spacing: 0; line-height: 1.2; }
+
+/* Arapça: sağdan sola */
+[dir="rtl"] .sh-solid b, [dir="rtl"] .sc-cap i { display: inline-block; transform: scaleX(-1); }
+[dir="rtl"] .pager { right: auto; left: 22px; }
+[dir="rtl"] .pager button span { right: auto; left: 22px; }
+[dir="rtl"] #showcase[data-set="apps"] .sc-ind { transform: translateX(-100%); }
+[dir="rtl"] .hero.sh { background:
+    radial-gradient(60% 75% at 28% 48%, color-mix(in srgb, var(--acc) 40%, transparent), transparent 70%),
+    radial-gradient(40% 50% at 90% 90%, color-mix(in srgb, var(--acc) 12%, transparent), transparent 70%), var(--bg); }
+[dir="rtl"] .app-page { background:
+    radial-gradient(55% 70% at 22% 50%, color-mix(in srgb, var(--acc) 26%, transparent), transparent 70%),
+    radial-gradient(40% 50% at 100% 100%, color-mix(in srgb, var(--acc) 10%, transparent), transparent 70%), var(--bg); }
+[dir="rtl"] .sc-stage, [dir="rtl"] .screen { direction: ltr; }
+[dir="rtl"] .bub.them { border-bottom-left-radius: 20px; border-bottom-right-radius: 6px; }
+[dir="rtl"] .bub.me { border-bottom-right-radius: 20px; border-bottom-left-radius: 6px; }
+[dir="rtl"] .composer button { transform: scaleX(-1); }
+@media (max-width: 760px) { [dir="rtl"] .pager { left: 8px; } }
+#langBtn { display: inline-flex; align-items: center; }
+@media (max-width: 900px) { .app-page { padding-block: 72px 14px; } .ap-body .phone { width: min(104px, 29vw); } .ap-body.product { gap: 14px; padding-top: 12px; } .ap-slogan { margin-bottom: 10px; } }
+.brand { min-width: 0; flex: 0 1 auto; }
+.brand-text { min-width: 0; }
+.brand-tag { overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.tools { flex: none; }

@@ -18,89 +18,19 @@
     ezber: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani', acc: '#2FC4A8' }
   };
 
+  // Metni HTML'e yazmadan önce zararsız hâle getirir
+  function esc(str) { return String(str).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
   function load(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
 
   /* ---------- Dil ---------- */
-  // Türkçe metin HTML'de; İngilizcesi burada. Türkçeye dönünce ilk hâli geri yüklenir.
-  var EN = {
-    'skip': 'Skip to content',
-    'nav.games': 'Games', 'nav.apps': 'Apps', 'nav.works': 'Our work', 'works.title': 'Our games and apps', 'nav.values': 'Principles', 'nav.contact': 'Contact',
-    'theme': 'Toggle theme', 'shots': 'Screenshots', 'close': 'Close', 'sc.prev': 'Previous', 'sc.next': 'Next', 'sc.drag': 'Drag to spin',
-    'hero.eyebrow': 'Simple, reliable mobile apps',
-    'hero.title': 'Simple, reliable <span class="grad">games and apps.</span>',
-    'hero.lede': 'Deduction games, a light puzzle, a memorization assistant and a screen lock for kids. All for Android, and none of them ask you to sign up.',
-    'hero.ctaGames': 'Games', 'hero.ctaApps': 'Apps',
-    'stat.games': 'games', 'stat.apps': 'apps', 'stat.account': 'accounts required',
-    'mq.daily': 'Something new every day', 'mq.offline': 'Plays offline', 'mq.langs': '9 languages',
-    'games.title': 'Games',
-    'games.lede': 'Games built on attention, not luck. Every visitor, every fake, every puzzle has a right answer you can find.',
-    'status.test': 'In closed testing',
-    'status.soon': 'In review · Coming soon to Google Play',
-    'join.btn': 'Join the test', 'feedback': 'Send feedback',
-    'privacy': 'Privacy',
-    'kayip.name': 'Lost & Found Office', 'kayip.tag': 'Daily deduction game',
-    'kayip.desc': "You're behind the counter of the Central Station lost & found, and on top of it sits Pamuk, the office cat. Six visitors come in every day: some really are looking for their suitcase, some are impostors eyeing an item on the notice board. Check the report, ask three questions, make your call.",
-    'kayip.f1': 'A new shift every day', 'kayip.f2': 'Same visitors for everyone worldwide', 'kayip.f3': 'Little gifts from Pamuk', 'kayip.f4': 'Plays offline',
-    'kol.name': 'The Collector: Real or Fake', 'kol.short': 'The Collector', 'kol.tag': 'Antique & pawn shop game',
-    'kol.desc': "Your grandfather's antique shop is yours now. Customers bring pocket watches, coins and paintings; turn them over, sweep the loupe, open the catalogue. Spot the fakes, haggle, and gather works by eighteen great masters in a single showcase.",
-    'kol.f1': 'Loupe, UV lamp, pigment analysis', 'kol.f2': 'Haggle with sellers', 'kol.f3': 'An 18-master collection', 'kol.f4': '8–10 minute shop days',
-    'prizma.name': 'Prizma', 'prizma.tag': 'Light and mirror puzzles',
-    'prizma.desc': 'Place the mirrors and guide the beam to its targets. The rules look simple, then come prism blocks that split the light, portals that send it out somewhere else and colours that mix like real light. On Hard and Master the beam stays hidden: set your mirrors first, then switch on the light.',
-    'prizma.f1': '60 levels, 4 difficulties', 'prizma.f2': 'A daily puzzle, same for everyone', 'prizma.f3': 'Play Games leaderboard and achievements', 'prizma.f4': 'Colour-blind mode',
-    'apps.title': 'Apps', 'apps.lede': 'Tools that do one job well and ask for nothing they don’t need.',
-    'ezber.name': 'Memorize: Lines, Speech, Poems', 'ezber.short': 'Memorize', 'ezber.tag': 'Hands-free memorization',
-    'ezber.desc': 'It reads your script to you, listens when it’s your turn and whispers like a prompter when you get stuck. Stage lines, a school poem or a work presentation: rehearse without touching your phone, even on a walk.',
-    'ezber.f1': 'Spoken rehearsal with prompter', 'ezber.f2': 'Import from PDF, Word or a photo', 'ezber.f3': 'No account, no ads', 'ezber.f4': '10 languages',
-    'paydos.name': 'Paydos', 'paydos.tag': 'Screen lock for kids',
-    'paydos.desc': 'Put a gentle limit on your child’s phone time. Set the time, tick the apps they can open and hand the phone over. When time is up, or a blocked app is opened, the screen locks and only your PIN unlocks it. Your child can always see how much time is left.',
-    'paydos.f1': 'Pick the time and the apps', 'paydos.f2': 'PIN-protected full-screen lock', 'paydos.f3': 'No data leaves the phone', 'paydos.f4': 'Completely free, 9 languages',
-    'values.title': 'How we build',
-    'v1.t': 'No accounts', 'v1.d': 'None of our apps ask you to sign up or hand over an email. Open it and go.',
-    'v2.t': 'Your data on your phone', 'v2.d': 'Our apps have no servers of their own. Your progress, texts and settings are stored on your phone; in Prizma you can also use Google Play Games cloud saves if you like.',
-    'v3.t': 'Fair play', 'v3.d': 'You win by paying attention, not by guessing. In Lost & Found Office and Prizma, each day’s content is the same for everyone in the world.',
-    'v4.t': 'Nine languages', 'v4.d': 'Our games and apps come in nine or ten languages, English and Turkish among them, and open in your phone’s language.',
-    'contact.title': 'Write to us',
-    'contact.lede': 'Got an idea, a bug to report or a question? Write to us here. English or Turkish, both are fine.',
-    'contact.mailLabel': 'Email',
-    'contact.mail': 'Send an email', 'contact.copy': 'Copy', 'contact.copied': 'Address copied',
-    'contact.testT': 'Want to become a tester?',
-    'contact.testD': 'Lost & Found Office, The Collector and Memorize are in closed testing. Join in three steps and try them before launch.',
-    'form.name': 'Your name', 'form.email': 'Your email', 'form.subject': 'What is it about?', 'form.message': 'Your message', 'form.send': 'Send',
-    'form.sending': 'Sending…',
-    'form.ok': 'Thanks! Your message has reached us. We’ll get back to you soon.',
-    'form.err': 'The message couldn’t be sent. Please try again, or write to contact@fmjapps.com.',
-    'form.check': 'Please fill in your name, a valid email and your message.',
-    'join.eyebrow': 'Join the closed test',
-    'join.lede': 'You can become a tester in three steps. For each one, you just need to be signed in with the Google account you use on the Play Store.',
-    'join.s1t': 'Join the test group', 'join.s1d': 'On the Google Group page that opens, tap “Join group”.', 'join.s1b': 'Go to the group',
-    'join.s2t': 'Become a tester', 'join.s2d': 'On the Play page that opens, tap “Become a tester”. If you’ve only just joined the group, the page may take a few minutes to be ready.', 'join.s2b': 'Become a tester',
-    'join.s3t': 'Download from Google Play', 'join.s3d': 'The app now shows up for you on the Play Store. Install it and give it a try.', 'join.s3b': 'Open in Play',
-    'join.note': 'For an app to launch, testers need to keep it installed for at least 14 days. Keeping it on your phone for that long really helps us.',
-    'hero.h1': 'FMJ Apps: simple, reliable games and apps',
-    'hero.kayip': 'Six visitors come to your station office every day. Check the report, ask three questions, catch the impostor.',
-    'hero.kol': 'In the antique shop your grandfather left you, inspect pocket watches, coins and paintings. Spot the fake, haggle.',
-    'hero.prizma': 'Place the mirrors and guide the beam to its targets. 60 levels, four difficulties and a new puzzle every day.',
-    'hero.ezber': 'It reads your script to you, listens when it’s your turn and whispers like a prompter when you get stuck.',
-    'hero.paydos': 'Pick the time and tick the allowed apps. When time is up the screen locks, and only your PIN opens it.',
-    'hero.explore': 'Explore', 'hero.foot': 'FMJ Apps · Simple, reliable games and apps', 'hero.down': 'Scroll down ↓',
-    'status.soon2': 'In Google Play review',
-    'slogan.games': 'Games that keep you company every day.',
-    'slogan.apps': 'Apps you can rely on any time.',
-    'android.only': 'Android only · Google Play',
-    'android.note': 'Android only for now, on Google Play. No iOS version.',
-    'ph.pick': 'Pick a topic first', 'ph.msg': 'Type your message…', 'ph.name': 'Your name', 'ph.mail': 'Your email',
-    'chat.hello': 'Hi! What are you writing about?',
-    'chat.askMsg': 'Go ahead, we’re listening.',
-    'chat.askName': 'Thanks! What name should we use when we reply?',
-    'chat.askMail': 'Last one: which email should we reply to?',
-    'chat.badMail': 'That email looks incomplete. Could you type it again?',
-    'chat.ok': 'Your message reached us. We’ll reply to {email} as soon as we can.',
-    'chat.err': 'Something went wrong and the message wasn’t sent. You can try again or write to contact@fmjapps.com.',
-    'chat.retry': 'Try again', 'chat.done': 'Message sent', 'chat.again': 'Write a new message',
-    'foot.tag': 'Games and apps for Android', 'foot.privacy': 'Privacy policies', 'foot.contact': 'Contact',
-    'foot.play': 'Google Play developer page', 'foot.top': 'Back to top ↑'
-  };
+  // Türkçe metin HTML'de durur. Diğer diller i18n/<kod>.json dosyalarından, seçilince yüklenir.
+  var LANGS = [
+    ['tr', 'Türkçe'], ['en', 'English'], ['es', 'Español'], ['pt', 'Português'], ['fr', 'Français'], ['de', 'Deutsch'],
+    ['ru', 'Русский'], ['ar', 'العربية'], ['hi', 'हिन्दी'], ['bn', 'বাংলা'], ['zh', '中文'], ['id', 'Bahasa Indonesia']
+  ];
+  var RTL = { ar: true };
+  // Yalnızca kodda geçen Türkçe metinler (sayfadakiler HTML'den okunur)
   var TR = {
     'ph.pick': 'Önce bir konu seç', 'ph.msg': 'Mesajını yaz…', 'ph.name': 'Adın', 'ph.mail': 'E-posta adresin',
     'chat.hello': 'Merhaba! Ne hakkında yazıyorsun?',
@@ -113,14 +43,11 @@
     'chat.retry': 'Tekrar dene', 'chat.done': 'Mesajın gönderildi',
     'contact.copied': 'Adres kopyalandı',
     'form.sending': 'Gönderiliyor…',
-    'form.ok': 'Teşekkürler! Mesajın bize ulaştı, en kısa sürede dönüş yapacağız.',
-    'form.err': 'Mesaj gönderilemedi. Lütfen tekrar dene ya da contact@fmjapps.com adresine yaz.',
-    'form.check': 'Lütfen adını, geçerli bir e-posta adresini ve mesajını yaz.'
+    'page.home': 'Giriş'
   };
-  var META = {
-    tr: { title: document.title, desc: document.querySelector('meta[name=description]').content },
-    en: { title: 'FMJ Apps · Android games and apps', desc: 'FMJ Apps builds simple, reliable mobile games and apps for everyday life: Lost & Found Office, The Collector, Prizma, Memorize and Paydos.' }
-  };
+  var DICT = {};
+  var curLang = 'tr';
+  var trMeta = { title: document.title, desc: document.querySelector('meta[name=description]').content };
 
   var textEls = document.querySelectorAll('[data-i18n]');
   var htmlEls = document.querySelectorAll('[data-i18n-html]');
@@ -132,34 +59,22 @@
   ariaEls.forEach(function (el) { el._tr = el.getAttribute('aria-label'); });
   imgEls.forEach(function (el) { el._tr = el.getAttribute('src'); });
 
-  function t(key) { return (root.getAttribute('data-lang') === 'en' ? EN : TR)[key]; }
+  function t(key) {
+    if (curLang === 'tr') return TR[key];
+    var d = DICT[curLang] || {};
+    return d[key] || (DICT.en && DICT.en[key]) || TR[key];
+  }
 
   // Bölüm başlıkları kelime kelime belirir
   var splitEls = document.querySelectorAll('.sec-head h2:not(.no-split)');
   function splitWords() {
     splitEls.forEach(function (h) {
-      if (h.closest('.games')) return; // degrade yazılı başlık bölünmez
       var words = h.textContent.trim().split(/\s+/);
-      h.innerHTML = words.map(function (w, i) { return '<span class="w" style="--i:' + i + '">' + w + '</span>'; }).join(' ');
+      h.innerHTML = words.map(function (w, i) { return '<span class="w" style="--i:' + i + '">' + esc(w) + '</span>'; }).join(' ');
       h.classList.add('split');
     });
   }
 
-  function applyLang(lang) {
-    var en = lang === 'en';
-    root.setAttribute('data-lang', lang);
-    root.lang = lang;
-    textEls.forEach(function (el) { var k = el.getAttribute('data-i18n'); el.textContent = en && EN[k] ? EN[k] : el._tr; });
-    htmlEls.forEach(function (el) { var k = el.getAttribute('data-i18n-html'); el.innerHTML = en && EN[k] ? EN[k] : el._tr; });
-    ariaEls.forEach(function (el) { var k = el.getAttribute('data-i18n-aria'); el.setAttribute('aria-label', en && EN[k] ? EN[k] : el._tr); });
-    phEls.forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (el.disabled) return; el.setAttribute('placeholder', t(k)); });
-    imgEls.forEach(function (el) { el.src = en ? el.getAttribute('data-en') : el._tr; });
-    document.title = META[lang].title;
-    document.querySelector('meta[name=description]').content = META[lang].desc;
-    splitWords();
-    if (typeof rebuildShowcase === 'function') rebuildShowcase();
-    if (typeof fitNames === 'function') fitNames();
-  }
   // Sahnedeki uygulama adı kendi sütununa sığacak kadar küçülür
   function fitNames() {
     document.querySelectorAll('.sh-name').forEach(function (h) {
@@ -180,14 +95,79 @@
   window.addEventListener('resize', fitNames);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNames);
 
-  applyLang(root.getAttribute('data-lang') === 'en' ? 'en' : 'tr');
+  var langBtn = document.getElementById('langBtn');
+  var langMenu = document.getElementById('langMenu');
+  var langCode = document.getElementById('langCode');
 
-  document.getElementById('langBtn').addEventListener('click', function () {
-    var next = root.getAttribute('data-lang') === 'en' ? 'tr' : 'en';
-    applyLang(next);
-    store('fmj-lang', next);
-    splitEls.forEach(function (h) { h.classList.add('in'); });
+  function render(lang) {
+    curLang = lang;
+    var d = lang === 'tr' ? null : DICT[lang];
+    root.setAttribute('data-lang', lang);
+    root.lang = lang;
+    root.dir = RTL[lang] ? 'rtl' : 'ltr';
+    textEls.forEach(function (el) { var k = el.getAttribute('data-i18n'); el.textContent = d && d[k] ? d[k] : el._tr; });
+    htmlEls.forEach(function (el) { var k = el.getAttribute('data-i18n-html'); el.innerHTML = d && d[k] ? d[k] : el._tr; });
+    ariaEls.forEach(function (el) { var k = el.getAttribute('data-i18n-aria'); el.setAttribute('aria-label', d && d[k] ? d[k] : el._tr); });
+    phEls.forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (el.disabled) return; el.setAttribute('placeholder', t(k)); });
+    // Türkçe dışındaki dillerde İngilizce ekran görüntüleri gösterilir
+    imgEls.forEach(function (el) { el.src = d ? el.getAttribute('data-en') : el._tr; });
+    document.title = d && d['meta.title'] ? d['meta.title'] : trMeta.title;
+    document.querySelector('meta[name=description]').content = d && d['meta.desc'] ? d['meta.desc'] : trMeta.desc;
+    splitWords();
+    splitEls.forEach(function (h) { if (h.getBoundingClientRect().top < innerHeight) h.classList.add('in'); });
+    if (typeof rebuildShowcase === 'function') rebuildShowcase();
+    fitNames();
+    langCode.textContent = lang.toUpperCase();
+    Array.prototype.forEach.call(langMenu.children, function (li) {
+      var on = li.getAttribute('data-lang') === lang;
+      li.classList.toggle('on', on);
+      li.setAttribute('aria-selected', on);
+    });
+    root.classList.remove('i18n-wait');
+    document.dispatchEvent(new CustomEvent('fmj:lang', { detail: lang }));
+  }
+
+  function setLang(lang, save) {
+    if (!LANGS.some(function (l) { return l[0] === lang; })) lang = 'en';
+    if (save) store('fmj-lang', lang);
+    if (lang === 'tr' || DICT[lang]) { render(lang); return; }
+    fetch('i18n/' + lang + '.json')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (json) { DICT[lang] = json; render(lang); })
+      .catch(function () { root.classList.remove('i18n-wait'); if (lang !== 'en') setLang('en', false); });
+  }
+
+  // Dil menüsü
+  LANGS.forEach(function (l) {
+    var li = document.createElement('li');
+    li.setAttribute('role', 'option');
+    li.setAttribute('data-lang', l[0]);
+    li.setAttribute('lang', l[0]);
+    li.tabIndex = 0;
+    li.innerHTML = '<span>' + l[1] + '</span><b>' + l[0].toUpperCase() + '</b>';
+    li.addEventListener('click', function () { setLang(l[0], true); closeMenu(); langBtn.focus(); });
+    li.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.click(); }
+      if (e.key === 'ArrowDown' && li.nextElementSibling) { e.preventDefault(); e.stopPropagation(); li.nextElementSibling.focus(); }
+      if (e.key === 'ArrowUp' && li.previousElementSibling) { e.preventDefault(); e.stopPropagation(); li.previousElementSibling.focus(); }
+    });
+    langMenu.appendChild(li);
   });
+  function closeMenu() { langMenu.hidden = true; langBtn.setAttribute('aria-expanded', 'false'); }
+  langBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = langMenu.hidden;
+    langMenu.hidden = !open;
+    langBtn.setAttribute('aria-expanded', open);
+    if (open) { var on = langMenu.querySelector('.on') || langMenu.firstChild; on.focus(); }
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('#lang')) closeMenu(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !langMenu.hidden) { closeMenu(); langBtn.focus(); } });
+  // Menü açıkken teker ve dokunma sayfayı değiştirmesin
+  langMenu.addEventListener('wheel', function (e) { e.stopPropagation(); }, { passive: true });
+  langMenu.addEventListener('touchmove', function (e) { e.stopPropagation(); }, { passive: true });
+
+  setLang(root.getAttribute('data-lang') || 'tr', false);
 
   /* ---------- Tema ---------- */
   var themeMeta = document.querySelector('meta[name=theme-color]');
@@ -486,7 +466,7 @@
     function top(el) { return el.getBoundingClientRect().top + window.scrollY; }
     function label(p) {
       var k = p.getAttribute('data-page');
-      if (k === 'hero') return root.getAttribute('data-lang') === 'en' ? 'Home' : 'Giriş';
+      if (k === 'hero') return t('page.home');
       var h = p.querySelector('.ap-body h3, .sec-head h2, .contact-head h2');
       return h ? h.textContent.trim().split(':')[0] : k;
     }
@@ -496,7 +476,7 @@
         var b = document.createElement('button');
         b.type = 'button';
         b.setAttribute('aria-label', label(p));
-        b.innerHTML = '<span>' + label(p) + '</span>';
+        b.innerHTML = '<span>' + esc(label(p)) + '</span>';
         var acc = p.style.getPropertyValue('--acc');
         if (acc) b.style.setProperty('--pager-acc', acc);
         b.addEventListener('click', function () { goTo(i); });
@@ -603,7 +583,7 @@
     document.addEventListener('keydown', function (e) {
       if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey) return;
       var t = e.target;
-      if (t.closest && t.closest('input, textarea, select, [contenteditable], .sc-stage, .screen, .sc-tabs')) return;
+      if (t.closest && t.closest('input, textarea, select, [contenteditable], .sc-stage, .screen, .sc-tabs, #lang')) return;
       var dir = 0;
       if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) dir = 1;
       else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) dir = -1;
@@ -630,7 +610,7 @@
     });
 
     buildPager();
-    document.getElementById('langBtn').addEventListener('click', function () { setTimeout(buildPager, 0); });
+    document.addEventListener('fmj:lang', function () { buildPager(); });
     var start = location.hash.slice(1);
     var el = start && document.getElementById(start);
     if (el && el.closest('.page')) {
@@ -950,7 +930,7 @@
     });
 
     // Dil değişince henüz başlanmamış sohbet yeni dilde yeniden kurulur
-    document.getElementById('langBtn').addEventListener('click', function () { if (stepN === 0) start(); });
+    document.addEventListener('fmj:lang', function () { if (stepN === 0) start(); });
     start();
   })();
 
