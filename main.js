@@ -123,13 +123,20 @@
       li.classList.toggle('on', on);
       li.setAttribute('aria-selected', on);
     });
+    // Adreste ?lang= varsa sayfanın asıl adresi o dildeki adrestir
+    var canon = document.querySelector('link[rel=canonical]');
+    if (canon) canon.href = 'https://fmjapps.com/' + (/[?&]lang=/.test(location.search) ? '?lang=' + lang : '');
     root.classList.remove('i18n-wait');
     document.dispatchEvent(new CustomEvent('fmj:lang', { detail: lang }));
   }
 
   function setLang(lang, save) {
     if (!LANGS.some(function (l) { return l[0] === lang; })) lang = 'en';
-    if (save) store('fmj-lang', lang);
+    if (save) {
+      store('fmj-lang', lang);
+      // Seçilen dil adrese de yazılır; bağlantı paylaşılınca aynı dilde açılır
+      try { history.replaceState(null, '', '?lang=' + lang + location.hash); } catch (e) {}
+    }
     if (lang === 'tr' || DICT[lang]) { render(lang); return; }
     fetch('i18n/' + lang + '.json')
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })

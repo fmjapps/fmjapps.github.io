@@ -2,7 +2,7 @@
 <html lang="tr" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-STxD6T8X6Zt47B4FweEfexb5KScSTcgxpkH0JgkXAhc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MCAUayVltt3xkIpXXoSVWG717l9maJ+r/aAn2SveeG0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FMJ Apps · Android oyunları ve uygulamaları</title>
@@ -18,6 +18,20 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://fmjapps.com/">
 <link rel="canonical" href="https://fmjapps.com/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/?lang=tr">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/?lang=en">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/?lang=es">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/?lang=pt">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/?lang=fr">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/?lang=de">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/?lang=ru">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/?lang=ar">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/?lang=hi">
+<link rel="alternate" hreflang="bn" href="https://fmjapps.com/?lang=bn">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/?lang=zh">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/?lang=id">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Apps","url":"https://fmjapps.com/","logo":"https://fmjapps.com/assets/apple-touch-icon.png","email":"contact@fmjapps.com","description":"Android için sade, güvenilir oyunlar ve uygulamalar geliştiren bağımsız stüdyo."},{"@type":"WebSite","@id":"https://fmjapps.com/#site","url":"https://fmjapps.com/","name":"FMJ Apps","publisher":{"@id":"https://fmjapps.com/#org"},"inLanguage":["tr","en","es","pt","fr","de","ru","ar","hi","bn","zh","id"]},{"@type":"MobileApplication","name":"Kayıp Eşya Bürosu","operatingSystem":"Android","applicationCategory":"GameApplication","description":"Günlük çıkarım oyunu: gardaki kayıp eşya bürosunda eşyaları sahibine ver, sahtekârları yakala.","url":"https://fmjapps.com/#kayip","image":"https://fmjapps.com/assets/kayip-icon.webp","author":{"@id":"https://fmjapps.com/#org"}},{"@type":"MobileApplication","name":"Koleksiyoner: Antika Dedektifi","operatingSystem":"Android","applicationCategory":"GameApplication","description":"Antika ve rehin dükkânı oyunu: eşyaları incele, sahteyi yakala, pazarlık et.","url":"https://fmjapps.com/#koleksiyoncu","image":"https://fmjapps.com/assets/koleksiyoncu-icon.webp","author":{"@id":"https://fmjapps.com/#org"}},{"@type":"MobileApplication","name":"Prizma","operatingSystem":"Android","applicationCategory":"GameApplication","description":"Işık ve ayna bulmacası: aynaları yerleştir, ışını hedeflere ulaştır.","url":"https://fmjapps.com/#prizma","image":"https://fmjapps.com/assets/prizma-icon.webp","author":{"@id":"https://fmjapps.com/#org"}},{"@type":"MobileApplication","name":"Ezber: Replik, Sunum, Şiir","operatingSystem":"Android","applicationCategory":"EducationalApplication","description":"Eller serbest ezber asistanı: metnini okur, sırası gelince dinler, takılınca suflörlük yapar.","url":"https://fmjapps.com/#ezber","image":"https://fmjapps.com/assets/ezber-icon.webp","author":{"@id":"https://fmjapps.com/#org"}},{"@type":"MobileApplication","name":"Paydos","operatingSystem":"Android","applicationCategory":"UtilitiesApplication","description":"Çocuk ekran kilidi: süreyi ve izinli uygulamaları seç, süre dolunca ekran kilitlenir.","url":"https://fmjapps.com/#paydos","image":"https://fmjapps.com/assets/paydos-icon.webp","author":{"@id":"https://fmjapps.com/#org"}}]}</script>
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +43,9 @@
   (function () {
     var d = document.documentElement, t = null, l = null;
     try { t = localStorage.getItem('fmj-theme'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    // Adresteki ?lang=xx, kayıtlı dil tercihinden önce gelir
+    var q = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (q) l = q;
     if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
     // Kayıtlı dil yoksa tarayıcının dillerinden desteklenen ilki, o da yoksa İngilizce
     var ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'ru', 'ar', 'hi', 'bn', 'zh', 'id'];

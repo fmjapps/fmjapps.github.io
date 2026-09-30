@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fmjapps.com/sitemap.xml
