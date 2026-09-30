@@ -133,6 +133,8 @@
       tween(y);
     }
     function busy() { return anim !== null || performance.now() < lockUntil; }
+    // Yatay tutulan telefonda (çok alçak ekran) sayfa geçişi kapanır, sayfa normal kayar
+    function flat() { return innerHeight < 430; }
     // Sayfa ekrana sığmıyorsa önce kendi içinde kayar
     function nativeFirst(dir) {
       var p = pages[cur], r = p.getBoundingClientRect();
@@ -148,7 +150,7 @@
 
     window.addEventListener('wheel', function (e) {
       // Dil menüsü açıkken teker menüyü kaydırır
-      if (e.ctrlKey || (e.target.closest && e.target.closest('.lang-menu'))) return;
+      if (e.ctrlKey || flat() || (e.target.closest && e.target.closest('.lang-menu'))) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (anim) { e.preventDefault(); return; }
@@ -160,7 +162,7 @@
 
     var ty = null, tx = 0, mode = null;
     window.addEventListener('touchstart', function (e) {
-      if (e.touches.length > 1 || (e.target.closest && e.target.closest('.lang-menu'))) { ty = null; return; }
+      if (e.touches.length > 1 || flat() || (e.target.closest && e.target.closest('.lang-menu'))) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; mode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
@@ -182,7 +184,7 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      if (e.altKey || e.ctrlKey || e.metaKey || flat()) return;
       var t = e.target, space = e.key === ' ';
       // Düğme ve soru başlıklarında boşluk tuşu kendi işini yapar
       if (space && t.closest && t.closest('a, button, summary')) return;
@@ -215,6 +217,17 @@
     var rt = null;
     function rebuild() { clearTimeout(rt); rt = setTimeout(function () { build(); window.scrollTo(0, top(pages[cur])); }, 150); }
     if (narrow.addEventListener) narrow.addEventListener('change', rebuild); else narrow.addListener(rebuild);
+
+    // Adres çubuğu gizlenip görününce ekran boyu değişir: sayfa yeniden üst kenara oturur
+    var resnap = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resnap);
+      resnap = setTimeout(function () {
+        if (anim) return;
+        var p = pages[cur], y = top(p);
+        if (p.offsetHeight - innerHeight < 8 && Math.abs(window.scrollY - y) > 1) window.scrollTo(0, y);
+      }, 140);
+    });
 
     build();
     var start = document.getElementById(location.hash.slice(1));

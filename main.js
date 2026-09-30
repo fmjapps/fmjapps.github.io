@@ -538,11 +538,13 @@
     }
     goToPage = goTo;
     function busy() { return anim !== null || performance.now() < lockUntil; }
+    // Yatay tutulan telefonda (çok alçak ekran) sayfa geçişi kapanır, sayfa normal kayar
+    function flat() { return innerHeight < 430; }
     // Sayfa ekrana sığmıyorsa önce kendi içinde kayar
     function nativeFirst(dir) {
       var r = pages[cur].getBoundingClientRect();
-      // Sayfa ekrandan az biraz uzunsa (80 pikselden az) iç kaydırma yapılmaz
-      if (pages[cur].offsetHeight - innerHeight < 80) return dir > 0 && cur === pages.length - 1;
+      // Ekrana sığan sayfada iç kaydırma yoktur; taşan sayfanın sonu her zaman görülebilir
+      if (pages[cur].offsetHeight - innerHeight < 8) return dir > 0 && cur === pages.length - 1;
       if (dir > 0 && r.bottom > innerHeight + 2) return true;
       if (dir < 0 && r.top < -2) return true;
       if (dir > 0 && cur === pages.length - 1) return true; // alttaki bilgi alanı
@@ -558,7 +560,7 @@
     window.addEventListener('scroll', function () { if (!anim) { var n = nearest(); if (n !== cur) { cur = n; mark(); } } }, { passive: true });
 
     window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey || !modal.hidden) return;
+      if (e.ctrlKey || !modal.hidden || flat()) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (scrollableInside(e.target, dir)) return;
@@ -571,7 +573,7 @@
 
     var ty = null, tx = 0, tMode = null;
     window.addEventListener('touchstart', function (e) {
-      if (!modal.hidden || e.touches.length > 1) { ty = null; return; }
+      if (!modal.hidden || e.touches.length > 1 || flat()) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; tMode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
@@ -593,7 +595,7 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey) return;
+      if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey || flat()) return;
       var t = e.target;
       if (t.closest && t.closest('input, textarea, select, [contenteditable], .sc-stage, .screen, .sc-tabs, #lang')) return;
       var dir = 0;
@@ -619,6 +621,18 @@
       e.preventDefault();
       goTo(pages.indexOf(p));
       try { history.replaceState(null, '', id === 'top' ? location.pathname : '#' + id); } catch (err) {}
+    });
+
+    // Adres çubuğu gizlenip görününce ekran boyu değişir: sayfa yeniden üst kenara oturur
+    var resnap = null;
+    window.addEventListener('resize', function () {
+      clearTimeout(resnap);
+      resnap = setTimeout(function () {
+        var el = document.activeElement;
+        if (anim || cur === pages.length - 1 || (el && /^(INPUT|TEXTAREA)$/.test(el.tagName))) return;
+        var p = pages[cur], y = top(p);
+        if (p.offsetHeight - innerHeight < 8 && Math.abs(window.scrollY - y) > 1) window.scrollTo(0, y);
+      }, 140);
     });
 
     buildPager();

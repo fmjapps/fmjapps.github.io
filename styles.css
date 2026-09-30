@@ -1262,3 +1262,148 @@ main, .links, .brand-tag, .foot { transition: opacity .25s; }
   }
   .ap-body .p-actions:not(:has(.btn)) a[data-subject] { grid-column: 1; }
 }
+
+/* =========================================================
+   Telefon: her sayfa ekran yüksekliğine göre ölçeklenir
+   Ölçüler en kısa görünüme (adres çubuğu açık, svh) göre hesaplanır;
+   sayfanın kendisi görünen alanı (dvh) doldurur.
+   ========================================================= */
+.page, .hero.sh.page { min-height: 100vh; min-height: 100dvh; }
+
+@media (max-width: 520px) {
+  .hero.sh.page { padding-block: 64px 8px; }
+  .sh-ring { gap: 2px; }
+  .sh .sc-tabs .sc-tab { padding: clamp(6px, 1.1svh, 8px) 16px; }
+  /* Vitrin ekran kısaldıkça küçülür; kart genişliği ve halka yarıçapı onunla orantılı */
+  .sh .sc-stage { --st: clamp(128px, calc(100svh - 458px), 318px); --cw: calc(var(--st) * .428); --r: calc(var(--st) * .415); height: var(--st); }
+  .sh .sc-ring { top: calc(var(--st) * .04); }
+  .sh .sc-stage .sc-phone { padding: clamp(3px, calc(var(--st) * .016), 6px); border-radius: clamp(12px, calc(var(--st) * .07), 24px); }
+  .sh .sc-stage .sc-phone img { border-radius: clamp(9px, calc(var(--st) * .055), 19px); }
+  .sh-info { min-height: 0; padding-top: 2px; row-gap: 0; }
+  .sh-kick { font-size: clamp(10.5px, 1.6svh, 11.5px); }
+  .sh-name { font-size: clamp(25px, 5.2svh, 44px); margin-top: clamp(5px, 1.1svh, 10px); }
+  .sh-desc { font-size: clamp(13px, 2svh, 15px); line-height: 1.5; margin-top: clamp(5px, 1.1svh, 10px); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .sh-actions { margin-top: clamp(9px, 1.9svh, 18px); gap: 8px; flex-wrap: nowrap; }
+  .sh-actions .btn { height: clamp(38px, 5.6svh, 44px); padding: 0 clamp(11px, 3.6vw, 18px); font-size: clamp(12.5px, 3.7vw, 14.5px); white-space: nowrap; min-width: 0; }
+  .sh-foot, .sh-foot[class] { margin-top: clamp(2px, .8svh, 6px); }
+}
+@media (max-width: 520px) and (max-height: 720px) {
+  .sh-foot, .sh-foot[class] { display: none; }
+  .sh-desc { -webkit-line-clamp: 3; }
+}
+
+@media (max-width: 900px) {
+  .app-page.page { padding-block: 68px 10px; }
+  .ap-slogan { font-size: clamp(18px, 3.2svh, 30px); margin-bottom: clamp(4px, 1.2svh, 12px); }
+  .ap-body.product { gap: clamp(6px, 1.5svh, 14px); padding-top: clamp(4px, 1.2svh, 12px); }
+  .ap-body .p-media { gap: clamp(4px, .9svh, 8px); }
+  /* Telefon görseli ekran kısaldıkça küçülür */
+  .ap-body .phone { width: clamp(62px, calc((100svh - 548px) * .44), 116px); padding: clamp(3px, .6svh, 5px); border-radius: clamp(13px, 2.4svh, 20px); }
+  .ap-body .phone .screen { border-radius: clamp(10px, 1.9svh, 16px); }
+  .ap-body .p-id { gap: 10px; }
+  .ap-body .p-icon { width: clamp(38px, 6.2svh, 52px); height: clamp(38px, 6.2svh, 52px); border-radius: clamp(11px, 1.8svh, 15px); }
+  .ap-body .p-id h3 { font-size: clamp(17px, 2.75svh, 22px); line-height: 1.12; }
+  .ap-body .p-tag { font-size: clamp(12.5px, 1.8svh, 14.5px); margin-top: 2px; }
+  .ap-body .p-desc { font-size: clamp(13px, 1.9svh, 15px); line-height: 1.5; margin-top: clamp(4px, 1.2svh, 12px); }
+  .ap-body .feats { margin-top: clamp(6px, 1.3svh, 12px); gap: 5px; }
+  .ap-body .p-actions { margin-top: clamp(7px, 1.5svh, 14px); gap: clamp(7px, 1.4svh, 12px) 10px; }
+  .ap-body .p-actions .btn, .ap-body .p-actions .p-more, .ap-body .p-actions:not(:has(.btn)) a[data-subject] { height: clamp(38px, 5.6svh, 44px); }
+}
+/* Kısa ekranda özellik etiketleri tek satırda durur, yana kaydırılır */
+@media (max-width: 900px) and (max-height: 780px) {
+  .ap-body .feats { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 1px 16px; scrollbar-width: none; }
+  .ap-body .feats::-webkit-scrollbar { display: none; }
+  .ap-body .feats li { flex: none; white-space: nowrap; }
+}
+@media (max-width: 900px) and (max-height: 640px) { .ap-body .p-desc { -webkit-line-clamp: 2; } }
+
+/* İlkeler telefonda liste: simge solda, metin sağda */
+@media (max-width: 760px) {
+  .values.page { padding-block: 68px 10px; }
+  .values .sec-head { margin-bottom: clamp(8px, 2svh, 22px); }
+  .values .sec-head h2 { font-size: clamp(22px, 3.8svh, 30px); }
+  .value-grid { grid-template-columns: minmax(0, 1fr); gap: clamp(6px, 1.2svh, 10px); }
+  .value { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: start; padding: clamp(9px, 1.6svh, 16px) 14px; border-radius: 16px; }
+  .value svg { grid-row: 1 / 3; width: 34px; height: 34px; padding: 7px; border-radius: 10px; }
+  .value h3 { margin-top: 0; font-size: clamp(14px, 2.1svh, 15.5px); }
+  .value p { font-size: clamp(11.5px, 1.55svh, 13.5px); line-height: 1.4; margin-top: 2px; }
+}
+@media (max-width: 760px) and (max-height: 760px) {
+  .values .sec-num { display: none; }
+  .values .sec-head { margin-bottom: 8px; }
+  .value { padding: 8px 12px; column-gap: 10px; }
+  .value svg { width: 30px; height: 30px; padding: 6px; }
+  .value h3 { font-size: 14px; }
+}
+/* Çok dar ekranda giriş düğmeleri alt alta geçebilir */
+@media (max-width: 349px) { .sh-actions { flex-wrap: wrap; } }
+
+@media (max-width: 900px) {
+  .contact.page { padding-block: 68px 10px; }
+  .contact-head { margin-bottom: clamp(8px, 1.8svh, 20px); }
+  .contact-head h2 { font-size: clamp(22px, 3.9svh, 34px); margin-top: 4px; }
+  .contact-head p { font-size: clamp(13px, 1.95svh, 16px); line-height: 1.45; margin-top: 6px; }
+  .mail-line { margin-bottom: clamp(6px, 1.4svh, 14px); }
+  .contact.page .chat { padding: clamp(10px, 1.8svh, 16px); }
+  .contact.page .msgs { min-height: clamp(84px, calc(100svh - 580px), 240px); max-height: clamp(84px, calc(100svh - 540px), 460px); }
+}
+
+/* Esnek yükseklik: görsel, sayfada kalan boşluğu doldurur */
+/* Metin hangi dilde ne kadar yer tutarsa tutsun, vitrin ve telefon görseli kalan yüksekliğe göre
+   büyür ya da küçülür; sayfa tam bir ekran eder. Kapsayıcı birimlerini (cqh) bilmeyen tarayıcılar
+   yukarıdaki svh hesabıyla devam eder. */
+@supports (width: 1cqh) {
+  @media (max-width: 520px) {
+    .hero.sh.page { display: flex; flex-direction: column; justify-content: center; }
+    .sh-in { flex: 0 1 auto; display: flex; flex-direction: column; min-height: 0; gap: 0; width: 100%; }
+    .hero.sh.page > .sh-in { flex-grow: 1; max-height: 640px; }
+    .sh-ring { order: 1; flex: 1 1 auto; min-height: 0; width: 100%; }
+    .sh-info { order: 2; flex: none; }
+    .sh .sc-stage { flex: 1 1 120px; min-height: 120px; max-height: 330px; height: auto; width: 100%; container-type: size; --cw: 42.8cqh; --r: 41.5cqh; }
+    .sh .sc-ring { top: 4cqh; }
+    .sh .sc-stage .sc-phone { padding: clamp(3px, 1.6cqh, 6px); border-radius: clamp(12px, 7cqh, 24px); }
+    .sh .sc-stage .sc-phone img { border-radius: clamp(9px, 5.5cqh, 19px); }
+  }
+  /* Tablet ve yatay telefon: vitrin kalan yüksekliği doldurur */
+  @media (min-width: 521px) and (max-width: 900px) {
+    .hero.sh.page { display: flex; flex-direction: column; justify-content: center; padding-block: 76px 14px; }
+    .hero.sh.page > .sh-in { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; gap: 0; width: 100%; max-height: 940px; }
+    .sh-ring { order: 1; flex: 1 1 auto; min-height: 0; width: 100%; }
+    .sh-info { order: 2; flex: none; min-height: 0; }
+    .sh .sc-stage { flex: 1 1 160px; min-height: 160px; max-height: 530px; height: auto; width: 100%; container-type: size; --cw: 41.5cqh; --r: 40.5cqh; }
+    .sh .sc-ring { top: 4cqh; }
+  }
+  @media (max-width: 900px) {
+    .app-page.page { display: flex; flex-direction: column; align-items: stretch; }
+    .app-page.page > .wrap { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+    .ap-body.product { flex: 1 1 auto; display: flex; flex-direction: column; align-items: stretch; min-height: 0; }
+    .ap-body .p-copy { flex: none; width: 100%; min-width: 0; }
+    .ap-body .p-media {
+      order: -1; flex: 1 1 92px; min-height: 92px; max-height: 300px; container-type: size;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    }
+    .ap-body .phone { --pp: clamp(3px, 1.6cqh, 5px); padding: var(--pp); height: calc(100cqh - 14px); width: calc((100cqh - 14px - 2 * var(--pp)) * .45 + 2 * var(--pp)); border-radius: clamp(11px, 7cqh, 20px); }
+    .ap-body .phone .screen { height: 100%; aspect-ratio: auto; border-radius: clamp(8px, 5.6cqh, 16px); }
+    .ap-body .p-media .dots { flex: none; }
+  }
+  @media (max-width: 900px) {
+    .contact.page > .wrap { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; max-height: 760px; }
+    .contact.page .chat { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; width: 100%; }
+    .contact.page .contact-head { width: 100%; min-width: 0; }
+    .contact.page .mail-line { max-width: 100%; flex-wrap: wrap; justify-content: center; }
+    .contact.page .msgs { flex: 1 1 84px; min-height: 84px; max-height: none; }
+  }
+}
+
+/* Alçak masaüstü ekranı (ör. 1366×768 dizüstü) */
+@media (min-width: 901px) and (max-height: 740px) {
+  .app-page { padding-block: 74px 16px; }
+  .ap-slogan { margin-bottom: 12px; font-size: clamp(24px, 2.6vw, 36px); }
+  .ap-body .phone { width: min(186px, 50vw); }
+  .ap-body .p-desc { font-size: 15.5px; margin-top: 14px; }
+  .ap-body .feats { margin-top: 14px; }
+  .ap-body .p-actions { margin-top: 18px; }
+  .values.page .sec-head { margin-bottom: 18px; }
+  .value { padding: 20px 18px; }
+  .value p { font-size: 14px; line-height: 1.5; }
+}
