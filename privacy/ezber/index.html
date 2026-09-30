@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ezber: Replik, Sunum, Şiir — Gizlilik Politikası</title>
+<meta name="description" content="Ezber: Replik, Sunum, Şiir (Memorize: Lines, Speech, Poems) uygulamasının gizlilik politikası: toplanan veriler, mikrofon ve diğer izinler, cihaz üzerinde ses ve metin işleme, Google ML Kit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../policy.css">
+</head>
+<body>
+<div class="page">
+  <div class="spectrum" aria-hidden="true"></div>
+  <div class="eyebrow"><span class="dot"></span>Ezber: Replik, Sunum, Şiir · Ezber ve Prova</div>
+  <h1>Gizlilik Politikası</h1>
+  <div class="updated">Son güncelleme: 30 Eylül 2026</div>
+  <p class="lede">Bu sayfa, Google Play’de “Ezber: Replik, Sunum, Şiir” adıyla yayınlanan Ezber Asistanı mobil uygulamasının (“Uygulama”) hangi bilgileri işlediğini, mikrofonu ve diğer izinleri ne için kullandığını ve bu verilerin nasıl ele alındığını açıklar. Uygulama oyun repliklerini, şiirleri, metinleri ve sunumları ezberlemene yardım eder.</p>
+
+  <div class="chip-row">
+    <span class="chip"><b>Hesap verisi:</b>&nbsp;toplanmaz</span>
+    <span class="chip"><b>Veriler:</b>&nbsp;yalnızca cihazda</span>
+    <span class="chip"><b>Reklam:</b>&nbsp;yok</span>
+    <span class="chip"><b>Abonelik:</b>&nbsp;isteğe bağlı, Google Play ile</span>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>Topladığımız veriler</h2>
+    <p>Uygulama; isim, e-posta, telefon numarası gibi kişisel hesap bilgisi toplamaz ve bize ait bir sunucuya hiçbir veri göndermez.</p>
+    <p>Yazdığın, yapıştırdığın ya da dosyadan (TXT, PDF, Word, OpenDocument) veya fotoğraftan içe aktardığın metinler, karakter ve ses ayarların ve çalışma geçmişin (hangi satırlarda zorlandığın gibi) yalnızca cihazının yerel depolamasında saklanır. Uygulamayı kaldırdığında bu veriler cihazından silinir.</p>
+    <p><b>Provada sesin kaydedilmez.</b> Mikrofon yalnızca “Eller serbest”, “Üst üste ekle” ve “Ezberden oku” modlarında, sıra sana geldiğinde açılır. Ses telefonda anlık olarak işlenir; bir dosyaya yazılmaz ve hiçbir yere gönderilmez.</p>
+    <p><b>İsteğe bağlı replik kayıtları.</b> “Sesle kaydet” özelliğinde, yalnızca sen “Kaydet”e bastığında, replikler senin (ya da senin kaydettiğin kişinin) sesiyle kaydedilir ve provada çalınır. Bu kayıtlar yalnızca telefonunda, Uygulamanın klasöründe saklanır; hiçbir yere gönderilmez ve yedek dosyasına dahil edilmez. Kaydı tek tek ya da metni silerek hepsini silebilirsin. Başka birinin sesini kaydedeceksen onun iznini almak sana düşer.</p>
+    <p>İsteğe bağlı “Söylediğimi kontrol et” seçeneğini açarsan konuşman, telefonunun <b>cihaz üzerinde çalışan</b> ses tanıma hizmetiyle yazıya çevrilip repliğinle karşılaştırılır. Uygulama hiçbir zaman çevrimiçi (sunucu tabanlı) ses tanıma kullanmaz; telefonunda cihaz üzerinde tanıma yoksa bu seçenek kapalı kalır.</p>
+    <p>Replikler, telefonunun kendi metin okuma (TTS) motoruyla, yalnızca cihazda yüklü ve internet gerektirmeyen seslerle okunur.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>İzinler ve ne için kullanılıyor</h2>
+    <p>Uygulamanın istediği izinler aşağıdadır. Her izin yalnızca belirtilen iş için kullanılır:</p>
+    <ul class="perms">
+      <li><span class="perm">RECORD_AUDIO</span><span>“Eller serbest”, “Üst üste ekle” ve “Ezberden oku” modlarında, sıra sana geldiğinde konuşmanın bittiğini anlamak (ve açarsan söylediğini cihaz üzerinde kontrol etmek) için. Bu modlarda ses kaydedilmez ve gönderilmez. Ayrıca “Sesle kaydet” özelliğinde, yalnızca sen başlattığında replik kaydı almak için (kayıtlar telefonda kalır). İzin ilk kullanımda sorulur; vermezsen bu özellikler dışında Uygulama normal çalışır.</span></li>
+      <li><span class="perm">INTERNET</span><span>Yalnızca iki şey için: “Ezberden oku” özelliğini ilk açtığında konuşma tanıma modelinin bir kez indirilmesi ve fotoğraftan metin okumada kullanılan Google ML Kit kitaplığının teşhis verisi göndermesi (bkz. madde 03). Metinlerin ve sesin hiçbir zaman gönderilmez.</span></li>
+      <li><span class="perm">BILLING</span><span>İsteğe bağlı Pro aboneliğini Google Play üzerinden satın alabilmen ve Uygulamanın aboneliğinin etkin olup olmadığını öğrenebilmesi için (bkz. madde 03).</span></li>
+      <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Google ML Kit kitaplığının, teşhis verisini göndermeden önce bağlantı olup olmadığını kontrol etmesi için.</span></li>
+      <li><span class="perm">DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</span><span>Android'in bu uygulamaya özgü iç izni: Uygulamanın kendi bileşenleri arasındaki iletileri başka uygulamalara kapatır. Herhangi bir veriye erişim sağlamaz.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>Üçüncü taraflar</h2>
+    <p>Uygulama yalnızca aşağıdaki hizmetleri kullanır; bunların dışında hiçbir üçüncü tarafla veri paylaşmaz:</p>
+    <ul>
+      <li><b>Google ML Kit (metin tanıma)</b> — fotoğraftan metin içe aktarırken. Fotoğraf <b>telefonda</b> işlenir; gönderilmez ve Uygulama tarafından saklanmaz. ML Kit, hizmetin çalışması ve performansı için Google'a anonim teşhis verisi gönderebilir: cihaz modeli ve işletim sistemi sürümü, uygulama sürümü, kuruluma özgü ve seni tanımlamaya yönelik olmayan bir tanımlayıcı, performans ölçümleri ve hata kodları. Ayrıntılar: <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">ML Kit veri açıklaması</a></li>
+      <li><b>Google Play Faturalandırma</b> — yalnızca isteğe bağlı Pro aboneliği için. Ödeme ve ödeme bilgilerin tamamen Google Play tarafından işlenir; Uygulama kart veya hesap bilgini görmez. Uygulama Google Play'den yalnızca aboneliğin etkin olup olmadığını öğrenir ve bu bilgiyi telefonda saklar; bize ait bir sunucuya göndermez. Aboneliği Google Play > Abonelikler bölümünden yönetebilir ve iptal edebilirsin.</li>
+      <li><b>Cihazının metin okuma motoru</b> — replikleri seslendirmek için; Uygulama yalnızca cihazda yüklü sesleri kullanır.</li>
+      <li><b>Konuşma tanıma modeli (Whisper, açık kaynak)</b> — “Ezberden oku” modunda, söylediğini metinle karşılaştırmak için. Model, özelliği ilk açtığında senin onayınla Hugging Face'ten (huggingface.co) bir kez indirilir; indirme sırasında Hugging Face yalnızca olağan bağlantı bilgilerini (IP adresi gibi) görür, ses veya metin gönderilmez. Tanıma tamamen telefonda yapılır; ses kaydedilmez.</li>
+      <li><b>Cihazının üzerindeki ses tanıma</b> — yalnızca “Söylediğimi kontrol et” açıkken, yalnızca cihaz üzerinde.</li>
+    </ul>
+    <p>Google hizmetleri Google'ın gizlilik politikasına tabidir: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>Çocukların gizliliği</h2>
+    <p>Uygulama 13 yaş altı çocukları hedeflememektedir ve bilerek 13 yaş altındaki kişilerden veri toplamaz.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>Verilerin saklanması ve silinmesi</h2>
+    <p>Metinlerin, çalışma geçmişin ve replik kayıtların yalnızca cihazında tutulduğu için, bir metni Uygulama içinden silebilir; Uygulamayı kaldırarak ya da cihaz ayarlarından uygulama verilerini temizleyerek tüm verileri tamamen silebilirsin.</p>
+    <p>“Tüm metinleri yedekle” özelliğini kullanırsan yedek dosyası senin seçtiğin yere (ör. kendi bulut hesabına) senin tarafından kaydedilir; bu dosyayı yönetmek ve silmek sana aittir.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>Haklarınız</h2>
+    <p>Bize ait bir sunucuda kişisel verin saklanmadığı için silme ya da erişim talebi gerektiren bir kaydımız bulunmuyor. Yine de bu politikayla ilgili (6698 sayılı KVKK ve GDPR kapsamındakiler dahil) her türlü soru ya da talep için aşağıdaki adresten bize ulaşabilirsin.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>Değişiklikler</h2>
+    <p>Bu politika zaman zaman güncellenebilir; güncel hali her zaman bu sayfada yer alır ve yukarıdaki “son güncelleme” tarihi buna göre değişir.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span>İletişim</h2>
+    <p>Bu politikayla ilgili sorular için: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
+  </section>
+
+  <div class="lang-divider">English version below</div>
+
+  <h1 lang="en">Privacy Policy</h1>
+  <div class="updated" lang="en">Last updated: September 30, 2026</div>
+  <p class="lede" lang="en">This page explains what information the Memorize Assistant mobile app, published on Google Play as “Memorize: Lines, Speech, Poems” (the “App”), processes, what it uses the microphone and other permissions for, and how that data is handled. The App helps you memorize play lines, poems, texts and presentations.</p>
+
+  <section lang="en">
+    <h2><span class="num">01</span>What we collect</h2>
+    <p>The App collects no personal account information — no name, email, or phone number — and sends no data to any server of ours.</p>
+    <p>The texts you type, paste or import from files (TXT, PDF, Word, OpenDocument) or photos, your character and voice settings, and your practice history (such as which lines you struggled with) are stored only in your device's local storage. Uninstalling the App removes them from your device.</p>
+    <p><b>Your voice is not recorded during rehearsal.</b> The microphone is turned on only in “Hands-free”, “Build up” and “Recite from memory” modes, when it's your turn. Audio is processed on the phone in real time; it is not written to a file and is not sent anywhere.</p>
+    <p><b>Optional line recordings.</b> With “Record voices”, and only when you tap “Record”, lines are recorded in your voice (or the voice of the person you record) and played during rehearsal. These recordings are stored only on your phone, in the App's folder; they are never sent anywhere and are not included in backup files. You can delete them one by one, or all of them by deleting the text. If you record someone else, getting their permission is up to you.</p>
+    <p>If you turn on the optional “Check what I say”, your speech is transcribed by your phone's <b>on-device</b> speech recognition and compared with your line. The App never uses online (server-based) speech recognition; if your phone has no on-device recognition, the option stays off.</p>
+    <p>Lines are read aloud by your phone's own text-to-speech (TTS) engine, using only voices installed on the device that don't require the internet.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">02</span>Permissions and what they're for</h2>
+    <p>The permissions the App requests are listed below. Each one is used only for the stated purpose:</p>
+    <ul class="perms">
+      <li><span class="perm">RECORD_AUDIO</span><span>In “Hands-free”, “Build up” and “Recite from memory” modes, to notice when you have finished speaking on your turn (and, if you turn it on, to check what you said on the device). In these modes audio is not recorded or sent. Also used by “Record voices” to record lines, only when you start it (recordings stay on the phone). The permission is asked on first use; if you decline, everything except these features works normally.</span></li>
+      <li><span class="perm">INTERNET</span><span>Only for two things: downloading the speech recognition model once when you first open “Recite from memory”, and the Google ML Kit library (used to read text from photos) sending diagnostic data (see section 03). Your texts and voice are never sent.</span></li>
+      <li><span class="perm">BILLING</span><span>So you can buy the optional Pro subscription through Google Play and the App can tell whether your subscription is active (see section 03).</span></li>
+      <li><span class="perm">ACCESS_NETWORK_STATE</span><span>Lets the Google ML Kit library check for a connection before sending diagnostic data.</span></li>
+      <li><span class="perm">DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</span><span>An internal Android permission specific to this app that keeps messages between the App's own components closed to other apps. It gives access to no data.</span></li>
+    </ul>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">03</span>Third parties</h2>
+    <p>The App uses only the following services and shares data with no other third party:</p>
+    <ul>
+      <li><b>Google ML Kit (text recognition)</b> — when you import text from a photo. The photo is processed <b>on the phone</b>; it is not sent and is not stored by the App. ML Kit may send Google anonymous diagnostic data to operate and monitor the service: device model and OS version, app version, a per-installation identifier not intended to identify you, performance metrics and error codes. Details: <a href="https://developers.google.com/ml-kit/android-data-disclosure" target="_blank" rel="noopener">ML Kit data disclosure</a></li>
+      <li><b>Google Play Billing</b> — only for the optional Pro subscription. Payment and your payment details are handled entirely by Google Play; the App never sees your card or account details. The App only learns from Google Play whether your subscription is active and keeps that on the phone; it is not sent to any server of ours. You can manage or cancel the subscription in Google Play > Subscriptions.</li>
+      <li><b>Speech recognition model (Whisper, open source)</b> — in “Recite from memory” mode, to compare what you say with the text. When you first open the feature, the model is downloaded once from Hugging Face (huggingface.co) with your approval; during the download Hugging Face only sees ordinary connection details (such as your IP address), and no audio or text is sent. Recognition runs entirely on the phone; audio is not recorded.</li>
+      <li><b>Your device's text-to-speech engine</b> — to read lines aloud; the App uses only voices installed on the device.</li>
+      <li><b>Your device's on-device speech recognition</b> — only while “Check what I say” is on, and only on the device.</li>
+    </ul>
+    <p>Google services are governed by Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">04</span>Children's privacy</h2>
+    <p>The App does not target children under 13 and does not knowingly collect data from anyone under 13.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">05</span>Data retention and deletion</h2>
+    <p>Because your texts, practice history and line recordings live only on your device, you can delete a text inside the App, and uninstalling the App or clearing its data from device settings removes everything completely.</p>
+    <p>If you use “Back up all pieces”, the backup file is saved by you to a place you choose (for example your own cloud account); managing and deleting that file is up to you.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">06</span>Your rights</h2>
+    <p>Since no personal data of yours is stored on any server of ours, there is no record for us to delete or disclose. Even so, you can reach us at the address below with any question or request about this policy, including under GDPR or Turkish data protection law (KVKK).</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">07</span>Changes</h2>
+    <p>This policy may be updated from time to time; the current version always lives on this page and the “last updated” date above changes accordingly.</p>
+  </section>
+
+  <section lang="en">
+    <h2><span class="num">08</span>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></p>
+  </section>
+
+  <footer>
+    <span>Ezber: Replik, Sunum, Şiir</span>
+    <span>contact@fmjapps.com</span>
+  </footer>
+</div>
+</body>
+</html>
