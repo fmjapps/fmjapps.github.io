@@ -1,7 +1,8 @@
 # Gizlilik Politikaları
 
-Uygulamaların gizlilik politikalarının yayınlandığı depo. GitHub Pages ile
-`https://fmjapps.com/privacy/` adresinde yayınlanır.
+Uygulamaların gizlilik politikaları. Ana sitenin (`fmjapps/fmjapps.github.io`) `privacy/`
+klasöründe durur ve `https://fmjapps.com/privacy/` adresinde yayınlanır. (Eskiden ayrı
+`fmjapps/privacy` deposuydu; 2026-09-30'da buraya taşındı.)
 
 Her uygulama kendi klasöründe:
 
