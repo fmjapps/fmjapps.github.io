@@ -1,20 +1,20 @@
 /* FMJ Apps — ana sayfa stilleri */
 
 :root {
-  --bg: #070B17;
-  --bg-2: #0B1122;
-  --surface: #10172C;
-  --surface-2: #151E38;
-  --line: rgba(160, 180, 255, 0.10);
-  --line-2: rgba(160, 180, 255, 0.18);
+  --bg: #08091A;
+  --bg-2: #0C0D22;
+  --surface: #11122B;
+  --surface-2: #171937;
+  --line: rgba(170, 165, 255, 0.10);
+  --line-2: rgba(170, 165, 255, 0.18);
   --text: #EEF2FF;
-  --dim: #9AA6C8;
-  --faint: #6B7699;
-  --brand: #4C86FF;
-  --brand-2: #8CB8FF;
-  --brand-ink: #9CC1FF;
+  --dim: #A2A3CC;
+  --faint: #72749E;
+  --brand: #5B4FE0;
+  --brand-2: #8B82FF;
+  --brand-ink: #ABA5FF;
   --on-brand: #fff;
-  --games-bg: #0C0A16;
+  --games-bg: #0B0916;
   --kayip-ink: #B5DDA9;
   --kol-ink: #EBC878;
   --prizma-ink: #5EF5D2;
@@ -25,23 +25,23 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #F5F7FC;
-  --bg-2: #EDF1FA;
+  --bg: #F6F6FD;
+  --bg-2: #EEEEFA;
   --surface: #FFFFFF;
-  --surface-2: #F2F5FC;
-  --line: rgba(20, 40, 100, 0.09);
-  --line-2: rgba(20, 40, 100, 0.16);
-  --text: #0B1430;
-  --dim: #4E5A7C;
-  --faint: #7D88A8;
-  --brand: #2461F0;
-  --brand-2: #5B8EFF;
-  --brand-ink: #1E55D6;
+  --surface-2: #F3F3FC;
+  --line: rgba(40, 30, 120, 0.09);
+  --line-2: rgba(40, 30, 120, 0.16);
+  --text: #11112E;
+  --dim: #52547C;
+  --faint: #7E80A6;
+  --brand: #4F46E5;
+  --brand-2: #7A70F5;
+  --brand-ink: #4338CA;
   --games-bg: #F7F3EC;
   --kayip-ink: #3F7334;
   --kol-ink: #8A5A12;
   --prizma-ink: #0C8A73;
-  --shadow: 0 30px 60px -30px rgba(20, 40, 100, 0.35);
+  --shadow: 0 30px 60px -30px rgba(40, 30, 120, 0.35);
   color-scheme: light;
 }
 
@@ -96,7 +96,7 @@ p { margin: 0; }
 }
 @media (max-width: 520px) { .nav-in { padding: 12px 16px; } }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 700 17px 'Sora', sans-serif; letter-spacing: -0.01em; }
-.mark { width: 30px; height: 30px; border-radius: 9px; box-shadow: 0 6px 18px -6px rgba(46, 107, 255, .7); }
+.mark { width: 30px; height: 30px; border-radius: 9px; box-shadow: 0 6px 18px -6px rgba(91, 79, 224, .8); }
 .links { display: flex; gap: 4px; margin-inline-start: auto; }
 .links a {
   text-decoration: none; color: var(--dim); font-size: 14px; font-weight: 500;
@@ -150,8 +150,8 @@ p { margin: 0; }
 @media (max-width: 760px) { .hero { padding-block: 108px 72px; } }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; }
 .glow { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; }
-.g1 { width: 620px; height: 620px; background: radial-gradient(circle, #2E6BFF, transparent 65%); top: -220px; inset-inline-end: -120px; animation: drift 18s ease-in-out infinite alternate; }
-.g2 { width: 460px; height: 460px; background: radial-gradient(circle, #5BC8FF, transparent 65%); bottom: -260px; inset-inline-start: -140px; opacity: .3; animation: drift 22s ease-in-out infinite alternate-reverse; }
+.g1 { width: 620px; height: 620px; background: radial-gradient(circle, #5B4FE0, transparent 65%); top: -220px; inset-inline-end: -120px; animation: drift 18s ease-in-out infinite alternate; }
+.g2 { width: 460px; height: 460px; background: radial-gradient(circle, #4C86FF, transparent 65%); bottom: -260px; inset-inline-start: -140px; opacity: .3; animation: drift 22s ease-in-out infinite alternate-reverse; }
 :root[data-theme="light"] .glow { opacity: .28; }
 :root[data-theme="light"] .g2 { opacity: .18; }
 .grid {
@@ -174,7 +174,7 @@ p { margin: 0; }
 .eyebrow::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--brand-2), var(--brand)); }
 .hero h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.06; font-weight: 700; margin-top: 18px; max-width: 14ch; }
 .grad {
-  background: linear-gradient(100deg, var(--brand-2) 0%, var(--brand) 55%, #7B6CFF 100%);
+  background: linear-gradient(100deg, var(--brand-2) 0%, var(--brand) 50%, #4C86FF 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .lede { color: var(--dim); font-size: clamp(16px, 1.6vw, 18px); max-width: 54ch; margin-top: 22px; }

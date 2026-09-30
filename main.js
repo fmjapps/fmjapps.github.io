@@ -15,9 +15,9 @@
     'skip': 'Skip to content',
     'nav.games': 'Games', 'nav.apps': 'Apps', 'nav.values': 'Principles', 'nav.contact': 'Contact',
     'theme': 'Toggle theme', 'shots': 'Screenshots',
-    'hero.eyebrow': 'Independent studio for Android',
+    'hero.eyebrow': 'Simple, reliable mobile apps',
     'hero.title': 'Games that fit a short break, <span class="grad">apps that just work.</span>',
-    'hero.lede': "FMJ Apps makes things that don't ask you to sign up, keep your data on your phone and stay out of your way. A five-minute shift, a puzzle, or a poem to learn by heart: each one does what you opened it for.",
+    'hero.lede': "FMJ Apps builds games and apps for everyday life. None of them ask you to sign up, and your settings and progress stay on your phone. A five-minute shift, the daily puzzle or a poem to learn by heart: each one does what you opened it for.",
     'hero.ctaGames': 'See the games', 'hero.ctaApps': 'Apps',
     'stat.games': 'games', 'stat.apps': 'apps', 'stat.account': 'accounts required',
     'games.title': 'Games',
@@ -28,19 +28,19 @@
     'kayip.desc': "You're behind the counter of the Central Station lost & found, and on top of it sits Pamuk, the office cat. Six visitors come in every day: some really are looking for their suitcase, some are impostors eyeing an item on the notice board. Check the report, ask three questions, make your call.",
     'kayip.f1': 'A new shift every day', 'kayip.f2': 'Same visitors for everyone worldwide', 'kayip.f3': 'Little gifts from Pamuk', 'kayip.f4': 'Plays offline',
     'kayip.join': 'Join the test',
-    'kol.name': 'The Collector: Real or Fake', 'kol.short': 'The Collector', 'kol.tag': 'Antique shop detective',
+    'kol.name': 'The Collector: Real or Fake', 'kol.short': 'The Collector', 'kol.tag': 'Antique & pawn shop game',
     'kol.desc': "Your grandfather's antique shop is yours now. Customers bring pocket watches, coins and paintings; turn them over, sweep the loupe, open the catalogue. Spot the fakes, haggle, and gather works by eighteen great masters in a single showcase.",
-    'kol.f1': 'Loupe, UV lamp, touchstone', 'kol.f2': 'Haggle with sellers', 'kol.f3': 'An 18-master collection', 'kol.f4': '8–10 minute shop days',
+    'kol.f1': 'Loupe, UV lamp, pigment analysis', 'kol.f2': 'Haggle with sellers', 'kol.f3': 'An 18-master collection', 'kol.f4': '8–10 minute shop days',
     'prizma.name': 'Prizma', 'prizma.tag': 'Light and mirror puzzles',
-    'prizma.desc': 'Place the mirrors and guide the beam to its targets. Prisms that split the light and portals that carry it elsewhere make the puzzles deeper as you go. When the levels run out, endless mode builds a fresh puzzle every time.',
-    'prizma.f1': '4 difficulties, Easy to Master', 'prizma.f2': 'Endless mode', 'prizma.f3': 'Play Games leaderboard', 'prizma.f4': 'Neon look, generated music',
+    'prizma.desc': 'Place the mirrors and guide the beam to its targets. The rules look simple, then come prism blocks that split the light, portals that send it out somewhere else and colours that mix like real light. On Hard and Master the beam stays hidden: set your mirrors first, then switch on the light.',
+    'prizma.f1': '60 levels, 4 difficulties', 'prizma.f2': 'A daily puzzle, same for everyone', 'prizma.f3': 'Play Games leaderboard and achievements', 'prizma.f4': 'Colour-blind mode',
     'apps.title': 'Apps', 'apps.lede': 'Tools that do one job well and ask for nothing they don’t need.',
     'ezber.name': 'Memorize: Lines, Speech, Poems', 'ezber.short': 'Memorize', 'ezber.tag': 'Hands-free memorization',
     'ezber.desc': 'It reads your script to you, listens when it’s your turn and whispers like a prompter when you get stuck. Stage lines, a school poem or a work presentation: rehearse without touching your phone, even on a walk.',
     'ezber.f1': 'Spoken rehearsal with prompter', 'ezber.f2': 'Import from PDF, Word or a photo', 'ezber.f3': 'No account, no ads', 'ezber.f4': '10 languages',
     'paydos.name': 'Paydos', 'paydos.tag': 'Screen lock for kids',
-    'paydos.desc': 'Hand your phone to your child for a set time, with only the apps you pick available. When time is up the screen locks; the back button won’t get around it, only your PIN will.',
-    'paydos.f1': 'Pick the time and the apps', 'paydos.f2': 'PIN-protected full-screen lock', 'paydos.f3': 'Collects no data, stays offline', 'paydos.f4': 'Ad-free',
+    'paydos.desc': 'Put a gentle limit on your child’s phone time. Set the time, tick the apps they can open and hand the phone over. When time is up, or a blocked app is opened, the screen locks and only your PIN unlocks it. Your child can always see how much time is left.',
+    'paydos.f1': 'Pick the time and the apps', 'paydos.f2': 'PIN-protected full-screen lock', 'paydos.f3': 'No data leaves the phone', 'paydos.f4': 'Completely free, 9 languages',
     'values.title': 'How we build',
     'v1.t': 'No accounts', 'v1.d': 'None of our apps ask you to sign up or hand over an email. Open it and go.',
     'v2.t': 'Your data stays put', 'v2.d': 'Your progress, texts and settings live on your device. Nothing is sent to a server of ours.',
@@ -55,7 +55,7 @@
   var TR = { 'contact.copied': 'Adres kopyalandı' };
   var META = {
     tr: { title: document.title, desc: document.querySelector('meta[name=description]').content },
-    en: { title: 'FMJ Apps · Android games and apps', desc: 'FMJ Apps: Lost & Found Office, The Collector and Prizma games; Memorize and Paydos apps. Simple, careful Android apps that never ask for an account.' }
+    en: { title: 'FMJ Apps · Android games and apps', desc: 'FMJ Apps builds simple, reliable mobile games and apps for everyday life: Lost & Found Office, The Collector, Prizma, Memorize and Paydos.' }
   };
 
   var textEls = document.querySelectorAll('[data-i18n]');
@@ -90,7 +90,7 @@
 
   /* ---------- Tema ---------- */
   var themeMeta = document.querySelector('meta[name=theme-color]');
-  function syncThemeMeta() { themeMeta.content = root.getAttribute('data-theme') === 'light' ? '#F5F7FC' : '#070B17'; }
+  function syncThemeMeta() { themeMeta.content = root.getAttribute('data-theme') === 'light' ? '#F6F6FD' : '#0A0A1F'; }
   syncThemeMeta();
   document.getElementById('themeBtn').addEventListener('click', function () {
     var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
