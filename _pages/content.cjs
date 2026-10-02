@@ -239,7 +239,7 @@ const APPS = [
   /* ------------------------------------------------------------------ */
   {
     id: 'prizma', kind: 'game', acc: '#3EF0C8', acc2: '#7B6CFF', status: 'soon',
-    privacy: '/privacy/prizma/',
+    privacy: '/privacy/prizma/', test: { group: 'prizma-test', pkg: 'com.fmjapps.prizma' },
     shots: [[1, 0], [3, 1], [2, 2], [4, 3], [6, 4], [7, 5]],
     category: 'GameApplication',
     tr: {
@@ -422,7 +422,7 @@ const APPS = [
   /* ------------------------------------------------------------------ */
   {
     id: 'paydos', kind: 'app', acc: '#6E8BFF', status: 'soon',
-    privacy: '/privacy/paydos/',
+    privacy: '/privacy/paydos/', test: { group: 'paydos-test', pkg: 'com.zamankilidi.app' },
     shots: [[1, 1], [2, 2], [4, 3], [5, 4]],
     category: 'UtilitiesApplication',
     tr: {

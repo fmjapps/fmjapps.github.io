@@ -49,6 +49,8 @@ function page(app, lang) {
   const groupHash = app.kind === 'game' ? 'oyunlar' : 'uygulamalar';
   const og = BASE + '/assets/og-' + app.id + (lang !== 'tr' ? '-en' : '') + '.jpg';
   const isTest = app.status === 'test';
+  // Onay bekleyen uygulamada da test bağlantısı varsa katılım bölümü gösterilir
+  const canJoin = !!app.test;
   const half = Math.ceil(c.feats.length / 2);
 
   const ld = {
@@ -72,7 +74,7 @@ function page(app, lang) {
     ]
   };
 
-  const join = isTest ? `
+  const join = canJoin ? `
     <div class="join reveal">
       <h2>${esc(t.joinTitle)}</h2>
       <p class="join-lede">${esc(t.joinLede)}</p>
@@ -81,8 +83,8 @@ function page(app, lang) {
         <li><b>02</b><strong>${esc(t.s2t)}</strong><p>${esc(t.s2d)}</p><a class="btn small tint" href="https://play.google.com/apps/testing/${app.test.pkg}" target="_blank" rel="noopener">${esc(t.s2b)}</a></li>
         <li><b>03</b><strong>${esc(t.s3t)}</strong><p>${esc(t.s3d)}</p><a class="btn small tint" href="https://play.google.com/store/apps/details?id=${app.test.pkg}" target="_blank" rel="noopener">${esc(t.s3b)}</a></li>
       </ol>
-      <p class="join-note">${esc(t.joinNote)}</p>
-    </div>` : `
+${isTest ? `      <p class="join-note">${esc(t.joinNote)}</p>
+` : ''}    </div>` : `
     <div class="join reveal">
       <h2>${esc(t.soonTitle)}</h2>
       <p class="join-lede">${esc(t.soonLede.replace('{name}', c.short))}</p>
@@ -176,7 +178,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
           <ul class="chips">${c.chips.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
           <p class="status${isTest ? '' : ' soon'}"><i></i>${esc(isTest ? t.statusTest : t.statusSoon)}</p>
           <div class="cta">
-            ${isTest ? `<a class="btn solid" href="#katil">${esc(t.join)}</a>` : ''}
+            ${canJoin ? `<a class="btn solid" href="#katil">${esc(t.join)}</a>` : ''}
             <a class="btn ${isTest ? 'ghost' : 'solid'}" href="${homeOf(lang, 'iletisim')}">${esc(t.feedback)}</a>
           </div>
         </div>
@@ -233,7 +235,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
     </div>
   </section>
 
-  <section class="page alt" id="katil" data-label="${esc(isTest ? t.joinTitle : t.soonTitle)}">
+  <section class="page alt" id="katil" data-label="${esc(canJoin ? t.joinTitle : t.soonTitle)}">
     <div class="wrap">${join}
     </div>
   </section>

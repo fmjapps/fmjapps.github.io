@@ -12,10 +12,13 @@
   var FORM_URL = 'https://form.fmjapps.com/';
 
   // Kapalı testteki uygulamalar: Google Grubu ve Play paket adı
+  // soon: yayın onayı bekleniyor; 14 gün notu gösterilmez
   var TESTS = {
     kayip: { group: 'kayip-esya-testers', pkg: 'com.oyunatolyesi.kayipesya', acc: '#9CC98F' },
     koleksiyoncu: { group: 'the-collector-testers', pkg: 'com.fmjapps.collector', acc: '#E2B75E' },
-    ezber: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani', acc: '#2FC4A8' }
+    ezber: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani', acc: '#2FC4A8' },
+    prizma: { group: 'prizma-test', pkg: 'com.fmjapps.prizma', acc: '#3EF0C8', soon: true },
+    paydos: { group: 'paydos-test', pkg: 'com.zamankilidi.app', acc: '#6E8BFF', soon: true }
   };
 
   // Metni HTML'e yazmadan önce zararsız hâle getirir
@@ -762,6 +765,7 @@
       links[0].href = 'https://groups.google.com/g/' + cfg.group;
       links[1].href = 'https://play.google.com/apps/testing/' + cfg.pkg;
       links[2].href = 'https://play.google.com/store/apps/details?id=' + cfg.pkg;
+      modal.querySelector('.jm-note').hidden = !!cfg.soon;
       paint();
       modal.hidden = false;
       document.body.style.overflow = 'hidden';
