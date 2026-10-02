@@ -8,13 +8,13 @@ A = ROOT + '/assets/'
 BOLD = 'C:/Windows/Fonts/segoeuib.ttf'
 REG = 'C:/Windows/Fonts/segoeui.ttf'
 
-# kimlik, vurgu rengi, (ad, alt başlık) tr ve en, ekran görüntüleri, İngilizce görüntü var mı
+# kimlik, vurgu rengi, (ad, alt başlık) tr ve en, öndeki ve arkadaki ekran görüntüsünün numarası
 APPS = [
-    ('kayip', '#9CC98F', ('Kayıp Eşya Bürosu', 'Günlük çıkarım oyunu'), ('Lost & Found Office', 'Daily deduction game'), ('kayip-1', 'kayip-2'), True),
-    ('koleksiyoncu', '#E2B75E', ('Koleksiyoner', 'Antika dükkânı oyunu'), ('The Collector: Real or Fake', 'Antique shop detective game'), ('koleksiyoncu-1', 'koleksiyoncu-2'), True),
-    ('prizma', '#3EF0C8', ('Prizma', 'Işık ve ayna bulmacası'), ('Prizma', 'Light and mirror puzzle'), ('prizma-4', 'prizma-1'), False),
-    ('ezber', '#2FC4A8', ('Ezber', 'Replik, sunum, şiir'), ('Memorize', 'Lines, speech, poems'), ('ezber-1', 'ezber-2'), True),
-    ('paydos', '#6E8BFF', ('Paydos', 'Çocuk ekran kilidi'), ('Paydos', 'Screen time lock for kids'), ('paydos-3', 'paydos-1'), False),
+    ('kayip', '#9CC98F', ('Kayıp Eşya Bürosu', 'Günlük çıkarım oyunu'), ('Lost & Found Office', 'Daily deduction game'), (2, 3)),
+    ('koleksiyoncu', '#E2B75E', ('Koleksiyoner', 'Antika dükkânı oyunu'), ('The Collector: Real or Fake', 'Antique shop detective game'), (1, 2)),
+    ('prizma', '#3EF0C8', ('Prizma', 'Işık ve ayna bulmacası'), ('Prizma', 'Light and mirror puzzle'), (1, 3)),
+    ('ezber', '#2FC4A8', ('Ezber', 'Replik, sunum, şiir'), ('Memorize', 'Lines, speech, poems'), (1, 2)),
+    ('paydos', '#6E8BFF', ('Paydos', 'Çocuk ekran kilidi'), ('Paydos', 'Screen time lock for kids'), (1, 2)),
 ]
 
 
@@ -54,7 +54,7 @@ def wrap(draw, text, font, width):
 
 
 def make(app, lang):
-    key, acc, tr, en, shots, has_en = app
+    key, acc, tr, en, shots = app
     name, tag = tr if lang == 'tr' else en
     W, H = 1200, 630
     im = Image.new('RGB', (W, H), '#0A0A1F')
@@ -64,9 +64,9 @@ def make(app, lang):
     g.ellipse((-260, 380, 320, 960), fill=(30, 26, 84))
     im = Image.blend(im, glow.filter(ImageFilter.GaussianBlur(130)), .9).convert('RGBA')
 
-    suffix = '-en' if lang == 'en' and has_en else ''
-    back = phone(A + shots[1] + suffix + '.webp', 470, -7)
-    front = phone(A + shots[0] + suffix + '.webp', 540, 4)
+    src = lambda n: A + 'shots/%s/%s-%d.webp' % (lang, key, n)
+    back = phone(src(shots[1]), 470, -7)
+    front = phone(src(shots[0]), 540, 4)
     im.alpha_composite(back, (930, 110))
     im.alpha_composite(front, (700, 60))
 

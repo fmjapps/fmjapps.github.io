@@ -1,8 +1,10 @@
-// Uygulama sayfalarını üretir: node _pages/build.cjs
-// Çıktı: /<adres>/index.html (Türkçe), /<dil>/<adres>/index.html (diğer diller), sitemap.xml
+// Uygulama sayfalarını ve ana sayfanın dil kopyalarını üretir: node _pages/build.cjs
+// Çıktı: /<adres>/index.html (Türkçe), /<dil>/<adres>/index.html (diğer diller),
+// /<dil>/index.html (ana sayfanın diğer dillerdeki hâli, metni i18n/<dil>.json dosyasından), sitemap.xml
 // Türkçe ve İngilizce metin content.cjs içinde; diğer diller lang/<dil>.json dosyalarından okunur.
 // Ayrıca ana sayfadaki yapılandırılmış veriyi uygulama sayfalarının adresleriyle günceller.
 const fs = require('fs');
+const crypto = require('crypto');
 const path = require('path');
 const { UI, APPS } = require('./content.cjs');
 
@@ -32,9 +34,11 @@ const PRIVACY = [['kayip', '/privacy/kayip/'], ['koleksiyoncu', '/privacy/collec
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const urlOf = (app, lang) => (lang === 'tr' ? '/' : '/' + lang + '/') + app.text[lang].slug + '/';
-const homeOf = (lang, hash) => (lang === 'tr' ? '/' : '/?lang=' + lang) + (hash ? '#' + hash : '');
-// Türkçe dışındaki dillerde İngilizce ekran görüntüleri kullanılır
-const shot = (s, lang) => '/assets/' + s[0] + (lang !== 'tr' && s[1] ? '-en' : '') + '.webp';
+const homePath = lang => lang === 'tr' ? '/' : '/' + lang + '/';
+const homeOf = (lang, hash) => homePath(lang) + (hash ? '#' + hash : '');
+// Her dilin kendi ekran görüntüleri var (assets/shots/<dil>/<uygulama>-<n>.webp, uygulamaların mağaza görsellerinden)
+// app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
+const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
 
 const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'";
 
@@ -54,7 +58,7 @@ function page(app, lang) {
         '@type': 'MobileApplication', '@id': url + '#app', name: c.name, description: c.desc, url,
         operatingSystem: 'Android', applicationCategory: app.category, inLanguage: lang,
         image: BASE + '/assets/' + app.id + '-icon.webp',
-        screenshot: app.shots.map(s => BASE + shot(s, lang)),
+        screenshot: app.shots.map(s => BASE + shot(app, s, lang)),
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         author: { '@type': 'Organization', name: 'FMJ Apps', url: BASE + '/' }
       },
@@ -177,8 +181,8 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
           </div>
         </div>
         <div class="hero-media" aria-hidden="true">
-          <div class="phone back"><img src="${shot(app.shots[1], lang)}" alt="" width="540" height="1200"></div>
-          <div class="phone front"><img src="${shot(app.shots[0], lang)}" alt="" width="540" height="1200"></div>
+          <div class="phone back"><img src="${shot(app, app.shots[1], lang)}" alt="" width="540" height="1200"></div>
+          <div class="phone front"><img src="${shot(app, app.shots[0], lang)}" alt="" width="540" height="1200"></div>
         </div>
       </div>
     </div>
@@ -187,8 +191,8 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 
   <section class="page alt shots-page" id="goruntuler" style="--n:${app.shots.length}" data-label="${esc(t.shots)}">
     <div class="wrap"><header class="sec-head reveal"><h2>${esc(t.shots)}</h2></header></div>
-    <div class="gallery reveal" id="gallery" tabindex="0" role="group" aria-label="${esc(t.shots)}">${app.shots.map((s, i) => `
-      <figure><div class="phone"><img src="${shot(s, lang)}" alt="${esc(c.name + ': ' + c.alts[i])}" width="540" height="1200"></div><figcaption>${esc(c.alts[i])}</figcaption></figure>`).join('')}
+    <div class="gallery reveal" id="gallery" tabindex="0" role="group" aria-label="${esc(t.shots)}">${app.shots.map(s => `
+      <figure><div class="phone"><img src="${shot(app, s, lang)}" alt="${esc(c.name + ': ' + c.alts[s[1]])}" width="540" height="1200"></div><figcaption>${esc(c.alts[s[1]])}</figcaption></figure>`).join('')}
     </div>
     <div class="gdots" id="gdots" aria-hidden="true"></div>
   </section>
@@ -275,35 +279,121 @@ for (const app of APPS) for (const lang of LANGS) {
   count++;
 }
 
-// Ana sayfadaki yapılandırılmış veri uygulama sayfalarını gösterir
+// Ana sayfa: Türkçe kaynak index.html. Yapılandırılmış veri uygulama sayfalarını, dil bağlantıları
+// her dilin kendi adresini gösterir; satır içi betik değiştiyse CSP'deki özeti yeniden hesaplanır.
 const homeFile = path.join(ROOT, 'index.html');
-let home = fs.readFileSync(homeFile, 'utf8');
-home = home.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, json) => {
+const HOME_DICT = {};
+const HOME_LANGS_OK = HOME_LANGS.filter(l => l === 'tr' || fs.existsSync(path.join(ROOT, 'i18n', l + '.json')));
+HOME_LANGS_OK.forEach(l => { if (l !== 'tr') HOME_DICT[l] = JSON.parse(fs.readFileSync(path.join(ROOT, 'i18n', l + '.json'), 'utf8')); });
+const ldOf = (html, fn) => html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, json) => {
   const ld = JSON.parse(json);
-  ld['@graph'].forEach(node => {
-    if (node['@type'] !== 'MobileApplication') return;
-    const app = APPS.find(a => node.image.endsWith('/' + a.id + '-icon.webp'));
-    if (app) node.url = BASE + urlOf(app, 'tr');
-  });
+  fn(ld);
   return '<script type="application/ld+json">' + JSON.stringify(ld) + '</script>';
+});
+const appOfNode = node => APPS.find(a => node.image && node.image.endsWith('/' + a.id + '-icon.webp'));
+let home = fs.readFileSync(homeFile, 'utf8');
+home = ldOf(home, ld => ld['@graph'].forEach(node => {
+  if (node['@type'] !== 'MobileApplication') return;
+  const app = appOfNode(node);
+  if (app) node.url = BASE + urlOf(app, 'tr');
+}));
+const homeAltLinks = HOME_LANGS_OK.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + homePath(l)}">`).join('\n') +
+  `\n<link rel="alternate" hreflang="x-default" href="${BASE}/">`;
+home = home.replace(/(<link rel="alternate" hreflang="[a-z-]+" href="[^"]+">\n?)+/, homeAltLinks + '\n');
+home = home.replace(/'sha256-[^']+'/, () => {
+  const inline = home.match(/<script>([\s\S]*?)<\/script>/)[1];
+  return "'sha256-" + crypto.createHash('sha256').update(inline, 'utf8').digest('base64') + "'";
 });
 fs.writeFileSync(homeFile, home);
 
+// Açılış etiketiyle eşleşen kapanış etiketini bulur (aynı adlı iç içe etiketler sayılır)
+function closeOf(html, tag, from) {
+  const re = new RegExp('<(/?)' + tag + '\\b[^>]*>', 'gi');
+  re.lastIndex = from;
+  let depth = 1, m;
+  while ((m = re.exec(html))) {
+    depth += m[1] ? -1 : 1;
+    if (!depth) return m.index;
+  }
+  throw new Error('kapanmayan etiket: ' + tag);
+}
+// data-i18n (düz metin) ve data-i18n-html (HTML) taşıyan etiketlerin içi çeviriyle değişir
+function fillText(html, attr, val) {
+  const re = new RegExp('<(\\w+)\\b[^>]*\\s' + attr + '="([^"]+)"[^>]*>', 'g');
+  const hits = [];
+  let m;
+  while ((m = re.exec(html))) hits.push({ tag: m[1], key: m[2], start: m.index + m[0].length });
+  for (let i = hits.length - 1; i >= 0; i--) {
+    const h = hits[i], v = val(h.key);
+    if (v == null) continue;
+    const end = closeOf(html, h.tag, h.start);
+    html = html.slice(0, h.start) + v + html.slice(end);
+  }
+  return html;
+}
+// Bir öznitelikteki anahtara göre aynı etiketteki başka bir özniteliği değiştirir
+function fillAttr(html, keyAttr, target, val) {
+  return html.replace(new RegExp('<\\w+\\b[^>]*\\s' + keyAttr + '="([^"]+)"[^>]*>', 'g'), (tag, key) => {
+    const v = val(key);
+    if (v == null) return tag;
+    const re = new RegExp('(\\s' + target + '=")[^"]*(")');
+    return re.test(tag) ? tag.replace(re, (m0, a, b) => a + esc(v) + b) : tag;
+  });
+}
+function homePage(lang) {
+  const d = HOME_DICT[lang], en = HOME_DICT.en || {};
+  const tx = k => d[k] != null ? d[k] : en[k];
+  const url = BASE + homePath(lang);
+  let h = home;
+  h = h.replace('<html lang="tr"', `<html lang="${lang}"${RTL[lang] ? ' dir="rtl"' : ''}`);
+  h = h.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tx('meta.title'))}</title>`);
+  h = h.replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + esc(tx('meta.desc')) + b);
+  h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, (m, a, b) => a + esc(tx('meta.desc')) + b);
+  h = h.replace(/(<meta property="og:url" content=")[^"]*(")/, (m, a, b) => a + url + b);
+  h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
+  h = ldOf(h, ld => ld['@graph'].forEach(node => {
+    if (node['@type'] === 'Organization') node.description = tx('meta.desc');
+    const app = node['@type'] === 'MobileApplication' && appOfNode(node);
+    if (app) {
+      const own = app.text[lang] ? lang : 'en', t = app.text[own];
+      node.name = t.name; node.description = t.desc; node.url = BASE + urlOf(app, own);
+    }
+  }));
+  h = h.replace('<h3 id="jmTitle">Kayıp Eşya Bürosu</h3>', () => '<h3 id="jmTitle">' + esc(tx('kayip.name')) + '</h3>');
+  h = fillText(h, 'data-i18n-html', k => tx(k));
+  h = fillText(h, 'data-i18n', k => tx(k) == null ? null : esc(tx(k)));
+  h = fillAttr(h, 'data-i18n-aria', 'aria-label', k => tx(k));
+  h = fillAttr(h, 'data-i18n-ph', 'placeholder', k => tx(k));
+  // Ekran görüntüleri o dilin klasöründen, uygulama bağlantıları o dildeki sayfalardan
+  h = h.split('/assets/shots/tr/').join('/assets/shots/' + lang + '/');
+  // Paylaşım görseli de o dilde (python _pages/og_home.py üretir)
+  h = h.replace('/assets/og-home-tr.jpg', '/assets/og-home-' + lang + '.jpg');
+  h = h.replace(/<a\b[^>]*\sdata-en-href="([^"]+)"[^>]*>/g, (tag, href) => tag.replace(/(\shref=")[^"]*(")/, (m, a, b) => a + href.replace('/en/', '/' + lang + '/') + b));
+  return h;
+}
+let homeCount = 0;
+for (const lang of HOME_LANGS_OK) {
+  if (lang === 'tr') continue;
+  const dir = path.join(ROOT, lang);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), homePage(lang));
+  homeCount++;
+}
+
 // Site haritası
 const today = new Date().toISOString().slice(0, 10);
-const homeUrl = l => BASE + '/?lang=' + l;
-const homeAlts = HOME_LANGS.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${homeUrl(l)}"/>`).join('\n') +
+const homeUrl = l => BASE + homePath(l);
+const homeAlts = HOME_LANGS_OK.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${homeUrl(l)}"/>`).join('\n') +
   `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE}/"/>`;
 const entry = (loc, alts, prio) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n${alts ? alts + '\n' : ''}    <priority>${prio}</priority>\n  </url>`;
 const appAlts = app => LANGS.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app, l)}"/>`).join('\n') +
   `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE + urlOf(app, 'en')}"/>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${entry(BASE + '/', homeAlts, '1.0')}
-${HOME_LANGS.map(l => entry(homeUrl(l), homeAlts, l === 'tr' || l === 'en' ? '0.9' : '0.7')).join('\n')}
+${HOME_LANGS_OK.map(l => entry(homeUrl(l), homeAlts, l === 'tr' ? '1.0' : l === 'en' ? '0.9' : '0.7')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
 ${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
-console.log(count + ' sayfa, site haritasında ' + (sitemap.match(/<loc>/g) || []).length + ' adres');
+console.log(count + ' uygulama sayfası, ' + homeCount + ' ana sayfa kopyası, site haritasında ' + (sitemap.match(/<loc>/g) || []).length + ' adres');

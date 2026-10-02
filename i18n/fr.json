@@ -78,6 +78,7 @@
  "nav.apps": "Applis",
  "nav.contact": "Contact",
  "nav.games": "Jeux",
+ "nav.sections": "Sections",
  "nav.values": "Principes",
  "page.home": "Accueil",
  "paydos.desc": "Fixe une limite en douceur au temps que ton enfant passe sur le téléphone. Règle la durée, coche les applis qu’il peut ouvrir et confie-lui le téléphone. Quand le temps est écoulé, ou qu’une appli bloquée est ouverte, l’écran se verrouille et seul ton PIN le débloque. Ton enfant voit toujours combien de temps il lui reste.",

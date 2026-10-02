@@ -47,7 +47,7 @@
     'page.home': 'Giriş'
   };
   var DICT = {};
-  var curLang = 'tr';
+  var curLang = root.getAttribute('data-lang') || 'tr';
   var trMeta = { title: document.title, desc: document.querySelector('meta[name=description]').content };
 
   var textEls = document.querySelectorAll('[data-i18n]');
@@ -128,9 +128,6 @@
       li.classList.toggle('on', on);
       li.setAttribute('aria-selected', on);
     });
-    // Adreste ?lang= varsa sayfanın asıl adresi o dildeki adrestir
-    var canon = document.querySelector('link[rel=canonical]');
-    if (canon) canon.href = 'https://fmjapps.com/' + (/[?&]lang=/.test(location.search) ? '?lang=' + lang : '');
     root.classList.remove('i18n-wait');
     document.dispatchEvent(new CustomEvent('fmj:lang', { detail: lang }));
   }
@@ -138,12 +135,12 @@
   function setLang(lang, save) {
     if (!LANGS.some(function (l) { return l[0] === lang; })) lang = 'en';
     if (save) {
+      // Her dilin kendi adresi var: seçilen dilin sayfası açılır
       store('fmj-lang', lang);
-      // Seçilen dil adrese de yazılır; bağlantı paylaşılınca aynı dilde açılır
-      try { history.replaceState(null, '', '?lang=' + lang + location.hash); } catch (e) {}
+      if (lang !== curLang) { location.href = (lang === 'tr' ? '/' : '/' + lang + '/') + location.hash; return; }
     }
     if (lang === 'tr' || DICT[lang]) { render(lang); return; }
-    fetch('i18n/' + lang + '.json')
+    fetch('/i18n/' + lang + '.json')
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (json) { DICT[lang] = json; render(lang); })
       .catch(function () { root.classList.remove('i18n-wait'); if (lang !== 'en') setLang('en', false); });

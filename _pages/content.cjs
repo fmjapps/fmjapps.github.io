@@ -52,7 +52,7 @@ const APPS = [
   {
     id: 'kayip', kind: 'game', acc: '#9CC98F', acc2: '#E9D9B4', status: 'test',
     privacy: '/privacy/kayip/', test: { group: 'kayip-esya-testers', pkg: 'com.oyunatolyesi.kayipesya' },
-    shots: [['kayip-1', true], ['kayip-2', true], ['kayip-3', true]],
+    shots: [[2, 0], [3, 1], [6, 2]],
     category: 'GameApplication',
     tr: {
       slug: 'kayip-esya-burosu', name: 'Kayıp Eşya Bürosu', short: 'Kayıp Eşya Bürosu', tag: 'Günlük çıkarım oyunu',
@@ -146,7 +146,7 @@ const APPS = [
   {
     id: 'koleksiyoncu', kind: 'game', acc: '#E2B75E', acc2: '#8A5A2B', status: 'test',
     privacy: '/privacy/collector/', test: { group: 'the-collector-testers', pkg: 'com.fmjapps.collector' },
-    shots: [['koleksiyoncu-1', true], ['koleksiyoncu-2', true], ['koleksiyoncu-3', true], ['koleksiyoncu-5', true], ['koleksiyoncu-4', true]],
+    shots: [[1, 0], [2, 1], [3, 2], [5, 3]],
     category: 'GameApplication',
     tr: {
       slug: 'koleksiyoner', name: 'Koleksiyoner', short: 'Koleksiyoner', tag: 'Antika dükkânı oyunu',
@@ -240,7 +240,7 @@ const APPS = [
   {
     id: 'prizma', kind: 'game', acc: '#3EF0C8', acc2: '#7B6CFF', status: 'soon',
     privacy: '/privacy/prizma/',
-    shots: [['prizma-4', false], ['prizma-1', false], ['prizma-5', false], ['prizma-2', false], ['prizma-3', false], ['prizma-6', false]],
+    shots: [[1, 0], [3, 1], [2, 2], [4, 3], [6, 4], [7, 5]],
     category: 'GameApplication',
     tr: {
       slug: 'prizma', name: 'Prizma', short: 'Prizma', tag: 'Işık ve ayna bulmacası',
@@ -330,7 +330,7 @@ const APPS = [
   {
     id: 'ezber', kind: 'app', acc: '#2FC4A8', status: 'test',
     privacy: '/privacy/ezber/', test: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani' },
-    shots: [['ezber-1', true], ['ezber-2', true], ['ezber-3', true]],
+    shots: [[1, 0], [2, 1], [3, 2]],
     category: 'EducationalApplication',
     tr: {
       slug: 'ezber', name: 'Ezber: Replik, Sunum, Şiir', short: 'Ezber', tag: 'Eller serbest ezber asistanı',
@@ -423,7 +423,7 @@ const APPS = [
   {
     id: 'paydos', kind: 'app', acc: '#6E8BFF', status: 'soon',
     privacy: '/privacy/paydos/',
-    shots: [['paydos-3', false], ['paydos-2', false], ['paydos-1', false], ['paydos-5', false], ['paydos-4', false]],
+    shots: [[1, 1], [2, 2], [4, 3], [5, 4]],
     category: 'UtilitiesApplication',
     tr: {
       slug: 'paydos', name: 'Paydos', short: 'Paydos', tag: 'Çocuk ekran kilidi',
