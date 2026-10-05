@@ -41,7 +41,12 @@
   "game": "游戏",
   "app": "应用",
   "scroll": "向下滚动",
-  "pages": "页面"
+  "pages": "页面",
+  "statusLive": "已登陆 Google Play",
+  "download": "在 Google Play 下载",
+  "liveTitle": "现已登陆 Google Play",
+  "liveLede": "{name} 已在 Google Play 上架。马上下载试试吧。",
+  "backSw": "返回 FMJ Software 解决方案"
  },
  "apps": {
   "kayip": {
@@ -427,12 +432,12 @@
      "不需要。想上排行榜的话，登录 Google Play Games 就行；不登录也能玩到游戏的全部内容。"
     ],
     [
-     "什么时候上线？",
-     "Prizma 正在等待 Google Play 的上架审核。审核通过后，下载链接就会出现在这个页面上。"
+     "在哪里下载？",
+     "Prizma 已在 Google Play 上架。点这个页面上的链接就能免费下载。"
     ],
     [
      "有 iOS 版本吗？",
-     "暂时没有。游戏只会在 Android 上通过 Google Play 提供。"
+     "暂时没有。这款游戏目前只有 Android 版，可在 Google Play 下载。"
     ]
    ]
   },

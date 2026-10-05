@@ -41,7 +41,12 @@
   "game": "게임",
   "app": "앱",
   "scroll": "아래로 스크롤",
-  "pages": "페이지"
+  "pages": "페이지",
+  "statusLive": "Google Play 출시",
+  "download": "Google Play에서 다운로드",
+  "liveTitle": "Google Play 출시",
+  "liveLede": "{name}이(가) Google Play에 출시됐어요. 지금 바로 받아서 써 보세요.",
+  "backSw": "FMJ Software 솔루션으로 돌아가기"
  },
  "apps": {
   "kayip": {
@@ -427,12 +432,12 @@
      "아니요. 리더보드에 오르고 싶다면 Google Play Games에 로그인하기만 하면 돼요. 로그인하지 않아도 게임 전체를 플레이할 수 있어요."
     ],
     [
-     "언제 출시되나요?",
-     "Prizma는 Google Play의 출시 승인을 기다리고 있어요. 승인되면 이 페이지에 다운로드 링크가 올라와요."
+     "어디서 다운로드할 수 있나요?",
+     "Prizma는 Google Play에 출시됐어요. 이 페이지의 링크에서 무료로 받을 수 있어요."
     ],
     [
      "iOS 버전이 있나요?",
-     "지금은 없어요. 게임은 Android에서만, Google Play를 통해 제공될 예정이에요."
+     "아직은 없어요. 이 게임은 Android 전용이며 Google Play에서만 받을 수 있어요."
     ]
    ]
   },

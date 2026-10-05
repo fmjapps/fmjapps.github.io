@@ -10,6 +10,11 @@
   "skip": "Skip to content",
   "statusTest": "In closed testing",
   "statusSoon": "In review · Coming soon to Google Play",
+  "statusLive": "On Google Play",
+  "download": "Get it on Google Play",
+  "liveTitle": "Now on Google Play",
+  "liveLede": "{name} is live on Google Play. Download it and give it a try.",
+  "backSw": "Back to FMJ Software solutions",
   "join": "Join the test",
   "feedback": "Send feedback",
   "privacy": "Privacy policy",
@@ -427,12 +432,12 @@
      "No. If you want to appear on the leaderboard, signing in to Google Play Games is enough; the whole game is playable without it."
     ],
     [
-     "When will it be released?",
-     "Prizma is waiting for Google Play's release approval. The download link will appear on this page once it is approved."
+     "Where can I download it?",
+     "Prizma is live on Google Play. You can download it for free from the link on this page."
     ],
     [
      "Is there an iOS version?",
-     "Not for now. The game will be available on Android only, through Google Play."
+     "Not for now. The game is available on Android only, through Google Play."
     ]
    ]
   },

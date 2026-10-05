@@ -17,7 +17,6 @@
     kayip: { group: 'kayip-esya-testers', pkg: 'com.oyunatolyesi.kayipesya', acc: '#9CC98F' },
     koleksiyoncu: { group: 'the-collector-testers', pkg: 'com.fmjapps.collector', acc: '#E2B75E' },
     ezber: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani', acc: '#2FC4A8' },
-    prizma: { group: 'prizma-test', pkg: 'com.fmjapps.prizma', acc: '#3EF0C8', soon: true },
     paydos: { group: 'paydos-test', pkg: 'com.zamankilidi.app', acc: '#6E8BFF', soon: true }
   };
 
@@ -63,7 +62,7 @@
   htmlEls.forEach(function (el) { el._tr = el.innerHTML; });
   ariaEls.forEach(function (el) { el._tr = el.getAttribute('aria-label'); });
   imgEls.forEach(function (el) { el._tr = el.getAttribute('src'); });
-  pageEls.forEach(function (el) { el._tr = el.getAttribute('href'); });
+  pageEls.forEach(function (el) { el._trHref = el.getAttribute('href'); });
 
   function t(key) {
     if (curLang === 'tr') return TR[key];
@@ -118,7 +117,7 @@
     // Türkçe dışındaki dillerde İngilizce ekran görüntüleri gösterilir
     imgEls.forEach(function (el) { el.src = d ? el.getAttribute('data-en') : el._tr; });
     // Uygulama sayfaları her dilde var: /en/... adresi seçili dile çevrilir
-    pageEls.forEach(function (el) { el.setAttribute('href', d ? el.getAttribute('data-en-href').replace('/en/', '/' + lang + '/') : el._tr); });
+    pageEls.forEach(function (el) { el.setAttribute('href', d ? el.getAttribute('data-en-href').replace('/en/', '/' + lang + '/') : el._trHref); });
     document.title = d && d['meta.title'] ? d['meta.title'] : trMeta.title;
     document.querySelector('meta[name=description]').content = d && d['meta.desc'] ? d['meta.desc'] : trMeta.desc;
     splitWords();
@@ -140,7 +139,9 @@
     if (save) {
       // Her dilin kendi adresi var: seçilen dilin sayfası açılır
       store('fmj-lang', lang);
-      if (lang !== curLang) { location.href = (lang === 'tr' ? '/' : '/' + lang + '/') + location.hash; return; }
+      // Hedef adres sayfanın hreflang bağlantısından okunur
+      var alt = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
+      if (lang !== curLang && alt) { location.href = alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash; return; }
     }
     if (lang === 'tr' || DICT[lang]) { render(lang); return; }
     fetch('/i18n/' + lang + '.json')
@@ -183,12 +184,12 @@
 
   /* ---------- Tema ---------- */
   var themeMeta = document.querySelector('meta[name=theme-color]');
-  function syncThemeMeta() { themeMeta.content = root.getAttribute('data-theme') === 'light' ? '#F6F6FD' : '#0A0A1F'; }
+  function syncThemeMeta() { themeMeta.content = root.getAttribute('data-theme') === 'light' ? '#F6EEF0' : '#0D0507'; }
   syncThemeMeta();
   document.getElementById('themeBtn').addEventListener('click', function () {
     var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
-    store('fmj-theme', next);
+    store('fmj-tema', next);
     syncThemeMeta();
   });
 

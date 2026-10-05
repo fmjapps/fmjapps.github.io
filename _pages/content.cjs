@@ -7,7 +7,9 @@ const UI = {
     home: 'Ana sayfa', games: 'Oyunlar', apps: 'Uygulamalar', contact: 'İletişim',
     tagline: 'Sade, güvenilir oyunlar ve uygulamalar',
     theme: 'Temayı değiştir', langLabel: 'Dil', skip: 'İçeriğe geç',
-    statusTest: 'Kapalı testte', statusSoon: 'Onay aşamasında · Çok yakında Google Play\'de',
+    statusTest: 'Kapalı testte', statusSoon: 'Onay aşamasında · Çok yakında Google Play\'de', statusLive: 'Google Play\'de',
+    download: 'Google Play\'den indir', liveTitle: 'Google Play\'de', liveLede: '{name} Google Play\'de yayında. Hemen indirip deneyebilirsin.',
+    backSw: 'FMJ Software çözümlerine dön',
     join: 'Teste katıl', feedback: 'Geri bildirim yaz', privacy: 'Gizlilik politikası',
     shots: 'Ekran görüntüleri', features: 'Öne çıkanlar', info: 'Künye', faq: 'Sık sorulanlar',
     joinTitle: 'Kapalı teste katıl',
@@ -28,7 +30,9 @@ const UI = {
     home: 'Home', games: 'Games', apps: 'Apps', contact: 'Contact',
     tagline: 'Simple, trustworthy games and apps',
     theme: 'Switch theme', langLabel: 'Language', skip: 'Skip to content',
-    statusTest: 'In closed testing', statusSoon: 'In review · Coming soon to Google Play',
+    statusTest: 'In closed testing', statusSoon: 'In review · Coming soon to Google Play', statusLive: 'On Google Play',
+    download: 'Get it on Google Play', liveTitle: 'Now on Google Play', liveLede: '{name} is live on Google Play. Download it and give it a try.',
+    backSw: 'Back to FMJ Software solutions',
     join: 'Join the test', feedback: 'Send feedback', privacy: 'Privacy policy',
     shots: 'Screenshots', features: 'Highlights', info: 'At a glance', faq: 'Questions and answers',
     joinTitle: 'Join the closed test',
@@ -238,7 +242,7 @@ const APPS = [
 
   /* ------------------------------------------------------------------ */
   {
-    id: 'prizma', kind: 'game', acc: '#3EF0C8', acc2: '#7B6CFF', status: 'soon',
+    id: 'prizma', kind: 'game', acc: '#3EF0C8', acc2: '#7B6CFF', status: 'live',
     privacy: '/privacy/prizma/', test: { group: 'prizma-test', pkg: 'com.fmjapps.prizma' },
     shots: [[1, 0], [3, 1], [2, 2], [4, 3], [6, 4], [7, 5]],
     category: 'GameApplication',
@@ -279,8 +283,8 @@ const APPS = [
         ['Prizma ücretsiz mi?', 'Evet, indirmesi ve oynaması ücretsiz. Günlük bir bulmaca hakkı sınırı var; ödüllü reklam izleyerek ek hak alabilir ya da tek seferlik satın almayla sınırı tamamen kaldırabilirsin.'],
         ['Oyunda reklam var mı?', 'Oyun ekranında bir banner var. Ödüllü reklamlar ise yalnızca sen istediğinde, ek bulmaca hakkı ya da ipucu karşılığında açılır.'],
         ['Hesap açmam gerekiyor mu?', 'Hayır. Sıralamaya girmek istersen Google Play Games\'e giriş yapman yeterli; giriş yapmadan da oyunun tamamı oynanır.'],
-        ['Ne zaman yayınlanacak?', 'Prizma, Google Play\'in yayın onayını bekliyor. Onay çıkınca indirme bağlantısı bu sayfada olacak.'],
-        ['iOS sürümü var mı?', 'Şimdilik yok. Oyun yalnızca Android\'de, Google Play üzerinden yayınlanacak.']
+        ['Nereden indirebilirim?', 'Prizma Google Play\'de yayında. Bu sayfadaki bağlantıdan ücretsiz indirebilirsin.'],
+        ['iOS sürümü var mı?', 'Şimdilik yok. Oyun yalnızca Android\'de, Google Play üzerinden yayında.']
       ]
     },
     en: {
@@ -320,8 +324,8 @@ const APPS = [
         ['Is Prizma free?', 'Yes, it\'s free to download and play. There is a daily limit on puzzle credits; you can earn more by watching a rewarded ad, or remove the limit for good with a one-time purchase.'],
         ['Are there ads?', 'There is a banner on the game screen. Rewarded ads open only when you choose, in exchange for extra puzzle credits or a hint.'],
         ['Do I need an account?', 'No. If you want to appear on the leaderboard, signing in to Google Play Games is enough; the whole game is playable without it.'],
-        ['When will it be released?', 'Prizma is waiting for Google Play\'s release approval. The download link will appear on this page once it is approved.'],
-        ['Is there an iOS version?', 'Not for now. The game will be available on Android only, through Google Play.']
+        ['Where can I download it?', 'Prizma is live on Google Play. You can download it for free from the link on this page.'],
+        ['Is there an iOS version?', 'Not for now. The game is available on Android only, through Google Play.']
       ]
     }
   },

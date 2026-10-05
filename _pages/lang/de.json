@@ -41,7 +41,12 @@
   "game": "Spiel",
   "app": "App",
   "scroll": "Nach unten scrollen",
-  "pages": "Seiten"
+  "pages": "Seiten",
+  "statusLive": "Bei Google Play",
+  "download": "Bei Google Play herunterladen",
+  "liveTitle": "Jetzt bei Google Play",
+  "liveLede": "{name} ist jetzt bei Google Play erhältlich. Gleich herunterladen und ausprobieren!",
+  "backSw": "Zurück zu den Lösungen von FMJ Software"
  },
  "apps": {
   "kayip": {
@@ -427,12 +432,12 @@
      "Nein. Wenn du in der Bestenliste erscheinen möchtest, reicht es, dich bei Google Play Games anzumelden; das ganze Spiel lässt sich auch ohne spielen."
     ],
     [
-     "Wann erscheint das Spiel?",
-     "Prizma wartet auf die Freigabe durch Google Play. Sobald sie da ist, erscheint der Download-Link auf dieser Seite."
+     "Wo kann ich es herunterladen?",
+     "Prizma ist bei Google Play erhältlich. Über den Link auf dieser Seite kannst du es kostenlos herunterladen."
     ],
     [
      "Gibt es eine iOS-Version?",
-     "Vorerst nicht. Das Spiel wird es nur für Android geben, bei Google Play."
+     "Vorerst nicht. Das Spiel gibt es nur für Android, bei Google Play."
     ]
    ]
   },

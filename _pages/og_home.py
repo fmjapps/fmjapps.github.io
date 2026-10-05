@@ -18,7 +18,7 @@ html, body {{ margin: 0; width: 1200px; height: 630px; overflow: hidden; }}
 body {{ background: url("{base}") no-repeat; }}
 p {{ position: absolute; inset-inline: 0; top: 352px; margin: 0; text-align: center;
   font: 500 {size}px/30px Arial, "Helvetica Neue", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Malgun Gothic", "Microsoft YaHei", sans-serif;
-  color: #DCDAF8; letter-spacing: {ls}; text-transform: {tt}; }}
+  color: #DCE8FB; letter-spacing: {ls}; text-transform: {tt}; }}
 </style><p>{text}</p></html>'''
 
 

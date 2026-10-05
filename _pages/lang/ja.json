@@ -41,7 +41,12 @@
   "game": "ゲーム",
   "app": "アプリ",
   "scroll": "下にスクロール",
-  "pages": "ページ"
+  "pages": "ページ",
+  "statusLive": "Google Playで配信中",
+  "download": "Google Playで手に入れよう",
+  "liveTitle": "Google Playで配信中",
+  "liveLede": "{name} はGoogle Playで配信中です。さっそくダウンロードして遊んでみてください。",
+  "backSw": "FMJ Softwareのソリューションに戻る"
  },
  "apps": {
   "kayip": {
@@ -427,12 +432,12 @@
      "いいえ。ランキングに載りたい場合は、Google Play Gamesにログインするだけで大丈夫です。ログインしなくても、ゲームはすべて遊べます。"
     ],
     [
-     "いつリリースされますか？",
-     "Prizmaは現在、Google Playの公開承認を待っています。承認されると、このページにダウンロードリンクを掲載します。"
+     "どこでダウンロードできますか？",
+     "PrizmaはGoogle Playで配信中です。このページのリンクから無料でダウンロードできます。"
     ],
     [
      "iOS版はありますか？",
-     "現在はありません。このゲームはAndroid版のみで、Google Playから入手できるようになります。"
+     "今のところありません。このゲームはAndroid版のみ、Google Playで配信しています。"
     ]
    ]
   },

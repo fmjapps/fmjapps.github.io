@@ -7,6 +7,9 @@ const FROM = 'form@fmjapps.com';
 const SHOWN_TO = 'contact@fmjapps.com';
 const MAX_BODY = 12000;
 const SUBJECTS = {
+  titus: 'Titus demo talebi',
+  business: 'İşletmeye özel çözüm',
+  other: 'FMJ Software (diğer)',
   general: 'FMJ Apps (genel)',
   kayip: 'Kayıp Eşya Bürosu',
   koleksiyoncu: 'Koleksiyoner',

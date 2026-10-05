@@ -5,8 +5,8 @@
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
   // Tema, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
-  var theme = read('fmj-theme');
-  if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  var theme = read('fmj-tema');
+  if (theme !== 'light' && theme !== 'dark') theme = 'dark';
   root.setAttribute('data-theme', theme);
   root.classList.add('js');
 
@@ -15,7 +15,7 @@
     if (btn) btn.addEventListener('click', function () {
       theme = theme === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', theme);
-      store('fmj-theme', theme);
+      store('fmj-tema', theme);
     });
 
     // Dil değiştirilince tercih kaydedilir, ana sayfa da aynı dilde açılır

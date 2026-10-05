@@ -1,36 +1,36 @@
 /* FMJ Apps — uygulama sayfalarının stilleri (ana sayfadan bağımsızdır) */
 
 :root {
-  --bg: #08091A;
-  --bg-2: #0C0D22;
-  --surface: #11122B;
-  --surface-2: #171937;
-  --line: rgba(170, 165, 255, 0.10);
-  --line-2: rgba(170, 165, 255, 0.18);
-  --text: #EEF2FF;
-  --dim: #A2A3CC;
-  --faint: #72749E;
-  --brand: #5B4FE0;
-  --brand-2: #8B82FF;
-  --acc: #8B82FF;
+  --bg: #1C3334;
+  --bg-2: #2A3D4C;
+  --surface: #1C3334;
+  --surface-2: #24403F;
+  --line: rgba(218, 123, 147, 0.10);
+  --line-2: rgba(218, 123, 147, 0.18);
+  --text: #FFFFFF;
+  --dim: #C9D3D8;
+  --faint: #93A6AE;
+  --brand: #376E6F;
+  --brand-2: #5FA3A3;
+  --acc: #5FA3A3;
   --acc-2: var(--brand);
   --shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
   --ease: cubic-bezier(.2, .7, .2, 1);
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --bg: #F6F6FD;
-  --bg-2: #EEEEFA;
+  --bg: #F6EEF0;
+  --bg-2: #EFE3E7;
   --surface: #FFFFFF;
-  --surface-2: #F3F3FC;
-  --line: rgba(40, 30, 120, 0.09);
-  --line-2: rgba(40, 30, 120, 0.16);
-  --text: #11112E;
-  --dim: #52547C;
-  --faint: #7E80A6;
-  --brand: #4F46E5;
-  --brand-2: #7A70F5;
-  --shadow: 0 30px 60px -30px rgba(40, 30, 120, 0.35);
+  --surface-2: #FBF6F7;
+  --line: rgba(1, 1, 1, 0.08);
+  --line-2: rgba(55, 110, 111, 0.26);
+  --text: #010101;
+  --dim: #3A5254;
+  --faint: #376E6F;
+  --brand: #376E6F;
+  --brand-2: #376E6F;
+  --shadow: 0 30px 60px -30px rgba(28, 51, 52, 0.30);
   color-scheme: light;
 }
 
@@ -72,7 +72,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .nav-in { display: flex; align-items: center; gap: 18px; height: 68px; max-width: 1120px; margin-inline: auto; padding-inline: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
-.brand img { width: 42px; height: 42px; border-radius: 12px; box-shadow: 0 8px 22px -8px rgba(91, 79, 224, .9); flex: none; }
+.brand img { width: 42px; height: 42px; border-radius: 12px; box-shadow: 0 8px 22px -8px rgba(55, 110, 111, .9); flex: none; }
 .brand-text { display: grid; line-height: 1.15; min-width: 0; }
 .brand-name { font: 700 19px 'Sora', sans-serif; letter-spacing: -0.02em; }
 .brand-tag { font-size: 11.5px; color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -206,7 +206,7 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 .status { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; color: var(--text); margin-top: 26px; }
 .status i { width: 8px; height: 8px; border-radius: 50%; background: #F5B546; position: relative; flex: none; }
 .status i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #F5B546; opacity: 0; animation: ping 2.4s ease-out infinite; }
-.status.soon i, .status.soon i::after { background: #3FD68F; border-color: #3FD68F; }
+.status.soon i, .status.soon i::after, .status.live i, .status.live i::after { background: #3FD68F; border-color: #3FD68F; }
 @keyframes ping { 0% { transform: scale(.6); opacity: .7; } 100% { transform: scale(1.7); opacity: 0; } }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
 
@@ -515,3 +515,26 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 @media (max-width: 760px) { [dir="rtl"] .pager { left: 6px; } }
 :root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(.kind, .foot-h, .more-hint, .sec-head span) { letter-spacing: 0; text-transform: none; }
 :root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(h1, h2, h3, .h2, .brand-name, summary, strong) { letter-spacing: 0; line-height: 1.3; }
+
+/* FMJ Software ana sayfasına dönüş: sol kenarda sabit, belirgin sekme */
+.back-sw {
+  position: fixed; z-index: 55; inset-inline-start: 0; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 20px 12px;
+  border: 0; border-start-end-radius: 18px; border-end-end-radius: 18px;
+  background: linear-gradient(160deg, #376E6F, #376E6F); color: #fff;
+  text-decoration: none; font: 700 14px 'Inter', sans-serif; letter-spacing: .02em;
+  box-shadow: 0 16px 40px -14px rgba(55, 110, 111, .85), 0 0 0 1px rgba(255, 255, 255, .12) inset;
+  transition: padding .25s, box-shadow .25s, filter .2s;
+}
+.back-sw b { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: rgba(255, 255, 255, .18); font-size: 17px; line-height: 1; color: #fff; }
+.back-sw span { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }
+.back-sw:hover { padding-inline-start: 18px; filter: brightness(1.08); box-shadow: 0 20px 48px -12px rgba(55, 110, 111, .95), 0 0 0 1px rgba(255, 255, 255, .18) inset; }
+.back-sw:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+[dir="rtl"] .back-sw b { transform: scaleX(-1); }
+[dir="rtl"] .back-sw span { transform: none; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"]) .back-sw span { transform: none; }
+@media (max-width: 760px) { .back-sw { padding: 14px 8px; gap: 9px; font-size: 12px; } .back-sw b { width: 24px; height: 24px; font-size: 14px; } }
+@media print { .back-sw { display: none; } }
+
+/* Sloganda her kelimenin ilk harfi büyük */
+.brand-tag { text-transform: capitalize; }

@@ -1,6 +1,7 @@
-// Uygulama sayfalarını ve ana sayfanın dil kopyalarını üretir: node _pages/build.cjs
+// Uygulama sayfalarını ve sitenin ana sayfalarının dil kopyalarını üretir: node _pages/build.cjs
 // Çıktı: /<adres>/index.html (Türkçe), /<dil>/<adres>/index.html (diğer diller),
-// /<dil>/index.html (ana sayfanın diğer dillerdeki hâli, metni i18n/<dil>.json dosyasından), sitemap.xml
+// kurumsal ana sayfa, uygulamalar sayfası ve Titus sayfasının diğer dillerdeki hâli
+// (metni i18n/<dil>.json dosyasından), sitemap.xml
 // Türkçe ve İngilizce metin content.cjs içinde; diğer diller lang/<dil>.json dosyalarından okunur.
 // Ayrıca ana sayfadaki yapılandırılmış veriyi uygulama sayfalarının adresleriyle günceller.
 const fs = require('fs');
@@ -26,7 +27,7 @@ const LANGS = HOME_LANGS.filter(l => {
   const f = path.join(LANG_DIR, l + '.json');
   if (!fs.existsSync(f)) return false;
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
-  UI[l] = d.ui;
+  UI[l] = Object.assign({}, UI.en, d.ui); // eksik çeviri İngilizceye düşer
   APPS.forEach(a => { a.text[l] = Object.assign({}, d.apps[a.id], { slug: a.en.slug, name: a.en.name, short: a.en.short }); });
   return true;
 });
@@ -36,6 +37,9 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const urlOf = (app, lang) => (lang === 'tr' ? '/' : '/' + lang + '/') + app.text[lang].slug + '/';
 const homePath = lang => lang === 'tr' ? '/' : '/' + lang + '/';
 const homeOf = (lang, hash) => homePath(lang) + (hash ? '#' + hash : '');
+// Oyun ve uygulama vitrini: Türkçesi /uygulamalar/, diğer diller /<dil>/apps/
+const appsPath = lang => lang === 'tr' ? '/uygulamalar/' : '/' + lang + '/apps/';
+const appsOf = (lang, hash) => appsPath(lang) + (hash ? '#' + hash : '');
 // Her dilin kendi ekran görüntüleri var (assets/shots/<dil>/<uygulama>-<n>.webp, uygulamaların mağaza görsellerinden)
 // app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
 const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
@@ -49,8 +53,10 @@ function page(app, lang) {
   const groupHash = app.kind === 'game' ? 'oyunlar' : 'uygulamalar';
   const og = BASE + '/assets/og-' + app.id + (lang !== 'tr' ? '-en' : '') + '.jpg';
   const isTest = app.status === 'test';
-  // Onay bekleyen uygulamada da test bağlantısı varsa katılım bölümü gösterilir
-  const canJoin = !!app.test;
+  const isLive = app.status === 'live';
+  const playUrl = 'https://play.google.com/store/apps/details?id=' + (app.test && app.test.pkg);
+  // Onay bekleyen uygulamada da test bağlantısı varsa katılım bölümü gösterilir; yayındakinde gösterilmez
+  const canJoin = !!app.test && !isLive;
   const half = Math.ceil(c.feats.length / 2);
 
   const ld = {
@@ -66,7 +72,7 @@ function page(app, lang) {
       },
       {
         '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'FMJ Apps', item: BASE + '/' },
+          { '@type': 'ListItem', position: 1, name: 'FMJ Apps', item: BASE + appsPath(lang) },
           { '@type': 'ListItem', position: 2, name: c.short, item: url }
         ]
       },
@@ -74,7 +80,12 @@ function page(app, lang) {
     ]
   };
 
-  const join = canJoin ? `
+  const join = isLive ? `
+    <div class="join reveal">
+      <h2>${esc(t.liveTitle)}</h2>
+      <p class="join-lede">${esc(t.liveLede.replace('{name}', c.short))}</p>
+      <div class="cta"><a class="btn small tint" href="${playUrl}" target="_blank" rel="noopener">${esc(t.download)}</a></div>
+    </div>` : canJoin ? `
     <div class="join reveal">
       <h2>${esc(t.joinTitle)}</h2>
       <p class="join-lede">${esc(t.joinLede)}</p>
@@ -88,7 +99,7 @@ ${isTest ? `      <p class="join-note">${esc(t.joinNote)}</p>
     <div class="join reveal">
       <h2>${esc(t.soonTitle)}</h2>
       <p class="join-lede">${esc(t.soonLede.replace('{name}', c.short))}</p>
-      <div class="cta"><a class="btn small tint" href="${homeOf(lang, 'iletisim')}">${esc(t.feedback)}</a></div>
+      <div class="cta"><a class="btn small tint" href="${appsOf(lang, 'iletisim')}">${esc(t.feedback)}</a></div>
     </div>`;
 
   const others = APPS.filter(a => a !== app).map(a => `
@@ -103,7 +114,7 @@ ${isTest ? `      <p class="join-note">${esc(t.joinNote)}</p>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(c.title)}</title>
 <meta name="description" content="${esc(c.desc)}">
-<meta name="theme-color" content="#0A0A1F">
+<meta name="theme-color" content="#1C3334">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FMJ Apps">
 <meta property="og:title" content="${esc(c.name)}">
@@ -129,17 +140,18 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 </head>
 <body style="--acc:${app.acc}${app.acc2 ? ';--acc-2:' + app.acc2 : ''}">
 <a class="skip" href="#icerik">${esc(t.skip)}</a>
+<a class="back-sw" href="${homeOf(lang)}"><b aria-hidden="true">←</b><span>${esc(t.backSw)}</span></a>
 
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="${homeOf(lang)}" aria-label="FMJ Apps · ${esc(t.home)}">
+    <a class="brand" href="${appsOf(lang)}" aria-label="FMJ Apps · ${esc(t.home)}">
       <img src="/assets/logo-mark.png" alt="" width="128" height="128">
       <span class="brand-text"><span class="brand-name">FMJ Apps</span><span class="brand-tag">${esc(t.tagline)}</span></span>
     </a>
     <nav class="links" aria-label="FMJ Apps">
-      <a href="${homeOf(lang, 'oyunlar')}">${esc(t.games)}</a>
-      <a href="${homeOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
-      <a href="${homeOf(lang, 'iletisim')}">${esc(t.contact)}</a>
+      <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
+      <a href="${appsOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
+      <a href="${appsOf(lang, 'iletisim')}">${esc(t.contact)}</a>
     </nav>
     <div class="tools">
       <details class="lang" id="lang">
@@ -160,8 +172,8 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
   <section class="page hero" data-label="${esc(c.short)}">
     <div class="wrap">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="${homeOf(lang)}">FMJ Apps</a></li>
-        <li><a href="${homeOf(lang, groupHash)}">${esc(group)}</a></li>
+        <li><a href="${appsOf(lang)}">FMJ Apps</a></li>
+        <li><a href="${appsOf(lang, groupHash)}">${esc(group)}</a></li>
         <li aria-current="page">${esc(c.short)}</li>
       </ol></nav>
       <div class="hero-grid">
@@ -176,10 +188,11 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
           </div>
           <p class="lede">${esc(c.lede)}</p>
           <ul class="chips">${c.chips.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-          <p class="status${isTest ? '' : ' soon'}"><i></i>${esc(isTest ? t.statusTest : t.statusSoon)}</p>
+          <p class="status${isLive ? ' live' : isTest ? '' : ' soon'}"><i></i>${esc(isLive ? t.statusLive : isTest ? t.statusTest : t.statusSoon)}</p>
           <div class="cta">
+            ${isLive ? `<a class="btn solid" href="${playUrl}" target="_blank" rel="noopener">${esc(t.download)}</a>` : ''}
             ${canJoin ? `<a class="btn solid" href="#katil">${esc(t.join)}</a>` : ''}
-            <a class="btn ${isTest ? 'ghost' : 'solid'}" href="${homeOf(lang, 'iletisim')}">${esc(t.feedback)}</a>
+            <a class="btn ${isTest || isLive ? 'ghost' : 'solid'}" href="${appsOf(lang, 'iletisim')}">${esc(t.feedback)}</a>
           </div>
         </div>
         <div class="hero-media" aria-hidden="true">
@@ -235,7 +248,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
     </div>
   </section>
 
-  <section class="page alt" id="katil" data-label="${esc(canJoin ? t.joinTitle : t.soonTitle)}">
+  <section class="page alt" id="katil" data-label="${esc(isLive ? t.liveTitle : canJoin ? t.joinTitle : t.soonTitle)}">
     <div class="wrap">${join}
     </div>
   </section>
@@ -281,9 +294,13 @@ for (const app of APPS) for (const lang of LANGS) {
   count++;
 }
 
-// Ana sayfa: Türkçe kaynak index.html. Yapılandırılmış veri uygulama sayfalarını, dil bağlantıları
-// her dilin kendi adresini gösterir; satır içi betik değiştiyse CSP'deki özeti yeniden hesaplanır.
-const homeFile = path.join(ROOT, 'index.html');
+// Sitenin ana sayfaları: Türkçe kaynak dosya kendi adresinde durur (index.html, uygulamalar/index.html,
+// titus/index.html); diğer diller bundan üretilir. meta: başlık ve açıklamanın çeviri anahtarı öneki.
+const TEMPLATES = [
+  { id: 'home', out: homePath, meta: 'co.meta', og: l => '/assets/og-site-' + l + '.jpg' },
+  { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-home-' + l + '.jpg' },
+  { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' }
+];
 const HOME_DICT = {};
 const HOME_LANGS_OK = HOME_LANGS.filter(l => l === 'tr' || fs.existsSync(path.join(ROOT, 'i18n', l + '.json')));
 HOME_LANGS_OK.forEach(l => { if (l !== 'tr') HOME_DICT[l] = JSON.parse(fs.readFileSync(path.join(ROOT, 'i18n', l + '.json'), 'utf8')); });
@@ -293,20 +310,26 @@ const ldOf = (html, fn) => html.replace(/<script type="application\/ld\+json">([
   return '<script type="application/ld+json">' + JSON.stringify(ld) + '</script>';
 });
 const appOfNode = node => APPS.find(a => node.image && node.image.endsWith('/' + a.id + '-icon.webp'));
-let home = fs.readFileSync(homeFile, 'utf8');
-home = ldOf(home, ld => ld['@graph'].forEach(node => {
-  if (node['@type'] !== 'MobileApplication') return;
-  const app = appOfNode(node);
-  if (app) node.url = BASE + urlOf(app, 'tr');
-}));
-const homeAltLinks = HOME_LANGS_OK.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + homePath(l)}">`).join('\n') +
-  `\n<link rel="alternate" hreflang="x-default" href="${BASE}/">`;
-home = home.replace(/(<link rel="alternate" hreflang="[a-z-]+" href="[^"]+">\n?)+/, homeAltLinks + '\n');
-home = home.replace(/'sha256-[^']+'/, () => {
-  const inline = home.match(/<script>([\s\S]*?)<\/script>/)[1];
-  return "'sha256-" + crypto.createHash('sha256').update(inline, 'utf8').digest('base64') + "'";
-});
-fs.writeFileSync(homeFile, home);
+const srcOf = tpl => path.join(ROOT, tpl.out('tr'), 'index.html');
+// Türkçe kaynak: yapılandırılmış veri uygulama sayfalarını, dil bağlantıları her dilin kendi adresini gösterir;
+// satır içi betik değiştiyse CSP'deki özeti yeniden hesaplanır.
+function prepareSource(tpl) {
+  let h = fs.readFileSync(srcOf(tpl), 'utf8');
+  h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
+    if (node['@type'] !== 'MobileApplication') return;
+    const app = appOfNode(node);
+    if (app) node.url = BASE + urlOf(app, 'tr');
+  }));
+  const alts = HOME_LANGS_OK.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + tpl.out(l)}">`).join('\n') +
+    `\n<link rel="alternate" hreflang="x-default" href="${BASE + tpl.out('tr')}">`;
+  h = h.replace(/(<link rel="alternate" hreflang="[a-z-]+" href="[^"]+">\n?)+/, alts + '\n');
+  h = h.replace(/'sha256-[^']+'/, () => {
+    const inline = h.match(/<script>([\s\S]*?)<\/script>/)[1];
+    return "'sha256-" + crypto.createHash('sha256').update(inline, 'utf8').digest('base64') + "'";
+  });
+  fs.writeFileSync(srcOf(tpl), h);
+  return h;
+}
 
 // Açılış etiketiyle eşleşen kapanış etiketini bulur (aynı adlı iç içe etiketler sayılır)
 function closeOf(html, tag, from) {
@@ -342,19 +365,20 @@ function fillAttr(html, keyAttr, target, val) {
     return re.test(tag) ? tag.replace(re, (m0, a, b) => a + esc(v) + b) : tag;
   });
 }
-function homePage(lang) {
+function homePage(tpl, src, lang) {
   const d = HOME_DICT[lang], en = HOME_DICT.en || {};
   const tx = k => d[k] != null ? d[k] : en[k];
-  const url = BASE + homePath(lang);
-  let h = home;
+  const url = BASE + tpl.out(lang);
+  let h = src;
   h = h.replace('<html lang="tr"', `<html lang="${lang}"${RTL[lang] ? ' dir="rtl"' : ''}`);
-  h = h.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tx('meta.title'))}</title>`);
-  h = h.replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + esc(tx('meta.desc')) + b);
-  h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, (m, a, b) => a + esc(tx('meta.desc')) + b);
+  h = h.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tx(tpl.meta + '.title'))}</title>`);
+  h = h.replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.desc')) + b);
+  h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.desc')) + b);
   h = h.replace(/(<meta property="og:url" content=")[^"]*(")/, (m, a, b) => a + url + b);
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
-  h = ldOf(h, ld => ld['@graph'].forEach(node => {
-    if (node['@type'] === 'Organization') node.description = tx('meta.desc');
+  h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
+    if (node['@type'] === 'Organization' && tx('co.meta.desc')) node.description = tx('co.meta.desc');
+    if (node['@type'] === 'Service' && tx('titus.meta.desc')) node.description = tx('titus.meta.desc');
     const app = node['@type'] === 'MobileApplication' && appOfNode(node);
     if (app) {
       const own = app.text[lang] ? lang : 'en', t = app.text[own];
@@ -369,33 +393,35 @@ function homePage(lang) {
   // Ekran görüntüleri o dilin klasöründen, uygulama bağlantıları o dildeki sayfalardan
   h = h.split('/assets/shots/tr/').join('/assets/shots/' + lang + '/');
   // Paylaşım görseli de o dilde (python _pages/og_home.py üretir)
-  h = h.replace('/assets/og-home-tr.jpg', '/assets/og-home-' + lang + '.jpg');
+  h = h.split(tpl.og('tr')).join(tpl.og(lang));
   h = h.replace(/<a\b[^>]*\sdata-en-href="([^"]+)"[^>]*>/g, (tag, href) => tag.replace(/(\shref=")[^"]*(")/, (m, a, b) => a + href.replace('/en/', '/' + lang + '/') + b));
   return h;
 }
 let homeCount = 0;
-for (const lang of HOME_LANGS_OK) {
-  if (lang === 'tr') continue;
-  const dir = path.join(ROOT, lang);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), homePage(lang));
-  homeCount++;
+for (const tpl of TEMPLATES) {
+  const src = prepareSource(tpl);
+  for (const lang of HOME_LANGS_OK) {
+    if (lang === 'tr') continue;
+    const dir = path.join(ROOT, tpl.out(lang));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), homePage(tpl, src, lang));
+    homeCount++;
+  }
 }
 
 // Site haritası
 const today = new Date().toISOString().slice(0, 10);
-const homeUrl = l => BASE + homePath(l);
-const homeAlts = HOME_LANGS_OK.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${homeUrl(l)}"/>`).join('\n') +
-  `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE}/"/>`;
+const tplAlts = tpl => HOME_LANGS_OK.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE + tpl.out(l)}"/>`).join('\n') +
+  `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE + tpl.out('tr')}"/>`;
 const entry = (loc, alts, prio) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n${alts ? alts + '\n' : ''}    <priority>${prio}</priority>\n  </url>`;
 const appAlts = app => LANGS.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app, l)}"/>`).join('\n') +
   `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE + urlOf(app, 'en')}"/>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${HOME_LANGS_OK.map(l => entry(homeUrl(l), homeAlts, l === 'tr' ? '1.0' : l === 'en' ? '0.9' : '0.7')).join('\n')}
+${TEMPLATES.map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
 ${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
-console.log(count + ' uygulama sayfası, ' + homeCount + ' ana sayfa kopyası, site haritasında ' + (sitemap.match(/<loc>/g) || []).length + ' adres');
+console.log(count + ' uygulama sayfası, ' + homeCount + ' sayfa kopyası, site haritasında ' + (sitemap.match(/<loc>/g) || []).length + ' adres');

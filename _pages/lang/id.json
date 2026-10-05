@@ -41,7 +41,12 @@
   "game": "Game",
   "app": "Aplikasi",
   "scroll": "Gulir ke bawah",
-  "pages": "Halaman"
+  "pages": "Halaman",
+  "statusLive": "Di Google Play",
+  "download": "Unduh dari Google Play",
+  "liveTitle": "Kini di Google Play",
+  "liveLede": "{name} sudah tersedia di Google Play. Unduh dan coba sekarang juga.",
+  "backSw": "Kembali ke solusi FMJ Software"
  },
  "apps": {
   "kayip": {
@@ -427,12 +432,12 @@
      "Tidak. Kalau kamu ingin tampil di papan peringkat, cukup masuk ke Google Play Games; seluruh game tetap bisa dimainkan tanpanya."
     ],
     [
-     "Kapan dirilis?",
-     "Prizma sedang menunggu persetujuan rilis dari Google Play. Tautan unduhnya akan muncul di halaman ini begitu disetujui."
+     "Unduhnya di mana?",
+     "Prizma sudah tersedia di Google Play. Kamu bisa mengunduhnya gratis lewat tautan di halaman ini."
     ],
     [
      "Apakah ada versi iOS?",
-     "Untuk saat ini belum. Game ini hanya akan tersedia di Android, lewat Google Play."
+     "Untuk saat ini belum. Game ini hanya tersedia di Android, lewat Google Play."
     ]
    ]
   },
