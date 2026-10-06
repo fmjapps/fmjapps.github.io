@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="zh" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-al/XZu7/nA6AE19TkqAimbLgi6xDM3toWm0ZJc6AAU4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR Menu · 咖啡馆和餐厅的二维码电子菜单 · FMJ Software</title>
+<meta name="description" content="顾客扫一扫桌上的二维码，菜单就在手机上打开，无需下载 App。随时在后台更新价格、菜品和照片；二维码只需印一次。">
+<meta name="theme-color" content="#1C3334">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Software">
+<meta property="og:title" content="QR Menü · FMJ Software">
+<meta property="og:description" content="顾客扫一扫桌上的二维码，菜单就在手机上打开，无需下载 App。随时在后台更新价格、菜品和照片；二维码只需印一次。">
+<meta property="og:image" content="https://fmjapps.com/assets/og-qrmenu-zh.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://fmjapps.com/zh/qr-menu/">
+<link rel="canonical" href="https://fmjapps.com/zh/qr-menu/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/qr-menu/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/qr-menu/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/qr-menu/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/qr-menu/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/qr-menu/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/qr-menu/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/qr-menu/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/qr-menu/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/qr-menu/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/qr-menu/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/qr-menu/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/qr-menu/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/qr-menu/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/qr-menu/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/qr-menu/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/qr-menu/#service","name":"QR Menü","serviceType":"QR kodlu dijital menü","description":"顾客扫一扫桌上的二维码，菜单就在手机上打开，无需下载 App。随时在后台更新价格、菜品和照片；二维码只需印一次。","url":"https://fmjapps.com/qr-menu/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"QR Menü","item":"https://fmjapps.com/qr-menu/"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'dark';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+    }
+  })();
+</script>
+</head>
+<body class="paged">
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<a class="skip" href="#menu" data-i18n="skip">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/zh/" data-en-href="/en/" aria-label="FMJ Software">
+      <img class="mark" src="/assets/logo-mark.png" alt="" width="128" height="128">
+      <span class="brand-text"><span class="brand-name">FMJ Software</span><span class="brand-tag" data-i18n="co.tagline">可靠的方案，高效的成果</span></span>
+    </a>
+    <nav class="links" aria-label="栏目" data-i18n-aria="nav.sections">
+      <a href="#menu" data-i18n="qr.nav.menu">顾客看到什么</a>
+      <a href="#panel" data-i18n="qr.nav.panel">商家后台</a>
+      <a href="#nasil" data-i18n="qr.nav.how">使用流程</a>
+      <a href="#sss" data-i18n="titus.nav.faq">常见问题</a>
+      <a class="cta-link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">获取报价</a>
+      <a class="side-link" href="/zh/apps/" data-en-href="/en/apps/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span data-i18n="nav.mobileApps">手机游戏与应用</span></a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="切换主题">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="菜单" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="菜单" data-i18n-aria="menu"></nav>
+
+<main id="top">
+
+  <!-- GİRİŞ -->
+  <section class="hero page">
+    <span class="glow g1" aria-hidden="true"></span>
+    <span class="glow g2" aria-hidden="true"></span>
+    <div class="wrap hero-grid qr-hero">
+      <div>
+        <p class="eyebrow" data-i18n="qr.hero.kick">QR Menu · 咖啡馆和餐厅的电子菜单</p>
+        <h1 data-i18n-html="qr.hero.h1">菜单在桌上，<span class="grad">更新就在您手中。</span></h1>
+        <p class="lede" data-i18n="qr.hero.lede">顾客用手机相机扫一扫桌上的二维码，菜单就在浏览器中打开，无需下载任何东西。价格、菜品和照片，您随时可以在自己的后台修改。二维码只需印一次，菜单再怎么变，也不用重新印刷。</p>
+        <ul class="hero-feats">
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">无需 App，无需注册</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">几秒钟完成更新</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">省去印刷费用</span></li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">让您的菜单电子化</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="#nasil" data-i18n="qr.nav.how">使用流程</a>
+        </div>
+      </div>
+
+      <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
+      <div class="qr-phone reveal" aria-hidden="true">
+        <div class="qp-screen">
+          <div class="qp-head">
+            <span class="qp-logo">ÖK</span>
+            <strong data-i18n="qr.m.name">示例咖啡馆</strong>
+            <small data-i18n="qr.m.sub">早餐 · 咖啡 · 甜点</small>
+          </div>
+          <div class="qp-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><span data-i18n="qr.m.search">搜索菜单</span></div>
+          <div class="qp-tabs"><span data-i18n="qr.m.c1">早餐</span><span class="on" data-i18n="qr.m.c2">咖啡</span><span data-i18n="qr.m.c3">甜点</span></div>
+          <p class="qp-cat" data-i18n="qr.m.c2">咖啡</p>
+          <ul class="qp-items">
+            <li><span class="qp-img i1"><svg viewBox="0 0 24 24"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16M9 3.5c0 1.5 1.5 1.5 1.5 3M12.5 3.5c0 1.5 1.5 1.5 1.5 3"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i1">拿铁</b><small data-i18n="qr.m.i1d">双份浓缩，牛奶</small></span><span class="qp-price"><em>S</em> 85 ₺<br><em>L</em> 105 ₺</span></li>
+            <li><span class="qp-img i2"><svg viewBox="0 0 24 24"><path d="M6 10h10v4a5 5 0 0 1-10 0Z"/><path d="M4 19h14"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i2">土耳其咖啡</b><small data-i18n="qr.m.i2d">配土耳其软糖</small></span><span class="qp-price">70 ₺</span></li>
+            <li class="out"><span class="qp-img i3"><svg viewBox="0 0 24 24"><path d="M7 4h10l-2 6H9Z"/><path d="M8 13h8v3a4 4 0 0 1-8 0Z"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i3">滴滤咖啡</b><small data-i18n="qr.m.i3d">今日咖啡豆</small></span><span class="qp-price"><i data-i18n="qr.m.out">已售罄</i></span></li>
+            <li><span class="qp-img i4"><svg viewBox="0 0 24 24"><path d="M5 8h14v3a7 7 0 0 1-14 0Z"/><path d="M8 4.5c0 1.2 1 1.2 1 2.5M12 4.5c0 1.2 1 1.2 1 2.5"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i4">冰咖啡</b><small data-i18n="qr.m.i4d">加冰，加奶</small></span><span class="qp-price">95 ₺</span></li>
+          </ul>
+        </div>
+        <p class="dv-cap" data-i18n="qr.m.cap">示意图</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SORUN -->
+  <section class="sec alt page" id="neden">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="qr.prob.kick">为什么要用电子菜单？</p>
+        <h2 data-i18n="qr.prob.title">纸质菜单的麻烦没完没了。</h2>
+        <p data-i18n="qr.prob.lede">价格会变，菜品会卖完，菜单会磨损。QR Menu 让您在后台逐一解决。</p>
+      </header>
+      <div class="grid-4 feat-grid">
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span>
+          <h3 data-i18n="qr.p1.t">每次调价都要重印</h3>
+          <p data-i18n="qr.p1.d">在后台改个价格，菜单上立即显示，不用再跑印刷店。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6Z"/><path d="M9 11c1.5 1 2.5-1 4 0s2.5-1 2.5-1M9 15h4"/></svg></span>
+          <h3 data-i18n="qr.p2.t">菜单破旧、沾上污渍</h3>
+          <p data-i18n="qr.p2.d">菜单在顾客自己的手机上打开，没有纸张在人手间传来传去，更卫生。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg></span>
+          <h3 data-i18n="qr.p3.t">卖完的菜品还留在菜单上</h3>
+          <p data-i18n="qr.p3.d">轻点一下即可将菜品标为「已售罄」，顾客点单前就能看到。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m4 17 5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span>
+          <h3 data-i18n="qr.p4.t">只有文字，没有照片</h3>
+          <p data-i18n="qr.p4.d">每道菜品都配有照片，顾客点一下就能看大图。有图的菜单卖得更好。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÜŞTERİ NE GÖRÜR -->
+  <section class="sec page" id="menu">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="qr.nav.menu">顾客看到什么</p>
+        <h2 data-i18n="qr.see.title">扫一扫二维码，菜单就打开了。就这么简单。</h2>
+      </header>
+      <div class="grid-3 feat-grid">
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+          <h3 data-i18n="qr.s1.t">为手机而设计</h3>
+          <p data-i18n="qr.s1.d">打开快、在手机上看得舒服的精美菜单。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11Z"/><path d="M9 20v-6h6v6"/></svg></span>
+          <h3 data-i18n="qr.s2.t">您的标志和店名</h3>
+          <p data-i18n="qr.s2.d">菜单顶部显示您店铺的标志、名称和宣传语。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
+          <h3 data-i18n="qr.s3.t">分类与搜索</h3>
+          <p data-i18n="qr.s3.d">点击分类标签即可跳到对应区域；顾客也可以输入名称查找菜品。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m4 17 5-4.5 4 3.5 3-2.5 4 3.5"/></svg></span>
+          <h3 data-i18n="qr.s4.t">大图展示</h3>
+          <p data-i18n="qr.s4.d">点击菜品照片即可查看大图。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 20V9M17 20V4M3 20h18"/></svg></span>
+          <h3 data-i18n="qr.s5.t">按杯型定价</h3>
+          <p data-i18n="qr.s5.d">小杯/大杯或中杯/大杯等两种规格的价格并排显示。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 12.5 11 5h8.5v8.5L12 21Z"/><circle cx="15.5" cy="9" r="1.4"/></svg></span>
+          <h3 data-i18n="qr.s6.t">「已售罄」标签</h3>
+          <p data-i18n="qr.s6.d">卖完的菜品会显示「已售罄」标签。</p>
+        </div>
+      </div>
+      <div class="trust reveal">
+        <div><strong data-i18n="qr.t1.t">无需 App</strong><span data-i18n="qr.t1.d">菜单在手机浏览器中打开，不用下载任何东西。</span></div>
+        <div><strong data-i18n="qr.t2.t">无需注册或登录</strong><span data-i18n="qr.t2.d">顾客扫一扫二维码，菜单就打开了。</span></div>
+        <div><strong data-i18n="qr.t3.t">深色模式</strong><span data-i18n="qr.t3.d">手机处于深色模式时，菜单也会以深色显示。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- İŞLETME PANELİ -->
+  <section class="sec alt page" id="panel">
+    <div class="wrap split">
+      <div>
+        <header class="sec-head reveal">
+          <p class="eyebrow" data-i18n="qr.nav.panel">商家后台</p>
+          <h2 data-i18n="qr.pn.title">菜单由您掌控，每次修改都即时生效。</h2>
+          <p data-i18n="qr.pn.lede">用您的用户名和密码登录后台，手机和电脑都能用。不需要任何技术知识。</p>
+        </header>
+        <ul class="list-feats">
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/></svg></span><div><h3 data-i18n="qr.c1.t">输入价格，就这么简单</h3><p data-i18n="qr.c1.d">在框里输入新价格即可，系统会自动保存。</p></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4Z"/><circle cx="12" cy="13" r="3.5"/></svg></span><div><h3 data-i18n="qr.c2.t">用手机拍照上传</h3><p data-i18n="qr.c2.d">用手机给菜品拍张照，马上就能上传。</p></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="4"/><circle cx="16.5" cy="12" r="2.2"/></svg></span><div><h3 data-i18n="qr.c3.t">一键「已售罄」</h3><p data-i18n="qr.c3.d">标记卖完的菜品；补货后再重新开启。</p></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4ZM14 4h6v6h-6ZM4 14h6v6H4Z"/><path d="M14 14h2v2h-2ZM18 18h2v2h-2ZM14 18h2M18 14h2"/></svg></span><div><h3 data-i18n="qr.c4.t">下载您的二维码</h3><p data-i18n="qr.c4.d">可下载 PNG 格式，或适合印刷的 SVG 格式。</p></div></li>
+        </ul>
+        <ul class="checks qr-more reveal">
+          <li data-i18n="qr.c5">添加和删除菜品；编辑名称、描述和价格</li>
+          <li data-i18n="qr.c6">添加、删除和排序分类；设置两种规格的价格</li>
+          <li data-i18n="qr.c7">标志、店名、副标题、页脚备注和主题颜色</li>
+          <li data-i18n="qr.c8">修改密码</li>
+        </ul>
+      </div>
+      <div class="panel qr-panel reveal" aria-hidden="true">
+        <div class="panel-top"><i></i><i></i><i></i><span data-i18n="qr.pv.title">QR Menu 后台 · 咖啡</span></div>
+        <ul class="qv-rows">
+          <li><b data-i18n="qr.m.i1">拿铁</b><span class="qv-in"><em>S</em>85</span><span class="qv-in edit"><em>L</em>105</span><span class="qv-sw on"></span></li>
+          <li><b data-i18n="qr.m.i2">土耳其咖啡</b><span class="qv-in">70</span><span class="qv-sw on"></span></li>
+          <li class="off"><b data-i18n="qr.m.i3">滴滤咖啡</b><span class="qv-in">75</span><span class="qv-sw"></span></li>
+          <li><b data-i18n="qr.m.i4">冰咖啡</b><span class="qv-in">95</span><span class="qv-sw on"></span></li>
+        </ul>
+        <div class="qv-foot"><span class="qv-saved" data-i18n="qr.pv.saved">已保存 · 菜单已更新</span><span class="qv-legend"><span class="qv-sw on"></span><span data-i18n="qr.pv.legend">在售</span></span></div>
+        <p class="panel-cap" data-i18n="co.panel.cap">示例界面</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KURULUM -->
+  <section class="sec page" id="kurulum">
+    <div class="wrap split">
+      <div>
+        <header class="sec-head reveal">
+          <p class="eyebrow" data-i18n="qr.set.kick">开通时您将获得</p>
+          <h2 data-i18n="qr.set.title">您把菜单发给我们，其余的交给我们。</h2>
+        </header>
+        <ul class="checks qr-deliver reveal">
+          <li data-i18n="qr.d1">将您现有的菜单（照片、PDF 或清单）录入电子菜单</li>
+          <li data-i18n="qr.d2">按照您的标志和品牌颜色进行设计</li>
+          <li data-i18n="qr.d3">为菜品配上示例图片，之后可换成您自己的照片</li>
+          <li data-i18n="qr.d4">提供后台登录信息</li>
+          <li data-i18n="qr.d5">可直接印刷的二维码桌卡：每张 A4 纸 4 张，带裁切线的 PDF</li>
+        </ul>
+      </div>
+      <div class="qr-sheet reveal" aria-hidden="true">
+        <div class="qs-page">
+          <div class="qs-card"><span class="qs-name" data-i18n="qr.m.name">示例咖啡馆</span><img src="/assets/qr-menu/qr.svg" alt="" width="25" height="25"><span class="qs-hint" data-i18n="qr.sheet.hint">扫码查看菜单</span></div>
+          <div class="qs-card"><span class="qs-name" data-i18n="qr.m.name">示例咖啡馆</span><img src="/assets/qr-menu/qr.svg" alt="" width="25" height="25"><span class="qs-hint" data-i18n="qr.sheet.hint">扫码查看菜单</span></div>
+          <div class="qs-card"><span class="qs-name" data-i18n="qr.m.name">示例咖啡馆</span><img src="/assets/qr-menu/qr.svg" alt="" width="25" height="25"><span class="qs-hint" data-i18n="qr.sheet.hint">扫码查看菜单</span></div>
+          <div class="qs-card"><span class="qs-name" data-i18n="qr.m.name">示例咖啡馆</span><img src="/assets/qr-menu/qr.svg" alt="" width="25" height="25"><span class="qs-hint" data-i18n="qr.sheet.hint">扫码查看菜单</span></div>
+        </div>
+        <p class="dv-cap" data-i18n="qr.sheet.cap">A4 · 4 张桌卡 · 带裁切线</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NASIL ÇALIŞIR -->
+  <section class="sec alt page" id="nasil">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="qr.nav.how">使用流程</p>
+        <h2 data-i18n="qr.how.title">三步拥有电子菜单。</h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><h3 data-i18n="qr.st1.t">把菜单照片和标志发给我们</h3><p data-i18n="qr.st1.d">照片、PDF 或简单的清单都可以，您手上有什么就发什么。</p></li>
+        <li class="reveal"><h3 data-i18n="qr.st2.t">我们为您制作电子菜单和二维码桌卡</h3><p data-i18n="qr.st2.d">我们录入您的菜单，按照您的标志和颜色进行设计，并把后台信息发给您。</p></li>
+        <li class="reveal"><h3 data-i18n="qr.st3.t">把桌卡放到餐桌上</h3><p data-i18n="qr.st3.d">随时在后台更新菜单，二维码始终不变。</p></li>
+      </ol>
+      <div class="stats feat-stats reveal" style="margin-top:18px">
+        <div><strong data-i18n="qr.k1v">当天</strong><span data-i18n="qr.k1">完成开通</span></div>
+        <div><strong data-i18n="qr.k2v">几秒</strong><span data-i18n="qr.k2">后台的修改即可显示在菜单上</span></div>
+        <div><strong data-i18n="qr.k3v">一次</strong><span data-i18n="qr.k3">二维码只印一次，菜单变了也不用换</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KİMLER İÇİN -->
+  <section class="sec page" id="kimler">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="qr.who.kick">适合哪些商家？</p>
+        <h2 data-i18n="qr.who.title">所有有菜单的商家。</h2>
+      </header>
+      <ul class="qr-tags reveal">
+        <li data-i18n="qr.w1">咖啡馆</li>
+        <li data-i18n="qr.w2">餐厅</li>
+        <li data-i18n="qr.w3">甜品店</li>
+        <li data-i18n="qr.w4">快餐店</li>
+        <li data-i18n="qr.w5">酒吧</li>
+        <li data-i18n="qr.w6">小吃店和售货亭</li>
+        <li data-i18n="qr.w7">酒店餐厅</li>
+      </ul>
+      <div class="grid-3 qr-why">
+        <div class="card tech-card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3 data-i18n="qr.y1.t">安全连接</h3>
+          <p data-i18n="qr.y1.d">菜单和后台都通过加密的 HTTPS 连接打开。</p>
+        </div>
+        <div class="card tech-card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="7" height="16" rx="1.5"/><rect x="13.5" y="4" width="7" height="16" rx="1.5"/></svg></span>
+          <h3 data-i18n="qr.y2.t">每家商家独立</h3>
+          <p data-i18n="qr.y2.d">您的菜单和后台与其他商家完全分开。</p>
+        </div>
+        <div class="card tech-card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span>
+          <h3 data-i18n="qr.y3.t">无需技术知识</h3>
+          <p data-i18n="qr.y3.d">开通由我们完成，使用后台也不需要任何技术知识。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section class="sec alt page" id="sss">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="titus.faq.kick">常见问题</p>
+        <h2 data-i18n="titus.faq.title">您可能想知道</h2>
+      </header>
+      <div class="faq reveal">
+        <details name="faq" open><summary data-i18n="qr.q1">顾客需要下载什么吗？</summary><p data-i18n="qr.a1">不需要。顾客用手机相机扫一扫桌上的二维码，菜单就在浏览器中打开。无需 App、注册或登录。</p></details>
+        <details name="faq"><summary data-i18n="qr.q2">价格变了，需要重新印二维码吗？</summary><p data-i18n="qr.a2">不需要。二维码只印一次。您在后台修改价格、菜品或照片后，同一个二维码打开的就是更新后的菜单。</p></details>
+        <details name="faq"><summary data-i18n="qr.q3">菜单由谁来更新？</summary><p data-i18n="qr.a3">由您自己。用用户名和密码登录后台，随时在手机或电脑上更新。每次修改都会立即显示在菜单上。</p></details>
+        <details name="faq"><summary data-i18n="qr.q4">我没有菜品照片，有影响吗？</summary><p data-i18n="qr.a4">完全没有。开通时我们会为菜品配上示例图片，之后您可以用手机上传自己的照片来替换。</p></details>
+        <details name="faq"><summary data-i18n="qr.q5">顾客能通过菜单点单或付款吗？</summary><p data-i18n="qr.a5">不能。QR Menu 用于展示您的菜单；点单和付款仍按您店里平时的方式进行。</p></details>
+        <details name="faq"><summary data-i18n="qr.q6">开通需要多久？</summary><p data-i18n="qr.a6">您发来菜单照片和标志的当天，我们就会做好电子菜单和可直接印刷的二维码桌卡。</p></details>
+        <details name="faq"><summary data-i18n="qr.q7">费用是多少？</summary><p data-i18n="qr.a7">请联系我们了解价格，我们会根据您的店铺情况为您报价。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="sec page" id="iletisim">
+    <div class="wrap">
+      <header class="contact-head reveal">
+        <p class="eyebrow" data-i18n="qr.nav.cta">获取报价</p>
+        <h2 data-i18n="qr.cta.main">让您的菜单电子化</h2>
+        <p data-i18n="qr.contact.lede">如需了解价格，请联系我们。简单介绍一下您的店铺，我们会把报价和开通所需的资料告诉您。</p>
+        <div class="mail-line">
+          <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+          <button class="copy-btn" type="button" id="copyMail" data-mail="contact@fmjapps.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a2 2 0 0 0 2 2h2.5"/></svg><span data-i18n="contact.copy">复制</span></button>
+        </div>
+      </header>
+      <div class="chat reveal" id="chat">
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <form class="composer" id="composer" novalidate autocomplete="off">
+          <textarea id="chatIn" rows="1" maxlength="4000" disabled data-i18n-ph="ph.msg" placeholder="写下你的留言…"></textarea>
+          <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <button type="submit" id="chatSend" data-i18n-aria="form.send" aria-label="发送" disabled>→</button>
+        </form>
+        <button class="chat-reset" type="button" id="chatReset" hidden data-i18n="chat.again">再写一条消息</button>
+      </div>
+      <p class="qr-login"><span data-i18n="qr.login.q">已经是我们的客户？</span> <a href="https://qr.fmjapps.com/panel" target="_blank" rel="noopener" data-i18n="qr.login.a">登录商家后台</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <strong>FMJ Software</strong>
+      <span data-i18n="co.tagline">可靠的方案，高效的成果</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">解决方案</span>
+      <a href="/zh/titus/" data-en-href="/en/titus/">Titus</a>
+      <a href="/zh/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
+      <a href="/zh/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">为您的企业定制解决方案</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">联系我们</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+      <a href="https://qr.fmjapps.com/panel" target="_blank" rel="noopener" data-i18n="qr.login.a">登录商家后台</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Software</span>
+    <a href="#top" data-i18n="foot.top">回到顶部 ↑</a>
+  </div>
+</footer>
+
+<nav class="pager" id="pager" aria-label="页面" data-i18n-aria="pages"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

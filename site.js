@@ -46,8 +46,10 @@
     'contact.copied': 'Adres kopyalandı',
     'form.sending': 'Gönderiliyor…',
     'co.sub.titus': 'Titus için demo istiyorum',
+    'co.sub.qrmenu': 'QR Menü için teklif istiyorum',
     'co.sub.business': 'İşletmem için bir çözüm',
     'co.sub.other': 'Başka bir konu',
+    'co.chat.qrMsg': 'İşletmenizin adını ve türünü (kafe, restoran…) yazar mısınız? Menünüz elinizde fotoğraf, PDF ya da liste olarak varsa onu da belirtin; teklifimizi iletelim.',
     'co.chat.titusMsg': 'İşletmenizin adını, sektörünüzü ve günde yaklaşık kaç mesaj aldığınızı yazar mısınız? Size uygun bir demo planlayalım.',
     'demo.greet': 'Merhaba! Ben Titus, {name} adına mesajlarınızı cevaplıyorum. Size nasıl yardımcı olabilirim?',
     'demo.handoff': 'Titus bu konuşmayı ekibe aktardı. Gerçek kullanımda işletmenin ekibi konuşmaya buradan devam eder.',
@@ -664,6 +666,7 @@
     // Konu anahtarları iletişim formu sunucusundaki listeyle aynıdır
     var SUBJECTS = [
       { v: 'titus', key: 'co.sub.titus', ask: 'co.chat.titusMsg' },
+      { v: 'qrmenu', key: 'co.sub.qrmenu', ask: 'co.chat.qrMsg' },
       { v: 'business', key: 'co.sub.business' },
       { v: 'other', key: 'co.sub.other' }
     ];

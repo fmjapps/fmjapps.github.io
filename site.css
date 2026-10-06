@@ -710,3 +710,125 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 body { background: var(--sky) fixed; background-color: var(--bg); }
 .hero, .sec.alt { background: transparent; }
 .sec.alt { border-block-color: transparent; }
+
+/* =========================================================
+   QR Menü sayfası
+   ========================================================= */
+/* Temsili telefon: QR Menü'nün kendi renkleri (açık ve koyu tema) */
+.qr-hero { align-items: center; }
+.qr-phone { width: min(100%, 340px); margin-inline: auto; }
+.qp-screen {
+  --qb: #b5532a; --qbg: #faf7f2; --qcard: #ffffff; --qink: #1f1a16; --qmuted: #7a7068; --qline: #ece5db; --qchip: #f1ebe2;
+  border-radius: 38px; padding: 22px 16px 18px; background: var(--qbg); color: var(--qink);
+  border: 8px solid #0f0b0c; box-shadow: var(--shadow), 0 0 0 1px var(--line-2); font-size: 13px;
+}
+:root[data-theme="dark"] .qp-screen { --qbg: #15120f; --qcard: #1e1a16; --qink: #f3ece4; --qmuted: #a59a8f; --qline: #2d2721; --qchip: #27221d; }
+.qp-head { display: grid; justify-items: center; text-align: center; gap: 2px; }
+.qp-logo { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 6px; font: 700 17px 'Sora', sans-serif; color: #fff; background: var(--qb); }
+.qp-head strong { font: 700 19px 'Sora', sans-serif; letter-spacing: -0.01em; }
+.qp-head small { color: var(--qmuted); font-size: 12px; }
+.qp-search { display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 9px 12px; border-radius: 12px; background: var(--qchip); color: var(--qmuted); }
+.qp-search svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.qp-tabs { display: flex; gap: 6px; margin-top: 12px; overflow: hidden; }
+.qp-tabs span { flex: none; padding: 6px 12px; border-radius: 999px; background: var(--qchip); color: var(--qmuted); font-weight: 600; font-size: 12px; }
+.qp-tabs .on { background: var(--qb); color: #fff; }
+.qp-cat { margin-top: 14px; font: 700 15px 'Sora', sans-serif; }
+.qp-items { display: grid; gap: 8px; margin-top: 8px; }
+.qp-items li { display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: 14px; background: var(--qcard); border: 1px solid var(--qline); }
+.qp-img { flex: none; width: 48px; height: 48px; border-radius: 10px; display: grid; place-items: center; }
+.qp-img svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.qp-img.i1 { background: linear-gradient(135deg, #c8915e, #7b4a2a); }
+.qp-img.i2 { background: linear-gradient(135deg, #8a5a3c, #3d2417); }
+.qp-img.i3 { background: linear-gradient(135deg, #b9a48f, #6f5b49); }
+.qp-img.i4 { background: linear-gradient(135deg, #d9b48a, #9a6b43); }
+.qp-txt { flex: 1; min-width: 0; display: grid; }
+.qp-txt b { font-weight: 600; font-size: 13.5px; }
+.qp-txt small { color: var(--qmuted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qp-price { flex: none; text-align: end; font-weight: 700; font-size: 12.5px; color: var(--qb); line-height: 1.45; }
+:root[data-theme="dark"] .qp-price { color: #e08a5c; }
+.qp-price em { font-style: normal; font-weight: 600; font-size: 10.5px; color: var(--qmuted); margin-inline-end: 2px; }
+.qp-items li.out .qp-img, .qp-items li.out .qp-txt { opacity: .45; }
+.qp-price i { font-style: normal; font-size: 11px; padding: 3px 8px; border-radius: 999px; background: var(--qchip); color: var(--qmuted); }
+
+/* Panel önizlemesi */
+.qv-rows li { display: flex; align-items: center; gap: 10px; padding: 13px 18px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.qv-rows b { flex: 1; min-width: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qv-in { flex: none; min-width: 64px; padding: 6px 10px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--line-2); font-weight: 600; text-align: end; font-variant-numeric: tabular-nums; }
+.qv-in em { font-style: normal; color: var(--faint); font-size: 11px; margin-inline-end: 6px; float: inline-start; line-height: 1.9; }
+.qv-in.edit { border-color: var(--brand-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-2) 20%, transparent); }
+.qv-sw { flex: none; position: relative; width: 36px; height: 21px; border-radius: 99px; background: color-mix(in srgb, var(--text) 18%, transparent); }
+.qv-sw::after { content: ''; position: absolute; top: 3px; inset-inline-start: 3px; width: 15px; height: 15px; border-radius: 50%; background: #fff; }
+.qv-sw.on { background: var(--ok); }
+.qv-sw.on::after { inset-inline-start: 18px; }
+.qv-rows li.off b, .qv-rows li.off .qv-in { opacity: .5; }
+.qv-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 18px; font-size: 12.5px; }
+.qv-saved { display: inline-flex; align-items: center; gap: 6px; color: var(--ok); font-weight: 600; }
+.qv-saved::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.qv-legend { display: inline-flex; align-items: center; gap: 8px; color: var(--faint); }
+.qv-legend .qv-sw { transform: scale(.8); }
+.qr-more { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+.qr-more li { font-size: 14.5px; color: var(--dim); }
+
+/* A4 sayfası: 4 masa kartı, kesim çizgili */
+.qr-sheet { width: min(100%, 380px); margin-inline: auto; }
+.qs-page { aspect-ratio: 210 / 297; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; padding: 6%; border-radius: 6px; background: #fbfaf8; box-shadow: var(--shadow), 0 0 0 1px var(--line-2); transform: rotate(-2deg); }
+.qs-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8%; padding: 10%; border: 1px dashed #c9bfb3; margin: -0.5px; color: #1f1a16; text-align: center; }
+.qs-card img { width: 62%; height: auto; image-rendering: pixelated; }
+.qs-name { font: 700 clamp(11px, 1.3vw, 14px) 'Sora', sans-serif; }
+.qs-hint { font-size: clamp(9px, 1vw, 11px); color: #7a7068; }
+.qr-sheet .dv-cap { margin-top: 18px; }
+.qr-deliver li { font-size: 16px; }
+
+/* Kimler için */
+.qr-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: -20px auto 34px; max-width: 760px; }
+.qr-tags li { padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; background: var(--surface); border: 1px solid var(--line-2); }
+.qr-why .card h3 { margin-top: 16px; }
+.qr-login { margin-top: 18px; text-align: center; color: var(--faint); font-size: 14.5px; }
+.qr-login a { color: var(--brand-ink); font-weight: 600; text-decoration: none; }
+.qr-login a:hover { text-decoration: underline; }
+
+@media (max-width: 960px) { .qr-hero .qr-phone { width: min(100%, 300px); } }
+@media (max-width: 620px) {
+  .qr-why { gap: 10px; }
+  .qr-why .card { padding: 16px 18px; }
+  .qr-tags { margin-top: -28px; margin-bottom: 22px; gap: 8px; }
+  .qr-tags li { padding: 8px 14px; font-size: 14px; }
+  #menu .trust span { display: none; }
+  #menu .trust div { padding: 10px 14px; }
+  .qr-more { display: none; }
+  .qr-sheet { width: min(78%, 300px); }
+}
+@media (max-width: 520px) {
+  .qr-hero .qr-phone { width: min(86%, 290px); }
+  .qp-screen { border-width: 6px; border-radius: 30px; padding: 16px 12px 14px; }
+}
+
+/* Ana sayfa: çözümler */
+.sol-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 860px) { .sol-grid { grid-template-columns: 1fr; } }
+.sol-card { display: flex; flex-direction: column; padding: clamp(24px, 3vw, 34px); background: radial-gradient(120% 80% at 100% 0%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 60%), var(--surface); }
+.sol-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.sol-card > p { color: var(--dim); margin-top: 18px; font-size: 16px; }
+.sol-card .s-logo svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sol-card .s-logo.qr { background: linear-gradient(135deg, #DA7B93, #376E6F); }
+.sol-card .s-actions { padding-top: 24px; }
+.sol-card .s-actions a.link { color: var(--brand-ink); font-weight: 600; font-size: 15px; text-decoration: none; }
+.sol-card .s-actions a.link:hover { text-decoration: underline; }
+@media (max-width: 620px) {
+  .paged #cozumler .sec-head { margin-bottom: 20px; }
+  .paged #cozumler .sec-head p { display: none; }
+  .sol-card { padding: 18px; }
+  .sol-card > p { font-size: 14.5px; margin-top: 12px; }
+  .sol-card .checks { margin-top: 12px; gap: 6px; }
+  .sol-card .checks li { font-size: 14px; }
+  .sol-card .s-tag h3 { font-size: 22px; }
+  .sol-card .s-logo { width: 44px; height: 44px; border-radius: 13px; font-size: 20px; }
+  .sol-card .s-actions { padding-top: 14px; }
+}
+
+/* Gizli düğme gerçekten gizli kalsın (display: block hidden özniteliğini eziyordu) */
+.chat-reset[hidden] { display: none; }
+/* QR Menü: iki sütunlu bölümlerde başlık ekrana sığsın */
+.split .sec-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
+@media (max-width: 620px) { #nasil .steps { gap: 10px; } #nasil .steps li { padding: 18px 20px; } #nasil .steps h3 { margin-top: 8px; font-size: 17px; } #nasil .steps p { font-size: 14.5px; } #kurulum .qr-deliver li { font-size: 15px; } }
+@media (max-width: 520px) { .hero.page .qr-hero .actions { flex-wrap: wrap; } .hero.page .qr-hero .actions .btn { flex: 1 1 100%; } .qr-hero .lede { font-size: 14.5px; } }

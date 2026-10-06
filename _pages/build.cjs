@@ -299,7 +299,8 @@ for (const app of APPS) for (const lang of LANGS) {
 const TEMPLATES = [
   { id: 'home', out: homePath, meta: 'co.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-home-' + l + '.jpg' },
-  { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' }
+  { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' },
+  { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' }
 ];
 const HOME_DICT = {};
 const HOME_LANGS_OK = HOME_LANGS.filter(l => l === 'tr' || fs.existsSync(path.join(ROOT, 'i18n', l + '.json')));
@@ -322,7 +323,9 @@ function prepareSource(tpl) {
   }));
   const alts = HOME_LANGS_OK.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + tpl.out(l)}">`).join('\n') +
     `\n<link rel="alternate" hreflang="x-default" href="${BASE + tpl.out('tr')}">`;
-  h = h.replace(/(<link rel="alternate" hreflang="[a-z-]+" href="[^"]+">\n?)+/, alts + '\n');
+  // Eski derlemelerden kalan tekrar blokları da silinir, tek blok kalır
+  let first = true;
+  h = h.replace(/(<link rel="alternate" hreflang="[a-z-]+" href="[^"]+">\r?\n?)+\r?\n?/g, () => { const r = first ? alts + '\n' : ''; first = false; return r; });
   h = h.replace(/'sha256-[^']+'/, () => {
     const inline = h.match(/<script>([\s\S]*?)<\/script>/)[1];
     return "'sha256-" + crypto.createHash('sha256').update(inline, 'utf8').digest('base64') + "'";
@@ -378,7 +381,8 @@ function homePage(tpl, src, lang) {
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
   h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
     if (node['@type'] === 'Organization' && tx('co.meta.desc')) node.description = tx('co.meta.desc');
-    if (node['@type'] === 'Service' && tx('titus.meta.desc')) node.description = tx('titus.meta.desc');
+    // Hizmet açıklaması o sayfanın meta açıklamasıdır (Titus, QR Menü)
+    if (node['@type'] === 'Service' && tx(tpl.meta + '.desc')) node.description = tx(tpl.meta + '.desc');
     const app = node['@type'] === 'MobileApplication' && appOfNode(node);
     if (app) {
       const own = app.text[lang] ? lang : 'en', t = app.text[own];

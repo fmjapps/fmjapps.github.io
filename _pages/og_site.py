@@ -1,7 +1,7 @@
-# Kurumsal ana sayfanın ve Titus sayfasının paylaşım görsellerini her dil için üretir (1200x630):
+# Kurumsal ana sayfanın, Titus ve QR Menü sayfalarının paylaşım görsellerini her dil için üretir (1200x630):
 #   python _pages/og_site.py
-# Çıktı: assets/og-site-<dil>.jpg ve assets/og-titus-<dil>.jpg
-# Alt yazılar i18n/<dil>.json → co.tagline ve titus.hero.kick ("Titus · " öneki atılır); Türkçesi aşağıda.
+# Çıktı: assets/og-site-<dil>.jpg, assets/og-titus-<dil>.jpg ve assets/og-qrmenu-<dil>.jpg
+# Alt yazılar i18n/<dil>.json → co.tagline, titus.hero.kick ve qr.hero.kick ("… · " öneki atılır); Türkçesi aşağıda.
 # Yazıyı tarayıcı çizer: Arapça ve Hintçe gibi yazılar ancak böyle doğru birleşir.
 # Gerekli: Pillow ve Chrome (ya da Edge).
 import os, json, shutil, subprocess, tempfile, html
@@ -9,7 +9,10 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).replace('\\', '/')
 LANGS = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id']
-TR = {'co.tagline': 'Güvenilir çözümler, verimli sonuçlar', 'titus.hero.kick': 'Titus · İşletmeler için yapay zekâ müşteri asistanı'}
+TR = {'co.tagline': 'Güvenilir çözümler, verimli sonuçlar', 'titus.hero.kick': 'Titus · İşletmeler için yapay zekâ müşteri asistanı',
+      'qr.hero.kick': 'QR Menü · Kafe ve restoranlar için dijital menü', 'qr.name': 'QR Menü'}
+# QR Menü kutucuğundaki simge
+QR_ICON = '<svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4ZM14 4h6v6h-6ZM4 14h6v6H4Z"/><path d="M14 14h2v2h-2ZM18 18h2v2h-2ZM14 18h2M18 14h2"/></svg>'
 BROWSERS = ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']
 FONT = 'Arial, "Helvetica Neue", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Malgun Gothic", "Microsoft YaHei", sans-serif'
 
@@ -73,6 +76,10 @@ def main():
                                 body='<div class="row"><span class="tile">T</span><h1>Titus</h1></div><p>%s</p>' % html.escape(t['titus.hero.kick'].split('·', 1)[-1].strip()),
                                 foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/titus</span>' % logo)
             render(browser, tmp, 'titus', lang, titus)
+            qr = PAGE.format(lang=lang, dir=rtl, font=FONT,
+                             body='<div class="row"><span class="tile">%s</span><h1>%s</h1></div><p>%s</p>' % (QR_ICON, html.escape(t['qr.name']), html.escape(t['qr.hero.kick'].split('·', 1)[-1].strip())),
+                             foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/qr-menu</span>' % logo)
+            render(browser, tmp, 'qrmenu', lang, qr)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 
