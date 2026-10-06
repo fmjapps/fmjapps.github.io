@@ -275,7 +275,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
         <a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener">${esc(t.footPlay)}</a>
       </div>
     </div>
-    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Apps · ${esc(t.android)}</p></div>
+    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Software · ${esc(t.android)}</p></div>
   </footer>
 </div>
 

@@ -832,3 +832,23 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .split .sec-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
 @media (max-width: 620px) { #nasil .steps { gap: 10px; } #nasil .steps li { padding: 18px 20px; } #nasil .steps h3 { margin-top: 8px; font-size: 17px; } #nasil .steps p { font-size: 14.5px; } #kurulum .qr-deliver li { font-size: 15px; } }
 @media (max-width: 520px) { .hero.page .qr-hero .actions { flex-wrap: wrap; } .hero.page .qr-hero .actions .btn { flex: 1 1 100%; } .qr-hero .lede { font-size: 14.5px; } }
+
+/* Titus: klinik modu */
+.km-grid .card p { font-size: 14px; }
+.km-note { margin-top: 20px; padding: 14px 18px; border-radius: 16px; background: var(--surface); border: 1px dashed var(--line-2); color: var(--dim); font-size: 14.5px; }
+.km-note a { color: var(--brand-ink); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.km-note a:hover { text-decoration: underline; }
+.km-legal { margin-top: 12px; color: var(--faint); font-size: 13px; }
+@media (max-width: 620px) {
+  .km-grid { grid-template-columns: 1fr; }
+  .km-grid .card p { display: block; font-size: 13.5px; }
+  .km-grid .card h3 { font-size: 15.5px; }
+}
+@media (max-width: 1440px) { .links .side-link span { display: none; } }
+.paged #klinik.page { padding-block: 84px 28px; }
+.paged #klinik .sec-head { margin-bottom: 24px; max-width: 860px; }
+.paged #klinik .sec-head h2 { font-size: clamp(28px, 3.6vw, 42px); }
+.km-grid { gap: 12px; }
+.km-grid .card { padding: 18px 20px; }
+.km-grid .card h3 { font-size: 16px; margin-top: 10px; }
+.km-grid .ico { width: 36px; height: 36px; border-radius: 11px; }

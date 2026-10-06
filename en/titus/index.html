@@ -86,6 +86,7 @@
     </a>
     <nav class="links" aria-label="Sections" data-i18n-aria="nav.sections">
       <a href="#nasil" data-i18n="titus.nav.how">How it works</a>
+      <a href="#klinik" data-i18n="titus.km.kick">Clinic mode</a>
       <a href="#kontrol" data-i18n="titus.nav.control">Control</a>
       <a href="#fiyat" data-i18n="titus.nav.price">Pricing</a>
       <a href="#guvenlik" data-i18n="titus.nav.security">Security</a>
@@ -137,7 +138,7 @@
           <div class="msg out anim">Hello! For patients from abroad: FUE €1,800, Sapphire FUE €2,000, DHI €2,400. Hotel, VIP transfer, PRP and 12-month follow-up are included. Which country are you writing from?<time>02:14 · Titus</time></div>
           <div class="msg note anim" data-i18n="co.demo.note">New lead saved · waiting for your team in the morning</div>
         </div>
-        <p class="dv-cap" data-i18n="titus.demo.cap">From a test with a sample clinic profile, shortened.</p>
+        <p class="dv-cap" data-i18n="titus.demo.cap">From a test with a sample clinic profile that holds a health tourism licence, shortened. Patients writing in Turkish are not given prices.</p>
       </div>
     </div>
   </section>
@@ -199,9 +200,65 @@
         <div class="card reveal">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6Z"/><path d="M9.5 9.5l5 5M14.5 9.5l-5 5"/></svg></span>
           <h3 data-i18n="titus.f6.t">No promises, no made-up answers</h3>
-          <p data-i18n="titus.f6.d">It never guarantees results. On health, legal or financial matters it doesn’t stand in for an expert; it refers the customer to your team.</p>
+          <p data-i18n="titus.f6.d">Never promises outcomes, and doesn’t stand in for an expert on health, legal or financial matters; it directs the customer to your team. Clinics also get clinic mode, which works with stricter rules.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- KLİNİK MODU -->
+  <section class="sec alt page" id="klinik">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="titus.km.kick">Clinic mode</p>
+        <h2 data-i18n="titus.km.title">Stricter rules for clinics.</h2>
+        <p data-i18n="titus.km.lede">If your sector is a clinic, a dentist or hair transplant, clinic mode switches on automatically for a new business and can be set in the panel. While it’s on, Titus follows these rules:</p>
+      </header>
+      <div class="grid-4 feat-grid km-grid">
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 12.5 11 5h8.5v8.5L12 21Z"/><circle cx="15.5" cy="9" r="1.4"/><path d="M4 4l16 16"/></svg></span>
+          <h3 data-i18n="titus.km.price.t">No prices or offers</h3>
+          <p data-i18n="titus.km.price.d">Doesn’t give prices, discounts, campaigns, instalments or even an estimated range. It says the fee will be shared by the team after the examination and suggests an appointment; if the customer insists, it hands the conversation to your team.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg></span>
+          <h3 data-i18n="titus.km.tour.t">Health tourism exception</h3>
+          <p data-i18n="titus.km.tour.d">If your clinic holds a health tourism licence and you turn this setting on, it gives prices only to patients writing in a language other than Turkish. Patients writing in Turkish don’t get prices.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6Z"/><path d="M9.5 9.5l5 5M14.5 9.5l-5 5"/></svg></span>
+          <h3 data-i18n="titus.km.dx.t">No diagnosis or advice</h3>
+          <p data-i18n="titus.km.dx.d">Doesn’t diagnose; doesn’t recommend treatments, procedures, medication or doses, and doesn’t promise results. Doesn’t share before-and-after photos, patient reviews or comparisons with other clinics.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6Z"/><path d="M9 11h6M9 15h4"/><path d="M4 4l16 16"/></svg></span>
+          <h3 data-i18n="titus.km.data.t">Doesn’t ask for health information</h3>
+          <p data-i18n="titus.km.data.d">Doesn’t ask for symptoms, complaints, medical history, medication, test results, X-rays or photos. If the patient shares them anyway, it doesn’t repeat or record them; for health questions it hands the conversation to your team.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5M12 16h.01"/></svg></span>
+          <h3 data-i18n="titus.km.sos.t">112 in an emergency</h3>
+          <p data-i18n="titus.km.sos.d">For urgent symptoms such as bleeding that won’t stop, swelling, shortness of breath or chest pain, it tells the patient to call 112 and passes the conversation to your team marked “urgent”.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4Z"/><path d="M12 8.5v3M12 13.5h.01"/></svg></span>
+          <h3 data-i18n="titus.km.note.t">Medical advice notice</h3>
+          <p data-i18n="titus.km.note.d">The first automatic message carries the note “I can’t give medical advice; please don’t share your health information here, our specialist team will assess it at your examination.” The note is ready in 48 languages.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9 14.5l2 2 4-4"/></svg></span>
+          <h3 data-i18n="titus.km.ok.t">Consent before booking</h3>
+          <p data-i18n="titus.km.ok.d">Before booking an appointment it asks the patient for consent to record it and logs the moment consent is given. Without consent no appointment is made, and the patient’s name and phone number aren’t saved either.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+          <h3 data-i18n="titus.km.keep.t">You choose how long data is kept</h3>
+          <p data-i18n="titus.km.keep.d">You set in the panel how many days conversations are kept; in clinic mode the default is 365 days. When the period ends, conversations are deleted and appointments stay in the calendar. Your KVKK privacy notice page automatically shows a health-data section and this period.</p>
+        </div>
+      </div>
+      <p class="km-note reveal"><span data-i18n="titus.km.demo">The live demo has two examples: Lina Dental Clinic never quotes prices to anyone. Nova Hair Clinic is a health tourism example; it gives prices to people writing in a foreign language, not to those writing in Turkish.</span> <a href="/en/#demo" data-en-href="/en/#demo" data-i18n="co.hero.cta1">Try the live demo</a></p>
+      <p class="km-legal reveal" data-i18n="titus.km.legal">Clinic mode is designed to make it easier to work in line with Turkey’s Health Advertising Regulation and KVKK; it is not a substitute for legal advice.</p>
     </div>
   </section>
 
@@ -358,6 +415,7 @@
         <details name="faq"><summary data-i18n="titus.q4">Could my bill go up unexpectedly?</summary><p data-i18n="titus.a4">No. The Fair Use Shield doesn’t count unnecessary messages, the number of daily replies per person is limited, and you set the monthly budget cap. Once the cap is reached, messages go to your team.</p></details>
         <details name="faq"><summary data-i18n="titus.q5">Where is our data stored?</summary><p data-i18n="titus.a5">Conversations and leads are stored on our server in Oracle Cloud’s Frankfurt (Germany) data center. To generate a reply, the message is sent to Anthropic; these messages are not used to train the model.</p></details>
         <details name="faq"><summary data-i18n="titus.q6">How can I find out the price?</summary><p data-i18n="titus.a6">In the demo call, we estimate your monthly cost together based on your business’s message volume. Since the first 300 replies are free, you don’t have to decide before seeing your real usage.</p></details>
+        <details name="faq"><summary data-i18n="titus.q8">Is it suitable for clinics? How does it fit the Health Advertising Regulation and KVKK?</summary><p data-i18n="titus.a8">For sectors such as clinics, dentists and hair transplant, clinic mode switches on automatically. In this mode Titus doesn’t quote prices, campaigns or estimated ranges (if you hold a health tourism licence and turn the setting on, it gives prices only to patients writing in a foreign language), doesn’t diagnose, doesn’t recommend treatment, doesn’t ask for health information, tells the patient to call 112 for urgent symptoms, and asks for the patient’s consent before booking. You choose how long conversations are kept. These rules are designed to make it easier to work in line with the regulations; they are not legal advice, and we recommend reviewing your own practice with your legal adviser.</p></details>
         <details name="faq"><summary data-i18n="titus.q7">We don’t use Google Calendar. Will the booking feature still work?</summary><p data-i18n="titus.a7">Yes. If your Google Calendar is connected, Titus books the appointment straight into it; if not, it uses the calendar in the dashboard. Your team sees appointments on their phones, and reminders go out automatically either way.</p></details>
       </div>
     </div>
