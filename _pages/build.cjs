@@ -377,6 +377,7 @@ function homePage(tpl, src, lang) {
   h = h.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tx(tpl.meta + '.title'))}</title>`);
   h = h.replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.desc')) + b);
   h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.desc')) + b);
+  if (tpl.id === 'home') h = h.replace(/(<meta property="og:title" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.title')) + b);
   h = h.replace(/(<meta property="og:url" content=")[^"]*(")/, (m, a, b) => a + url + b);
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
   h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
