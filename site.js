@@ -9,7 +9,7 @@
   // İletişim formunun gönderildiği Cloudflare Worker
   var FORM_URL = 'https://form.fmjapps.com/';
   // Titus sunucusundaki site demosu (şifre gerekiyorsa sunucu söyler)
-  var DEMO_API = 'https://fmj-portfoy.duckdns.org/asistan/api/site';
+  var DEMO_API = 'https://titus.fmjapps.com/api/site';
 
   function esc(str) { return String(str).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }

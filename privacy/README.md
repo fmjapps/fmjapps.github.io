@@ -11,6 +11,7 @@ Her uygulama kendi klasöründe:
 - `kayip/` → https://fmjapps.com/privacy/kayip/
 - `paydos/` → https://fmjapps.com/privacy/paydos/
 - `prizma/` → https://fmjapps.com/privacy/prizma/
+- `titus/` → https://fmjapps.com/privacy/titus/ (web hizmeti; Android izinleri maddesi yok, Meta için veri silme talimatı `#veri-silme` / `#data-deletion`)
 
 Yeni bir uygulama eklerken: yeni bir klasör açıp içine `index.html` koymak ve
 kök dizindeki `index.html` listesine bir satır eklemek yeterli.
