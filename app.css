@@ -538,3 +538,8 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 
 /* Sloganda her kelimenin ilk harfi büyük */
 .brand-tag { text-transform: capitalize; }
+
+/* Alt bilgide künye satırı */
+.foot-legal { margin-top: 14px; color: var(--faint); font-size: 12.5px; line-height: 1.6; }
+.foot-legal a { color: var(--dim); text-decoration: none; }
+.foot-legal a:hover { color: var(--brand-ink); }

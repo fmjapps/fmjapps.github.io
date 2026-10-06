@@ -46,7 +46,9 @@
   "download": "Google Playで手に入れよう",
   "liveTitle": "Google Playで配信中",
   "liveLede": "{name} はGoogle Playで配信中です。さっそくダウンロードして遊んでみてください。",
-  "backSw": "FMJ Softwareのソリューションに戻る"
+  "backSw": "FMJ Softwareのソリューションに戻る",
+  "vd": "Menemen 税務署",
+  "about": "私たちについて"
  },
  "apps": {
   "kayip": {

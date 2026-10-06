@@ -40,6 +40,8 @@ const homeOf = (lang, hash) => homePath(lang) + (hash ? '#' + hash : '');
 // Oyun ve uygulama vitrini: Türkçesi /uygulamalar/, diğer diller /<dil>/apps/
 const appsPath = lang => lang === 'tr' ? '/uygulamalar/' : '/' + lang + '/apps/';
 const appsOf = (lang, hash) => appsPath(lang) + (hash ? '#' + hash : '');
+// Hakkımızda ve künye: Türkçesi /hakkimizda/, diğer diller /<dil>/about/
+const aboutPath = lang => lang === 'tr' ? '/hakkimizda/' : '/' + lang + '/about/';
 // Her dilin kendi ekran görüntüleri var (assets/shots/<dil>/<uygulama>-<n>.webp, uygulamaların mağaza görsellerinden)
 // app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
 const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
@@ -276,6 +278,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
       </div>
     </div>
     <div class="wrap"><p class="foot-bottom">© 2026 FMJ Software · ${esc(t.android)}</p></div>
+    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · ${esc(t.vd)} 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
   </footer>
 </div>
 
@@ -300,6 +303,7 @@ const TEMPLATES = [
   { id: 'home', out: homePath, meta: 'co.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-home-' + l + '.jpg' },
   { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' },
+  { id: 'about', out: aboutPath, meta: 'about.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' }
 ];
 const HOME_DICT = {};

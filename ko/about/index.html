@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-al/XZu7/nA6AE19TkqAimbLgi6xDM3toWm0ZJc6AAU4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>회사 소개 · FMJ Software</title>
+<meta name="description" content="FMJ Software는 İzmir에 기반을 둔 소프트웨어 기업입니다. 기업용 Titus와 QR Menu, 그리고 FMJ Apps 브랜드로 모바일 게임과 앱을 개발합니다. 회사 정보.">
+<meta name="theme-color" content="#1C3334">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Software">
+<meta property="og:title" content="Hakkımızda · FMJ Software">
+<meta property="og:description" content="FMJ Software는 İzmir에 기반을 둔 소프트웨어 기업입니다. 기업용 Titus와 QR Menu, 그리고 FMJ Apps 브랜드로 모바일 게임과 앱을 개발합니다. 회사 정보.">
+<meta property="og:image" content="https://fmjapps.com/assets/og-site-ko.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://fmjapps.com/ko/about/">
+<link rel="canonical" href="https://fmjapps.com/ko/about/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/hakkimizda/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/about/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/about/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/about/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/about/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/about/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/about/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/about/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/about/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/about/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/about/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/about/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/about/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/about/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/hakkimizda/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","@id":"https://fmjapps.com/hakkimizda/#page","url":"https://fmjapps.com/hakkimizda/","name":"Hakkımızda · FMJ Software","about":{"@id":"https://fmjapps.com/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Hakkımızda","item":"https://fmjapps.com/hakkimizda/"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'dark';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+    }
+  })();
+</script>
+</head>
+<body class="paged">
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<a class="skip" href="#kunye" data-i18n="skip">본문으로 건너뛰기</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/ko/" data-en-href="/en/" aria-label="FMJ Software">
+      <img class="mark" src="/assets/logo-mark.png" alt="" width="128" height="128">
+      <span class="brand-text"><span class="brand-name">FMJ Software</span><span class="brand-tag" data-i18n="co.tagline">믿을 수 있는 솔루션, 확실한 성과</span></span>
+    </a>
+    <nav class="links" aria-label="섹션" data-i18n-aria="nav.sections">
+      <a href="/ko/titus/" data-en-href="/en/titus/">Titus</a>
+      <a href="/ko/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
+      <a href="#urunler" data-i18n="about.what.kick">하는 일</a>
+      <a href="#kunye" data-i18n="about.info.kick">사업자 정보</a>
+      <a class="cta-link" href="/ko/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">문의</a>
+      <a class="side-link" href="/ko/apps/" data-en-href="/en/apps/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span data-i18n="nav.mobileApps">모바일 게임과 앱</span></a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="테마 전환">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="메뉴" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="메뉴" data-i18n-aria="menu"></nav>
+
+<main id="top">
+
+  <!-- GİRİŞ -->
+  <section class="hero page about-hero">
+    <span class="glow g1" aria-hidden="true"></span>
+    <span class="glow g2" aria-hidden="true"></span>
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="nav.about">회사 소개</p>
+      <h1 data-i18n-html="about.hero.h1">기업을 위한 소프트웨어, <span class="grad">İzmir에서.</span></h1>
+      <p class="lede" data-i18n="about.hero.lede">FMJ Software는 İzmir에 기반을 둔 소프트웨어 기업입니다. 기업을 위한 바로 쓸 수 있는 솔루션(Titus, QR Menu)을 만들고, FMJ Apps 브랜드로 모바일 게임과 앱을 개발합니다.</p>
+      <dl class="about-facts">
+        <div><dt data-i18n="about.founder.k">설립자</dt><dd>Oğulcan Fidan · <a href="https://github.com/ogulcanfidan" target="_blank" rel="noopener">GitHub</a></dd></div>
+        <div><dt data-i18n="about.founded.k">설립</dt><dd data-i18n="about.founded.v">2026년 10월, İzmir</dd></div>
+        <div><dt data-i18n="about.contact.k">연락처</dt><dd><a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- NE YAPIYORUZ -->
+  <section class="sec page" id="urunler">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="about.what.kick">하는 일</p>
+        <h2 data-i18n="about.what.title">바로 쓸 수 있는 솔루션과 모바일 앱</h2>
+      </header>
+      <div class="grid-3 about-grid">
+        <article class="card sol-card reveal">
+          <div class="s-tag"><span class="s-logo">T</span><div><h3>Titus</h3><small data-i18n="co.sol.titus.tag">AI 고객 상담 도우미</small></div></div>
+          <p data-i18n="co.sol.titus.d">WhatsApp과 Instagram 메시지에 24시간, 고객의 언어로, 사장님이 주신 정보를 바탕으로 답합니다.</p>
+          <div class="s-actions"><a class="link" href="/ko/titus/" data-en-href="/en/titus/"><span data-i18n="co.hero.cta2">Titus 알아보기</span> →</a></div>
+        </article>
+        <article class="card sol-card reveal">
+          <div class="s-tag"><span class="s-logo qr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4ZM14 4h6v6h-6ZM4 14h6v6H4Z"/><path d="M14 14h2v2h-2ZM18 18h2v2h-2ZM14 18h2M18 14h2"/></svg></span><div><h3 data-i18n="qr.name">QR Menu</h3><small data-i18n="co.sol.qr.tag">카페와 레스토랑을 위한 디지털 메뉴</small></div></div>
+          <p data-i18n="co.sol.qr.d">손님이 테이블의 QR 코드를 찍으면 앱 설치 없이 휴대폰에서 메뉴가 열립니다. 가격과 메뉴는 관리 화면에서 언제든 수정할 수 있어요.</p>
+          <div class="s-actions"><a class="link" href="/ko/qr-menu/" data-en-href="/en/qr-menu/"><span data-i18n="co.sol.qr.cta">QR Menu 알아보기</span> →</a></div>
+        </article>
+        <article class="card sol-card reveal">
+          <div class="s-tag"><span class="s-logo apps" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><div><h3>FMJ Apps</h3><small data-i18n="about.apps.tag">모바일 게임과 앱</small></div></div>
+          <p data-i18n="about.apps.d">Android용 모바일 게임과 앱: Prizma, The Collector, Lost &amp; Found Office, Memorize, Paydos.</p>
+          <div class="s-actions"><a class="link" href="/ko/apps/" data-en-href="/en/apps/"><span data-i18n="about.apps.cta">앱 보기</span> →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KÜNYE -->
+  <section class="sec alt page" id="kunye">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="about.info.kick">사업자 정보</p>
+        <h2 data-i18n="about.info.title">회사 정보</h2>
+        <p data-i18n="about.info.lede">Türkiye İzmir에 등록된 개인사업자입니다.</p>
+      </header>
+      <dl class="kunye reveal">
+        <div><dt data-i18n="about.info.name">상호</dt><dd>Oğulcan Fidan – FMJ Software</dd></div>
+        <div><dt data-i18n="about.info.type">사업자 유형</dt><dd data-i18n="about.info.typeV">개인사업자</dd></div>
+        <div><dt data-i18n="about.founder.k">설립자</dt><dd>Oğulcan Fidan · <a href="https://github.com/ogulcanfidan" target="_blank" rel="noopener">GitHub</a></dd></div>
+        <div><dt data-i18n="about.info.office">관할 세무서</dt><dd>Menemen Vergi Dairesi</dd></div>
+        <div><dt data-i18n="about.info.vkn">납세자 번호(VKN)</dt><dd>3870844488</dd></div>
+        <div><dt data-i18n="about.info.addr">주소</dt><dd>İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye</dd></div>
+        <div><dt data-i18n="about.info.mail">이메일</dt><dd><a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a></dd></div>
+        <div><dt data-i18n="about.founded.k">설립</dt><dd data-i18n="about.founded.v">2026년 10월, İzmir</dd></div>
+      </dl>
+      <p class="kunye-more reveal"><a href="/privacy/" data-i18n="about.privacy">개인정보 처리방침</a> · <a href="/ko/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.contact.title">문의하기</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <strong>FMJ Software</strong>
+      <span data-i18n="co.tagline">믿을 수 있는 솔루션, 확실한 성과</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">솔루션</span>
+      <a href="/ko/titus/" data-en-href="/en/titus/">Titus</a>
+      <a href="/ko/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
+      <a href="/ko/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">비즈니스 맞춤 솔루션</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">문의</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Software</span>
+    <a href="#top" data-i18n="foot.top">맨 위로 ↑</a>
+  </div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · <span data-i18n="co.kunye.vd">Menemen 세무서</span> 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="/ko/about/" data-en-href="/en/about/" data-i18n="nav.about">회사 소개</a></p></div>
+</footer>
+
+<nav class="pager" id="pager" aria-label="페이지" data-i18n-aria="pages"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

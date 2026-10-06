@@ -1456,3 +1456,8 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .hero, .sec.alt { background: transparent; }
 .sec.alt { border-block-color: transparent; }
 .grid { display: none; }
+
+/* Alt bilgide künye satırı */
+.foot-legal { margin-top: 14px; color: var(--faint); font-size: 12.5px; line-height: 1.6; }
+.foot-legal a { color: var(--dim); text-decoration: none; }
+.foot-legal a:hover { color: var(--brand-ink); }

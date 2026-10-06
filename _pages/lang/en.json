@@ -46,7 +46,9 @@
   "game": "Game",
   "app": "App",
   "scroll": "Scroll down",
-  "pages": "Pages"
+  "pages": "Pages",
+  "vd": "Menemen Tax Office",
+  "about": "About us"
  },
  "apps": {
   "kayip": {

@@ -852,3 +852,32 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .km-grid .card { padding: 18px 20px; }
 .km-grid .card h3 { font-size: 16px; margin-top: 10px; }
 .km-grid .ico { width: 36px; height: 36px; border-radius: 11px; }
+
+/* Alt bilgide künye satırı */
+.foot-legal { margin-top: 14px; color: var(--faint); font-size: 12.5px; line-height: 1.6; }
+.foot-legal a { color: var(--dim); text-decoration: none; }
+.foot-legal a:hover { color: var(--brand-ink); }
+
+/* Hakkımızda */
+.about-hero .lede { max-width: 62ch; }
+.about-facts { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 0; }
+.about-facts div { padding: 14px 18px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 80%, transparent); border: 1px solid var(--line-2); min-width: 0; }
+.about-facts dt { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+.about-facts dd { margin: 4px 0 0; font: 600 16px 'Sora', sans-serif; overflow-wrap: anywhere; }
+.about-facts dd a { color: inherit; text-decoration: none; }
+.about-grid .sol-card .s-tag h3 { font-size: 22px; }
+.sol-card .s-logo.apps { background: linear-gradient(135deg, #376E6F, #2F4454); }
+.kunye { max-width: 860px; margin: 0; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
+.kunye div { display: grid; grid-template-columns: minmax(150px, 240px) 1fr; gap: 16px; padding: 15px 24px; border-top: 1px solid var(--line); }
+.kunye div:first-child { border-top: 0; }
+.kunye dt { color: var(--faint); font-size: 14.5px; }
+.kunye dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.kunye dd a { color: var(--brand-ink); text-decoration: none; }
+.kunye-more { margin-top: 18px; color: var(--faint); font-size: 14.5px; }
+.kunye-more a { color: var(--brand-ink); font-weight: 600; text-decoration: none; }
+:root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) .about-facts dt { letter-spacing: 0; text-transform: none; }
+@media (max-width: 620px) {
+  .kunye div { grid-template-columns: 1fr; gap: 2px; padding: 12px 18px; }
+  .kunye dt { font-size: 13px; }
+  .about-facts div { flex: 1 1 100%; padding: 12px 16px; }
+}
