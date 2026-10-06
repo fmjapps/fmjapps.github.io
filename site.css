@@ -881,3 +881,14 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
   .kunye dt { font-size: 13px; }
   .about-facts div { flex: 1 1 100%; padding: 12px 16px; }
 }
+
+/* Menü sığmayınca (site.js .tight ekler) bağlantılar menü düğmesine geçer */
+.nav.tight .links { display: none; }
+.nav.tight .menu-btn { display: inline-grid; }
+.nav.tight .tools { margin-inline-start: auto; }
+.nav.tight ~ .mobile-menu .side-link span { display: inline; }
+/* Üst menüde mobil uygulamalar bağlantısı her genişlikte simge olarak durur; yazı ekran okuyucular için kalır */
+.links .side-link span { display: inline; position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* Üst çubuk geniş ekranda biraz daha geniş açılır; menü bağlantıları sığsın */
+.nav-in { max-width: 1400px; }
+.links { gap: 0; }

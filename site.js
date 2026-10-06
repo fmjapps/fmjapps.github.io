@@ -155,6 +155,19 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   }
 
+  // Üst menü sığmıyorsa (uzun dillerde, dar ekranda) bağlantılar menü düğmesine geçer
+  var navBar = document.getElementById('nav'), navLinks = navBar && navBar.querySelector('.links');
+  if (navBar && navLinks && menuBtn) {
+    var fitNav = function () {
+      navBar.classList.remove('tight');
+      if (getComputedStyle(navLinks).display === 'none') return;
+      if (navLinks.scrollWidth > navLinks.clientWidth + 1) navBar.classList.add('tight');
+    };
+    fitNav();
+    window.addEventListener('resize', fitNav);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
+  }
+
   /* ---------- Kaydırınca belirme ---------- */
   document.querySelectorAll('.reveal').forEach(function (el) {
     var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains('reveal'); });

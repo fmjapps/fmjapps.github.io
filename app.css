@@ -543,3 +543,6 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 .foot-legal { margin-top: 14px; color: var(--faint); font-size: 12.5px; line-height: 1.6; }
 .foot-legal a { color: var(--dim); text-decoration: none; }
 .foot-legal a:hover { color: var(--brand-ink); }
+
+/* Alt bilgide "Şirket" sütunu: dört sütun */
+@media (min-width: 761px) { .foot-in { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }

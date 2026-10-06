@@ -1461,3 +1461,8 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .foot-legal { margin-top: 14px; color: var(--faint); font-size: 12.5px; line-height: 1.6; }
 .foot-legal a { color: var(--dim); text-decoration: none; }
 .foot-legal a:hover { color: var(--brand-ink); }
+
+/* Alt bilgide "Şirket" sütunu: dört sütun */
+.foot-in { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+@media (max-width: 960px) { .foot-in { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .foot-in { grid-template-columns: 1fr; } }

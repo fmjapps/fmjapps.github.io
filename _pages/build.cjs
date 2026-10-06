@@ -153,6 +153,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
     <nav class="links" aria-label="FMJ Apps">
       <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
       <a href="${appsOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
+      <a href="${aboutPath(lang)}">${esc(t.about)}</a>
       <a href="${appsOf(lang, 'iletisim')}">${esc(t.contact)}</a>
     </nav>
     <div class="tools">
@@ -275,6 +276,12 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
         <span class="foot-h">${esc(t.footContact)}</span>
         <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
         <a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener">${esc(t.footPlay)}</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">${esc(t.company)}</span>
+        <a href="${aboutPath(lang)}">${esc(t.about)}</a>
+        <a href="${aboutPath(lang)}#kunye">${esc(t.kunye)}</a>
+        <a href="/privacy/">${esc(t.footPrivacy)}</a>
       </div>
     </div>
     <div class="wrap"><p class="foot-bottom">© 2026 FMJ Software · ${esc(t.android)}</p></div>

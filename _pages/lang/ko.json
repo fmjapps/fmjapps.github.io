@@ -48,7 +48,9 @@
   "liveLede": "{name}이(가) Google Play에 출시됐어요. 지금 바로 받아서 써 보세요.",
   "backSw": "FMJ Software 솔루션으로 돌아가기",
   "vd": "Menemen 세무서",
-  "about": "회사 소개"
+  "about": "회사 소개",
+  "company": "회사",
+  "kunye": "사업자 정보"
  },
  "apps": {
   "kayip": {
