@@ -25,7 +25,8 @@ const UI = {
     footPlay: 'Google Play geliştirici sayfası',
     android: 'Şimdilik yalnızca Android\'de, Google Play üzerinden. iOS sürümü yok.',
     game: 'Oyun', app: 'Uygulama', scroll: 'Aşağı kaydır', pages: 'Sayfalar',
-    vd: 'Menemen VD', about: 'Hakkımızda', company: 'Şirket', kunye: 'Künye'
+    vd: 'Menemen VD', about: 'Hakkımızda', company: 'Şirket', kunye: 'Künye',
+    slogan: 'Güvenilir çözümler, verimli sonuçlar'
   },
   en: {
     home: 'Home', games: 'Games', apps: 'Apps', contact: 'Contact',
@@ -49,7 +50,8 @@ const UI = {
     footPlay: 'Google Play developer page',
     android: 'Android only for now, on Google Play. No iOS version.',
     game: 'Game', app: 'App', scroll: 'Scroll down', pages: 'Pages',
-    vd: 'Menemen Tax Office', about: 'About us', company: 'Company', kunye: 'Imprint'
+    vd: 'Menemen Tax Office', about: 'About us', company: 'Company', kunye: 'Imprint',
+    slogan: 'Reliable solutions, efficient results'
   }
 };
 

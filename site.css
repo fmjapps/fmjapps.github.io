@@ -1117,3 +1117,118 @@ body { background: var(--bg); }
 .hero .qr-phone > .dv-cap { color: rgba(246, 241, 233, 0.7); }
 @media (max-width: 520px) { .brand .logo { height: 28px; } }
 @media (max-width: 359px) { .brand .logo { height: 24px; } }
+
+/* "İlk 300 cevap ücretsiz": girişte belirgin krem etiket (turuncu değil) */
+.hero .ps-free, :root[data-theme="light"] .hero .ps-free, :root[data-theme="dark"] .hero .ps-free { background: #F6F1E9; color: #1C3334; border: 0; font-weight: 700; }
+
+/* Telefonda ana sayfa girişi tek ekrana sığsın */
+@media (max-width: 520px) {
+  .hero.page:has(.titus) { padding-block: 62px 14px; }
+  .hero.page .titus { width: min(40vw, 150px); }
+  .hero.page .t-say { font-size: 11px; padding: 6px 10px; }
+  .hero.page:has(.titus) .eyebrow { font-size: 10.5px; margin-top: 2px; }
+  .hero.page:has(.titus) h1 { font-size: clamp(25px, 7.2vw, 30px); margin-top: 6px; }
+  .hero.page:has(.titus) .lede { font-size: 14px; line-height: 1.45; margin-top: 8px; }
+  .hero.page:has(.titus) .price-strip { margin-top: 12px; padding: 10px 12px; }
+  .hero.page:has(.titus) .ps-top { gap: 4px 10px; }
+  .hero.page:has(.titus) .ps-top strong { font-size: 15px; }
+  .hero.page:has(.titus) .ps-free { font-size: 12.5px; padding: 3px 10px; }
+  .hero.page:has(.titus) .ps-chips { margin-top: 6px; }
+  .hero.page:has(.titus) .ps-chips li { font-size: 12px; }
+  .hero.page:has(.titus) .actions { margin-top: 12px; }
+  .hero.page:has(.titus) .actions .btn { height: 44px; }
+}
+@media (max-width: 520px) and (max-height: 700px) {
+  .hero.page .titus { width: min(32vw, 120px); }
+  .hero.page:has(.titus) .lede { font-size: 13.5px; }
+}
+
+/* İçerik bölümleri: oyun ve uygulama sayfalarındaki gibi yumuşak ışıklı zemin (petrol yeşili tonu),
+   bölümler sırayla sağa ve sola yaslanır */
+:root, :root[data-theme="light"] { --glow: rgba(55, 110, 111, 0.16); --glow-2: rgba(55, 110, 111, 0.07); }
+:root[data-theme="dark"] { --glow: rgba(95, 163, 163, 0.20); --glow-2: rgba(95, 163, 163, 0.08); }
+main > .sec, main > .sec.alt {
+  background:
+    radial-gradient(55% 70% at 78% 50%, var(--glow), transparent 70%),
+    radial-gradient(40% 50% at 0% 100%, var(--glow-2), transparent 70%),
+    var(--bg);
+}
+main > .sec:nth-of-type(even) {
+  background:
+    radial-gradient(55% 70% at 22% 50%, var(--glow), transparent 70%),
+    radial-gradient(40% 50% at 100% 100%, var(--glow-2), transparent 70%),
+    var(--bg);
+}
+
+/* =========================================================
+   Site geneli zemin: oyun ve uygulama sayfalarındaki gibi. Tema zemininin üstünde sağda
+   adaçayı yeşili (#9CC98F) ışık, sol altta onun hafif yansıması. Giriş bölümü dahil her yerde.
+   ========================================================= */
+:root, :root[data-theme="light"] { --sage: #9CC98F; --glow: color-mix(in srgb, #9CC98F 30%, transparent); --glow-2: color-mix(in srgb, #9CC98F 10%, transparent); }
+:root[data-theme="dark"] { --glow: color-mix(in srgb, #9CC98F 40%, transparent); --glow-2: color-mix(in srgb, #9CC98F 12%, transparent); }
+.hero, :root[data-theme="light"] .hero, :root[data-theme="dark"] .hero,
+main > .sec, main > .sec.alt {
+  color: var(--text);
+  background:
+    radial-gradient(60% 75% at 72% 48%, var(--glow), transparent 70%),
+    radial-gradient(40% 50% at 10% 90%, var(--glow-2), transparent 70%),
+    var(--bg);
+}
+main > .sec:nth-of-type(even) {
+  background:
+    radial-gradient(60% 75% at 28% 48%, var(--glow), transparent 70%),
+    radial-gradient(40% 50% at 90% 90%, var(--glow-2), transparent 70%),
+    var(--bg);
+}
+
+/* Giriş yazıları temanın kendi renklerinde (krem zorlaması kalkar) */
+.hero h1, .hero h2, .hero h3 { color: var(--text); }
+.hero .grad { color: var(--text); font-weight: 300; }
+.hero .eyebrow { color: var(--brand-ink); }
+.hero .lede { color: var(--dim); }
+.hero-feats li { color: var(--text); }
+.hero .ico { background: var(--surface); border-color: var(--line); }
+.hero .ico svg { stroke: var(--text); }
+.hero .price-strip, :root[data-theme="light"] .hero .price-strip { background: color-mix(in srgb, var(--surface) 85%, transparent); border-color: var(--line); }
+.hero .ps-top strong { color: var(--text); }
+.hero .ps-chips li { color: var(--dim); }
+.hero .ps-chips li::before { background: var(--text); }
+.hero .ps-more { color: var(--text); }
+.hero .btn.ghost { border-color: var(--line-2); color: var(--text); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.hero .btn.ghost:hover { border-color: var(--text); }
+.hero .status, .hero .badge { border-color: var(--chip-line); background: var(--chip-fill); color: var(--chip-ink); }
+.hero .about-facts div { background: color-mix(in srgb, var(--surface) 85%, transparent); border-color: var(--line); }
+.hero .about-facts dt { color: var(--faint); }
+.hero .about-facts dd, .hero .about-facts dd a { color: var(--text); }
+.hero .t-say, .hero .t-chip { background: color-mix(in srgb, var(--surface) 90%, transparent); border-color: var(--line); color: var(--text); }
+.hero .qr-phone > .dv-cap { color: var(--faint); }
+.t-glow, :root[data-theme="light"] .t-glow { background: radial-gradient(circle at 50% 42%, color-mix(in srgb, #9CC98F 30%, transparent), transparent 70%); }
+
+/* "İlk 300 cevap ücretsiz": dolu, belirgin etiket (turuncu değil) */
+.hero .ps-free, :root[data-theme="light"] .hero .ps-free { background: #244A4B; color: #F6F1E9; border: 0; font-weight: 700; }
+:root[data-theme="dark"] .hero .ps-free { background: #F6F1E9; color: #1C3334; }
+
+/* Üst çubukta logonun yanında asıl slogan */
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand .brand-tag { display: block; padding-inline-start: 14px; border-inline-start: 1px solid var(--line-2); font: 500 12.5px/1.3 'Inter', sans-serif; color: var(--dim); white-space: nowrap; text-transform: capitalize; overflow: visible; }
+@media (max-width: 520px) {
+  .brand { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .brand .brand-tag { padding: 0; border: 0; font-size: 10px; }
+  .brand .logo { height: 24px; }
+}
+
+/* Slogan logonun altında; üst çubuk aşağı doğru büyür */
+.brand, .brand:is(a) { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px; }
+.brand .brand-tag { display: block; margin: 0; padding: 0; border: 0; font: 500 12.5px/1.2 "Inter", sans-serif; letter-spacing: .01em; color: var(--dim); white-space: nowrap; text-transform: capitalize; }
+.brand .logo { height: 34px; }
+@media (max-width: 520px) { .brand { gap: 3px; } .brand .logo { height: 24px; } .brand .brand-tag { font-size: 10px; } }
+.nav-in { padding-block: 16px; }
+html { scroll-padding-top: 96px; }
+.hero.page { padding-top: 112px; }
+.paged .sec.page { padding-top: 116px; }
+@media (max-width: 520px) { .nav-in { padding-block: 12px; } .hero.page { padding-top: 84px; } .paged .sec.page { padding-top: 96px; } .hero.page:has(.titus) { padding-top: 74px; } }
+/* Logo ile slogan arasında ince çizgi */
+.brand .brand-tag { align-self: stretch; padding-top: 6px; border-top: 1px solid var(--line-2); }
+@media (max-width: 520px) { .brand .brand-tag { padding-top: 4px; } }
+/* Ana sayfa başlığı uzun: masaüstünde biraz daha küçük, üç satıra sığsın */
+@media (min-width: 521px) { .hero.page:has(.titus) h1 { font-size: clamp(34px, 4.4vw, 58px); } }

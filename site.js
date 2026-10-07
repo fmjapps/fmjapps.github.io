@@ -236,7 +236,7 @@
     }
     function tween(to) {
       cancelAnimationFrame(anim);
-      var from = window.scrollY, dist = to - from, t0 = performance.now(), dur = 950;
+      var from = window.scrollY, dist = to - from, t0 = performance.now(), dur = 650;
       if (Math.abs(dist) < 2) { lockUntil = performance.now() + 300; return; }
       root.style.scrollBehavior = 'auto';
       (function step(now) {
@@ -244,7 +244,7 @@
         var e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
         window.scrollTo(0, from + dist * e);
         if (k < 1) anim = requestAnimationFrame(step);
-        else { anim = null; lockUntil = performance.now() + 600; root.style.scrollBehavior = ''; }
+        else { anim = null; lockUntil = performance.now() + 180; root.style.scrollBehavior = ''; }
       })(t0);
     }
     function goTo(i, dir) {
@@ -283,17 +283,32 @@
 
     // Bir kaydırma hareketi tek sayfa geçirir: tekerlek/touchpad'in süren ataleti bitmeden
     // (260 ms sessizlik) yeni geçiş başlamaz; böylece yanlışlıkla iki sayfa atlanmaz.
-    var wheelHold = false, holdTimer = null;
+    var wheelHold = false, holdTimer = null, lastAbs = 0, lastAt = 0;
     function holdRelease() {
       clearTimeout(holdTimer);
-      holdTimer = setTimeout(function () { if (anim) holdRelease(); else wheelHold = false; }, 260);
+      holdTimer = setTimeout(function () { if (anim) holdRelease(); else wheelHold = false; }, 200);
+    }
+    // Geçişten sonra gelen tekerlek olaylarından hangisi yeni bir hareket: fare tekerleğinin her tıkı
+    // (aynı büyük adım) ya da atalet sönerken birden büyüyen kaydırma (yeni parmak hareketi)
+    function freshIntent(e, abs, gap) {
+      if (anim || performance.now() < lockUntil) return false;
+      if (e.deltaMode !== 0) return true;
+      if (abs >= 50 && Math.abs(abs - lastAbs) < 1 && gap > 25) return true;
+      // Küçük dalgalanmalar sayılmaz: belirgin biçimde büyüyen kaydırma yeni bir harekettir
+      return abs > 15 && abs > lastAbs * 2 && abs - lastAbs > 10;
     }
     window.addEventListener('wheel', function (e) {
       if (e.ctrlKey || flat() || menuOpen()) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (scrollableInside(e.target, dir)) return;
-      if (wheelHold) { e.preventDefault(); holdRelease(); return; }
+      var abs = Math.abs(e.deltaY), now = performance.now(), gap = now - lastAt;
+      if (gap > 300) lastAbs = 0;
+      // Olaylar arasında belirgin bir duraklama varsa önceki hareket bitmiştir (atalet ~16 ms arayla akar)
+      if (gap > 100 && !anim) wheelHold = false;
+      var fresh = wheelHold && freshIntent(e, abs, gap);
+      lastAbs = abs; lastAt = now;
+      if (wheelHold && !fresh) { e.preventDefault(); holdRelease(); return; }
       if (anim) { e.preventDefault(); return; }
       if (nativeFirst(dir)) return;
       e.preventDefault();

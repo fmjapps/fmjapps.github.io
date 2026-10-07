@@ -149,9 +149,8 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="${appsOf(lang)}" aria-label="FMJ Apps · ${esc(t.home)}">
-      <img src="/assets/brand/favicon.svg" alt="" width="128" height="128">
-      <span class="brand-text"><span class="brand-name">FMJ Apps</span><span class="brand-tag">${esc(t.tagline)}</span></span>
+    <a class="brand" href="${homeOf(lang)}" aria-label="FMJ Software">
+      <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">${esc(t.slogan)}</span>
     </a>
     <nav class="links" aria-label="FMJ Apps">
       <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
@@ -270,7 +269,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
   </section>
   <footer class="foot">
     <div class="wrap foot-in">
-      <div class="foot-brand"><strong>FMJ Apps</strong><span>${esc(t.footTag)}</span></div>
+      <div class="foot-brand"><span class="foot-logo"><img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="164" height="30"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="164" height="30"></span><span>${esc(t.slogan)}</span></div>
       <div class="foot-col">
         <span class="foot-h">${esc(t.footPrivacy)}</span>
         ${PRIVACY.map(([id, href]) => `<a href="${href}">${esc(APPS.find(a => a.id === id).text[lang].short)}</a>`).join('\n        ')}
