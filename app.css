@@ -573,3 +573,47 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .brand-tag, .foot-brand span { color: var(--brand-ink); }
 .chips li, .status { border: 1.5px solid var(--chip-line); border-radius: 999px; background: var(--chip-fill); color: var(--chip-ink); }
 .status { padding: 6px 14px 6px 12px; }
+
+/* =========================================================
+   Sade düzen (kurumsal sayfalarla aynı): beyaz üst çubuk, krem zemin, beyaz kartlar,
+   siyah alt bilgi. Turuncu yalnızca ana düğmede ve sayfa göstergesinin etkin noktasında;
+   her uygulamanın kendi vurgu rengi korunur.
+   ========================================================= */
+:root, :root[data-theme="light"] {
+  --bg: #F6F1E9; --bg-2: #F6F1E9; --surface: #FFFFFF; --surface-2: #FBF8F3;
+  --line: #ECE6DC; --line-2: #E8E2D8;
+  --text: #111111; --dim: #555555; --faint: #666666;
+  --brand-ink: #555555;
+  --sky: #F6F1E9;
+  --head-bg: #FFFFFF; --head-line: #E8E2D8; --head-ink: #333333;
+  --chip-line: #E8E2D8; --chip-fill: #FFFFFF; --chip-ink: #333333;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #161A1A; --bg-2: #161A1A; --surface: #1E2323; --surface-2: #232929;
+  --line: #2A3030; --line-2: #343B3B;
+  --text: #F6F1E9; --dim: #B9BFBE; --faint: #A3AAA9;
+  --brand-ink: #B9BFBE;
+  --sky: #161A1A;
+  --head-bg: #111111; --head-line: #222222; --head-ink: #DDDDDD;
+  --chip-line: #343B3B; --chip-fill: #1E2323; --chip-ink: #DDDDDD;
+  color-scheme: dark;
+}
+body { background: var(--bg); }
+.nav, .nav.scrolled { background: var(--head-bg); border-bottom: 1px solid var(--head-line); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.links a { color: var(--head-ink); }
+.links a.cta-link { background: #FF4F2E; color: #fff; border-radius: 999px; padding: 8px 18px; font-weight: 600; margin-inline-start: 6px; }
+.links a.cta-link:hover { background: #FF4F2E; color: #fff; filter: brightness(1.06); }
+.brand-tag { color: var(--dim); }
+.chips li, .status { border: 1px solid var(--chip-line); border-radius: 999px; background: var(--chip-fill); color: var(--chip-ink); }
+
+/* Alt bilgi: siyah zemin, açık gri yazılar (her iki temada) */
+.foot, :root:not([data-theme="light"]) .foot { background: #111111; color: #B5B5B5; border-top: 0; }
+.foot strong, .foot .foot-h { color: #F6F1E9; }
+.foot .foot-brand span { color: #9E9E9E; }
+.foot .foot-col a { color: #CFCFCF; }
+.foot .foot-col a:hover { color: #FFFFFF; }
+.foot .foot-bottom, .foot .foot-legal { color: #9E9E9E; border-top-color: #262626; }
+.foot .foot-legal a, .foot .foot-bottom a { color: #E2E2E2; text-decoration: underline; text-underline-offset: 3px; }
+:root, :root[data-theme="light"] { --brand-2: #244A4B; --cyan: #111111; }
+:root[data-theme="dark"] { --brand-2: #6FB0B0; --cyan: #F6F1E9; }

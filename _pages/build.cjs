@@ -108,7 +108,7 @@ ${isTest ? `      <p class="join-note">${esc(t.joinNote)}</p>
         <li><a href="${urlOf(a, lang)}" style="--acc:${a.acc}"><img src="/assets/${a.id}-icon.webp" alt="" width="256" height="256" loading="lazy"><span><strong>${esc(a.text[lang].short)}</strong><small>${esc(a.text[lang].tag)}</small></span></a></li>`).join('');
 
   return `<!doctype html>
-<html lang="${lang}"${RTL[lang] ? ' dir="rtl"' : ''} data-theme="dark">
+<html lang="${lang}"${RTL[lang] ? ' dir="rtl"' : ''} data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="${CSP}">
@@ -157,7 +157,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
       <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
       <a href="${appsOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
       <a href="${aboutPath(lang)}">${esc(t.about)}</a>
-      <a href="${appsOf(lang, 'iletisim')}">${esc(t.contact)}</a>
+      <a class="cta-link" href="${appsOf(lang, 'iletisim')}">${esc(t.contact)}</a>
     </nav>
     <div class="tools">
       <details class="lang" id="lang">

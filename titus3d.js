@@ -340,9 +340,9 @@
   window.addEventListener('resize', resize);
 
   function hex(h) { return [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255]; }
-  // Koyu zemin (varsayılan): ışık gibi toplanan açık turkuaz ve pembe noktalar
-  var DARK = { a: hex('#F7DCE4'), b: hex('#6FB0B0'), c: hex('#FF4F2E'), d: hex('#1A0A0E'), alpha: 1.0, additive: true,
-    ring: hex('#F7E6EB'), ring2: hex('#FF4F2E'), orbit: hex('#6FB0B0') };
+  // Yeşil giriş zemini: ışık gibi toplanan krem ve açık turkuaz noktalar, soluk gül kurusu halka
+  var DARK = { a: hex('#F6F1E9'), b: hex('#6FB0B0'), c: hex('#F6F1E9'), d: hex('#1A0A0E'), alpha: 1.0, additive: true,
+    ring: hex('#F6F1E9'), ring2: hex('#B9707F'), orbit: hex('#6FB0B0') };
   // Açık zemin: mürekkep gibi koyu yeşil ve turkuaz noktalar
   var LIGHT = { a: hex('#376E6F'), b: hex('#1C3334'), c: hex('#FF4F2E'), d: hex('#1C3334'), alpha: 1.0, additive: false,
     ring: hex('#376E6F'), ring2: hex('#FF4F2E'), orbit: hex('#376E6F') };
@@ -352,7 +352,8 @@
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     if (!ready) return;
-    var light = root.getAttribute('data-theme') === 'light', pal = light ? LIGHT : DARK;
+    // Figür her iki temada da yeşil giriş bölümünün üstünde durur
+    var light = false, pal = DARK;
     var cam = [0, 0.3, 1.36];
     var proj = persp(28 * Math.PI / 180, W / H, 0.05, 10);
     var view = trans(-cam[0], -cam[1], -cam[2]);

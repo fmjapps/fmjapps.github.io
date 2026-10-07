@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-al/XZu7/nA6AE19TkqAimbLgi6xDM3toWm0ZJc6AAU4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>QR Menu · Menus QR code pour cafés et restaurants · FMJ Software</title>
@@ -49,7 +49,7 @@
   (function () {
     var d = document.documentElement, t = null, l = null;
     try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
-    if (!t) t = 'dark';
+    if (!t) t = 'light';
     d.setAttribute('data-theme', t);
     // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
     var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];

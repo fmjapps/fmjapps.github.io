@@ -965,3 +965,155 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 
 /* Vurgu rengi her yerde logodaki turuncu */
 :root:not([data-theme="light"]) { --cyan: #FF4F2E; }
+
+/* =========================================================
+   Sade düzen: beyaz üst çubuk, petrol yeşili yalnızca girişte, krem içerik ve beyaz kartlar,
+   siyah alt bilgi. Turuncu yalnızca ana düğmelerde, kart madde noktalarında, logoda ve
+   sayfa göstergesinin etkin noktasında.
+   ========================================================= */
+:root, :root[data-theme="light"] {
+  --bg: #F6F1E9; --bg-2: #F6F1E9; --surface: #FFFFFF; --surface-2: #FBF8F3;
+  --line: #ECE6DC; --line-2: #E8E2D8;
+  --text: #111111; --dim: #555555; --faint: #666666;
+  --brand-ink: #333333; --cyan: #111111; --brand-2: #244A4B;
+  --sky: #F6F1E9;
+  --accent: #FF4F2E; --cream: #F6F1E9;
+  --head-bg: #FFFFFF; --head-line: #E8E2D8; --head-ink: #333333;
+  --chip-line: #E8E2D8; --chip-fill: #FFFFFF; --chip-ink: #333333;
+  --shadow: 0 24px 50px -32px rgba(17, 17, 17, 0.18);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #161A1A; --bg-2: #161A1A; --surface: #1E2323; --surface-2: #232929;
+  --line: #2A3030; --line-2: #343B3B;
+  --text: #F6F1E9; --dim: #B9BFBE; --faint: #A3AAA9;
+  --brand-ink: #C9CFCE; --cyan: #F6F1E9; --brand-2: #6FB0B0;
+  --sky: #161A1A;
+  --head-bg: #111111; --head-line: #222222; --head-ink: #DDDDDD;
+  --chip-line: #343B3B; --chip-fill: #1E2323; --chip-ink: #DDDDDD;
+  --shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+body { background: var(--bg); }
+:focus-visible { outline-color: var(--text); }
+.progress { background: var(--text); opacity: .5; }
+
+/* Üst menü: her zaman dolu zemin (kaydırınca da) */
+.nav, .nav.scrolled { background: var(--head-bg); border-bottom: 1px solid var(--head-line); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.brand .logo { height: 38px; }
+.links a { color: var(--head-ink); }
+.links a:hover, .links a.active { color: var(--text); background: color-mix(in srgb, var(--text) 6%, transparent); }
+.links a.cta-link, .mobile-menu a.cta-link { background: var(--accent); color: #fff; border: 0; border-radius: 999px; padding: 9px 18px; font-weight: 600; margin-inline-start: 6px; }
+.links a.cta-link:hover { background: var(--accent); color: #fff; filter: brightness(1.06); }
+.links .side-link { color: var(--head-ink); }
+.chip-btn, .icon-btn { background: var(--head-bg); border-color: var(--head-line); color: var(--head-ink); }
+.mobile-menu { background: var(--head-bg); border-color: var(--head-line); }
+.mobile-menu a { color: var(--head-ink); }
+.mobile-menu a.cta-link { text-align: center; margin: 8px 6px 2px; }
+
+/* Giriş: petrol yeşili, krem yazı, yalnızca bu bölümde */
+.hero, :root[data-theme="light"] .hero, :root[data-theme="dark"] .hero {
+  color: #F6F1E9;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(218, 123, 147, 0.22), transparent 42%),
+    linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%);
+}
+.hero::before { background-image: none; }
+.hero .glow { display: none; }
+.hero h1, .hero h2, .hero h3 { color: #F6F1E9; }
+.hero .grad { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: #F6F1E9; font-weight: 300; }
+.hero .eyebrow { color: rgba(246, 241, 233, 0.7); }
+.hero .eyebrow::before { display: none; }
+.hero .lede { color: rgba(246, 241, 233, 0.86); }
+.hero-feats li { color: #F6F1E9; }
+.hero .ico { background: rgba(246, 241, 233, 0.08); border-color: rgba(246, 241, 233, 0.28); }
+.hero .ico svg { stroke: #F6F1E9; }
+.hero .price-strip, :root[data-theme="light"] .hero .price-strip { background: rgba(255, 255, 255, 0.06); border-color: rgba(246, 241, 233, 0.25); }
+.hero .ps-top strong { color: #F6F1E9; }
+.hero .ps-free, :root[data-theme="light"] .hero .ps-free { background: transparent; color: #F6F1E9; border: 1.5px solid rgba(246, 241, 233, 0.6); }
+.hero .ps-chips li { color: rgba(246, 241, 233, 0.86); }
+.hero .ps-chips li::before { background: #F6F1E9; }
+.hero .ps-more { color: #F6F1E9; text-decoration: underline; text-underline-offset: 3px; }
+.hero .btn.ghost { background: transparent; border-color: rgba(246, 241, 233, 0.45); color: #F6F1E9; }
+.hero .btn.ghost:hover { border-color: #F6F1E9; }
+.hero .status, .hero .badge { border-color: rgba(246, 241, 233, 0.45); background: rgba(255, 255, 255, 0.06); color: #F6F1E9; }
+.hero .about-facts div { background: rgba(255, 255, 255, 0.06); border-color: rgba(246, 241, 233, 0.25); }
+.hero .about-facts dt { color: rgba(246, 241, 233, 0.7); }
+.hero .about-facts dd, .hero .about-facts dd a { color: #F6F1E9; }
+.t-glow, :root[data-theme="light"] .t-glow { background: radial-gradient(circle at 50% 42%, rgba(246, 241, 233, 0.16), rgba(218, 123, 147, 0.12) 46%, transparent 70%); }
+.hero .t-say, .hero .t-chip { background: rgba(17, 17, 17, 0.35); border-color: rgba(246, 241, 233, 0.25); color: #F6F1E9; }
+
+/* Düğmeler: ana düğme dolu turuncu, ikincil düğme kenarlıklı */
+.btn { border-radius: 999px; }
+.btn.primary { background: var(--accent); color: #fff; box-shadow: none; }
+.btn.primary:hover { background: var(--accent); filter: brightness(1.06); box-shadow: 0 12px 28px -14px rgba(255, 79, 46, 0.7); }
+.btn.ghost { background: transparent; border-color: var(--line-2); color: var(--text); }
+.btn.ghost:hover { border-color: var(--text); }
+.composer button { background: var(--accent); }
+
+/* İçerik bölümleri: krem zemin, beyaz kartlar */
+.sec, .sec.alt { background: var(--bg); border-block: 0; }
+.sec-head h2, .contact-head h2, .card h3, .steps h3, .sec-card h3 { color: var(--text); }
+.eyebrow { color: var(--brand-ink); }
+.eyebrow::before { background: currentColor; opacity: .5; }
+.card, .sec-card, .steps li, .tl, .stats, .trust, .panel, .chat, .demo-win, .kunye, .lock-card, .faq details, .qr-panel {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: none;
+}
+.sec-card { background: var(--surface); }
+.sec-card:hover { border-color: var(--line-2); }
+.sol-card { background: var(--surface); }
+.ico { background: var(--bg); border-color: var(--line); }
+.ico svg { stroke: var(--text); }
+.sc-art, .sec-card .sc-art, .s-logo, .sol-card .s-logo.qr, .sol-card .s-logo.apps { background: linear-gradient(135deg, #244A4B, #376E6F); box-shadow: none; }
+.sc-art svg, .s-logo svg { stroke: #F6F1E9; }
+.sc-more .sc-art { background: var(--bg); border-color: var(--line-2); }
+.sc-more .sc-art svg { stroke: var(--text); }
+.sec-card .sc-art { border-color: var(--surface); }
+.feat-stats strong, .stats strong { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--text); }
+.tl.good time { color: var(--text); }
+.sec-dots i.on { background: var(--text); }
+
+/* Kartlardaki madde işaretleri: küçük turuncu nokta */
+.checks li::before { width: 7px; height: 7px; margin: .55em 6px 0 4px; background: var(--accent); }
+.demo-notes li::before, .ps-chips li::before { background: var(--accent); }
+
+/* Bağlantılar: açık zeminde koyu ve altı çizili, koyu zeminde krem */
+.ps-more, .sc-try, .sol-card .s-actions a.link, .km-note a, .kunye dd a, .kunye-more a, .qr-login a, .lock-ask, .next-card a, .chat-reset, .foot-legal a {
+  color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+}
+.sc-try:hover, .ps-more:hover { text-decoration-thickness: 2px; }
+
+/* Etiketler ve seçim düğmeleri: nötr */
+.badge, .t-chip, .qr-tags li, .status, .pill:not(.hot):not(.warm), .demo-sectors button:not(.on), .choices button, .demo-sugg button {
+  border: 1px solid var(--chip-line); border-radius: 999px; background: var(--chip-fill); color: var(--chip-ink);
+}
+.demo-sectors button.on { background: var(--text); color: var(--bg); border-color: transparent; }
+.choices button:hover, .demo-sugg button:hover, .demo-sectors button:not(.on):hover { border-color: var(--text); background: var(--chip-fill); color: var(--text); }
+.bub.me, .demo-msgs .msg.in { background: #244A4B; color: #F6F1E9; }
+.qv-in.edit { border-color: var(--text); box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 12%, transparent); }
+
+/* Sayfa göstergesi: etkin nokta turuncu */
+.pager button { background: color-mix(in srgb, var(--text) 25%, transparent); }
+.pager button.on { background: var(--accent); }
+
+/* Alt bilgi: siyah zemin, krem logo, açık gri yazılar (her iki temada) */
+.foot, :root:not([data-theme="light"]) .foot { background: #111111; color: #B5B5B5; border-top: 0; }
+.foot .foot-h { color: #F6F1E9; }
+.foot .foot-col a { color: #CFCFCF; }
+.foot .foot-col a:hover { color: #FFFFFF; }
+.foot .foot-brand span, .foot .foot-bottom, .foot .foot-legal { color: #9E9E9E; }
+.foot .foot-legal a, .foot .foot-bottom a { color: #E2E2E2; }
+.foot .foot-bottom { border-top-color: #262626; }
+.foot .logo.on-light { display: none; }
+.foot .logo.on-dark { display: block; }
+:root[data-theme] .foot .logo.on-light { display: none; }
+:root[data-theme] .foot .logo.on-dark { display: block; }
+
+/* Girişteki örnek kartlar (sohbet, telefon) kendi açık zemininde koyu yazıyla kalır */
+.hero .device { color: var(--text); }
+.hero .device .dv-head strong { color: var(--text); }
+.hero .device .msg.in { color: var(--text); }
+.hero .device .dv-cap { color: var(--faint); }
+.hero .qr-phone > .dv-cap { color: rgba(246, 241, 233, 0.7); }
+@media (max-width: 520px) { .brand .logo { height: 28px; } }
+@media (max-width: 359px) { .brand .logo { height: 24px; } }

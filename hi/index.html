@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="hi" data-theme="dark">
+<html lang="hi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-al/XZu7/nA6AE19TkqAimbLgi6xDM3toWm0ZJc6AAU4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://titus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://titus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FMJ Software · भरोसेमंद समाधान, असरदार नतीजे</title>
@@ -49,7 +49,7 @@
   (function () {
     var d = document.documentElement, t = null, l = null;
     try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
-    if (!t) t = 'dark';
+    if (!t) t = 'light';
     d.setAttribute('data-theme', t);
     // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
     var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
@@ -92,7 +92,7 @@
       <a href="#demo" data-i18n="nav.demo">लाइव डेमो</a>
       <a href="#yetenekler" data-i18n="nav.features">विशेषताएँ</a>
       <a href="/hi/about/" data-en-href="/en/about/" data-i18n="nav.about">हमारे बारे में</a>
-      <a href="#iletisim" data-i18n="nav.contact">संपर्क</a>
+      <a class="cta-link" href="#iletisim" data-i18n="nav.contact">संपर्क</a>
       <a class="side-link" href="/hi/apps/" data-en-href="/en/apps/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg><span data-i18n="nav.mobileApps">मोबाइल गेम और ऐप्स</span></a>
     </nav>
     <div class="tools">

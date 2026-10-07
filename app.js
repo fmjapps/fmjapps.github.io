@@ -6,7 +6,7 @@
 
   // Tema, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   var theme = read('fmj-tema');
-  if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+  if (theme !== 'light' && theme !== 'dark') theme = 'light';
   root.setAttribute('data-theme', theme);
   root.classList.add('js');
 
