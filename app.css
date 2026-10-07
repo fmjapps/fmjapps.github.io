@@ -667,3 +667,4 @@ html { scroll-padding-top: 96px; }
 .foot-social a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; border: 1px solid #2A2A2A; color: #CFCFCF; transition: color .2s, border-color .2s, background-color .2s; }
 .foot-social a:hover { color: #FFFFFF; border-color: #FF4F2E; background: rgba(255, 79, 46, .12); }
 .foot-social svg { width: 18px; height: 18px; }
+.foot-col .foot-social { margin-top: 4px; }
