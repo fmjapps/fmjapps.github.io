@@ -646,3 +646,18 @@ html { scroll-padding-top: 96px; }
 /* Yazılı logoya eski ikon kutusu ve gölgesi uygulanmaz */
 .brand img.logo { width: auto; border-radius: 0; box-shadow: none; background: none; }
 @media (max-width: 520px) { .brand img.logo { width: auto; height: 24px; } }
+
+/* Alt sayfalarda ana sayfaya dönüş: menünün başında, ince bir ayraçla ayrılır */
+.links a.home-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text); margin-inline-end: 6px; position: relative; }
+.links a.home-link::after { content: ''; position: absolute; inset-inline-end: -6px; top: 22%; bottom: 22%; width: 1px; background: var(--line-2); }
+.home-link b, .home-mini b { font-weight: 600; }
+[dir="rtl"] .home-link b, [dir="rtl"] .home-mini b { display: inline-block; transform: scaleX(-1); }
+.mobile-menu a.home-link { font-weight: 700; }
+.mobile-menu a.home-link::after { display: none; }
+
+/* Telefonda menü yok: üst çubukta kısa "← Ana sayfa" */
+.home-mini { display: none; }
+@media (max-width: 760px) {
+  .home-mini { display: inline-flex; align-items: center; gap: 5px; padding: 7px 11px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface); color: var(--text); font: 600 12.5px 'Inter', sans-serif; text-decoration: none; white-space: nowrap; }
+}
+@media (max-width: 400px) { .home-mini { padding: 6px 9px; font-size: 12px; } }

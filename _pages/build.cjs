@@ -145,7 +145,6 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 </head>
 <body style="--acc:${app.acc}${app.acc2 ? ';--acc-2:' + app.acc2 : ''}">
 <a class="skip" href="#icerik">${esc(t.skip)}</a>
-<a class="back-sw" href="${homeOf(lang)}"><b aria-hidden="true">←</b><span>${esc(t.backSw)}</span></a>
 
 <header class="nav">
   <div class="nav-in">
@@ -153,12 +152,14 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">${esc(t.slogan)}</span>
     </a>
     <nav class="links" aria-label="FMJ Apps">
+      <a class="home-link" href="${homeOf(lang)}"><b aria-hidden="true">←</b> ${esc(t.home)}</a>
       <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
       <a href="${appsOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
       <a href="${aboutPath(lang)}">${esc(t.about)}</a>
       <a class="cta-link" href="${appsOf(lang, 'iletisim')}">${esc(t.contact)}</a>
     </nav>
     <div class="tools">
+      <a class="home-mini" href="${homeOf(lang)}"><b aria-hidden="true">←</b> ${esc(t.home)}</a>
       <details class="lang" id="lang">
         <summary class="chip-btn" aria-label="${esc(t.langLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span>${lang.toUpperCase()}</span></summary>
         <ul class="lang-menu">${LANGS.map(l => `

@@ -1317,3 +1317,11 @@ html { scroll-padding-top: 96px; }
   .web-hero h1 { font-size: clamp(34px, 3.5vw, 50px); }
   .web-hero .lede { font-size: 16.5px; }
 }
+
+/* Alt sayfalarda ana sayfaya dönüş: menünün başında, ince bir ayraçla ayrılır */
+.links a.home-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text); margin-inline-end: 6px; position: relative; }
+.links a.home-link::after { content: ''; position: absolute; inset-inline-end: -6px; top: 22%; bottom: 22%; width: 1px; background: var(--line-2); }
+.home-link b, .home-mini b { font-weight: 600; }
+[dir="rtl"] .home-link b, [dir="rtl"] .home-mini b { display: inline-block; transform: scaleX(-1); }
+.mobile-menu a.home-link { font-weight: 700; }
+.mobile-menu a.home-link::after { display: none; }
