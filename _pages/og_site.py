@@ -19,22 +19,23 @@ FONT = 'Arial, "Helvetica Neue", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Malg
 PAGE = '''<!doctype html><html lang="{lang}"{dir}><meta charset="utf-8"><style>
 html, body {{ margin: 0; width: 1200px; height: 630px; overflow: hidden; }}
 body {{ position: relative; font-family: {font}; color: #FFFFFF;
-  background: radial-gradient(700px 420px at 85% 0%, rgba(218, 123, 147, .30), transparent 70%),
-              radial-gradient(520px 360px at 0% 100%, rgba(55, 110, 111, .35), transparent 70%), #0D0507; }}
+  background: radial-gradient(circle at 82% 20%, rgba(218, 123, 147, .35), transparent 40%),
+              radial-gradient(circle at 55% 105%, rgba(143, 211, 180, .18), transparent 40%),
+              linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%); }}
 body::before {{ content: ''; position: absolute; inset: 0;
   background-image: none;
   background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 40%, #000 30%, transparent 80%); }}
 .box {{ position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 96px; }}
 .row {{ display: flex; align-items: center; gap: 28px; }}
-.logo {{ width: 112px; height: 112px; border-radius: 30px; box-shadow: 0 24px 60px -20px #376E6F; }}
+.wordmark {{ display: block; height: 112px; width: auto; align-self: flex-start; }}
 .tile {{ width: 112px; height: 112px; border-radius: 30px; display: grid; place-items: center; font: 700 60px {font}; color: #fff;
   background: linear-gradient(135deg, #DA7B93, #376E6F); box-shadow: 0 24px 60px -20px #376E6F; }}
 h1 {{ margin: 0; font-size: 92px; line-height: 1; letter-spacing: -2px; font-weight: 700; }}
-p {{ margin: 34px 0 0; font-size: 38px; line-height: 1.3; color: #E2CDD3; max-width: 1000px; }}
+p {{ margin: 34px 0 0; font-size: 38px; line-height: 1.3; color: #F0B3C3; max-width: 1000px; }}
 p.cap {{ text-transform: capitalize; }}
 .by {{ position: absolute; bottom: 52px; inset-inline-start: 96px; display: flex; align-items: center; gap: 14px; font-size: 24px; font-weight: 700; color: #F0B3C3; }}
 .by img {{ width: 40px; height: 40px; border-radius: 11px; }}
-.url {{ position: absolute; bottom: 58px; inset-inline-end: 96px; font-size: 22px; color: #AE9199; }}
+.url {{ position: absolute; bottom: 58px; inset-inline-end: 96px; font-size: 22px; color: #E6EEF0; }}
 </style>
 <div class="box">{body}</div>{foot}</html>'''
 
@@ -62,14 +63,16 @@ def render(browser, tmp, name, lang, page):
 
 def main():
     browser = next(b for b in BROWSERS if os.path.exists(b))
-    logo = 'file:///' + ROOT + '/assets/logo-mark.png'
+    # Kare ikon (alt köşe) ve koyu zemin için krem harfli yazılı logo
+    logo = 'file:///' + ROOT + '/assets/brand/favicon.svg'
+    wordmark = 'file:///' + ROOT + '/assets/brand/logo-koyu-zemin.svg'
     tmp = tempfile.mkdtemp()
     try:
         for lang in LANGS:
             t = texts(lang)
             rtl = ' dir="rtl"' if lang == 'ar' else ''
             site = PAGE.format(lang=lang, dir=rtl, font=FONT,
-                               body='<div class="row"><img class="logo" src="%s"><h1>FMJ Software</h1></div><p class="cap">%s</p>' % (logo, html.escape(t['co.tagline'])),
+                               body='<img class="wordmark" src="%s" alt="FMJ Software"><p class="cap">%s</p>' % (wordmark, html.escape(t['co.tagline'])),
                                foot='<span class="url" dir="ltr">fmjapps.com</span>')
             render(browser, tmp, 'site', lang, site)
             titus = PAGE.format(lang=lang, dir=rtl, font=FONT,

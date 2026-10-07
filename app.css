@@ -546,3 +546,30 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 
 /* Alt bilgide "Şirket" sütunu: dört sütun */
 @media (min-width: 761px) { .foot-in { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+
+/* =========================================================
+   Kapak teması (kurumsal sayfalarla aynı aile): zemin koyu yeşilden turkuaza giden gradyan,
+   etiketler ince kenarlıklı "hap". Her uygulamanın kendi vurgu rengi (--acc) korunur.
+   ========================================================= */
+:root, :root[data-theme="dark"] {
+  --bg: #1C3334; --bg-2: #1C3334;
+  --surface: color-mix(in srgb, #1C3334 82%, #376E6F);
+  --surface-2: color-mix(in srgb, #1C3334 66%, #376E6F);
+  --line: rgba(255, 255, 255, 0.09); --line-2: rgba(255, 255, 255, 0.20);
+  --dim: #E6EEF0; --faint: color-mix(in srgb, #C9D3D8 25%, #E6EEF0);
+  --brand-ink: #F0B3C3;
+  --sky: linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%);
+  --chip-line: rgba(255, 255, 255, 0.35); --chip-fill: rgba(255, 255, 255, 0.06); --chip-ink: #E6EEF0;
+}
+:root[data-theme="light"] {
+  --bg: #F6EEF0; --bg-2: #F6EEF0;
+  --faint: color-mix(in srgb, #5B7375 75%, #1C3334);
+  --brand-ink: #2E151B;
+  --sky: linear-gradient(120deg, #F6EEF0 0%, #FFFFFF 100%);
+  --chip-line: rgba(55, 110, 111, 0.35); --chip-fill: rgba(55, 110, 111, 0.06); --chip-ink: var(--text);
+}
+body { background: var(--sky) fixed; background-color: var(--bg); }
+:root:not([data-theme="light"]) .foot { background: color-mix(in srgb, #1C3334 72%, transparent); }
+.brand-tag, .foot-brand span { color: var(--brand-ink); }
+.chips li, .status { border: 1.5px solid var(--chip-line); border-radius: 999px; background: var(--chip-fill); color: var(--chip-ink); }
+.status { padding: 6px 14px 6px 12px; }

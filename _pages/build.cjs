@@ -132,7 +132,10 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 <link rel="alternate" hreflang="x-default" href="${BASE + urlOf(app, 'en')}">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,7 +150,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="${appsOf(lang)}" aria-label="FMJ Apps · ${esc(t.home)}">
-      <img src="/assets/logo-mark.png" alt="" width="128" height="128">
+      <img src="/assets/brand/favicon.svg" alt="" width="128" height="128">
       <span class="brand-text"><span class="brand-name">FMJ Apps</span><span class="brand-tag">${esc(t.tagline)}</span></span>
     </a>
     <nav class="links" aria-label="FMJ Apps">

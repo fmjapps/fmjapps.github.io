@@ -892,3 +892,68 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 /* Üst çubuk geniş ekranda biraz daha geniş açılır; menü bağlantıları sığsın */
 .nav-in { max-width: 1400px; }
 .links { gap: 0; }
+
+/* =========================================================
+   Kapak teması: sosyal medya kapaklarıyla aynı aile
+   Zemin koyu yeşilden turkuaza giden gradyan, sağ üstte pembe, altta yeşil parıltı,
+   solda sağa doğru kaybolan nokta deseni; etiketler ince kenarlıklı "hap".
+   Marka renkleri (--brand, --brand-2, --brand-ink, --cyan) değişmez.
+   ========================================================= */
+:root, :root[data-theme="dark"] {
+  --bg: #1C3334; --bg-2: #1C3334;
+  --surface: color-mix(in srgb, #1C3334 82%, #376E6F);
+  --surface-2: color-mix(in srgb, #1C3334 66%, #376E6F);
+  --line: rgba(255, 255, 255, 0.09); --line-2: rgba(255, 255, 255, 0.20);
+  --dim: #E6EEF0; --faint: #C9D3D8;
+  --sky: linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%);
+  --shadow: 0 30px 70px -35px rgba(6, 18, 18, 0.75);
+  --chip-line: rgba(255, 255, 255, 0.35); --chip-fill: rgba(255, 255, 255, 0.06); --chip-ink: #E6EEF0;
+  --glow-pink: rgba(218, 123, 147, 0.35); --glow-green: rgba(143, 211, 180, 0.18); --dots: rgba(255, 255, 255, 0.10);
+}
+:root[data-theme="light"] {
+  --bg: #F6EEF0; --bg-2: #F6EEF0;
+  --sky: linear-gradient(120deg, #F6EEF0 0%, #FFFFFF 100%);
+  --chip-line: rgba(55, 110, 111, 0.35); --chip-fill: rgba(55, 110, 111, 0.06); --chip-ink: var(--text);
+  --glow-pink: rgba(218, 123, 147, 0.16); --glow-green: rgba(143, 211, 180, 0.14); --dots: rgba(1, 1, 1, 0.06);
+}
+body { background: var(--sky) fixed; background-color: var(--bg); }
+
+/* Giriş: parıltılar ve nokta deseni (eski parıltı katmanlarının yerine) */
+.hero .glow { display: none; }
+.hero, :root[data-theme="light"] .hero {
+  background:
+    radial-gradient(circle at 82% 20%, var(--glow-pink), transparent 40%),
+    radial-gradient(circle at 55% 105%, var(--glow-green), transparent 40%);
+}
+.hero::before {
+  background-image: radial-gradient(var(--dots) 1.5px, transparent 1.5px);
+  background-size: 22px 22px; background-position: 0 0;
+  -webkit-mask-image: linear-gradient(90deg, #000, transparent 45%);
+  mask-image: linear-gradient(90deg, #000, transparent 45%);
+}
+[dir="rtl"] .hero::before { -webkit-mask-image: linear-gradient(270deg, #000, transparent 45%); mask-image: linear-gradient(270deg, #000, transparent 45%); }
+:root[data-theme="light"] .hero .price-strip { background: color-mix(in srgb, var(--surface) 80%, transparent); }
+
+/* Slogan ve üst başlık vurguları */
+.eyebrow, .brand-tag, .foot-brand span { color: var(--brand-ink); }
+
+/* Etiketler, kısa etiketler ve durum rozetleri: ince kenarlıklı hap */
+.badge, .t-chip, .qr-tags li, .status, .pill:not(.hot):not(.warm),
+.demo-sectors button:not(.on), .choices button, .demo-sugg button {
+  border: 1.5px solid var(--chip-line); border-radius: 999px; background: var(--chip-fill); color: var(--chip-ink);
+}
+.status { padding: 6px 14px 6px 12px; }
+.choices button:hover, .demo-sugg button:hover, .demo-sectors button:not(.on):hover { border-color: var(--brand-2); background: color-mix(in srgb, var(--brand-2) 14%, transparent); color: var(--text); }
+.t-chip { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+:root[data-theme="light"] { --faint: color-mix(in srgb, #5B7375 75%, #1C3334); }
+/* Alt bilgi: gradyanın açık ucunda soluk yazılar okunur kalsın diye hafif koyu şerit */
+:root:not([data-theme="light"]) .foot { background: color-mix(in srgb, #1C3334 72%, transparent); }
+:root:not([data-theme="light"]) { --faint: color-mix(in srgb, #C9D3D8 25%, #E6EEF0); }
+
+/* Yazılı logo: açık zeminde siyah harfli, koyu zeminde krem harfli sürüm */
+.brand .logo { display: block; height: 36px; width: auto; }
+.foot-logo { display: block; max-width: none; }
+.foot-logo .logo { display: block; height: 30px; width: auto; }
+:root[data-theme="light"] .logo.on-dark, :root:not([data-theme="light"]) .logo.on-light { display: none; }
+@media (max-width: 520px) { .brand .logo { height: 30px; } }
+@media (max-width: 359px) { .brand .logo { height: 26px; } }
