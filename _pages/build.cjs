@@ -70,12 +70,13 @@ function page(app, lang) {
         image: BASE + '/assets/' + app.id + '-icon.webp',
         screenshot: app.shots.map(s => BASE + shot(app, s, lang)),
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        author: { '@type': 'Organization', name: 'FMJ Apps', url: BASE + '/' }
+        author: { '@type': 'Organization', name: 'FMJ Software', url: BASE + '/' }
       },
       {
         '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'FMJ Apps', item: BASE + appsPath(lang) },
-          { '@type': 'ListItem', position: 2, name: c.short, item: url }
+          { '@type': 'ListItem', position: 1, name: 'FMJ Software', item: BASE + homePath(lang) },
+          { '@type': 'ListItem', position: 2, name: group, item: BASE + appsPath(lang) },
+          { '@type': 'ListItem', position: 3, name: c.short, item: url }
         ]
       },
       { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
@@ -118,7 +119,7 @@ ${isTest ? `      <p class="join-note">${esc(t.joinNote)}</p>
 <meta name="description" content="${esc(c.desc)}">
 <meta name="theme-color" content="#1C3334">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="FMJ Apps">
+<meta property="og:site_name" content="FMJ Software">
 <meta property="og:title" content="${esc(c.name)}">
 <meta property="og:description" content="${esc(c.desc)}">
 <meta property="og:image" content="${og}">
@@ -151,7 +152,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
     <a class="brand" href="${homeOf(lang)}" aria-label="FMJ Software">
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">${esc(t.slogan)}</span>
     </a>
-    <nav class="links" aria-label="FMJ Apps">
+    <nav class="links" aria-label="FMJ Software">
       <a class="home-link" href="${homeOf(lang)}"><b aria-hidden="true">←</b> ${esc(t.home)}</a>
       <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
       <a href="${appsOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
@@ -178,7 +179,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
   <section class="page hero" data-label="${esc(c.short)}">
     <div class="wrap">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="${appsOf(lang)}">FMJ Apps</a></li>
+        <li><a href="${homeOf(lang)}">FMJ Software</a></li>
         <li><a href="${appsOf(lang, groupHash)}">${esc(group)}</a></li>
         <li aria-current="page">${esc(c.short)}</li>
       </ol></nav>
@@ -311,7 +312,7 @@ for (const app of APPS) for (const lang of LANGS) {
 // titus/index.html); diğer diller bundan üretilir. meta: başlık ve açıklamanın çeviri anahtarı öneki.
 const TEMPLATES = [
   { id: 'home', out: homePath, meta: 'co.meta', og: l => '/assets/og-site-' + l + '.jpg' },
-  { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-home-' + l + '.jpg' },
+  { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-apps-' + l + '.jpg' },
   { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' },
   { id: 'about', out: aboutPath, meta: 'about.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' },

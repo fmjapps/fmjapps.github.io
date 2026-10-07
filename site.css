@@ -1325,3 +1325,7 @@ html { scroll-padding-top: 96px; }
 [dir="rtl"] .home-link b, [dir="rtl"] .home-mini b { display: inline-block; transform: scaleX(-1); }
 .mobile-menu a.home-link { font-weight: 700; }
 .mobile-menu a.home-link::after { display: none; }
+
+/* Titus: Meta onayı beklenirken kısa not */
+.titus-note { max-width: 520px; margin: 12px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--dim); }
+@media (max-width: 520px) { .titus-note { font-size: 12.5px; margin-top: 10px; } }

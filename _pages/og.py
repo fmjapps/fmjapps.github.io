@@ -85,7 +85,7 @@ def make(app, lang):
         d.text((72, y), line, font=font, fill='#EEF2FF')
         y += round(size * 1.12)
     d.text((72, y + 14), tag, font=ImageFont.truetype(REG, 34), fill=acc)
-    d.text((72, 540), 'FMJ Apps  ·  Android', font=ImageFont.truetype(BOLD, 24), fill='#A2A3CC')
+    d.text((72, 540), 'FMJ Software  ·  Android', font=ImageFont.truetype(BOLD, 24), fill='#A2A3CC')
     out = A + 'og-' + key + ('-en' if lang == 'en' else '') + '.jpg'
     im.convert('RGB').save(out, 'JPEG', quality=86, optimize=True, progressive=True)
     return out

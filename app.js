@@ -1,4 +1,4 @@
-/* FMJ Apps — uygulama sayfalarının betiği: tema, dil tercihi ve tam ekran sayfa geçişi */
+/* FMJ Software — uygulama sayfalarının betiği: tema, dil tercihi ve tam ekran sayfa geçişi */
 (function () {
   var root = document.documentElement;
   function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
