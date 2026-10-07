@@ -1591,3 +1591,8 @@ html { scroll-padding-top: 96px; }
 .foot-social a:hover { color: #FFFFFF; border-color: #FF4F2E; background: rgba(255, 79, 46, .12); }
 .foot-social svg { width: 18px; height: 18px; }
 .foot-col .foot-social { margin-top: 4px; }
+
+/* Formların altında kişisel veri bilgilendirmesi */
+.form-privacy { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint); text-align: center; }
+.form-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.form-privacy a:hover { color: var(--text); }

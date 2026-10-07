@@ -2,7 +2,7 @@
 <html lang="hi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://titus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://titus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FMJ Software · भरोसेमंद समाधान, असरदार नतीजे</title>
@@ -40,9 +40,7 @@
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
@@ -340,6 +338,7 @@
           <li data-i18n="co.demo.n2">बिज़नेस और क़ीमतें सिर्फ़ उदाहरण हैं; असली सेटअप में आपकी जानकारी इस्तेमाल होती है।</li>
           <li data-i18n="co.demo.n3">अपनी निजी जानकारी शेयर न करें।</li>
         </ul>
+        <p class="form-privacy" data-i18n-html="co.privacy.note">हम आपके निजी डेटा को कैसे संभालते हैं: <a href="/privacy/site/">गोपनीयता सूचना</a></p>
       </div>
       <div class="demo reveal" id="demoBox">
         <div class="demo-sectors" id="demoSectors" role="tablist" data-i18n-aria="co.demo.pick" aria-label="सेक्टर चुनें"></div>
@@ -490,6 +489,7 @@
         </form>
         <button class="chat-reset" type="button" id="chatReset" hidden data-i18n="chat.again">नया मैसेज लिखें</button>
       </div>
+      <p class="form-privacy" data-i18n-html="co.privacy.note">हम आपके निजी डेटा को कैसे संभालते हैं: <a href="/privacy/site/">गोपनीयता सूचना</a></p>
     </div>
   </section>
 

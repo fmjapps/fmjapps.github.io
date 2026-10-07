@@ -102,6 +102,7 @@
  "co.price.c2": "契約の縛りなし",
  "co.price.c3": "請求は月1回",
  "co.price.more": "料金の詳細",
+ "co.privacy.note": "個人情報の取り扱いについて：<a href=\"/privacy/site/\">プライバシーポリシー</a>",
  "co.sec.kick": "業種",
  "co.sec.lede": "Titusはひとつのエンジンで動き、御社の情報をもとに会話します。御社の業種を選んで、どんなメリットがあるかご覧ください。",
  "co.sec.title": "どの業種でも、お客様の言語で。",
