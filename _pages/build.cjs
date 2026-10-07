@@ -313,7 +313,8 @@ const TEMPLATES = [
   { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-home-' + l + '.jpg' },
   { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' },
   { id: 'about', out: aboutPath, meta: 'about.meta', og: l => '/assets/og-site-' + l + '.jpg' },
-  { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' }
+  { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' },
+  { id: 'web', out: l => l === 'tr' ? '/web-sitesi/' : '/' + l + '/website/', meta: 'web.meta', og: l => '/assets/og-web-' + l + '.jpg' }
 ];
 const HOME_DICT = {};
 const HOME_LANGS_OK = HOME_LANGS.filter(l => l === 'tr' || fs.existsSync(path.join(ROOT, 'i18n', l + '.json')));
@@ -395,7 +396,7 @@ function homePage(tpl, src, lang) {
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
   h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
     if (node['@type'] === 'Organization' && tx('co.meta.desc')) node.description = tx('co.meta.desc');
-    // Hizmet açıklaması o sayfanın meta açıklamasıdır (Titus, QR Menü)
+    // Hizmet açıklaması o sayfanın meta açıklamasıdır (Titus, QR Menü, Web Sitesi)
     if (node['@type'] === 'Service' && tx(tpl.meta + '.desc')) node.description = tx(tpl.meta + '.desc');
     const app = node['@type'] === 'MobileApplication' && appOfNode(node);
     if (app) {

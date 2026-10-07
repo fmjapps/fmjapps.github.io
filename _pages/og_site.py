@@ -1,7 +1,7 @@
-# Kurumsal ana sayfanın, Titus ve QR Menü sayfalarının paylaşım görsellerini her dil için üretir (1200x630):
+# Kurumsal ana sayfanın, Titus, QR Menü ve Web Sitesi sayfalarının paylaşım görsellerini her dil için üretir (1200x630):
 #   python _pages/og_site.py
-# Çıktı: assets/og-site-<dil>.jpg, assets/og-titus-<dil>.jpg ve assets/og-qrmenu-<dil>.jpg
-# Alt yazılar i18n/<dil>.json → co.tagline, titus.hero.kick ve qr.hero.kick ("… · " öneki atılır); Türkçesi aşağıda.
+# Çıktı: assets/og-site-<dil>.jpg, assets/og-titus-<dil>.jpg, assets/og-qrmenu-<dil>.jpg ve assets/og-web-<dil>.jpg
+# Alt yazılar i18n/<dil>.json → co.tagline, titus.hero.kick, qr.hero.kick ve web.hero.kick ("… · " öneki atılır); Türkçesi aşağıda.
 # Yazıyı tarayıcı çizer: Arapça ve Hintçe gibi yazılar ancak böyle doğru birleşir.
 # Gerekli: Pillow ve Chrome (ya da Edge).
 import os, json, shutil, subprocess, tempfile, html
@@ -10,9 +10,12 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).replace('\\', '/')
 LANGS = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id']
 TR = {'co.tagline': 'Güvenilir çözümler, verimli sonuçlar', 'titus.hero.kick': 'Titus · İşletmeler için yapay zekâ müşteri asistanı',
-      'qr.hero.kick': 'QR Menü · Kafe ve restoranlar için dijital menü', 'qr.name': 'QR Menü'}
+      'qr.hero.kick': 'QR Menü · Kafe ve restoranlar için dijital menü', 'qr.name': 'QR Menü',
+      'web.hero.kick': 'Web Sitesi · İşletmeler ve kişiler için tanıtım sitesi', 'web.name': 'Web Sitesi'}
 # QR Menü kutucuğundaki simge
 QR_ICON = '<svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4ZM14 4h6v6h-6ZM4 14h6v6H4Z"/><path d="M14 14h2v2h-2ZM18 18h2v2h-2ZM14 18h2M18 14h2"/></svg>'
+# Web Sitesi kutucuğundaki simge
+WEB_ICON = '<svg viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18M6.5 6.8h.01M9 6.8h.01"/></svg>'
 BROWSERS = ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']
 FONT = 'Arial, "Helvetica Neue", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Malgun Gothic", "Microsoft YaHei", sans-serif'
 
@@ -83,6 +86,10 @@ def main():
                              body='<div class="row"><span class="tile">%s</span><h1>%s</h1></div><p>%s</p>' % (QR_ICON, html.escape(t['qr.name']), html.escape(t['qr.hero.kick'].split('·', 1)[-1].strip())),
                              foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/qr-menu</span>' % logo)
             render(browser, tmp, 'qrmenu', lang, qr)
+            web = PAGE.format(lang=lang, dir=rtl, font=FONT,
+                              body='<div class="row"><span class="tile">%s</span><h1>%s</h1></div><p>%s</p>' % (WEB_ICON, html.escape(t['web.name']), html.escape(t['web.hero.kick'].split('·', 1)[-1].strip())),
+                              foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">%s</span>' % (logo, 'fmjapps.com/web-sitesi' if lang == 'tr' else 'fmjapps.com/' + lang + '/website'))
+            render(browser, tmp, 'web', lang, web)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 

@@ -1401,6 +1401,286 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://fmjapps.com/web-sitesi/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/en/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/es/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/pt/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/fr/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/de/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/it/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/ru/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/ar/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/hi/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/zh/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/ja/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/ko/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fmjapps.com/id/website/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://fmjapps.com/kayip-esya-burosu/</loc>
     <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="tr" href="https://fmjapps.com/kayip-esya-burosu/"/>

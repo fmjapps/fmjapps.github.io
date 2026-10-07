@@ -47,8 +47,10 @@
     'form.sending': 'Gönderiliyor…',
     'co.sub.titus': 'Titus için demo istiyorum',
     'co.sub.qrmenu': 'QR Menü için teklif istiyorum',
+    'co.sub.web': 'Web sitesi için teklif istiyorum',
     'co.sub.business': 'İşletmem için bir çözüm',
     'co.sub.other': 'Başka bir konu',
+    'co.chat.webMsg': 'Site kimin için, ne iş yapıyorsunuz? Alan adınız varsa onu da yazın; teklifimizi iletelim.',
     'co.chat.qrMsg': 'İşletmenizin adını ve türünü (kafe, restoran…) yazar mısınız? Menünüz elinizde fotoğraf, PDF ya da liste olarak varsa onu da belirtin; teklifimizi iletelim.',
     'co.chat.titusMsg': 'İşletmenizin adını, sektörünüzü ve günde yaklaşık kaç mesaj aldığınızı yazar mısınız? Size uygun bir demo planlayalım.',
     'demo.greet': 'Merhaba! Ben Titus, {name} adına mesajlarınızı cevaplıyorum. Size nasıl yardımcı olabilirim?',
@@ -707,6 +709,7 @@
     var SUBJECTS = [
       { v: 'titus', key: 'co.sub.titus', ask: 'co.chat.titusMsg' },
       { v: 'qrmenu', key: 'co.sub.qrmenu', ask: 'co.chat.qrMsg' },
+      { v: 'web', key: 'co.sub.web', ask: 'co.chat.webMsg' },
       { v: 'business', key: 'co.sub.business' },
       { v: 'other', key: 'co.sub.other' }
     ];

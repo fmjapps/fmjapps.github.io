@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>网站 · 为企业和个人打造的网站 · FMJ Software</title>
+<meta name="description" content="我们为您设计、搭建并上线专业美观、适配手机的网站，并做好基础 SEO。域名由您以自己的名义注册，网站的配置和托管由我们负责，不另收托管费用。">
+<meta name="theme-color" content="#1C3334">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Software">
+<meta property="og:title" content="Web Sitesi · FMJ Software">
+<meta property="og:description" content="我们为您设计、搭建并上线专业美观、适配手机的网站，并做好基础 SEO。域名由您以自己的名义注册，网站的配置和托管由我们负责，不另收托管费用。">
+<meta property="og:image" content="https://fmjapps.com/assets/og-web-zh.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://fmjapps.com/zh/website/">
+<link rel="canonical" href="https://fmjapps.com/zh/website/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/web-sitesi/#service","name":"Web Sitesi","serviceType":"Web sitesi tasarımı ve barındırma","description":"我们为您设计、搭建并上线专业美观、适配手机的网站，并做好基础 SEO。域名由您以自己的名义注册，网站的配置和托管由我们负责，不另收托管费用。","url":"https://fmjapps.com/web-sitesi/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Web Sitesi","item":"https://fmjapps.com/web-sitesi/"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'light';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+    }
+  })();
+</script>
+</head>
+<body class="paged">
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<a class="skip" href="#neler" data-i18n="skip">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/zh/" data-en-href="/en/" aria-label="FMJ Software">
+      <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">可靠的方案，高效的成果</span>
+    </a>
+    <nav class="links" aria-label="栏目" data-i18n-aria="nav.sections">
+      <a href="#neler" data-i18n="web.nav.inc">服务内容</a>
+      <a href="#alan-adi" data-i18n="web.nav.host">域名和主机</a>
+      <a href="#nasil" data-i18n="web.nav.how">合作流程</a>
+      <a href="#sss" data-i18n="titus.nav.faq">常见问题</a>
+      <a href="/zh/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">应用</a>
+      <a href="/zh/about/" data-en-href="/en/about/" data-i18n="nav.about">关于我们</a>
+      <a class="cta-link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">获取报价</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="切换主题">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="菜单" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="菜单" data-i18n-aria="menu"></nav>
+
+<main id="top">
+
+  <!-- GİRİŞ -->
+  <section class="hero page">
+    <span class="glow g1" aria-hidden="true"></span>
+    <span class="glow g2" aria-hidden="true"></span>
+    <div class="wrap hero-grid qr-hero web-hero">
+      <div>
+        <p class="eyebrow" data-i18n="web.hero.kick">网站 · 为企业和个人打造的网站</p>
+        <h1 data-i18n-html="web.hero.h1">专业美观的网站，<span class="grad">在任何手机上都好用。</span></h1>
+        <p class="lede" data-i18n="web.hero.lede">我们为您设计、搭建并上线网站，让您的业务显得专业，在手机上也方便浏览。域名由您以自己的名义注册；我们负责配置托管，保证网站稳定在线，不另收托管费用。顾客能在 Google 上找到您，并通过电话、WhatsApp 或联系表单与您取得联系。</p>
+        <ul class="hero-feats">
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9Z"/></svg></span><span data-i18n="web.hero.f1">专业形象</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="web.hero.f2">适配手机</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span><span data-i18n="web.hero.f3">含基础 SEO</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="16" height="6.5" rx="1.5"/><path d="M7.5 7.2h.01M7.5 16.7h.01"/></svg></span><span data-i18n="web.hero.f4">无需操心主机</span></li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#iletisim" data-subject="web"><span data-i18n="web.cta.main">一起打造您的网站</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="#nasil" data-i18n="web.nav.how">合作流程</a>
+        </div>
+      </div>
+
+      <!-- Temsili site: uydurma bir pastanenin sitesi, bilgisayar ve telefonda -->
+      <div class="web-mock reveal" aria-hidden="true">
+        <div class="wm-browser">
+          <div class="wm-bar"><i></i><i></i><i></i><span class="wm-url">ornekpastane.com</span></div>
+          <div class="wm-page">
+            <div class="wm-nav"><span class="wm-logo">ÖP</span><b data-i18n="web.m.name">示例烘焙坊</b><span class="wm-links"><span data-i18n="web.m.n1">产品</span><span data-i18n="web.m.n2">联系</span></span></div>
+            <div class="wm-hero">
+              <strong data-i18n="web.m.h">每天清晨新鲜出炉，欢迎光临。</strong>
+              <span class="wm-btns"><em data-i18n="web.m.b1">路线</em><em class="alt">WhatsApp</em></span>
+            </div>
+            <div class="wm-cards">
+              <span><i class="c1"></i><b data-i18n="web.m.c1">蛋糕</b></span>
+              <span><i class="c2"></i><b data-i18n="web.m.c2">饼干</b></span>
+              <span><i class="c3"></i><b data-i18n="web.m.c3">营业时间</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="wm-phone">
+          <div class="wm-pnav"><span class="wm-logo">ÖP</span><b data-i18n="web.m.name">示例烘焙坊</b></div>
+          <div class="wm-phero"><strong data-i18n="web.m.h">每天清晨新鲜出炉，欢迎光临。</strong><em data-i18n="web.m.b1">路线</em><em class="alt">WhatsApp</em></div>
+          <div class="wm-pcards"><i class="c1"></i><i class="c2"></i></div>
+        </div>
+        <p class="dv-cap" data-i18n="qr.m.cap">示意图</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NELER DAHİL -->
+  <section class="sec alt page" id="neler">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.inc">服务内容</p>
+        <h2 data-i18n="web.inc.title">网站所需的一切，都已备好。</h2>
+        <p data-i18n="web.inc.lede">我们围绕您的业务设计网站，交付时即可直接上线。</p>
+      </header>
+      <div class="grid-3 feat-grid">
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.4-1.3-1.6-1.3-2.8 0-1 .8-1.7 1.8-1.7h2.2a4 4 0 0 0 4-4C20.5 6.6 16.7 3.5 12 3.5Z"/><circle cx="7.8" cy="11" r="1.1"/><circle cx="10.5" cy="7.4" r="1.1"/><circle cx="15" cy="7.6" r="1.1"/></svg></span>
+          <h3 data-i18n="web.i1.t">专业设计</h3>
+          <p data-i18n="web.i1.d">根据您的标志、品牌颜色和业务内容来打造。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="13" height="10" rx="1.5"/><path d="M6 19h6M9 15v4"/><rect x="16.5" y="9" width="5" height="10.5" rx="1.2"/></svg></span>
+          <h3 data-i18n="web.i2.t">各种屏幕都好看</h3>
+          <p data-i18n="web.i2.d">在手机、平板和电脑上都清晰易读。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3 data-i18n="web.i3.t">安全连接</h3>
+          <p data-i18n="web.i3.d">网站通过 HTTPS 打开，浏览器中会显示小锁图标。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+          <h3 data-i18n="web.i4.t">联系表单</h3>
+          <p data-i18n="web.i4.d">访客的留言会直接发到您的邮箱。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+          <h3 data-i18n="web.i5.t">一点就能联系您</h3>
+          <p data-i18n="web.i5.d">电话、WhatsApp、路线导航和社交媒体链接。</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
+          <h3 data-i18n="web.i6.t">基础 SEO</h3>
+          <p data-i18n="web.i6.d">为 Google 准备好页面标题、描述、结构化数据和站点地图，并把您的网站添加到 Search Console。</p>
+        </div>
+      </div>
+      <ul class="checks web-more reveal">
+        <li data-i18n="web.x1">如有需要，可提供多语言版本</li>
+        <li data-i18n="web.x2">分享链接时显示预览图</li>
+        <li data-i18n="web.x3">加载快速、简洁清爽的页面</li>
+        <li data-i18n="web.x4">在地图上标出您的位置</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ALAN ADI VE SUNUCU -->
+  <section class="sec page" id="alan-adi">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.host">域名和主机</p>
+        <h2 data-i18n="web.host.title">您准备域名，其余交给我们。</h2>
+        <p data-i18n="web.host.lede">挑选主机服务商、配置服务器、续期安全证书、保证网站正常在线……这些事您都不用操心。</p>
+      </header>
+      <div class="web-split">
+        <div class="card reveal">
+          <h3 data-i18n="web.host.you.t">您需要做的</h3>
+          <ul class="checks">
+            <li data-i18n="web.host.you.1">以自己的名义注册域名（例如 yourbusiness.com）。</li>
+            <li data-i18n="web.host.you.2">每年的域名费用直接支付给域名注册商。</li>
+            <li data-i18n="web.host.you.3">域名始终属于您，您不会被任何人绑定。</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3 data-i18n="web.host.we.t">我们负责的</h3>
+          <ul class="checks">
+            <li data-i18n="web.host.we.1">为您的网站配置托管，不另收托管费用。</li>
+            <li data-i18n="web.host.we.2">将您的域名连接到网站，并配置 HTTPS。</li>
+            <li data-i18n="web.host.we.3">上线网站，并保持稳定运行。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="web-note reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h3"/><path d="M4 4l16 16"/></svg></span>
+        <div><strong data-i18n="web.host.no.t">不含支付系统</strong><p data-i18n="web.host.no.d">网站不含购物车和在线支付功能。它用来展示您的业务；顾客通过电话、WhatsApp 或联系表单与您联系。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NASIL İLERLİYORUZ -->
+  <section class="sec alt page" id="nasil">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.how">合作流程</p>
+        <h2 data-i18n="web.how.title">三步上线。</h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><h3 data-i18n="web.st1.t">介绍一下您的业务</h3><p data-i18n="web.st1.d">把您的业务内容、标志、照片和联系方式发给我们。手上有什么就发什么，足够开始了。</p></li>
+        <li class="reveal"><h3 data-i18n="web.st2.t">一起敲定设计</h3><p data-i18n="web.st2.d">我们搭建好网站给您看，按您的意见修改，并征得您的确认。</p></li>
+        <li class="reveal"><h3 data-i18n="web.st3.t">您注册域名，我们上线</h3><p data-i18n="web.st3.d">您以自己的名义注册域名；我们完成连接、配置 HTTPS 并上线网站。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- KİMLER İÇİN -->
+  <section class="sec page" id="kimler">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="qr.who.kick">适合哪些商家？</p>
+        <h2 data-i18n="web.who.title">适合所有想在网上好好展示自己的人。</h2>
+      </header>
+      <ul class="qr-tags reveal">
+        <li data-i18n="web.w1">咖啡馆和餐厅</li>
+        <li data-i18n="web.w2">诊所和医疗机构</li>
+        <li data-i18n="web.w3">美容美发店</li>
+        <li data-i18n="web.w4">房产中介</li>
+        <li data-i18n="web.w5">律师和咨询顾问</li>
+        <li data-i18n="web.w6">工匠和维修服务</li>
+        <li data-i18n="web.w7">个人网站和作品集</li>
+      </ul>
+      <div class="web-ex card reveal">
+        <span class="s-logo web" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18M6.5 6.8h.01M9 6.8h.01"/></svg></span>
+        <div><h3 data-i18n="web.ex.t">这个网站也是我们做的</h3><p data-i18n="web.ex.d">您正在浏览的 fmjapps.com 就是我们的作品：支持 14 种语言，适配手机，提供浅色和深色主题。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section class="sec alt page" id="sss">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="titus.faq.kick">常见问题</p>
+        <h2 data-i18n="titus.faq.title">您可能想知道</h2>
+      </header>
+      <div class="faq reveal">
+        <details name="faq" open><summary data-i18n="web.q1">去哪里注册域名？</summary><p data-i18n="web.a1">任何一家域名注册商都可以，以您自己的名义注册。如果不确定选哪家，我们可以一起看看。</p></details>
+        <details name="faq"><summary data-i18n="web.q2">需要另外支付托管费用吗？</summary><p data-i18n="web.a2">不需要。网站托管由我们配置和管理，您只需准备域名。</p></details>
+        <details name="faq"><summary data-i18n="web.q3">可以通过网站在线销售吗？</summary><p data-i18n="web.a3">不可以，我们不搭建支付系统。网站用来展示您的业务；顾客通过电话、WhatsApp 或联系表单与您联系。</p></details>
+        <details name="faq"><summary data-i18n="web.q4">文字和照片由谁来准备？</summary><p data-i18n="web.a4">您把资料和照片发给我们；我们把文字整理成适合网站阅读的内容，再发给您确认。</p></details>
+        <details name="faq"><summary data-i18n="web.q5">以后还能修改吗？</summary><p data-i18n="web.a5">可以。告诉我们您想改什么，我们一起确定修改范围，然后更新您的网站。</p></details>
+        <details name="faq"><summary data-i18n="web.q6">你们提供 SEO 服务吗？</summary><p data-i18n="web.a7">每个网站我们都会做好基础 SEO：页面标题和描述、清晰的标题层级、结构化数据、站点地图、快速加载，以及在 Search Console 中注册。我们不承诺在 Google 上达到某个具体排名；排名需要时间积累，取决于您的内容和竞争对手。</p></details>
+        <details name="faq"><summary data-i18n="qr.q7">费用是多少？</summary><p data-i18n="web.a6">如需了解价格，请联系我们，我们会根据您的需求为您报价。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="sec page" id="iletisim">
+    <div class="wrap">
+      <header class="contact-head reveal">
+        <p class="eyebrow" data-i18n="qr.nav.cta">获取报价</p>
+        <h2 data-i18n="web.cta.main">一起打造您的网站</h2>
+        <p data-i18n="web.contact.lede">简单介绍一下您的业务，我们会把报价和开始所需的资料告诉您。</p>
+        <div class="mail-line">
+          <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+          <button class="copy-btn" type="button" id="copyMail" data-mail="contact@fmjapps.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a2 2 0 0 0 2 2h2.5"/></svg><span data-i18n="contact.copy">复制</span></button>
+        </div>
+      </header>
+      <div class="chat reveal" id="chat">
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <form class="composer" id="composer" novalidate autocomplete="off">
+          <textarea id="chatIn" rows="1" maxlength="4000" disabled data-i18n-ph="ph.msg" placeholder="写下你的留言…"></textarea>
+          <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <button type="submit" id="chatSend" data-i18n-aria="form.send" aria-label="发送" disabled>→</button>
+        </form>
+        <button class="chat-reset" type="button" id="chatReset" hidden data-i18n="chat.again">再写一条消息</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="foot-logo"><img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="164" height="30"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="164" height="30"></span>
+      <span data-i18n="co.tagline">可靠的方案，高效的成果</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">解决方案</span>
+      <a href="/zh/titus/" data-en-href="/en/titus/">Titus</a>
+      <a href="/zh/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
+      <a href="/zh/website/" data-en-href="/en/website/" data-i18n="web.name">网站</a>
+      <a href="/zh/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">为您的企业定制解决方案</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">联系我们</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="co.foot.company">公司</span>
+      <a href="/zh/about/" data-en-href="/en/about/" data-i18n="nav.about">关于我们</a>
+      <a href="/zh/about/#kunye" data-en-href="/en/about/#kunye" data-i18n="about.info.kick">法律信息</a>
+      <a href="/privacy/" data-i18n="about.privacy">隐私政策</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Software</span>
+    <a href="#top" data-i18n="foot.top">回到顶部 ↑</a>
+  </div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · <span data-i18n="co.kunye.vd">Menemen 税务局</span> 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="/zh/about/" data-en-href="/en/about/" data-i18n="nav.about">关于我们</a></p></div>
+</footer>
+
+<nav class="pager" id="pager" aria-label="页面" data-i18n-aria="pages"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

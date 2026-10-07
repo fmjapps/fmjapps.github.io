@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>웹사이트 · 비즈니스와 개인을 위한 웹사이트 · FMJ Software</title>
+<meta name="description" content="전문적인 느낌의 모바일 최적화 웹사이트를 디자인부터 제작, 오픈까지 해 드리며, 기본 SEO도 포함됩니다. 도메인은 본인 명의로 등록하시고, 설정과 호스팅은 저희가 맡으며 별도의 호스팅 비용은 없습니다.">
+<meta name="theme-color" content="#1C3334">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Software">
+<meta property="og:title" content="Web Sitesi · FMJ Software">
+<meta property="og:description" content="전문적인 느낌의 모바일 최적화 웹사이트를 디자인부터 제작, 오픈까지 해 드리며, 기본 SEO도 포함됩니다. 도메인은 본인 명의로 등록하시고, 설정과 호스팅은 저희가 맡으며 별도의 호스팅 비용은 없습니다.">
+<meta property="og:image" content="https://fmjapps.com/assets/og-web-ko.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://fmjapps.com/ko/website/">
+<link rel="canonical" href="https://fmjapps.com/ko/website/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/web-sitesi/#service","name":"Web Sitesi","serviceType":"Web sitesi tasarımı ve barındırma","description":"전문적인 느낌의 모바일 최적화 웹사이트를 디자인부터 제작, 오픈까지 해 드리며, 기본 SEO도 포함됩니다. 도메인은 본인 명의로 등록하시고, 설정과 호스팅은 저희가 맡으며 별도의 호스팅 비용은 없습니다.","url":"https://fmjapps.com/web-sitesi/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Web Sitesi","item":"https://fmjapps.com/web-sitesi/"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'light';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+    }
+  })();
+</script>
+</head>
+<body class="paged">
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<a class="skip" href="#neler" data-i18n="skip">본문으로 건너뛰기</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/ko/" data-en-href="/en/" aria-label="FMJ Software">
+      <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">믿을 수 있는 솔루션, 확실한 성과</span>
+    </a>
+    <nav class="links" aria-label="섹션" data-i18n-aria="nav.sections">
+      <a href="#neler" data-i18n="web.nav.inc">포함 내용</a>
+      <a href="#alan-adi" data-i18n="web.nav.host">도메인과 호스팅</a>
+      <a href="#nasil" data-i18n="web.nav.how">진행 방법</a>
+      <a href="#sss" data-i18n="titus.nav.faq">FAQ</a>
+      <a href="/ko/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">앱</a>
+      <a href="/ko/about/" data-en-href="/en/about/" data-i18n="nav.about">회사 소개</a>
+      <a class="cta-link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">견적 받기</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="테마 전환">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="메뉴" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="메뉴" data-i18n-aria="menu"></nav>
+
+<main id="top">
+
+  <!-- GİRİŞ -->
+  <section class="hero page">
+    <span class="glow g1" aria-hidden="true"></span>
+    <span class="glow g2" aria-hidden="true"></span>
+    <div class="wrap hero-grid qr-hero web-hero">
+      <div>
+        <p class="eyebrow" data-i18n="web.hero.kick">웹사이트 · 비즈니스와 개인을 위한 웹사이트</p>
+        <h1 data-i18n-html="web.hero.h1">전문적인 웹사이트, <span class="grad">어떤 휴대폰에서도 잘 보이게.</span></h1>
+        <p class="lede" data-i18n="web.hero.lede">비즈니스를 전문적으로 보여 주고 휴대폰에서도 쓰기 편한 웹사이트를 디자인부터 제작, 오픈까지 해 드립니다. 도메인은 본인 명의로 등록하시고, 호스팅 설정과 사이트 운영은 저희가 맡으니 별도의 호스팅 비용이 들지 않습니다. 고객이 Google에서 당신을 찾고 전화, WhatsApp, 문의 양식으로 연락할 수 있어요.</p>
+        <ul class="hero-feats">
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9Z"/></svg></span><span data-i18n="web.hero.f1">전문적인 느낌</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="web.hero.f2">모바일 최적화</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span><span data-i18n="web.hero.f3">기본 SEO 포함</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="16" height="6.5" rx="1.5"/><path d="M7.5 7.2h.01M7.5 16.7h.01"/></svg></span><span data-i18n="web.hero.f4">호스팅 걱정 없음</span></li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#iletisim" data-subject="web"><span data-i18n="web.cta.main">웹사이트를 만들어 보세요</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="#nasil" data-i18n="web.nav.how">진행 방법</a>
+        </div>
+      </div>
+
+      <!-- Temsili site: uydurma bir pastanenin sitesi, bilgisayar ve telefonda -->
+      <div class="web-mock reveal" aria-hidden="true">
+        <div class="wm-browser">
+          <div class="wm-bar"><i></i><i></i><i></i><span class="wm-url">ornekpastane.com</span></div>
+          <div class="wm-page">
+            <div class="wm-nav"><span class="wm-logo">ÖP</span><b data-i18n="web.m.name">샘플 베이커리</b><span class="wm-links"><span data-i18n="web.m.n1">제품</span><span data-i18n="web.m.n2">문의</span></span></div>
+            <div class="wm-hero">
+              <strong data-i18n="web.m.h">매일 아침 갓 구운 빵. 어서 오세요.</strong>
+              <span class="wm-btns"><em data-i18n="web.m.b1">찾아오는 길</em><em class="alt">WhatsApp</em></span>
+            </div>
+            <div class="wm-cards">
+              <span><i class="c1"></i><b data-i18n="web.m.c1">케이크</b></span>
+              <span><i class="c2"></i><b data-i18n="web.m.c2">쿠키</b></span>
+              <span><i class="c3"></i><b data-i18n="web.m.c3">영업시간</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="wm-phone">
+          <div class="wm-pnav"><span class="wm-logo">ÖP</span><b data-i18n="web.m.name">샘플 베이커리</b></div>
+          <div class="wm-phero"><strong data-i18n="web.m.h">매일 아침 갓 구운 빵. 어서 오세요.</strong><em data-i18n="web.m.b1">찾아오는 길</em><em class="alt">WhatsApp</em></div>
+          <div class="wm-pcards"><i class="c1"></i><i class="c2"></i></div>
+        </div>
+        <p class="dv-cap" data-i18n="qr.m.cap">예시 화면</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NELER DAHİL -->
+  <section class="sec alt page" id="neler">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.inc">포함 내용</p>
+        <h2 data-i18n="web.inc.title">웹사이트에 필요한 모든 것, 준비 완료.</h2>
+        <p data-i18n="web.inc.lede">비즈니스에 맞춰 사이트를 디자인하고, 바로 오픈할 수 있는 상태로 넘겨 드립니다.</p>
+      </header>
+      <div class="grid-3 feat-grid">
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.4-1.3-1.6-1.3-2.8 0-1 .8-1.7 1.8-1.7h2.2a4 4 0 0 0 4-4C20.5 6.6 16.7 3.5 12 3.5Z"/><circle cx="7.8" cy="11" r="1.1"/><circle cx="10.5" cy="7.4" r="1.1"/><circle cx="15" cy="7.6" r="1.1"/></svg></span>
+          <h3 data-i18n="web.i1.t">전문적인 디자인</h3>
+          <p data-i18n="web.i1.d">로고와 브랜드 색상, 하시는 일에 맞춰 만듭니다.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="13" height="10" rx="1.5"/><path d="M6 19h6M9 15v4"/><rect x="16.5" y="9" width="5" height="10.5" rx="1.2"/></svg></span>
+          <h3 data-i18n="web.i2.t">어떤 화면에서도 깔끔하게</h3>
+          <p data-i18n="web.i2.d">휴대폰, 태블릿, 컴퓨터에서 모두 읽기 편합니다.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3 data-i18n="web.i3.t">안전한 연결</h3>
+          <p data-i18n="web.i3.d">사이트가 HTTPS로 열리고, 브라우저에 자물쇠 표시가 나타납니다.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+          <h3 data-i18n="web.i4.t">문의 양식</h3>
+          <p data-i18n="web.i4.d">방문자의 메시지가 이메일로 바로 도착합니다.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+          <h3 data-i18n="web.i5.t">한 번 눌러 바로 연락</h3>
+          <p data-i18n="web.i5.d">전화, WhatsApp, 길 찾기, SNS 링크.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
+          <h3 data-i18n="web.i6.t">기본 SEO</h3>
+          <p data-i18n="web.i6.d">페이지 제목, 설명, 구조화된 데이터, 사이트맵을 Google에 맞게 준비하고 사이트를 Search Console에 등록합니다.</p>
+        </div>
+      </div>
+      <ul class="checks web-more reveal">
+        <li data-i18n="web.x1">필요하면 여러 언어로</li>
+        <li data-i18n="web.x2">링크를 공유할 때 보이는 미리보기 이미지</li>
+        <li data-i18n="web.x3">빠르게 열리는 깔끔한 페이지</li>
+        <li data-i18n="web.x4">지도에 표시되는 위치</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ALAN ADI VE SUNUCU -->
+  <section class="sec page" id="alan-adi">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.host">도메인과 호스팅</p>
+        <h2 data-i18n="web.host.title">도메인만 준비하세요, 나머지는 저희가 맡습니다.</h2>
+        <p data-i18n="web.host.lede">호스팅 업체 선택, 서버 설정, 보안 인증서 갱신, 사이트가 멈추지 않도록 관리하는 일까지… 이런 일은 전혀 신경 쓰지 않으셔도 됩니다.</p>
+      </header>
+      <div class="web-split">
+        <div class="card reveal">
+          <h3 data-i18n="web.host.you.t">고객님이 하실 일</h3>
+          <ul class="checks">
+            <li data-i18n="web.host.you.1">본인 명의로 도메인(예: yourbusiness.com)을 등록합니다.</li>
+            <li data-i18n="web.host.you.2">매년 도메인 비용은 도메인 등록 업체에 직접 냅니다.</li>
+            <li data-i18n="web.host.you.3">도메인은 언제나 당신의 것이며, 누구에게도 묶이지 않습니다.</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3 data-i18n="web.host.we.t">저희가 할 일</h3>
+          <ul class="checks">
+            <li data-i18n="web.host.we.1">사이트 호스팅을 설정해 드리며, 별도의 호스팅 비용은 들지 않습니다.</li>
+            <li data-i18n="web.host.we.2">도메인을 사이트에 연결하고 HTTPS를 설정합니다.</li>
+            <li data-i18n="web.host.we.3">사이트를 오픈하고 계속 잘 돌아가도록 관리합니다.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="web-note reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h3"/><path d="M4 4l16 16"/></svg></span>
+        <div><strong data-i18n="web.host.no.t">결제 시스템 없음</strong><p data-i18n="web.host.no.d">사이트에는 장바구니나 온라인 결제가 없습니다. 비즈니스를 소개하는 사이트이며, 고객은 전화, WhatsApp, 문의 양식으로 연락합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NASIL İLERLİYORUZ -->
+  <section class="sec alt page" id="nasil">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.how">진행 방법</p>
+        <h2 data-i18n="web.how.title">세 단계면 오픈.</h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><h3 data-i18n="web.st1.t">비즈니스를 소개해 주세요</h3><p data-i18n="web.st1.d">하시는 일, 로고, 사진, 연락처를 보내 주세요. 가지고 계신 것만으로도 시작할 수 있습니다.</p></li>
+        <li class="reveal"><h3 data-i18n="web.st2.t">디자인은 함께 다듬습니다</h3><p data-i18n="web.st2.d">사이트를 만들어 보여 드리고, 원하시는 대로 수정한 뒤 확인을 받습니다.</p></li>
+        <li class="reveal"><h3 data-i18n="web.st3.t">도메인 등록, 그리고 오픈</h3><p data-i18n="web.st3.d">본인 명의로 도메인을 등록하시면, 저희가 연결하고 HTTPS를 설정해 사이트를 오픈합니다.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- KİMLER İÇİN -->
+  <section class="sec page" id="kimler">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="qr.who.kick">누구를 위한 서비스인가요?</p>
+        <h2 data-i18n="web.who.title">온라인에서 자신을 제대로 보여 주고 싶은 모든 분께.</h2>
+      </header>
+      <ul class="qr-tags reveal">
+        <li data-i18n="web.w1">카페와 레스토랑</li>
+        <li data-i18n="web.w2">병원과 의료 기관</li>
+        <li data-i18n="web.w3">미용실과 뷰티 숍</li>
+        <li data-i18n="web.w4">부동산 중개</li>
+        <li data-i18n="web.w5">변호사와 컨설턴트</li>
+        <li data-i18n="web.w6">기술자와 수리 서비스</li>
+        <li data-i18n="web.w7">개인 사이트와 포트폴리오</li>
+      </ul>
+      <div class="web-ex card reveal">
+        <span class="s-logo web" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18M6.5 6.8h.01M9 6.8h.01"/></svg></span>
+        <div><h3 data-i18n="web.ex.t">이 사이트도 저희가 만들었습니다</h3><p data-i18n="web.ex.d">지금 보고 계신 fmjapps.com이 저희 작품입니다. 14개 언어, 모바일 최적화, 라이트와 다크 테마를 지원합니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section class="sec alt page" id="sss">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="titus.faq.kick">자주 묻는 질문</p>
+        <h2 data-i18n="titus.faq.title">궁금하신 점</h2>
+      </header>
+      <div class="faq reveal">
+        <details name="faq" open><summary data-i18n="web.q1">도메인은 어디서 등록하나요?</summary><p data-i18n="web.a1">어느 도메인 등록 업체에서든 본인 명의로 등록하시면 됩니다. 어디를 고를지 모르겠다면 함께 살펴봐 드릴게요.</p></details>
+        <details name="faq"><summary data-i18n="web.q2">호스팅 비용을 따로 내야 하나요?</summary><p data-i18n="web.a2">아니요. 사이트 호스팅은 저희가 설정하고 관리하며, 준비하실 것은 도메인뿐입니다.</p></details>
+        <details name="faq"><summary data-i18n="web.q3">사이트에서 온라인 판매를 할 수 있나요?</summary><p data-i18n="web.a3">아니요, 결제 시스템은 구축하지 않습니다. 사이트는 비즈니스를 소개하는 용도이며, 고객은 전화, WhatsApp, 문의 양식으로 연락합니다.</p></details>
+        <details name="faq"><summary data-i18n="web.q4">글과 사진은 누가 준비하나요?</summary><p data-i18n="web.a4">정보와 사진을 보내 주시면, 사이트에서 읽기 좋은 글로 다듬어 확인용으로 보내 드립니다.</p></details>
+        <details name="faq"><summary data-i18n="web.q5">나중에 수정할 수 있나요?</summary><p data-i18n="web.a5">네. 바꾸고 싶은 부분을 알려 주시면 범위를 함께 정하고 사이트를 업데이트해 드립니다.</p></details>
+        <details name="faq"><summary data-i18n="web.q6">SEO도 해 주시나요?</summary><p data-i18n="web.a7">모든 사이트에 기본 SEO를 적용합니다. 페이지 제목과 설명, 깔끔한 제목 구조, 구조화된 데이터, 사이트맵, 빠른 로딩, Search Console 등록까지요. 다만 Google에서 특정 순위를 보장하지는 않습니다. 순위는 시간이 지나면서 쌓이며, 콘텐츠와 경쟁 상황에 따라 달라집니다.</p></details>
+        <details name="faq"><summary data-i18n="qr.q7">비용은 얼마인가요?</summary><p data-i18n="web.a6">가격은 문의해 주세요. 필요하신 내용에 맞는 견적을 보내 드리겠습니다.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="sec page" id="iletisim">
+    <div class="wrap">
+      <header class="contact-head reveal">
+        <p class="eyebrow" data-i18n="qr.nav.cta">견적 받기</p>
+        <h2 data-i18n="web.cta.main">웹사이트를 만들어 보세요</h2>
+        <p data-i18n="web.contact.lede">비즈니스에 대해 간단히 알려 주시면 견적과 시작하는 데 필요한 내용을 보내 드리겠습니다.</p>
+        <div class="mail-line">
+          <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+          <button class="copy-btn" type="button" id="copyMail" data-mail="contact@fmjapps.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a2 2 0 0 0 2 2h2.5"/></svg><span data-i18n="contact.copy">복사</span></button>
+        </div>
+      </header>
+      <div class="chat reveal" id="chat">
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <form class="composer" id="composer" novalidate autocomplete="off">
+          <textarea id="chatIn" rows="1" maxlength="4000" disabled data-i18n-ph="ph.msg" placeholder="메시지를 입력하세요…"></textarea>
+          <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <button type="submit" id="chatSend" data-i18n-aria="form.send" aria-label="보내기" disabled>→</button>
+        </form>
+        <button class="chat-reset" type="button" id="chatReset" hidden data-i18n="chat.again">새 메시지 쓰기</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="foot-logo"><img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="164" height="30"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="164" height="30"></span>
+      <span data-i18n="co.tagline">믿을 수 있는 솔루션, 확실한 성과</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">솔루션</span>
+      <a href="/ko/titus/" data-en-href="/en/titus/">Titus</a>
+      <a href="/ko/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
+      <a href="/ko/website/" data-en-href="/en/website/" data-i18n="web.name">웹사이트</a>
+      <a href="/ko/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">비즈니스 맞춤 솔루션</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">문의</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="co.foot.company">회사</span>
+      <a href="/ko/about/" data-en-href="/en/about/" data-i18n="nav.about">회사 소개</a>
+      <a href="/ko/about/#kunye" data-en-href="/en/about/#kunye" data-i18n="about.info.kick">사업자 정보</a>
+      <a href="/privacy/" data-i18n="about.privacy">개인정보 처리방침</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Software</span>
+    <a href="#top" data-i18n="foot.top">맨 위로 ↑</a>
+  </div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · <span data-i18n="co.kunye.vd">Menemen 세무서</span> 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="/ko/about/" data-en-href="/en/about/" data-i18n="nav.about">회사 소개</a></p></div>
+</footer>
+
+<nav class="pager" id="pager" aria-label="페이지" data-i18n-aria="pages"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

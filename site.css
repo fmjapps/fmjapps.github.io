@@ -1236,3 +1236,84 @@ html { scroll-padding-top: 96px; }
 /* Klinik demosu: fiyat kuralını anlatan kısa not (yalnızca klinik sektörü seçiliyken) */
 .demo-note { margin: 0; padding: 8px 18px 10px; border-top: 1px solid var(--line); font: 400 13px/1.45 'Inter', sans-serif; color: var(--faint); }
 .demo-note[hidden], .kb .demo-note { display: none; }
+
+/* =========================================================
+   Web Sitesi sayfası
+   ========================================================= */
+/* Çözüm kartları üçlü (ana sayfa), Hakkımızda'da dört kart ikişerli */
+.sol-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .sol-grid { grid-template-columns: 1fr; } }
+.about-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* Giriş: temsili site, bilgisayar ve telefonda */
+.web-mock { position: relative; width: min(100%, 520px); margin-inline: auto; padding-bottom: 34px; }
+.wm-browser { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(17, 17, 17, .35); }
+.wm-bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: var(--surface-2, var(--bg)); border-bottom: 1px solid var(--line); }
+.wm-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-2); }
+.wm-url { margin-inline-start: 10px; flex: 1; padding: 4px 10px; border-radius: 99px; background: var(--surface); border: 1px solid var(--line); font: 500 11.5px 'Inter', sans-serif; color: var(--dim); direction: ltr; text-align: start; }
+.wm-page { padding: 14px 16px 18px; }
+.wm-nav { display: flex; align-items: center; gap: 8px; font: 600 13px 'Sora', sans-serif; color: var(--text); }
+.wm-logo { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; background: linear-gradient(135deg, #244A4B, #376E6F); color: #F6F1E9; font: 700 10px 'Sora', sans-serif; flex: none; }
+.wm-links { margin-inline-start: auto; display: flex; gap: 12px; font: 500 11.5px 'Inter', sans-serif; color: var(--dim); }
+.wm-hero { margin-top: 14px; padding: 22px 18px; border-radius: 12px; background: linear-gradient(120deg, #1C3334, #376E6F); color: #F6F1E9; }
+.wm-hero strong { display: block; max-width: 70%; font: 700 19px/1.25 'Sora', sans-serif; }
+.wm-btns { display: flex; gap: 8px; margin-top: 14px; }
+.wm-btns em, .wm-phero em { font: 600 11px 'Inter', sans-serif; font-style: normal; padding: 6px 12px; border-radius: 99px; background: #FF4F2E; color: #fff; }
+.wm-btns em.alt, .wm-phero em.alt { background: rgba(246, 241, 233, .16); color: #F6F1E9; }
+.wm-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+.wm-cards span { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.wm-cards i, .wm-pcards i { display: block; height: 46px; }
+.wm-cards b { display: block; padding: 7px 9px; font: 600 11px 'Inter', sans-serif; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.web-mock .c1 { background: linear-gradient(135deg, #F2C9B8, #E8A48A); }
+.web-mock .c2 { background: linear-gradient(135deg, #EAD9B8, #D9B98A); }
+.web-mock .c3 { background: linear-gradient(135deg, #CFE3D6, #9CC98F); }
+.wm-phone { position: absolute; inset-inline-end: -14px; bottom: 0; width: 148px; padding: 10px 9px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 24px 48px -22px rgba(17, 17, 17, .45); }
+.wm-pnav { display: flex; align-items: center; gap: 6px; font: 600 10.5px 'Sora', sans-serif; color: var(--text); white-space: nowrap; overflow: hidden; }
+.wm-pnav .wm-logo { width: 20px; height: 20px; border-radius: 6px; font-size: 8px; }
+.wm-phero { margin-top: 8px; padding: 12px 10px; border-radius: 10px; background: linear-gradient(160deg, #1C3334, #376E6F); color: #F6F1E9; display: flex; flex-wrap: wrap; gap: 6px; }
+.wm-phero strong { flex: 1 1 100%; font: 700 12px/1.25 'Sora', sans-serif; margin-bottom: 2px; }
+.wm-phero em { padding: 4px 8px; font-size: 9.5px; }
+.wm-pcards { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+.wm-pcards i { height: 34px; border-radius: 8px; }
+.web-mock > .dv-cap { position: absolute; inset-inline-start: 0; bottom: 4px; margin: 0; }
+@media (max-width: 960px) { .web-mock { width: min(100%, 440px); } }
+@media (max-width: 520px) {
+  .web-mock { width: 100%; padding-bottom: 28px; }
+  .wm-hero strong { font-size: 15px; max-width: 64%; }
+  .wm-hero { padding: 16px 14px; }
+  .wm-links { display: none; }
+  .wm-phone { width: 118px; inset-inline-end: -4px; }
+  .wm-cards i { height: 34px; }
+}
+.s-logo.web, .sol-card .s-logo.web { background: linear-gradient(135deg, #244A4B, #376E6F); box-shadow: none; }
+
+/* Neler dahil: ek maddeler */
+.web-more { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+@media (max-width: 640px) { .web-more { grid-template-columns: 1fr; } }
+
+/* Alan adı ve sunucu: iki sütun + ödeme altyapısı notu */
+.web-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.web-split h3 { margin: 0 0 12px; font: 600 20px 'Sora', sans-serif; }
+.web-split .checks { margin: 0; }
+@media (max-width: 760px) { .web-split { grid-template-columns: 1fr; } }
+.web-note { display: flex; gap: 14px; align-items: flex-start; margin-top: 18px; padding: 18px 20px; border: 1px dashed var(--line-2); border-radius: 20px; background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.web-note strong { display: block; font: 600 16px 'Sora', sans-serif; color: var(--text); margin-bottom: 4px; }
+.web-note p { margin: 0; color: var(--dim); font-size: 15px; line-height: 1.55; }
+.web-note .ico { flex: none; }
+
+/* Kimler için: örnek iş kartı */
+.web-ex { display: flex; gap: 16px; align-items: center; margin-top: 26px; }
+.web-ex h3 { margin: 0 0 4px; }
+.web-ex p { margin: 0; color: var(--dim); }
+.web-ex .s-logo svg { width: 28px; height: 28px; fill: none; stroke: #F6F1E9; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 520px) { .web-ex { align-items: flex-start; } .web-ex .s-logo { width: 44px; height: 44px; border-radius: 13px; } }
+.web-more { margin-top: 16px; }
+@media (min-width: 1000px) { .web-more { grid-template-columns: repeat(4, minmax(0, 1fr)); font-size: 14.5px; } }
+.wm-pnav b { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 520px) { .wm-phero strong { font-size: 11px; } .wm-pnav { font-size: 9.5px; } }
+/* Web Sitesi girişi: başlık ve metin tek ekrana sığsın */
+@media (min-width: 521px) {
+  .web-hero h1 { font-size: clamp(34px, 3.5vw, 50px); }
+  .web-hero .lede { font-size: 16.5px; }
+}

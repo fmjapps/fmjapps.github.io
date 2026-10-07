@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сайт · Сайты для бизнеса и частных лиц · FMJ Software</title>
+<meta name="description" content="Мы разрабатываем, создаём и запускаем сайт, который выглядит профессионально, удобен на телефоне и сразу получает базовую SEO-настройку. Домен вы регистрируете на своё имя, а настройку и хостинг берём на себя мы — без отдельной платы за хостинг.">
+<meta name="theme-color" content="#1C3334">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FMJ Software">
+<meta property="og:title" content="Web Sitesi · FMJ Software">
+<meta property="og:description" content="Мы разрабатываем, создаём и запускаем сайт, который выглядит профессионально, удобен на телефоне и сразу получает базовую SEO-настройку. Домен вы регистрируете на своё имя, а настройку и хостинг берём на себя мы — без отдельной платы за хостинг.">
+<meta property="og:image" content="https://fmjapps.com/assets/og-web-ru.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://fmjapps.com/ru/website/">
+<link rel="canonical" href="https://fmjapps.com/ru/website/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/web-sitesi/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/website/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/website/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/website/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/website/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/website/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/website/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/website/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/website/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/website/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/website/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/website/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/website/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/website/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/web-sitesi/">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/web-sitesi/#service","name":"Web Sitesi","serviceType":"Web sitesi tasarımı ve barındırma","description":"Мы разрабатываем, создаём и запускаем сайт, который выглядит профессионально, удобен на телефоне и сразу получает базовую SEO-настройку. Домен вы регистрируете на своё имя, а настройку и хостинг берём на себя мы — без отдельной платы за хостинг.","url":"https://fmjapps.com/web-sitesi/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"Web Sitesi","item":"https://fmjapps.com/web-sitesi/"}]}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'light';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+    }
+  })();
+</script>
+</head>
+<body class="paged">
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<a class="skip" href="#neler" data-i18n="skip">Перейти к содержимому</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/ru/" data-en-href="/en/" aria-label="FMJ Software">
+      <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Надёжные решения, эффективные результаты</span>
+    </a>
+    <nav class="links" aria-label="Разделы" data-i18n-aria="nav.sections">
+      <a href="#neler" data-i18n="web.nav.inc">Что входит</a>
+      <a href="#alan-adi" data-i18n="web.nav.host">Домен и хостинг</a>
+      <a href="#nasil" data-i18n="web.nav.how">Как это работает</a>
+      <a href="#sss" data-i18n="titus.nav.faq">Вопросы</a>
+      <a href="/ru/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Приложения</a>
+      <a href="/ru/about/" data-en-href="/en/about/" data-i18n="nav.about">О нас</a>
+      <a class="cta-link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">Запросить предложение</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="Сменить тему">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="Меню" data-i18n-aria="menu"></nav>
+
+<main id="top">
+
+  <!-- GİRİŞ -->
+  <section class="hero page">
+    <span class="glow g1" aria-hidden="true"></span>
+    <span class="glow g2" aria-hidden="true"></span>
+    <div class="wrap hero-grid qr-hero web-hero">
+      <div>
+        <p class="eyebrow" data-i18n="web.hero.kick">Сайт · Сайты для бизнеса и частных лиц</p>
+        <h1 data-i18n-html="web.hero.h1">Профессиональный сайт, <span class="grad">удобный на любом телефоне.</span></h1>
+        <p class="lede" data-i18n="web.hero.lede">Мы разрабатываем, создаём и запускаем сайт, который профессионально представит ваш бизнес и будет удобен на телефоне. Домен вы регистрируете на своё имя, а мы настраиваем хостинг и следим, чтобы сайт всегда был доступен, — без отдельной платы за хостинг. Клиенты находят вас в Google и связываются по телефону, в WhatsApp или через форму обратной связи.</p>
+        <ul class="hero-feats">
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9Z"/></svg></span><span data-i18n="web.hero.f1">Профессиональный вид</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="web.hero.f2">Удобно на телефоне</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span><span data-i18n="web.hero.f3">Базовое SEO включено</span></li>
+          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="16" height="6.5" rx="1.5"/><path d="M7.5 7.2h.01M7.5 16.7h.01"/></svg></span><span data-i18n="web.hero.f4">Без забот о хостинге</span></li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#iletisim" data-subject="web"><span data-i18n="web.cta.main">Создадим ваш сайт</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="#nasil" data-i18n="web.nav.how">Как это работает</a>
+        </div>
+      </div>
+
+      <!-- Temsili site: uydurma bir pastanenin sitesi, bilgisayar ve telefonda -->
+      <div class="web-mock reveal" aria-hidden="true">
+        <div class="wm-browser">
+          <div class="wm-bar"><i></i><i></i><i></i><span class="wm-url">ornekpastane.com</span></div>
+          <div class="wm-page">
+            <div class="wm-nav"><span class="wm-logo">ÖP</span><b data-i18n="web.m.name">Пекарня «Пример»</b><span class="wm-links"><span data-i18n="web.m.n1">Продукция</span><span data-i18n="web.m.n2">Контакты</span></span></div>
+            <div class="wm-hero">
+              <strong data-i18n="web.m.h">Свежая выпечка каждое утро. Заходите!</strong>
+              <span class="wm-btns"><em data-i18n="web.m.b1">Маршрут</em><em class="alt">WhatsApp</em></span>
+            </div>
+            <div class="wm-cards">
+              <span><i class="c1"></i><b data-i18n="web.m.c1">Торты</b></span>
+              <span><i class="c2"></i><b data-i18n="web.m.c2">Печенье</b></span>
+              <span><i class="c3"></i><b data-i18n="web.m.c3">Часы работы</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="wm-phone">
+          <div class="wm-pnav"><span class="wm-logo">ÖP</span><b data-i18n="web.m.name">Пекарня «Пример»</b></div>
+          <div class="wm-phero"><strong data-i18n="web.m.h">Свежая выпечка каждое утро. Заходите!</strong><em data-i18n="web.m.b1">Маршрут</em><em class="alt">WhatsApp</em></div>
+          <div class="wm-pcards"><i class="c1"></i><i class="c2"></i></div>
+        </div>
+        <p class="dv-cap" data-i18n="qr.m.cap">Пример оформления</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NELER DAHİL -->
+  <section class="sec alt page" id="neler">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.inc">Что входит</p>
+        <h2 data-i18n="web.inc.title">Всё, что нужно сайту, — уже готово.</h2>
+        <p data-i18n="web.inc.lede">Мы делаем дизайн под ваш бизнес и передаём сайт полностью готовым к запуску.</p>
+      </header>
+      <div class="grid-3 feat-grid">
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.4-1.3-1.6-1.3-2.8 0-1 .8-1.7 1.8-1.7h2.2a4 4 0 0 0 4-4C20.5 6.6 16.7 3.5 12 3.5Z"/><circle cx="7.8" cy="11" r="1.1"/><circle cx="10.5" cy="7.4" r="1.1"/><circle cx="15" cy="7.6" r="1.1"/></svg></span>
+          <h3 data-i18n="web.i1.t">Профессиональный дизайн</h3>
+          <p data-i18n="web.i1.d">С учётом вашего логотипа, фирменных цветов и того, чем вы занимаетесь.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="13" height="10" rx="1.5"/><path d="M6 19h6M9 15v4"/><rect x="16.5" y="9" width="5" height="10.5" rx="1.2"/></svg></span>
+          <h3 data-i18n="web.i2.t">Хорошо выглядит на любом экране</h3>
+          <p data-i18n="web.i2.d">Удобно читать на телефоне, планшете и компьютере.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3 data-i18n="web.i3.t">Защищённое соединение</h3>
+          <p data-i18n="web.i3.d">Сайт открывается по HTTPS, а в браузере виден значок замка.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+          <h3 data-i18n="web.i4.t">Форма обратной связи</h3>
+          <p data-i18n="web.i4.d">Сообщения посетителей приходят прямо вам на почту.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+          <h3 data-i18n="web.i5.t">Связь в одно касание</h3>
+          <p data-i18n="web.i5.d">Звонок, WhatsApp, маршрут и ссылки на соцсети.</p>
+        </div>
+        <div class="card reveal">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
+          <h3 data-i18n="web.i6.t">Базовое SEO</h3>
+          <p data-i18n="web.i6.d">Заголовки страниц, описания, структурированные данные и карта сайта, подготовленные для Google; добавляем ваш сайт в Search Console.</p>
+        </div>
+      </div>
+      <ul class="checks web-more reveal">
+        <li data-i18n="web.x1">При необходимости — на нескольких языках</li>
+        <li data-i18n="web.x2">Картинка-превью, когда делятся ссылкой</li>
+        <li data-i18n="web.x3">Быстрые и аккуратные страницы</li>
+        <li data-i18n="web.x4">Ваш адрес на карте</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ALAN ADI VE SUNUCU -->
+  <section class="sec page" id="alan-adi">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.host">Домен и хостинг</p>
+        <h2 data-i18n="web.host.title">От вас — домен, всё остальное — наша забота.</h2>
+        <p data-i18n="web.host.lede">Выбрать хостинг, настроить сервер, вовремя продлить сертификаты безопасности, следить, чтобы сайт был доступен… Ничем из этого вам заниматься не придётся.</p>
+      </header>
+      <div class="web-split">
+        <div class="card reveal">
+          <h3 data-i18n="web.host.you.t">Что делаете вы</h3>
+          <ul class="checks">
+            <li data-i18n="web.host.you.1">Регистрируете домен (например, yourbusiness.com) на своё имя.</li>
+            <li data-i18n="web.host.you.2">Оплачиваете домен раз в год напрямую регистратору.</li>
+            <li data-i18n="web.host.you.3">Домен всегда остаётся вашим — вы ни от кого не зависите.</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3 data-i18n="web.host.we.t">Что делаем мы</h3>
+          <ul class="checks">
+            <li data-i18n="web.host.we.1">Настраиваем хостинг для вашего сайта — отдельно платить за хостинг не нужно.</li>
+            <li data-i18n="web.host.we.2">Подключаем домен к сайту и настраиваем HTTPS.</li>
+            <li data-i18n="web.host.we.3">Запускаем сайт и следим за его работой.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="web-note reveal">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h3"/><path d="M4 4l16 16"/></svg></span>
+        <div><strong data-i18n="web.host.no.t">Без онлайн-оплаты</strong><p data-i18n="web.host.no.d">На сайте нет корзины и онлайн-оплаты. Он представляет ваш бизнес, а клиенты связываются с вами по телефону, в WhatsApp или через форму обратной связи.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NASIL İLERLİYORUZ -->
+  <section class="sec alt page" id="nasil">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="eyebrow" data-i18n="web.nav.how">Как это работает</p>
+        <h2 data-i18n="web.how.title">Запуск в три шага.</h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><h3 data-i18n="web.st1.t">Расскажите о своём бизнесе</h3><p data-i18n="web.st1.d">Пришлите описание того, чем вы занимаетесь, логотип, фото и контакты. Для начала хватит того, что у вас уже есть.</p></li>
+        <li class="reveal"><h3 data-i18n="web.st2.t">Вместе доводим дизайн</h3><p data-i18n="web.st2.d">Мы делаем сайт и показываем его вам, вносим нужные правки и согласовываем результат.</p></li>
+        <li class="reveal"><h3 data-i18n="web.st3.t">Вы берёте домен, мы запускаем</h3><p data-i18n="web.st3.d">Вы регистрируете домен на своё имя, а мы подключаем его, настраиваем HTTPS и запускаем сайт.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- KİMLER İÇİN -->
+  <section class="sec page" id="kimler">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="qr.who.kick">Для кого?</p>
+        <h2 data-i18n="web.who.title">Для всех, кто хочет достойно выглядеть в интернете.</h2>
+      </header>
+      <ul class="qr-tags reveal">
+        <li data-i18n="web.w1">Кафе и рестораны</li>
+        <li data-i18n="web.w2">Клиники и медицина</li>
+        <li data-i18n="web.w3">Салоны красоты</li>
+        <li data-i18n="web.w4">Агентства недвижимости</li>
+        <li data-i18n="web.w5">Юристы и консультанты</li>
+        <li data-i18n="web.w6">Мастера и ремонтные службы</li>
+        <li data-i18n="web.w7">Личные сайты и портфолио</li>
+      </ul>
+      <div class="web-ex card reveal">
+        <span class="s-logo web" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18M6.5 6.8h.01M9 6.8h.01"/></svg></span>
+        <div><h3 data-i18n="web.ex.t">Этот сайт тоже сделали мы</h3><p data-i18n="web.ex.d">Сайт fmjapps.com, который вы сейчас смотрите, — наша работа: 14 языков, удобен на телефоне, светлая и тёмная темы.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section class="sec alt page" id="sss">
+    <div class="wrap">
+      <header class="sec-head center reveal">
+        <p class="eyebrow" data-i18n="titus.faq.kick">Частые вопросы</p>
+        <h2 data-i18n="titus.faq.title">Что вас может интересовать</h2>
+      </header>
+      <div class="faq reveal">
+        <details name="faq" open><summary data-i18n="web.q1">Где взять домен?</summary><p data-i18n="web.a1">У любого регистратора доменов, на своё имя. Если не знаете, какого выбрать, разберёмся вместе.</p></details>
+        <details name="faq"><summary data-i18n="web.q2">Придётся ли отдельно платить за хостинг?</summary><p data-i18n="web.a2">Нет. Хостинг для вашего сайта мы настраиваем и обслуживаем сами; от вас нужен только домен.</p></details>
+        <details name="faq"><summary data-i18n="web.q3">Можно ли продавать через сайт онлайн?</summary><p data-i18n="web.a3">Нет, платёжные системы мы не подключаем. Сайт представляет ваш бизнес, а клиенты связываются с вами по телефону, в WhatsApp или через форму обратной связи.</p></details>
+        <details name="faq"><summary data-i18n="web.q4">Кто готовит тексты и фото?</summary><p data-i18n="web.a4">Вы присылаете информацию и фото, а мы превращаем их в тексты, которые хорошо читаются на сайте, и отправляем вам на согласование.</p></details>
+        <details name="faq"><summary data-i18n="web.q5">Можно ли что-то изменить потом?</summary><p data-i18n="web.a5">Да. Напишите, что хотите поменять; мы вместе согласуем объём работ и обновим сайт.</p></details>
+        <details name="faq"><summary data-i18n="web.q6">Вы занимаетесь SEO?</summary><p data-i18n="web.a7">Каждый наш сайт получает базовую SEO-настройку: заголовки и описания страниц, чёткая структура заголовков, структурированные данные, карта сайта, быстрая загрузка и добавление в Search Console. Конкретное место в Google мы не гарантируем: позиции растут со временем и зависят от вашего контента и конкурентов.</p></details>
+        <details name="faq"><summary data-i18n="qr.q7">Сколько это стоит?</summary><p data-i18n="web.a6">Напишите нам, чтобы узнать цену, и мы пришлём предложение под ваши задачи.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section class="sec page" id="iletisim">
+    <div class="wrap">
+      <header class="contact-head reveal">
+        <p class="eyebrow" data-i18n="qr.nav.cta">Запросить предложение</p>
+        <h2 data-i18n="web.cta.main">Создадим ваш сайт</h2>
+        <p data-i18n="web.contact.lede">Расскажите немного о своём бизнесе — мы пришлём наше предложение и список того, что нужно для начала работы.</p>
+        <div class="mail-line">
+          <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+          <button class="copy-btn" type="button" id="copyMail" data-mail="contact@fmjapps.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a2 2 0 0 0 2 2h2.5"/></svg><span data-i18n="contact.copy">Копировать</span></button>
+        </div>
+      </header>
+      <div class="chat reveal" id="chat">
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <form class="composer" id="composer" novalidate autocomplete="off">
+          <textarea id="chatIn" rows="1" maxlength="4000" disabled data-i18n-ph="ph.msg" placeholder="Напиши сообщение…"></textarea>
+          <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <button type="submit" id="chatSend" data-i18n-aria="form.send" aria-label="Отправить" disabled>→</button>
+        </form>
+        <button class="chat-reset" type="button" id="chatReset" hidden data-i18n="chat.again">Написать новое сообщение</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="foot-logo"><img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="164" height="30"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="164" height="30"></span>
+      <span data-i18n="co.tagline">Надёжные решения, эффективные результаты</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">Решения</span>
+      <a href="/ru/titus/" data-en-href="/en/titus/">Titus</a>
+      <a href="/ru/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
+      <a href="/ru/website/" data-en-href="/en/website/" data-i18n="web.name">Сайт</a>
+      <a href="/ru/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">Решение для вашего бизнеса</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">Контакты</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="co.foot.company">Компания</span>
+      <a href="/ru/about/" data-en-href="/en/about/" data-i18n="nav.about">О нас</a>
+      <a href="/ru/about/#kunye" data-en-href="/en/about/#kunye" data-i18n="about.info.kick">Реквизиты</a>
+      <a href="/privacy/" data-i18n="about.privacy">Политики конфиденциальности</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Software</span>
+    <a href="#top" data-i18n="foot.top">Наверх ↑</a>
+  </div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · <span data-i18n="co.kunye.vd">Налоговая инспекция Menemen</span> 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="/ru/about/" data-en-href="/en/about/" data-i18n="nav.about">О нас</a></p></div>
+</footer>
+
+<nav class="pager" id="pager" aria-label="Страницы" data-i18n-aria="pages"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

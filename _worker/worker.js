@@ -9,6 +9,7 @@ const MAX_BODY = 12000;
 const SUBJECTS = {
   titus: 'Titus demo talebi',
   qrmenu: 'QR Menü teklif talebi',
+  web: 'Web sitesi teklif talebi',
   business: 'İşletmeye özel çözüm',
   other: 'FMJ Software (diğer)',
   general: 'FMJ Apps (genel)',
