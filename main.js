@@ -583,7 +583,9 @@
       if (tMode === null) {
         if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
         var dir = dy > 0 ? 1 : -1;
-        if (Math.abs(dx) > Math.abs(dy) || scrollableInside(e.target, dir) || nativeFirst(dir)) tMode = 'native';
+        // En üstte aşağı çekmek tarayıcıya kalır: sayfa yenilenir
+        if (dir < 0 && cur === 0 && window.scrollY <= 0) tMode = 'native';
+        else if (Math.abs(dx) > Math.abs(dy) || scrollableInside(e.target, dir) || nativeFirst(dir)) tMode = 'native';
         else tMode = 'page';
       }
       if (tMode === 'page') e.preventDefault();

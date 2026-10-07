@@ -132,6 +132,8 @@
  "demo.err": "出了点问题，消息未能发送。请稍后再试。",
  "demo.greet": "您好！我是 Titus，代表{name}回复您的消息。有什么可以帮您？",
  "demo.handoff": "Titus 已将此对话转交给团队。实际使用时，企业团队会在这里继续对话。",
+ "demo.klinik.foreign": "How much is a hair transplant package?",
+ "demo.klinik.note": "诊所模式：用土耳其语咨询的患者不会获得报价（土耳其医疗广告规定）。从国外咨询的患者可获得医疗旅游套餐价格。两个问题都试试吧。",
  "demo.limit": "已达到演示的消息上限。请稍后再试。",
  "demo.offline": "演示暂时无法使用。请稍后再试。",
  "demo.restart": "开始新对话",

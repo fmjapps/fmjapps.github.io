@@ -132,6 +132,8 @@
  "demo.err": "Something went wrong and the message couldn’t be sent. Please try again in a moment.",
  "demo.greet": "Hi! I’m Titus, and I answer messages on behalf of {name}. How can I help you?",
  "demo.handoff": "Titus has handed this conversation to the team. In real use, the business’s team picks up the conversation from here.",
+ "demo.klinik.foreign": "How much is a hair transplant package?",
+ "demo.klinik.note": "Clinic mode: patients writing in Turkish don't get prices (Turkish health advertising rules). Patients writing from abroad get package prices under health tourism. Try both questions.",
  "demo.limit": "The demo’s message limit has been reached. Please try again a little later.",
  "demo.offline": "The demo isn’t available right now. Please try again a little later.",
  "demo.restart": "Start a new conversation",

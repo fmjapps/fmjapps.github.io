@@ -132,6 +132,8 @@
  "demo.err": "Terjadi masalah, pesan tidak terkirim. Coba lagi sebentar lagi.",
  "demo.greet": "Halo! Saya Titus, membalas pesan Anda atas nama {name}. Ada yang bisa saya bantu?",
  "demo.handoff": "Titus telah meneruskan percakapan ini ke tim. Dalam pemakaian nyata, tim bisnis melanjutkan percakapan dari sini.",
+ "demo.klinik.foreign": "How much is a hair transplant package?",
+ "demo.klinik.note": "Mode klinik: pasien yang menulis dalam bahasa Turki tidak diberi harga (aturan iklan kesehatan Turki). Pasien yang menulis dari luar negeri diberi harga paket dalam rangka wisata medis. Coba kedua pertanyaan.",
  "demo.limit": "Batas pesan demo sudah tercapai. Coba lagi sebentar lagi.",
  "demo.offline": "Demo sedang tidak tersedia. Coba lagi sebentar lagi.",
  "demo.restart": "Mulai percakapan baru",

@@ -61,6 +61,7 @@
     'demo.offline': 'Demo şu an kullanılamıyor. Biraz sonra tekrar deneyin.',
     'demo.s1': 'Çalışma saatleriniz nedir?',
     'demo.s2': 'Bir insanla görüşmek istiyorum',
+    'demo.klinik.foreign': 'How much is a hair transplant package?',
     'co.lock.bad': 'Şifre hatalı.',
     'co.lock.rate': 'Çok fazla deneme. 15 dakika sonra tekrar deneyin.',
     'pages': 'Sayfalar'
@@ -329,7 +330,9 @@
       if (tMode === null) {
         if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
         var dir = dy > 0 ? 1 : -1;
-        if (Math.abs(dx) > Math.abs(dy) || scrollableInside(e.target, dir) || nativeFirst(dir)) tMode = 'native';
+        // En üstte aşağı çekmek tarayıcıya kalır: sayfa yenilenir
+        if (dir < 0 && cur === 0 && window.scrollY <= 0) tMode = 'native';
+        else if (Math.abs(dx) > Math.abs(dy) || scrollableInside(e.target, dir) || nativeFirst(dir)) tMode = 'native';
         else tMode = 'page';
       }
       if (tMode === 'page') e.preventDefault();
@@ -490,6 +493,7 @@
     var chips = document.getElementById('demoSectors');
     var msgs = document.getElementById('demoMsgs');
     var sugg = document.getElementById('demoSugg');
+    var note = document.getElementById('demoNote');
     var form = document.getElementById('demoForm');
     var input = document.getElementById('demoIn');
     var send = document.getElementById('demoSend');
@@ -554,10 +558,14 @@
           d.appendChild(b);
         }
       });
-      // Öneriler: sektör kartındaki örnek soru + iki genel soru
+      // Öneriler: sektör kartındaki örnek soru + iki genel soru.
+      // Klinikte ikinci öneri yurt dışından yazan hasta örneğidir: Türkçe soruya fiyat verilmez, yabancı dildeki soruya verilir.
       sugg.innerHTML = '';
       var q = document.querySelector('.sec-card[data-sector="' + current.key + '"] .sc-q span');
-      [q && q.textContent.trim(), t('demo.s1'), t('demo.s2')].filter(Boolean).forEach(function (text) {
+      var klinik = current.key === 'klinik';
+      if (note) note.hidden = !klinik;
+      var list = klinik ? [q && q.textContent.trim(), t('demo.klinik.foreign')] : [q && q.textContent.trim(), t('demo.s1'), t('demo.s2')];
+      list.filter(function (x, i) { return x && list.indexOf(x) === i; }).forEach(function (text) {
         var b = document.createElement('button');
         b.type = 'button';
         b.textContent = text;

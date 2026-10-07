@@ -132,6 +132,8 @@
  "demo.err": "Etwas ist schiefgelaufen, die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es gleich noch einmal.",
  "demo.greet": "Hallo! Ich bin Titus und beantworte Ihre Nachrichten im Namen von {name}. Wie kann ich Ihnen helfen?",
  "demo.handoff": "Titus hat dieses Gespräch an das Team übergeben. Im echten Einsatz führt das Team des Unternehmens das Gespräch hier weiter.",
+ "demo.klinik.foreign": "How much is a hair transplant package?",
+ "demo.klinik.note": "Klinikmodus: Patienten, die auf Türkisch schreiben, erhalten keine Preise (türkische Vorschriften zur Gesundheitswerbung). Patienten, die aus dem Ausland schreiben, erhalten im Rahmen des Gesundheitstourismus Paketpreise. Probieren Sie beide Fragen aus.",
  "demo.limit": "Das Nachrichtenlimit der Demo ist erreicht. Bitte versuchen Sie es etwas später noch einmal.",
  "demo.offline": "Die Demo ist gerade nicht verfügbar. Bitte versuchen Sie es etwas später noch einmal.",
  "demo.restart": "Neues Gespräch starten",

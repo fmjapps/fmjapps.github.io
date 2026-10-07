@@ -132,6 +132,8 @@
  "demo.err": "Un problème est survenu, le message n’a pas pu être envoyé. Réessayez dans un instant.",
  "demo.greet": "Bonjour ! Je suis Titus, je réponds à vos messages pour {name}. Comment puis-je vous aider ?",
  "demo.handoff": "Titus a transmis cette conversation à l’équipe. En conditions réelles, l’équipe de l’entreprise reprend la conversation ici.",
+ "demo.klinik.foreign": "How much is a hair transplant package?",
+ "demo.klinik.note": "Mode clinique : les patients qui écrivent en turc ne reçoivent pas de prix (règles turques sur la publicité en santé). Les patients qui écrivent depuis l’étranger reçoivent des prix de forfaits au titre du tourisme médical. Essayez les deux questions.",
  "demo.limit": "La limite de messages de la démo est atteinte. Réessayez un peu plus tard.",
  "demo.offline": "La démo est indisponible pour le moment. Réessayez un peu plus tard.",
  "demo.restart": "Démarrer une nouvelle conversation",
