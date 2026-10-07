@@ -1584,3 +1584,9 @@ html { scroll-padding-top: 96px; }
   .home-mini { display: inline-flex; align-items: center; gap: 5px; padding: 7px 11px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--surface); color: var(--text); font: 600 12.5px 'Inter', sans-serif; text-decoration: none; white-space: nowrap; }
 }
 @media (max-width: 400px) { .home-mini { padding: 6px 9px; font-size: 12px; } }
+
+/* Alt bilgi: sosyal medya hesapları */
+.foot-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.foot-social a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; border: 1px solid #2A2A2A; color: #CFCFCF; transition: color .2s, border-color .2s, background-color .2s; }
+.foot-social a:hover { color: #FFFFFF; border-color: #FF4F2E; background: rgba(255, 79, 46, .12); }
+.foot-social svg { width: 18px; height: 18px; }

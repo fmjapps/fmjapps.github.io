@@ -1348,3 +1348,9 @@ html { scroll-padding-top: 96px; }
   .hero.page:has(.titus) .price-strip { padding-block: 10px; }
   .hero.page:has(.titus) .lede { margin-bottom: 10px; }
 }
+
+/* Alt bilgi: sosyal medya hesapları */
+.foot-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.foot-social a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; border: 1px solid #2A2A2A; color: #CFCFCF; transition: color .2s, border-color .2s, background-color .2s; }
+.foot-social a:hover { color: #FFFFFF; border-color: #FF4F2E; background: rgba(255, 79, 46, .12); }
+.foot-social svg { width: 18px; height: 18px; }
