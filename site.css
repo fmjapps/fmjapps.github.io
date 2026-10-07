@@ -6,15 +6,15 @@
   --bg-2: #2A3D4C;
   --surface: #1C3334;
   --surface-2: #24403F;
-  --line: rgba(218, 123, 147, 0.10);
-  --line-2: rgba(218, 123, 147, 0.18);
+  --line: rgba(255, 79, 46, 0.10);
+  --line-2: rgba(255, 79, 46, 0.18);
   --text: #FFFFFF;
   --dim: #C9D3D8;
   --faint: #93A6AE;
   --brand: #376E6F;
   --brand-2: #5FA3A3;
-  --brand-ink: #F0B3C3;
-  --cyan: #DA7B93;
+  --brand-ink: #FF4F2E;
+  --cyan: #FF4F2E;
   --ok: #8FD3B4;
   --on-brand: #fff;
   --grid: transparent;
@@ -35,7 +35,7 @@
   --brand: #376E6F;
   --brand-2: #376E6F;
   --brand-ink: #1C3334;
-  --cyan: #C25A75;
+  --cyan: #FF4F2E;
   --ok: #3F8F6B;
   --grid: transparent;
   --shadow: 0 30px 60px -32px rgba(28, 51, 52, 0.30);
@@ -422,7 +422,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .progress {
   position: fixed; top: 0; inset-inline-start: 0; z-index: 60; height: 3px; width: 100%;
   transform-origin: 0 50%; transform: scaleX(var(--p, 0));
-  background: linear-gradient(90deg, var(--brand), var(--brand-2), #DA7B93);
+  background: linear-gradient(90deg, var(--brand), var(--brand-2), #FF4F2E);
 }
 [dir="rtl"] .progress { transform-origin: 100% 50%; }
 .page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; }
@@ -454,8 +454,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero.page { padding-block: 92px 40px; }
 .titus { position: relative; width: min(100%, 560px); margin-inline: auto; aspect-ratio: 480 / 560; }
 .titus canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.t-glow { position: absolute; inset: 4% 0 14%; border-radius: 50%; background: radial-gradient(circle at 50% 42%, rgba(55, 110, 111, .55), rgba(218, 123, 147, .2) 46%, transparent 70%); filter: blur(8px); pointer-events: none; }
-:root[data-theme="light"] .t-glow { background: radial-gradient(circle at 50% 42%, rgba(55, 110, 111, .3), rgba(218, 123, 147, .14) 46%, transparent 70%); }
+.t-glow { position: absolute; inset: 4% 0 14%; border-radius: 50%; background: radial-gradient(circle at 50% 42%, rgba(55, 110, 111, .55), rgba(255, 79, 46, .2) 46%, transparent 70%); filter: blur(8px); pointer-events: none; }
+:root[data-theme="light"] .t-glow { background: radial-gradient(circle at 50% 42%, rgba(55, 110, 111, .3), rgba(255, 79, 46, .14) 46%, transparent 70%); }
 .t-say {
   position: absolute; top: 3%; inset-inline-start: -2%; max-width: 62%; margin: 0; padding: 12px 16px; border-radius: 18px; border-end-start-radius: 4px;
   font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--text);
@@ -479,8 +479,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background: radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--cyan) 14%, transparent), transparent 60%), color-mix(in srgb, var(--surface) 80%, transparent); }
 .ps-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
 .ps-top strong { font: 700 clamp(18px, 1.8vw, 22px) 'Sora', sans-serif; letter-spacing: -0.01em; }
-.ps-free { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #2A1716; background: linear-gradient(135deg, #F0B3C3, #DA7B93); }
-:root[data-theme="light"] .ps-free { color: #fff; background: linear-gradient(135deg, #E58FA5, #C25A75); }
+.ps-free { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #2A1716; background: linear-gradient(135deg, #FF4F2E, #FF4F2E); }
+:root[data-theme="light"] .ps-free { color: #fff; background: linear-gradient(135deg, #FF4F2E, #FF4F2E); }
 .ps-chips { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; }
 .ps-chips li { position: relative; font-size: 14px; color: var(--dim); padding-inline-start: 14px; }
 .ps-chips li::before { content: ''; position: absolute; inset-inline-start: 0; top: .55em; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); }
@@ -683,15 +683,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (min-width: 961px) and (max-height: 820px) { .hero.page { padding-block: 82px 24px; } .hero-feats, .price-strip { margin-top: 16px; } .hero .actions { margin-top: 18px; } .hero .lede { margin-top: 14px; } }
 
 /* Açık tema: paletteki gibi açık maviden toz pembeye inen giriş */
-:root[data-theme="light"] .hero { background: linear-gradient(180deg, #F0B3C3 0%, #E4D6DB 55%, #F3DCE2 100%); }
+:root[data-theme="light"] .hero { background: linear-gradient(180deg, #FF4F2E 0%, #E4D6DB 55%, #F3DCE2 100%); }
 :root[data-theme="light"] .hero .price-strip { background: rgba(248, 250, 254, .72); }
 
-/* Palet: #2E151B bordo (zemin) · #2F4454 arduvaz · #DA7B93 gül · #376E6F turkuaz · #1C3334 koyu yeşil */
+/* Palet: #FF4F2E bordo (zemin) · #2F4454 arduvaz · #FF4F2E gül · #376E6F turkuaz · #1C3334 koyu yeşil */
 :root {
   --bg: #0D0507; --bg-2: #0B0406; --surface: #1A0C10; --surface-2: #221116;
-  --line: rgba(255, 255, 255, 0.08); --line-2: rgba(218, 123, 147, 0.30);
+  --line: rgba(255, 255, 255, 0.08); --line-2: rgba(255, 79, 46, 0.30);
   --text: #FFFFFF; --dim: #E2CDD3; --faint: #AE9199;
-  --brand: #376E6F; --brand-2: #DA7B93; --brand-ink: #F0B3C3; --cyan: #F0B3C3; --on-brand: #FFFFFF;
+  --brand: #376E6F; --brand-2: #FF4F2E; --brand-ink: #FF4F2E; --cyan: #FF4F2E; --on-brand: #FFFFFF;
   --ok: #8FD3B4;
   --grid: transparent; --shadow: 0 30px 70px -35px rgba(10, 3, 6, 0.85);
   --sky: linear-gradient(180deg, #0D0507 0%, #0B0406 60%, #080305 100%);
@@ -701,7 +701,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   --bg: #F6EEF0; --bg-2: #EFE3E7; --surface: #FFFFFF; --surface-2: #FBF6F7;
   --line: rgba(28, 51, 52, 0.10); --line-2: rgba(55, 110, 111, 0.28);
   --text: #1C3334; --dim: #3A5254; --faint: #5B7375;
-  --brand: #376E6F; --brand-2: #2F4454; --brand-ink: #2E151B; --cyan: #C25A75; --on-brand: #FFFFFF;
+  --brand: #376E6F; --brand-2: #2F4454; --brand-ink: #FF4F2E; --cyan: #FF4F2E; --on-brand: #FFFFFF;
   --ok: #2F7A5C;
   --grid: transparent; --shadow: 0 30px 60px -32px rgba(28, 51, 52, 0.25);
   --sky: linear-gradient(180deg, #F6EEF0 0%, #EFE3E7 100%);
@@ -810,7 +810,7 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .sol-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
 .sol-card > p { color: var(--dim); margin-top: 18px; font-size: 16px; }
 .sol-card .s-logo svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.sol-card .s-logo.qr { background: linear-gradient(135deg, #DA7B93, #376E6F); }
+.sol-card .s-logo.qr { background: linear-gradient(135deg, #FF4F2E, #376E6F); }
 .sol-card .s-actions { padding-top: 24px; }
 .sol-card .s-actions a.link { color: var(--brand-ink); font-weight: 600; font-size: 15px; text-decoration: none; }
 .sol-card .s-actions a.link:hover { text-decoration: underline; }
@@ -895,7 +895,7 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 
 /* =========================================================
    Kapak teması: sosyal medya kapaklarıyla aynı aile
-   Zemin koyu yeşilden turkuaza giden gradyan, sağ üstte pembe, altta yeşil parıltı,
+   Zemin koyu yeşilden turkuaza giden gradyan, sağ üstte turuncu, altta yeşil parıltı,
    solda sağa doğru kaybolan nokta deseni; etiketler ince kenarlıklı "hap".
    Marka renkleri (--brand, --brand-2, --brand-ink, --cyan) değişmez.
    ========================================================= */
@@ -908,13 +908,13 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
   --sky: linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%);
   --shadow: 0 30px 70px -35px rgba(6, 18, 18, 0.75);
   --chip-line: rgba(255, 255, 255, 0.35); --chip-fill: rgba(255, 255, 255, 0.06); --chip-ink: #E6EEF0;
-  --glow-pink: rgba(218, 123, 147, 0.35); --glow-green: rgba(143, 211, 180, 0.18); --dots: rgba(255, 255, 255, 0.10);
+  --glow-accent: rgba(255, 79, 46, 0.35); --glow-green: rgba(143, 211, 180, 0.18); --dots: rgba(255, 255, 255, 0.10);
 }
 :root[data-theme="light"] {
   --bg: #F6EEF0; --bg-2: #F6EEF0;
   --sky: linear-gradient(120deg, #F6EEF0 0%, #FFFFFF 100%);
   --chip-line: rgba(55, 110, 111, 0.35); --chip-fill: rgba(55, 110, 111, 0.06); --chip-ink: var(--text);
-  --glow-pink: rgba(218, 123, 147, 0.16); --glow-green: rgba(143, 211, 180, 0.14); --dots: rgba(1, 1, 1, 0.06);
+  --glow-accent: rgba(255, 79, 46, 0.16); --glow-green: rgba(143, 211, 180, 0.14); --dots: rgba(1, 1, 1, 0.06);
 }
 body { background: var(--sky) fixed; background-color: var(--bg); }
 
@@ -922,7 +922,7 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 .hero .glow { display: none; }
 .hero, :root[data-theme="light"] .hero {
   background:
-    radial-gradient(circle at 82% 20%, var(--glow-pink), transparent 40%),
+    radial-gradient(circle at 82% 20%, var(--glow-accent), transparent 40%),
     radial-gradient(circle at 55% 105%, var(--glow-green), transparent 40%);
 }
 .hero::before {
@@ -957,3 +957,11 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
 :root[data-theme="light"] .logo.on-dark, :root:not([data-theme="light"]) .logo.on-light { display: none; }
 @media (max-width: 520px) { .brand .logo { height: 30px; } }
 @media (max-width: 359px) { .brand .logo { height: 26px; } }
+
+/* Telefonda klavye açıkken (site.js .kb ekler) sohbet penceresi görünen alana sığar */
+.kb .demo-win { height: calc(var(--kb-h, 100dvh) - 76px); min-height: 220px; }
+.kb .chat .msgs { min-height: 0; max-height: calc(var(--kb-h, 100dvh) - 190px); }
+.kb .demo-sugg { display: none; }
+
+/* Vurgu rengi her yerde logodaki turuncu */
+:root:not([data-theme="light"]) { --cyan: #FF4F2E; }

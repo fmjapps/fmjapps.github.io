@@ -5,14 +5,14 @@
   --bg-2: #2A3D4C;
   --surface: #1C3334;
   --surface-2: #24403F;
-  --line: rgba(218, 123, 147, 0.10);
-  --line-2: rgba(218, 123, 147, 0.18);
+  --line: rgba(255, 79, 46, 0.10);
+  --line-2: rgba(255, 79, 46, 0.18);
   --text: #FFFFFF;
   --dim: #C9D3D8;
   --faint: #93A6AE;
   --brand: #376E6F;
   --brand-2: #5FA3A3;
-  --brand-ink: #F0B3C3;
+  --brand-ink: #FF4F2E;
   --on-brand: #fff;
   --games-bg: #0B0916;
   --kayip-ink: #B5DDA9;
@@ -440,7 +440,7 @@ section { position: relative; }
 .progress {
   position: fixed; top: 0; inset-inline-start: 0; z-index: 60; height: 3px; width: 100%;
   transform-origin: 0 50%; transform: scaleX(var(--p, 0));
-  background: linear-gradient(90deg, #376E6F, #DA7B93, #F0B3C3);
+  background: linear-gradient(90deg, #376E6F, #FF4F2E, #FF4F2E);
 }
 
 /* ---------- Vitrin ---------- */
@@ -1431,12 +1431,12 @@ main, .links, .brand-tag, .foot { transition: opacity .25s; }
 /* Sloganda her kelimenin ilk harfi büyük */
 .brand-tag { text-transform: capitalize; }
 
-/* Palet: #2E151B bordo (zemin) · #2F4454 arduvaz · #DA7B93 gül · #376E6F turkuaz · #1C3334 koyu yeşil */
+/* Palet: #FF4F2E bordo (zemin) · #2F4454 arduvaz · #FF4F2E gül · #376E6F turkuaz · #1C3334 koyu yeşil */
 :root {
   --bg: #0D0507; --bg-2: #0B0406; --surface: #1A0C10; --surface-2: #221116;
-  --line: rgba(255, 255, 255, 0.08); --line-2: rgba(218, 123, 147, 0.30);
+  --line: rgba(255, 255, 255, 0.08); --line-2: rgba(255, 79, 46, 0.30);
   --text: #FFFFFF; --dim: #E2CDD3; --faint: #AE9199;
-  --brand: #376E6F; --brand-2: #DA7B93; --brand-ink: #F0B3C3; --cyan: #F0B3C3; --on-brand: #FFFFFF;
+  --brand: #376E6F; --brand-2: #FF4F2E; --brand-ink: #FF4F2E; --cyan: #FF4F2E; --on-brand: #FFFFFF;
   --ok: #8FD3B4;
   --grid: transparent; --shadow: 0 30px 70px -35px rgba(10, 3, 6, 0.85);
   --sky: linear-gradient(180deg, #0D0507 0%, #0B0406 60%, #080305 100%);
@@ -1446,7 +1446,7 @@ main, .links, .brand-tag, .foot { transition: opacity .25s; }
   --bg: #F6EEF0; --bg-2: #EFE3E7; --surface: #FFFFFF; --surface-2: #FBF6F7;
   --line: rgba(28, 51, 52, 0.10); --line-2: rgba(55, 110, 111, 0.28);
   --text: #1C3334; --dim: #3A5254; --faint: #5B7375;
-  --brand: #376E6F; --brand-2: #2F4454; --brand-ink: #2E151B; --cyan: #C25A75; --on-brand: #FFFFFF;
+  --brand: #376E6F; --brand-2: #2F4454; --brand-ink: #FF4F2E; --cyan: #FF4F2E; --on-brand: #FFFFFF;
   --ok: #2F7A5C;
   --grid: transparent; --shadow: 0 30px 60px -32px rgba(28, 51, 52, 0.25);
   --sky: linear-gradient(180deg, #F6EEF0 0%, #EFE3E7 100%);
@@ -1477,14 +1477,14 @@ body { background: var(--sky) fixed; background-color: var(--bg); }
   --surface-2: color-mix(in srgb, #1C3334 66%, #376E6F);
   --line: rgba(255, 255, 255, 0.09); --line-2: rgba(255, 255, 255, 0.20);
   --dim: #E6EEF0; --faint: color-mix(in srgb, #C9D3D8 25%, #E6EEF0);
-  --brand-ink: #F0B3C3;
+  --brand-ink: #FF4F2E;
   --sky: linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%);
   --chip-line: rgba(255, 255, 255, 0.35); --chip-fill: rgba(255, 255, 255, 0.06); --chip-ink: #E6EEF0;
 }
 :root[data-theme="light"] {
   --bg: #F6EEF0; --bg-2: #F6EEF0;
   --faint: color-mix(in srgb, #5B7375 75%, #1C3334);
-  --brand-ink: #2E151B;
+  --brand-ink: #FF4F2E;
   --sky: linear-gradient(120deg, #F6EEF0 0%, #FFFFFF 100%);
   --chip-line: rgba(55, 110, 111, 0.35); --chip-fill: rgba(55, 110, 111, 0.06); --chip-ink: var(--text);
 }

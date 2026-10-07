@@ -19,7 +19,7 @@ FONT = 'Arial, "Helvetica Neue", "Segoe UI", "Nirmala UI", "Yu Gothic UI", "Malg
 PAGE = '''<!doctype html><html lang="{lang}"{dir}><meta charset="utf-8"><style>
 html, body {{ margin: 0; width: 1200px; height: 630px; overflow: hidden; }}
 body {{ position: relative; font-family: {font}; color: #FFFFFF;
-  background: radial-gradient(circle at 82% 20%, rgba(218, 123, 147, .35), transparent 40%),
+  background: radial-gradient(circle at 82% 20%, rgba(255, 79, 46, .35), transparent 40%),
               radial-gradient(circle at 55% 105%, rgba(143, 211, 180, .18), transparent 40%),
               linear-gradient(120deg, #1C3334 0%, #244A4B 55%, #376E6F 100%); }}
 body::before {{ content: ''; position: absolute; inset: 0;
@@ -29,11 +29,11 @@ body::before {{ content: ''; position: absolute; inset: 0;
 .row {{ display: flex; align-items: center; gap: 28px; }}
 .wordmark {{ display: block; height: 112px; width: auto; align-self: flex-start; }}
 .tile {{ width: 112px; height: 112px; border-radius: 30px; display: grid; place-items: center; font: 700 60px {font}; color: #fff;
-  background: linear-gradient(135deg, #DA7B93, #376E6F); box-shadow: 0 24px 60px -20px #376E6F; }}
+  background: linear-gradient(135deg, #FF4F2E, #376E6F); box-shadow: 0 24px 60px -20px #376E6F; }}
 h1 {{ margin: 0; font-size: 92px; line-height: 1; letter-spacing: -2px; font-weight: 700; }}
-p {{ margin: 34px 0 0; font-size: 38px; line-height: 1.3; color: #F0B3C3; max-width: 1000px; }}
+p {{ margin: 34px 0 0; font-size: 38px; line-height: 1.3; color: #FF4F2E; max-width: 1000px; }}
 p.cap {{ text-transform: capitalize; }}
-.by {{ position: absolute; bottom: 52px; inset-inline-start: 96px; display: flex; align-items: center; gap: 14px; font-size: 24px; font-weight: 700; color: #F0B3C3; }}
+.by {{ position: absolute; bottom: 52px; inset-inline-start: 96px; display: flex; align-items: center; gap: 14px; font-size: 24px; font-weight: 700; color: #FF4F2E; }}
 .by img {{ width: 40px; height: 40px; border-radius: 11px; }}
 .url {{ position: absolute; bottom: 58px; inset-inline-end: 96px; font-size: 22px; color: #E6EEF0; }}
 </style>

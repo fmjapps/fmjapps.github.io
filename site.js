@@ -258,7 +258,10 @@
     goToPage = function (el) { var p = el.closest('.page'); if (p) goTo(pages.indexOf(p)); };
     function busy() { return anim !== null || performance.now() < lockUntil; }
     // Yatay tutulan telefonda (çok alçak ekran) sayfa geçişi kapanır, sayfa normal kayar
-    function flat() { return innerHeight < 430; }
+    // Yazı alanına yazılırken (telefonda klavye açıkken) sayfa geçişi kapanır, sayfa normal kayar;
+    // görünen alan çok alçaksa (yatay telefon, açık klavye) da öyle
+    function typing() { var a = document.activeElement; return !!a && (a.tagName === 'TEXTAREA' || a.tagName === 'INPUT' || a.isContentEditable); }
+    function flat() { var h = window.visualViewport ? visualViewport.height : innerHeight; return h < 430 || typing(); }
     // Sayfa ekrana sığmıyorsa önce kendi içinde kayar
     function nativeFirst(dir) {
       var r = pages[cur].getBoundingClientRect();
@@ -570,11 +573,12 @@
       logs[current.key] = [];
       render();
     }
-    function setLocked(on) {
+    // quiet: sayfa açılışında şifre kutusuna kendiliğinden odaklanılmaz (telefonda klavye açılmasın, sayfa geçişi bozulmasın)
+    function setLocked(on, quiet) {
       locked = on;
       lock.hidden = !on;
       input.disabled = send.disabled = on;
-      if (on) setTimeout(function () { lockIn.focus({ preventScroll: true }); }, 50);
+      if (on && !quiet) setTimeout(function () { lockIn.focus({ preventScroll: true }); }, 50);
     }
 
     function submit(text) {
@@ -659,7 +663,7 @@
           chips.appendChild(b);
         });
         select(pendingKey || (sectors[0] && sectors[0].key), false);
-        setLocked(data.locked && !code);
+        setLocked(data.locked && !code, true);
       })
       .catch(function () {
         add('sys', t('demo.offline'), 'warn');
@@ -812,6 +816,32 @@
       a.addEventListener('click', function () { start(a.getAttribute('data-subject')); });
     });
     langReady.then(function () { if (stepN === 0) start(); });
+  })();
+
+  /* ---------- Telefonda klavye: sohbet penceresi görünen alana sığar ---------- */
+  (function () {
+    var vv = window.visualViewport;
+    if (!vv) return;
+    var timer = null;
+    function fit() {
+      var a = document.activeElement;
+      var box = a && (a.id === 'demoIn' || a.id === 'chatIn') && a.closest('.demo-win, .chat');
+      // Klavye, görünen alanı belirgin biçimde küçültmüşse açık sayılır
+      var open = !!box && innerWidth <= 960 && vv.height < innerHeight - 120;
+      root.classList.toggle('kb', open);
+      if (!open) return;
+      root.style.setProperty('--kb-h', Math.round(vv.height) + 'px');
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        // Pencerenin alt kenarı klavyenin hemen üstüne gelir
+        var r = box.getBoundingClientRect();
+        var gap = r.bottom - (vv.offsetTop + vv.height) + 8;
+        if (Math.abs(gap) > 4) window.scrollBy(0, gap);
+      }, 60);
+    }
+    vv.addEventListener('resize', fit);
+    document.addEventListener('focusin', function () { setTimeout(fit, 350); });
+    document.addEventListener('focusout', function () { setTimeout(fit, 50); });
   })();
 
   var year = document.getElementById('year');

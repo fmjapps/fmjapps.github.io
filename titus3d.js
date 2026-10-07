@@ -341,11 +341,11 @@
 
   function hex(h) { return [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255]; }
   // Koyu zemin (varsayılan): ışık gibi toplanan açık turkuaz ve pembe noktalar
-  var DARK = { a: hex('#F7DCE4'), b: hex('#6FB0B0'), c: hex('#DA7B93'), d: hex('#1A0A0E'), alpha: 1.0, additive: true,
-    ring: hex('#F7E6EB'), ring2: hex('#DA7B93'), orbit: hex('#6FB0B0') };
+  var DARK = { a: hex('#F7DCE4'), b: hex('#6FB0B0'), c: hex('#FF4F2E'), d: hex('#1A0A0E'), alpha: 1.0, additive: true,
+    ring: hex('#F7E6EB'), ring2: hex('#FF4F2E'), orbit: hex('#6FB0B0') };
   // Açık zemin: mürekkep gibi koyu yeşil ve turkuaz noktalar
-  var LIGHT = { a: hex('#376E6F'), b: hex('#1C3334'), c: hex('#C25A75'), d: hex('#1C3334'), alpha: 1.0, additive: false,
-    ring: hex('#376E6F'), ring2: hex('#C25A75'), orbit: hex('#376E6F') };
+  var LIGHT = { a: hex('#376E6F'), b: hex('#1C3334'), c: hex('#FF4F2E'), d: hex('#1C3334'), alpha: 1.0, additive: false,
+    ring: hex('#376E6F'), ring2: hex('#FF4F2E'), orbit: hex('#376E6F') };
 
   var yaw = 0, pitch = 0, nod = 0, glow = 0, time = 0, hover = 0, pulse = -1, ptr = [0, 0, 0];
   function draw() {
