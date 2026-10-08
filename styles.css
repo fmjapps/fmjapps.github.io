@@ -1596,3 +1596,13 @@ html { scroll-padding-top: 96px; }
 .form-privacy { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint); text-align: center; }
 .form-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .form-privacy a:hover { color: var(--text); }
+
+/* İletişim bölümünde telefon (e-posta kutusunun yanında) */
+.tel-line { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; margin-inline-start: 6px; padding: 9px 16px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-2); color: var(--text); text-decoration: none; font: 600 16px 'Sora', sans-serif; direction: ltr; }
+.tel-line svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.tel-line:hover { border-color: var(--text); }
+@media (max-width: 520px) { .tel-line { font-size: 14.5px; margin-top: 10px; margin-inline-start: 0; } }
+.wa-line svg { stroke-width: 1.7; }
+.wa-line:hover { border-color: #25D366; }
+.tel-row { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.tel-row .tel-line { margin: 0; }
