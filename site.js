@@ -50,7 +50,7 @@
     'co.sub.web': 'Web sitesi için teklif istiyorum',
     'co.sub.business': 'İşletmem için bir çözüm',
     'co.sub.other': 'Başka bir konu',
-    'co.chat.webMsg': 'Site kimin için, ne iş yapıyorsunuz? Alan adınız varsa onu da yazın; teklifimizi iletelim.',
+    'co.chat.webMsg': 'Site kimin için, ne iş yapıyorsunuz? Aklınızda bir alan adı varsa onu da yazın; teklifimizi iletelim.',
     'co.chat.qrMsg': 'İşletmenizin adını ve türünü (kafe, restoran…) yazar mısınız? Menünüz elinizde fotoğraf, PDF ya da liste olarak varsa onu da belirtin; teklifimizi iletelim.',
     'co.chat.titusMsg': 'İşletmenizin adını, sektörünüzü ve günde yaklaşık kaç mesaj aldığınızı yazar mısınız? Size uygun bir demo planlayalım.',
     'demo.greet': 'Merhaba! Ben Titus, {name} adına mesajlarınızı cevaplıyorum. Size nasıl yardımcı olabilirim?',
