@@ -561,7 +561,7 @@
     window.addEventListener('scroll', function () { if (!anim) { var n = nearest(); if (n !== cur) { cur = n; mark(); } } }, { passive: true });
 
     window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey || !modal.hidden || flat()) return;
+      if (e.ctrlKey || !modal.hidden || flat() || (e.target && e.target.shadowRoot)) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (scrollableInside(e.target, dir)) return;
@@ -574,7 +574,7 @@
 
     var ty = null, tx = 0, tMode = null;
     window.addEventListener('touchstart', function (e) {
-      if (!modal.hidden || e.touches.length > 1 || flat()) { ty = null; return; }
+      if (!modal.hidden || e.touches.length > 1 || flat() || (e.target && e.target.shadowRoot)) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; tMode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
@@ -598,7 +598,7 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey || flat()) return;
+      if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey || flat() || (e.target && e.target.shadowRoot)) return;
       var t = e.target;
       if (t.closest && t.closest('input, textarea, select, [contenteditable], .sc-stage, .screen, .sc-tabs, #lang')) return;
       var dir = 0;

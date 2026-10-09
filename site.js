@@ -311,7 +311,8 @@
       return abs > 15 && abs > lastAbs * 2 && abs - lastAbs > 10;
     }
     window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey || flat() || menuOpen()) return;
+      // Sohbet balonunun içinden gelen olaylara (gölge DOM) karışılmaz
+      if (e.ctrlKey || flat() || menuOpen() || (e.target && e.target.shadowRoot)) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (scrollableInside(e.target, dir)) return;
@@ -333,7 +334,7 @@
 
     var ty = null, tx = 0, tMode = null;
     window.addEventListener('touchstart', function (e) {
-      if (e.touches.length > 1 || flat() || menuOpen()) { ty = null; return; }
+      if (e.touches.length > 1 || flat() || menuOpen() || (e.target && e.target.shadowRoot)) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; tMode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
@@ -357,7 +358,7 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (e.altKey || e.ctrlKey || e.metaKey || flat()) return;
+      if (e.altKey || e.ctrlKey || e.metaKey || flat() || (e.target && e.target.shadowRoot)) return;
       var tg = e.target;
       if (tg.closest && tg.closest('input, textarea, select, [contenteditable], .sec-track, #lang, .demo-sectors')) return;
       var dir = 0;

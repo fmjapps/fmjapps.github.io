@@ -296,6 +296,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 
 <nav class="pager" id="pager" aria-label="${esc(t.pages)}"></nav>
 <script src="https://titus.fmjapps.com/widget.js" data-titus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
+<script src="/titus-tema.js" defer></script>
 </body>
 </html>
 `;

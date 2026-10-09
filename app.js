@@ -150,7 +150,7 @@
 
     window.addEventListener('wheel', function (e) {
       // Dil menüsü açıkken teker menüyü kaydırır
-      if (e.ctrlKey || flat() || (e.target.closest && e.target.closest('.lang-menu'))) return;
+      if (e.ctrlKey || flat() || (e.target.closest && e.target.closest('.lang-menu')) || (e.target && e.target.shadowRoot)) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (anim) { e.preventDefault(); return; }
@@ -162,7 +162,7 @@
 
     var ty = null, tx = 0, mode = null;
     window.addEventListener('touchstart', function (e) {
-      if (e.touches.length > 1 || flat() || (e.target.closest && e.target.closest('.lang-menu'))) { ty = null; return; }
+      if (e.touches.length > 1 || flat() || (e.target.closest && e.target.closest('.lang-menu')) || (e.target && e.target.shadowRoot)) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; mode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
@@ -184,7 +184,7 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (e.altKey || e.ctrlKey || e.metaKey || flat()) return;
+      if (e.altKey || e.ctrlKey || e.metaKey || flat() || (e.target && e.target.shadowRoot)) return;
       var t = e.target, space = e.key === ' ';
       // Düğme ve soru başlıklarında boşluk tuşu kendi işini yapar
       if (space && t.closest && t.closest('a, button, summary')) return;
