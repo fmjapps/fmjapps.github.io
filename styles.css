@@ -1606,3 +1606,10 @@ html { scroll-padding-top: 96px; }
 .wa-line:hover { border-color: #25D366; }
 .tel-row { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
 .tel-row .tel-line { margin: 0; }
+
+/* iyzico ödeme logoları */
+.pay-band { display: flex; justify-content: flex-start; padding-top: 4px; padding-bottom: 10px; }
+.pay-band img { height: 24px; width: auto; opacity: .85; }
+.o-paylogos { display: block; height: 26px; width: auto; max-width: 100%; margin: 0 auto; }
+:root[data-theme="dark"] .o-paylogos { content: url("/assets/pay/iyzico-band-white.png"); }
+@media (max-width: 520px) { .pay-band img { height: 18px; } .o-paylogos { height: 20px; } }

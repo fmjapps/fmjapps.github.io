@@ -431,7 +431,7 @@ const APPS = [
 
   /* ------------------------------------------------------------------ */
   {
-    id: 'paydos', kind: 'app', acc: '#6E8BFF', status: 'soon',
+    id: 'paydos', kind: 'app', acc: '#6E8BFF', status: 'live',
     privacy: '/privacy/paydos/', test: { group: 'paydos-test', pkg: 'com.zamankilidi.app' },
     shots: [[1, 1], [2, 2], [4, 3], [5, 4]],
     category: 'UtilitiesApplication',

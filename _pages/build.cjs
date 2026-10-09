@@ -443,6 +443,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${TEMPLATES.map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
 ${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'titus/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
+${['mesafeli-satis/', 'on-bilgilendirme/', 'teslimat-iade/'].map(p => entry(BASE + '/sozlesmeler/' + p, '', '0.3')).join('\n')}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);

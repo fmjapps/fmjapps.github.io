@@ -1,6 +1,7 @@
 // fmjapps.com iletişim formu: gelen mesajı e-posta olarak iletir.
 // Cloudflare Email Routing'in "send_email" bağlamasıyla çalışır; alıcı doğrulanmış adres olmalı.
 import { EmailMessage } from 'cloudflare:email';
+import { handleShop } from './siparis.js';
 
 const ALLOWED_ORIGINS = ['https://fmjapps.com', 'https://www.fmjapps.com', 'http://localhost:5190'];
 const FROM = 'form@fmjapps.com';
@@ -12,7 +13,7 @@ const SUBJECTS = {
   web: 'Web sitesi teklif talebi',
   business: 'İşletmeye özel çözüm',
   other: 'FMJ Software (diğer)',
-  general: 'FMJ Apps (genel)',
+  general: 'FMJ Software (genel)',
   kayip: 'Kayıp Eşya Bürosu',
   koleksiyoncu: 'Koleksiyoner',
   prizma: 'Prizma',
@@ -59,11 +60,19 @@ export default {
     const origin = request.headers.get('Origin') || '';
 
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors(origin) });
+    const url = new URL(request.url);
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+
+    // Sipariş, alan adı sorgulama ve ödeme dönüşü (siparis.js)
+    if (url.pathname !== '/') {
+      if (url.pathname.startsWith('/odeme/') || ALLOWED_ORIGINS.includes(origin)) return handleShop(request, env, url, origin, json, ip);
+      return json({ ok: false, error: 'origin' }, 403, origin);
+    }
+
     if (request.method !== 'POST') return json({ ok: false, error: 'method' }, 405, origin);
     if (!ALLOWED_ORIGINS.includes(origin)) return json({ ok: false, error: 'origin' }, 403, origin);
 
     // Aynı IP'den dakikada en çok 5 mesaj
-    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
     if (env.LIMITER) {
       const { success } = await env.LIMITER.limit({ key: ip });
       if (!success) return json({ ok: false, error: 'rate' }, 429, origin);
@@ -112,7 +121,7 @@ export default {
 
     const domain = FROM.split('@')[1];
     const raw = [
-      `From: ${header('FMJ Apps Form')} <${FROM}>`,
+      `From: ${header('FMJ Software Form')} <${FROM}>`,
       `To: ${SHOWN_TO}`,
       `Reply-To: ${header(name)} <${email}>`,
       `Subject: ${header(`[${subjectLabel}] ${name}`)}`,

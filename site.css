@@ -1371,3 +1371,117 @@ html { scroll-padding-top: 96px; }
 .wa-line:hover { border-color: #25D366; }
 .tel-row { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
 .tel-row .tel-line { margin: 0; }
+
+/* =========================================================
+   Sipariş sayfası (/siparis/) ve sözleşme bağlantıları
+   ========================================================= */
+.order-page { background: radial-gradient(60% 50% at 80% 10%, var(--glow, transparent), transparent 70%), var(--bg); min-height: 100vh; }
+.order-wrap { padding-top: 132px; padding-bottom: 72px; }
+.order-head { max-width: 680px; margin-bottom: 26px; }
+.order-head h1 { font: 700 clamp(30px, 4vw, 44px)/1.1 'Sora', sans-serif; margin: 10px 0 12px; color: var(--text); }
+.order-head .lede { color: var(--dim); font-size: 16.5px; line-height: 1.55; margin: 0; }
+.order-alert { margin: 0 0 18px; padding: 12px 16px; border-radius: 14px; background: color-mix(in srgb, #FF4F2E 10%, var(--surface)); border: 1px solid color-mix(in srgb, #FF4F2E 40%, transparent); color: var(--text); font-size: 14.5px; }
+.order-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+@media (max-width: 960px) { .order-grid { grid-template-columns: 1fr; } }
+
+.order-form { display: grid; gap: 16px; }
+.o-step { margin: 0; padding: 22px 22px 20px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); display: grid; gap: 14px; min-width: 0; }
+.o-step legend { float: left; width: 100%; padding: 0; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; font: 600 18px 'Sora', sans-serif; color: var(--text); }
+.o-num { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #244A4B; color: #F6F1E9; font: 700 13px 'Inter', sans-serif; flex: none; }
+.o-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .o-row { grid-template-columns: 1fr; } }
+.o-field { display: grid; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--text); min-width: 0; }
+.o-field em { font-style: normal; font-weight: 400; color: var(--faint); }
+.o-field input, .o-field textarea, .o-field select {
+  width: 100%; min-width: 0; padding: 11px 13px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--bg); color: var(--text);
+  font: 400 15px 'Inter', sans-serif; outline: none; transition: border-color .2s, box-shadow .2s; }
+.o-field textarea { resize: vertical; }
+.o-field input:focus, .o-field textarea:focus, .o-field select:focus { border-color: #376E6F; box-shadow: 0 0 0 3px color-mix(in srgb, #376E6F 25%, transparent); }
+.o-field.invalid input, .o-field.invalid textarea { border-color: #FF4F2E; box-shadow: 0 0 0 3px color-mix(in srgb, #FF4F2E 18%, transparent); }
+.o-check.invalid span { color: #FF4F2E; }
+
+.o-packs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .o-packs { grid-template-columns: 1fr; } }
+.o-pack { position: relative; cursor: pointer; }
+.o-pack input { position: absolute; opacity: 0; pointer-events: none; }
+.o-pack-in { display: grid; gap: 4px; height: 100%; padding: 14px 16px; border: 1.5px solid var(--line-2); border-radius: 16px; background: var(--bg); transition: border-color .2s, box-shadow .2s; }
+.o-pack-in b { font: 600 16px 'Sora', sans-serif; color: var(--text); }
+.o-pack-in > small { color: var(--dim); font-size: 13px; line-height: 1.45; }
+.o-price { font: 700 18px 'Sora', sans-serif; color: var(--text); }
+.o-price small { font: 500 12.5px 'Inter', sans-serif; color: var(--faint); }
+.o-pack input:checked + .o-pack-in { border-color: #376E6F; box-shadow: 0 0 0 3px color-mix(in srgb, #376E6F 22%, transparent); }
+.o-pack input:focus-visible + .o-pack-in { outline: 2px solid #376E6F; outline-offset: 2px; }
+
+.o-domain-row { display: grid; grid-template-columns: minmax(0, 1fr) 96px auto; gap: 8px; }
+.o-domain-row .btn { height: auto; }
+@media (max-width: 480px) { .o-domain-row { grid-template-columns: 1fr 1fr; } .o-domain-row input { grid-column: 1 / -1; } }
+.o-domain-res { margin: 0; font-size: 14px; line-height: 1.5; }
+.o-domain-res:empty { display: none; }
+.o-domain-res.ok { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, #9CC98F 22%, var(--surface)); color: var(--text); }
+.o-domain-res.bad { padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, #FF4F2E 9%, var(--surface)); color: var(--text); }
+.o-domain-res.wait { color: var(--dim); }
+.o-prefix { display: flex; align-items: stretch; border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; background: var(--bg); }
+.o-prefix i { display: grid; place-items: center; padding: 0 10px; font: 500 14px 'Inter', sans-serif; font-style: normal; color: var(--faint); border-inline-end: 1px solid var(--line-2); white-space: nowrap; direction: ltr; }
+.o-prefix input { border: 0 !important; box-shadow: none !important; border-radius: 0; }
+.o-note { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--faint); }
+.o-note a, .o-check a, .sum-help a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+
+.o-seg { display: inline-flex; padding: 4px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line-2); width: max-content; }
+.o-seg label { position: relative; cursor: pointer; }
+.o-seg input { position: absolute; opacity: 0; }
+.o-seg span { display: block; padding: 7px 16px; border-radius: 9px; font: 600 14px 'Inter', sans-serif; color: var(--dim); }
+.o-seg input:checked + span { background: #244A4B; color: #F6F1E9; }
+.o-seg input:focus-visible + span { outline: 2px solid #376E6F; }
+
+.o-check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: var(--text); cursor: pointer; }
+.o-check input { width: 18px; height: 18px; margin-top: 2px; accent-color: #244A4B; flex: none; }
+.o-pay { width: 100%; justify-content: center; height: 54px; font-size: 16px; }
+.o-pay.busy { opacity: .7; pointer-events: none; }
+.o-secure { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0; font-size: 13px; color: var(--dim); text-align: center; }
+.o-secure svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+.order-sum { position: sticky; top: 120px; padding: 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 14px; }
+@media (max-width: 960px) { .order-sum { position: static; } }
+.order-sum h2 { margin: 0; font: 600 18px 'Sora', sans-serif; color: var(--text); }
+.sum-lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.sum-lines li { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--text); }
+.sum-lines li b { font-weight: 600; white-space: nowrap; }
+.sum-lines li.muted { color: var(--faint); }
+.sum-tot { margin: 0; padding-top: 12px; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.sum-tot div { display: flex; justify-content: space-between; font-size: 14px; color: var(--dim); }
+.sum-tot dd { margin: 0; }
+.sum-tot .sum-grand { padding-top: 8px; border-top: 1px dashed var(--line-2); color: var(--text); font: 700 18px 'Sora', sans-serif; }
+.sum-trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 13px; color: var(--dim); }
+.sum-trust li::before { content: "\2713"; color: #376E6F; font-weight: 700; margin-inline-end: 8px; }
+.sum-help { margin: 0; font-size: 13px; color: var(--dim); }
+
+.order-done { max-width: 720px; text-align: center; display: grid; justify-items: center; gap: 10px; }
+.done-ico { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #244A4B; }
+.done-ico svg { width: 30px; height: 30px; fill: none; stroke: #F6F1E9; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.order-done h1 { font: 700 clamp(28px, 4vw, 40px)/1.15 'Sora', sans-serif; margin: 0; color: var(--text); }
+.order-done .lede { margin: 0; color: var(--dim); font-size: 17px; }
+.done-steps { text-align: start; margin: 10px 0; padding: 18px 22px 18px 40px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 8px; color: var(--text); font-size: 15px; line-height: 1.5; }
+@media (max-width: 520px) { .order-wrap { padding-top: 104px; } .o-step { padding: 18px 16px; } }
+
+/* Fiyat: paket kartı */
+.pk-card { max-width: 560px; margin: 0 auto; padding: 28px 28px 24px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 30px 60px -40px rgba(17, 17, 17, .35); display: grid; gap: 18px; }
+.pk-top { display: grid; gap: 6px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.pk-top h3 { margin: 0; font: 600 20px 'Sora', sans-serif; color: var(--text); }
+.pk-price { margin: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; color: var(--dim); font-size: 15px; }
+.pk-price b { font: 700 40px/1.1 'Sora', sans-serif; color: var(--text); letter-spacing: -.01em; }
+.pk-extra { font-size: 13.5px; color: var(--faint); }
+.pk-feats { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pk-feats li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.45; color: var(--text); }
+.pk-ok { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: color-mix(in srgb, #9CC98F 35%, var(--surface)); flex: none; margin-top: 1px; }
+.pk-ok svg { width: 13px; height: 13px; fill: none; stroke: #244A4B; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.pk-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.pk-actions .btn { flex: 1 1 180px; justify-content: center; }
+.pk-trust { margin: 0; font-size: 12.5px; color: var(--faint); text-align: center; }
+@media (max-width: 520px) { .pk-card { padding: 22px 18px 18px; } .pk-price b { font-size: 34px; } }
+
+/* iyzico ödeme logoları */
+.pay-band { display: flex; justify-content: flex-start; padding-top: 4px; padding-bottom: 10px; }
+.pay-band img { height: 24px; width: auto; opacity: .85; }
+.o-paylogos { display: block; height: 26px; width: auto; max-width: 100%; margin: 0 auto; }
+:root[data-theme="dark"] .o-paylogos { content: url("/assets/pay/iyzico-band-white.png"); }
+@media (max-width: 520px) { .pay-band img { height: 18px; } .o-paylogos { height: 20px; } }

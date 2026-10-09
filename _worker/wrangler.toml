@@ -1,4 +1,4 @@
-# fmjapps.com iletişim formu (Cloudflare Worker)
+# fmjapps.com iletişim formu, sipariş ve ödeme (Cloudflare Worker)
 # Yayınlamak için bu klasörde: npx wrangler deploy
 # Alıcı adres gizli değişkende tutulur: npx wrangler secret put DESTINATION
 # (Cloudflare Email Routing'de doğrulanmış bir adres olmalı.)
@@ -20,3 +20,21 @@ name = "MAIL"
 name = "LIMITER"
 namespace_id = "1001"
 simple = { limit = 5, period = 60 }
+
+# Alan adı sorgulama: aynı IP'den dakikada en çok 20 sorgu
+[[ratelimits]]
+name = "DOMAIN_LIMITER"
+namespace_id = "1002"
+simple = { limit = 20, period = 60 }
+
+# Siparişler (Workers KV). Oluşturmak için: npx wrangler kv namespace create ORDERS → çıkan id buraya
+[[kv_namespaces]]
+binding = "ORDERS"
+id = "BURAYA_KV_ID"
+
+# iyzico test ortamı. Canlıya geçerken: IYZI_BASE = "https://api.iyzipay.com". Alan adı sorgusu yalnızca okuma yapar, gerçek Registrar kullanılır.
+# Gizli değişkenler: IYZI_API_KEY, IYZI_SECRET, CF_REGISTRAR_TOKEN (npx wrangler secret put …)
+[vars]
+CF_ACCOUNT_ID = "c511ed7f585c5cc48845309fac59fdb2"
+IYZI_BASE = "https://sandbox-api.iyzipay.com"
+REGISTRAR_PATH = "registrar"
