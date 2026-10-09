@@ -171,6 +171,16 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
   }
 
+  /* ---------- Menüde açılır alt menü (Titus) ---------- */
+  document.querySelectorAll('.nav-drop').forEach(function (drop) {
+    var btn = drop.querySelector('.drop-btn');
+    var set = function (open) { drop.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); };
+    btn.addEventListener('click', function (e) { e.stopPropagation(); set(!drop.classList.contains('open')); });
+    drop.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+    document.addEventListener('click', function (e) { if (!drop.contains(e.target)) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { set(false); } });
+  });
+
   /* ---------- Kaydırınca belirme ---------- */
   document.querySelectorAll('.reveal').forEach(function (el) {
     var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains('reveal'); });

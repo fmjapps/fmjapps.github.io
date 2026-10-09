@@ -84,12 +84,17 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Reliable solutions, efficient results</span>
     </a>
     <nav class="links" aria-label="Sections" data-i18n-aria="nav.sections">
-      <a href="/en/titus/" data-en-href="/en/titus/">Titus</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Titus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/en/titus/" data-en-href="/en/titus/" data-i18n="co.hero.cta2">Meet Titus</a>
+          <a href="#sektorler" data-i18n="nav.sectors">Industries</a>
+          <a href="#demo" data-i18n="nav.demo">Live demo</a>
+          <a href="#yetenekler" data-i18n="nav.features">Features</a>
+        </div>
+      </div>
       <a href="/en/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/en/website/" data-en-href="/en/website/" data-i18n="web.name">Website</a>
-      <a href="#sektorler" data-i18n="nav.sectors">Industries</a>
-      <a href="#demo" data-i18n="nav.demo">Live demo</a>
-      <a href="#yetenekler" data-i18n="nav.features">Features</a>
       <a href="/en/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Apps</a>
       <a href="/en/about/" data-en-href="/en/about/" data-i18n="nav.about">About us</a>
       <a class="cta-link" href="#iletisim" data-i18n="nav.contact">Contact</a>
@@ -189,7 +194,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/en/qr-menu/" data-en-href="/en/qr-menu/"><span data-i18n="co.sol.qr.cta">Explore QR Menu</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">Get a quote</a>
+            <a class="link" href="/siparis/?paket=qr" data-i18n="pk.buy">Buy now</a>
           </div>
         </article>
         <article class="card sol-card reveal">
@@ -203,7 +208,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/en/website/" data-en-href="/en/website/"><span data-i18n="co.sol.web.cta">See the details</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">Get a quote</a>
+            <a class="link" href="/siparis/?paket=web" data-i18n="pk.buy">Buy now</a>
           </div>
         </article>
       </div>
@@ -507,6 +512,7 @@
       <a href="/en/titus/" data-en-href="/en/titus/">Titus</a>
       <a href="/en/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/en/website/" data-en-href="/en/website/" data-i18n="web.name">Website</a>
+      <a href="/siparis/" data-i18n="foot.order">Place an order</a>
       <a href="#demo" data-i18n="nav.demo">Live demo</a>
       <a href="#iletisim" data-subject="business" data-i18n="co.foot.custom">A solution for your business</a>
     </div>

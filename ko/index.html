@@ -84,12 +84,17 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">믿을 수 있는 솔루션, 확실한 성과</span>
     </a>
     <nav class="links" aria-label="섹션" data-i18n-aria="nav.sections">
-      <a href="/ko/titus/" data-en-href="/en/titus/">Titus</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Titus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/ko/titus/" data-en-href="/en/titus/" data-i18n="co.hero.cta2">Titus 알아보기</a>
+          <a href="#sektorler" data-i18n="nav.sectors">업종</a>
+          <a href="#demo" data-i18n="nav.demo">라이브 데모</a>
+          <a href="#yetenekler" data-i18n="nav.features">기능</a>
+        </div>
+      </div>
       <a href="/ko/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/ko/website/" data-en-href="/en/website/" data-i18n="web.name">웹사이트</a>
-      <a href="#sektorler" data-i18n="nav.sectors">업종</a>
-      <a href="#demo" data-i18n="nav.demo">라이브 데모</a>
-      <a href="#yetenekler" data-i18n="nav.features">기능</a>
       <a href="/ko/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">앱</a>
       <a href="/ko/about/" data-en-href="/en/about/" data-i18n="nav.about">회사 소개</a>
       <a class="cta-link" href="#iletisim" data-i18n="nav.contact">문의</a>
@@ -189,7 +194,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/ko/qr-menu/" data-en-href="/en/qr-menu/"><span data-i18n="co.sol.qr.cta">QR Menu 알아보기</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">견적 받기</a>
+            <a class="link" href="/siparis/?paket=qr" data-i18n="pk.buy">지금 구매</a>
           </div>
         </article>
         <article class="card sol-card reveal">
@@ -203,7 +208,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/ko/website/" data-en-href="/en/website/"><span data-i18n="co.sol.web.cta">자세히 보기</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">견적 받기</a>
+            <a class="link" href="/siparis/?paket=web" data-i18n="pk.buy">지금 구매</a>
           </div>
         </article>
       </div>
@@ -507,6 +512,7 @@
       <a href="/ko/titus/" data-en-href="/en/titus/">Titus</a>
       <a href="/ko/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/ko/website/" data-en-href="/en/website/" data-i18n="web.name">웹사이트</a>
+      <a href="/siparis/" data-i18n="foot.order">주문하기</a>
       <a href="#demo" data-i18n="nav.demo">라이브 데모</a>
       <a href="#iletisim" data-subject="business" data-i18n="co.foot.custom">비즈니스 맞춤 솔루션</a>
     </div>

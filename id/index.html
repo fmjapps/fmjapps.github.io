@@ -84,12 +84,17 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Solusi tepercaya, hasil yang efisien</span>
     </a>
     <nav class="links" aria-label="Bagian" data-i18n-aria="nav.sections">
-      <a href="/id/titus/" data-en-href="/en/titus/">Titus</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Titus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/id/titus/" data-en-href="/en/titus/" data-i18n="co.hero.cta2">Kenali Titus</a>
+          <a href="#sektorler" data-i18n="nav.sectors">Sektor</a>
+          <a href="#demo" data-i18n="nav.demo">Demo langsung</a>
+          <a href="#yetenekler" data-i18n="nav.features">Fitur</a>
+        </div>
+      </div>
       <a href="/id/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/id/website/" data-en-href="/en/website/" data-i18n="web.name">Situs Web</a>
-      <a href="#sektorler" data-i18n="nav.sectors">Sektor</a>
-      <a href="#demo" data-i18n="nav.demo">Demo langsung</a>
-      <a href="#yetenekler" data-i18n="nav.features">Fitur</a>
       <a href="/id/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Aplikasi</a>
       <a href="/id/about/" data-en-href="/en/about/" data-i18n="nav.about">Tentang kami</a>
       <a class="cta-link" href="#iletisim" data-i18n="nav.contact">Kontak</a>
@@ -189,7 +194,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/id/qr-menu/" data-en-href="/en/qr-menu/"><span data-i18n="co.sol.qr.cta">Lihat QR Menu</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">Minta penawaran</a>
+            <a class="link" href="/siparis/?paket=qr" data-i18n="pk.buy">Beli sekarang</a>
           </div>
         </article>
         <article class="card sol-card reveal">
@@ -203,7 +208,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/id/website/" data-en-href="/en/website/"><span data-i18n="co.sol.web.cta">Lihat detailnya</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">Minta penawaran</a>
+            <a class="link" href="/siparis/?paket=web" data-i18n="pk.buy">Beli sekarang</a>
           </div>
         </article>
       </div>
@@ -507,6 +512,7 @@
       <a href="/id/titus/" data-en-href="/en/titus/">Titus</a>
       <a href="/id/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/id/website/" data-en-href="/en/website/" data-i18n="web.name">Situs Web</a>
+      <a href="/siparis/" data-i18n="foot.order">Pesan sekarang</a>
       <a href="#demo" data-i18n="nav.demo">Demo langsung</a>
       <a href="#iletisim" data-subject="business" data-i18n="co.foot.custom">Solusi khusus untuk bisnis Anda</a>
     </div>

@@ -84,12 +84,17 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">信頼できるソリューション、確かな成果</span>
     </a>
     <nav class="links" aria-label="セクション" data-i18n-aria="nav.sections">
-      <a href="/ja/titus/" data-en-href="/en/titus/">Titus</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Titus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/ja/titus/" data-en-href="/en/titus/" data-i18n="co.hero.cta2">Titusについて</a>
+          <a href="#sektorler" data-i18n="nav.sectors">業種</a>
+          <a href="#demo" data-i18n="nav.demo">ライブデモ</a>
+          <a href="#yetenekler" data-i18n="nav.features">機能</a>
+        </div>
+      </div>
       <a href="/ja/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/ja/website/" data-en-href="/en/website/" data-i18n="web.name">ウェブサイト</a>
-      <a href="#sektorler" data-i18n="nav.sectors">業種</a>
-      <a href="#demo" data-i18n="nav.demo">ライブデモ</a>
-      <a href="#yetenekler" data-i18n="nav.features">機能</a>
       <a href="/ja/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">アプリ</a>
       <a href="/ja/about/" data-en-href="/en/about/" data-i18n="nav.about">私たちについて</a>
       <a class="cta-link" href="#iletisim" data-i18n="nav.contact">お問い合わせ</a>
@@ -189,7 +194,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/ja/qr-menu/" data-en-href="/en/qr-menu/"><span data-i18n="co.sol.qr.cta">QR Menu を見る</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">見積もりを依頼</a>
+            <a class="link" href="/siparis/?paket=qr" data-i18n="pk.buy">今すぐ購入</a>
           </div>
         </article>
         <article class="card sol-card reveal">
@@ -203,7 +208,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/ja/website/" data-en-href="/en/website/"><span data-i18n="co.sol.web.cta">詳しく見る</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">見積もりを依頼</a>
+            <a class="link" href="/siparis/?paket=web" data-i18n="pk.buy">今すぐ購入</a>
           </div>
         </article>
       </div>
@@ -507,6 +512,7 @@
       <a href="/ja/titus/" data-en-href="/en/titus/">Titus</a>
       <a href="/ja/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menu</a>
       <a href="/ja/website/" data-en-href="/en/website/" data-i18n="web.name">ウェブサイト</a>
+      <a href="/siparis/" data-i18n="foot.order">ご注文</a>
       <a href="#demo" data-i18n="nav.demo">ライブデモ</a>
       <a href="#iletisim" data-subject="business" data-i18n="co.foot.custom">御社専用のソリューション</a>
     </div>

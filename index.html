@@ -84,12 +84,17 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Güvenilir çözümler, verimli sonuçlar</span>
     </a>
     <nav class="links" aria-label="Bölümler" data-i18n-aria="nav.sections">
-      <a href="/titus/" data-en-href="/en/titus/">Titus</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Titus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/titus/" data-en-href="/en/titus/" data-i18n="co.hero.cta2">Titus’u tanıyın</a>
+          <a href="#sektorler" data-i18n="nav.sectors">Sektörler</a>
+          <a href="#demo" data-i18n="nav.demo">Canlı demo</a>
+          <a href="#yetenekler" data-i18n="nav.features">Özellikler</a>
+        </div>
+      </div>
       <a href="/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menü</a>
       <a href="/web-sitesi/" data-en-href="/en/website/" data-i18n="web.name">Web Sitesi</a>
-      <a href="#sektorler" data-i18n="nav.sectors">Sektörler</a>
-      <a href="#demo" data-i18n="nav.demo">Canlı demo</a>
-      <a href="#yetenekler" data-i18n="nav.features">Özellikler</a>
       <a href="/uygulamalar/" data-en-href="/en/apps/" data-i18n="nav.apps">Uygulamalar</a>
       <a href="/hakkimizda/" data-en-href="/en/about/" data-i18n="nav.about">Hakkımızda</a>
       <a class="cta-link" href="#iletisim" data-i18n="nav.contact">İletişim</a>
@@ -189,7 +194,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/qr-menu/" data-en-href="/en/qr-menu/"><span data-i18n="co.sol.qr.cta">QR Menü’yü inceleyin</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">Teklif alın</a>
+            <a class="link" href="/siparis/?paket=qr" data-i18n="pk.buy">Satın al</a>
           </div>
         </article>
         <article class="card sol-card reveal">
@@ -203,7 +208,7 @@
           </ul>
           <div class="s-actions">
             <a class="btn small primary" href="/web-sitesi/" data-en-href="/en/website/"><span data-i18n="co.sol.web.cta">Ayrıntılara bakın</span> <b aria-hidden="true">→</b></a>
-            <a class="link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">Teklif alın</a>
+            <a class="link" href="/siparis/?paket=web" data-i18n="pk.buy">Satın al</a>
           </div>
         </article>
       </div>
@@ -507,6 +512,7 @@
       <a href="/titus/" data-en-href="/en/titus/">Titus</a>
       <a href="/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menü</a>
       <a href="/web-sitesi/" data-en-href="/en/website/" data-i18n="web.name">Web Sitesi</a>
+      <a href="/siparis/" data-i18n="foot.order">Sipariş ver</a>
       <a href="#demo" data-i18n="nav.demo">Canlı demo</a>
       <a href="#iletisim" data-subject="business" data-i18n="co.foot.custom">İşletmenize özel çözüm</a>
     </div>
