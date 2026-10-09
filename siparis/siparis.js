@@ -77,6 +77,8 @@
   }
   var REASONS = {
     extension_not_supported_via_api: 'Bu uzantıyı şu an otomatik kaydedemiyoruz. .com, .net gibi bir uzantı deneyin ya da bize WhatsApp’tan yazın.',
+    extension_not_supported: 'Bu uzantıyı şu an otomatik kaydedemiyoruz. .com, .net gibi bir uzantı deneyin ya da bize WhatsApp’tan yazın.',
+    domain_unavailable: 'Bu alan adı alınmış. Farklı bir ad ya da uzantı deneyin.',
     premium: 'Bu alan adı “premium” fiyatlı; çok pahalı olduğu için başka bir ad deneyin.',
     unavailable: 'Bu alan adı alınmış. Farklı bir ad ya da uzantı deneyin.'
   };

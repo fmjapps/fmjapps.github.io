@@ -30,7 +30,7 @@ simple = { limit = 20, period = 60 }
 # Siparişler (Workers KV). Oluşturmak için: npx wrangler kv namespace create ORDERS → çıkan id buraya
 [[kv_namespaces]]
 binding = "ORDERS"
-id = "BURAYA_KV_ID"
+id = "4db32cb135cf4224a2e20c9094317d28"
 
 # iyzico test ortamı. Canlıya geçerken: IYZI_BASE = "https://api.iyzipay.com". Alan adı sorgusu yalnızca okuma yapar, gerçek Registrar kullanılır.
 # Gizli değişkenler: IYZI_API_KEY, IYZI_SECRET, CF_REGISTRAR_TOKEN (npx wrangler secret put …)
