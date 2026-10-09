@@ -290,7 +290,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
       </div>
     </div>
     <div class="wrap"><p class="foot-bottom">© 2026 FMJ Software · ${esc(t.android)}</p></div>
-    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · ${esc(t.vd)} 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
+    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · ${esc(t.vd)} · ${esc(t.vkn)} 3870844488 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
   </footer>
 </div>
 
@@ -445,7 +445,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${TEMPLATES.map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
 ${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'titus/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
-${['mesafeli-satis/', 'on-bilgilendirme/', 'teslimat-iade/'].map(p => entry(BASE + '/sozlesmeler/' + p, '', '0.3')).join('\n')}
+${['mesafeli-satis/', 'on-bilgilendirme/', 'teslimat-iade/', 'cayma-formu/'].map(p => entry(BASE + '/sozlesmeler/' + p, '', '0.3')).join('\n')}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);

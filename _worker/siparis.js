@@ -185,7 +185,8 @@ function validate(d) {
     yil: Math.max(1, Math.min(MAX_YEARS, parseInt(d.yil, 10) || 1)),
     menuAdres: oneLine(d.menuAdres, 40).toLowerCase(),
     aciklama: clean(d.aciklama, 2000),
-    onBilgi: d.onBilgi === true, sozlesme: d.sozlesme === true
+    onBilgi: d.onBilgi === true, sozlesme: d.sozlesme === true,
+    alanAdiOnay: d.alanAdiOnay === true
   };
   if (!o.ad) err.push('ad');
   if (!o.soyad) err.push('soyad');
@@ -204,6 +205,7 @@ function validate(d) {
   if (o.paket === 'qr' && o.menuAdres && !/^[a-z0-9](?:[a-z0-9-]{0,38}[a-z0-9])?$/.test(o.menuAdres)) err.push('menuAdres');
   if (!o.onBilgi) err.push('onBilgi');
   if (!o.sozlesme) err.push('sozlesme');
+  if (pkg && pkg.domain && !o.alanAdiOnay) err.push('alanAdiOnay');
   return { o, err, pkg };
 }
 
@@ -366,6 +368,7 @@ function orderText(o) {
     '— Proje —',
     `İşletme: ${o.isletme}${o.sektor ? ' · ' + o.sektor : ''}`
   ];
+  if (o.domain) L.push(`Alan adı kaydı onayı (ödemeden hemen sonra kayıt, cayma hakkı biter): ${o.alanAdiOnay ? 'verildi' : 'YOK'}`);
   if (o.domain) L.push(`Alan adı: ${o.alanAdi} · ${o.yil} yıl · Cloudflare ${o.domain.usd} USD (kur ${o.domain.rate}) — KAYDETMEYİ UNUTMA`);
   if (o.menuAdres) L.push(`İstenen menü adresi: ${o.menuAdres}`);
   if (o.aciklama) L.push('', 'Açıklama:', o.aciklama);

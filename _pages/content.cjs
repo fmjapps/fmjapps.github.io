@@ -27,7 +27,8 @@ const UI = {
     game: 'Oyun', app: 'Uygulama', scroll: 'Aşağı kaydır', pages: 'Sayfalar',
     vd: 'Menemen VD', about: 'Hakkımızda', company: 'Şirket', kunye: 'Künye',
     slogan: 'Güvenilir çözümler, verimli sonuçlar',
-    home: 'Ana sayfa'
+    home: 'Ana sayfa',
+    vkn: 'VKN'
   },
   en: {
     home: 'Home', games: 'Games', apps: 'Apps', contact: 'Contact',
@@ -53,7 +54,8 @@ const UI = {
     game: 'Game', app: 'App', scroll: 'Scroll down', pages: 'Pages',
     vd: 'Menemen Tax Office', about: 'About us', company: 'Company', kunye: 'Imprint',
     slogan: 'Reliable solutions, efficient results',
-    home: 'Home'
+    home: 'Home',
+    vkn: 'Tax No.'
   }
 };
 

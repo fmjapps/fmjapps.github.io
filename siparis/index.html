@@ -104,7 +104,7 @@
               <input type="radio" name="paket" value="web" checked>
               <span class="o-pack-in">
                 <b>Web Sitesi</b>
-                <span class="o-price">3.400 TL <small>+ KDV + alan adı</small></span>
+                <span class="o-price">3.400 TL <small>+ KDV (toplam 4.080 TL) + alan adı</small></span>
                 <small>İşletmenize özel site, alan adı kaydı, ücretsiz barındırma, temel SEO</small>
               </span>
             </label>
@@ -112,7 +112,7 @@
               <input type="radio" name="paket" value="qr">
               <span class="o-pack-in">
                 <b>QR Menü</b>
-                <span class="o-price">1.450 TL <small>+ KDV / yıl</small></span>
+                <span class="o-price">1.450 TL <small>+ KDV / yıl (toplam 1.740 TL)</small></span>
                 <small>Dijital menü, yönetim paneli, QR masa kartları, kullanım kılavuzu</small>
               </span>
             </label>
@@ -194,8 +194,9 @@
           <legend><span class="o-num">5</span>Onay ve ödeme</legend>
           <label class="o-check"><input type="checkbox" name="onBilgi"><span><a href="/sozlesmeler/on-bilgilendirme/" target="_blank" rel="noopener">Ön bilgilendirme formunu</a> okudum.</span></label>
           <label class="o-check"><input type="checkbox" name="sozlesme"><span><a href="/sozlesmeler/mesafeli-satis/" target="_blank" rel="noopener">Mesafeli satış sözleşmesini</a> ve <a href="/sozlesmeler/teslimat-iade/" target="_blank" rel="noopener">teslimat ve iade şartlarını</a> okudum, kabul ediyorum.</span></label>
+          <label class="o-check" data-for="web"><input type="checkbox" name="alanAdiOnay"><span>Alan adının ödemeden hemen sonra adıma kaydedilmesini istiyorum; kayıt yapıldığında bu kalem için cayma hakkımın sona ereceğini biliyorum.</span></label>
           <p class="o-note">Kişisel verileriniz siparişinizi yerine getirmek ve fatura kesmek için işlenir: <a href="/privacy/site/" target="_blank" rel="noopener">Gizlilik ve KVKK Aydınlatma Metni</a>. Kart bilgileriniz bize ulaşmaz; ödeme iyzico’nun sayfasında yapılır.</p>
-          <button class="btn primary o-pay" type="submit" id="payBtn"><span>Ödemeye geç</span> <b aria-hidden="true">→</b></button>
+          <button class="btn primary o-pay" type="submit" id="payBtn"><span>Ödeme yükümlülüğüyle siparişi onayla</span> <b aria-hidden="true">→</b></button>
           <img class="o-paylogos" src="/assets/pay/iyzico-band-colored.png" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" width="429" height="32">
           <p class="o-secure"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>Ödemeniz iyzico güvencesiyle alınır · 14 gün içinde koşulsuz iade (kaydedilen alan adı ücreti hariç)</p>
         </fieldset>
@@ -255,7 +256,7 @@
     <a href="#top" data-i18n="foot.top">Başa dön ↑</a>
   </div>
   <div class="wrap pay-band"><img src="/assets/pay/iyzico-band-white.png" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" width="456" height="32" loading="lazy"></div>
-  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · <span data-i18n="co.kunye.vd">Menemen VD</span> 3870844488 · İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="/hakkimizda/" data-en-href="/en/about/" data-i18n="nav.about">Hakkımızda</a></p></div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · <span data-i18n="co.kunye.vd">Menemen VD</span> · <span data-i18n="co.kunye.vkn">VKN</span> 3870844488 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="/hakkimizda/" data-en-href="/en/about/" data-i18n="nav.about">Hakkımızda</a></p></div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

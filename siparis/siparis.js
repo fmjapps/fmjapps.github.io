@@ -130,6 +130,8 @@
     });
     o.onBilgi = field('onBilgi').checked;
     o.sozlesme = field('sozlesme').checked;
+    // Alan adı kaydı onayı yalnız Web Sitesi paketinde sorulur
+    o.alanAdiOnay = PACKS[o.paket] && PACKS[o.paket].domain ? field('alanAdiOnay').checked : false;
     return o;
   }
   function saveDraft() {
@@ -152,7 +154,7 @@
   }
 
   /* ---------- Gönder ---------- */
-  var LABELS = { ad: 'ad', soyad: 'soyad', email: 'e-posta', telefon: 'cep telefonu', tckn: 'T.C. kimlik no', unvan: 'şirket unvanı', vergiDairesi: 'vergi dairesi', vkn: 'vergi no', adres: 'adres', il: 'il', isletme: 'işletme adı', alanAdi: 'alan adı', menuAdres: 'menü adresi', onBilgi: 'ön bilgilendirme onayı', sozlesme: 'sözleşme onayı', paket: 'paket' };
+  var LABELS = { ad: 'ad', soyad: 'soyad', email: 'e-posta', telefon: 'cep telefonu', tckn: 'T.C. kimlik no', unvan: 'şirket unvanı', vergiDairesi: 'vergi dairesi', vkn: 'vergi no', adres: 'adres', il: 'il', isletme: 'işletme adı', alanAdi: 'alan adı', menuAdres: 'menü adresi', onBilgi: 'ön bilgilendirme onayı', sozlesme: 'sözleşme onayı', alanAdiOnay: 'alan adı kaydı onayı', paket: 'paket' };
   function markInvalid(names) {
     form.querySelectorAll('.invalid').forEach(function (el) { el.classList.remove('invalid'); });
     names.forEach(function (n) {
@@ -179,6 +181,7 @@
     if (!o.il.trim()) bad.push('il');
     if (!o.onBilgi) bad.push('onBilgi');
     if (!o.sozlesme) bad.push('sozlesme');
+    if (PACKS[o.paket].domain && !o.alanAdiOnay) bad.push('alanAdiOnay');
     return bad;
   }
 
