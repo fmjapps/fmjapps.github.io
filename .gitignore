@@ -2,3 +2,6 @@
 _worker/.wrangler/
 node_modules/
 _concepts/
+
+# Müşterilere gösterilen örnek siteler: yerelde durur, yayına girmez
+web-sitesi/*/
