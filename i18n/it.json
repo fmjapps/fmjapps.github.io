@@ -529,7 +529,7 @@
  "titus.nav.security": "Sicurezza",
  "titus.p1.d": "Provi Titus con i suoi clienti, veda il suo utilizzo reale e poi decida.",
  "titus.p1.t": "Le prime 300 risposte sono gratuite",
- "titus.p2.d": "«Ok, grazie», emoji, spam e chiacchiere fuori tema non vengono addebitati. Se una persona supera le 30 risposte in un giorno, la conversazione passa al suo team.",
+ "titus.p2.d": "I messaggi a cui Titus non risponde (emoji, spam, messaggi ripetuti, ringraziamenti e saluti dopo la chiusura della conversazione) non vengono addebitati. Le chiacchiere fuori tema non vengono prolungate. Se una persona supera le 30 risposte in un giorno, la conversazione passa al suo team.",
  "titus.p2.t": "Scudo di Uso Equo",
  "titus.p3.d": "Il limite mensile lo fissa lei. Una volta raggiunto, i messaggi passano al suo team e nessun cliente va perso. Il contatore si segue in tempo reale dal pannello.",
  "titus.p3.t": "Il tetto di spesa lo decide lei",

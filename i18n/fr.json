@@ -529,7 +529,7 @@
  "titus.nav.security": "Sécurité",
  "titus.p1.d": "Essayez Titus avec vos propres clients, constatez votre usage réel, puis décidez.",
  "titus.p1.t": "300 premières réponses offertes",
- "titus.p2.d": "Les « OK, merci », les emojis, le spam et les échanges hors sujet ne sont pas facturés. Si une personne dépasse 30 réponses par jour, la conversation passe à votre équipe.",
+ "titus.p2.d": "Les messages auxquels Titus ne répond pas (emojis, spam, messages répétés, remerciements et au revoir une fois la conversation terminée) ne sont pas facturés. Les échanges hors sujet ne sont pas prolongés. Si une personne dépasse 30 réponses par jour, la conversation passe à votre équipe.",
  "titus.p2.t": "Bouclier d’usage équitable",
  "titus.p3.d": "Vous définissez le plafond mensuel. Une fois atteint, les messages sont transmis à votre équipe : aucun client n’est perdu. Vous suivez le compteur en temps réel dans le tableau de bord.",
  "titus.p3.t": "Vous fixez le plafond",
