@@ -1497,3 +1497,15 @@ html { scroll-padding-top: 96px; }
 .nav-drop:hover .drop-menu, .nav-drop:focus-within .drop-menu, .nav-drop.open .drop-menu { display: flex; }
 .drop-menu a { display: block; }
 @media (max-width: 1360px) { .drop-btn { padding: 8px 9px; font-size: 13.5px; } }
+
+/* Üst çubuk: çerçeveli "Satın al" (turuncu dolgu yalnızca İletişim / Teklif alın'da) */
+.links a.buy-link { color: var(--text); border: 1.5px solid var(--text); border-radius: 999px; padding: 7px 16px; font-weight: 600; margin-inline-start: 6px; }
+.links a.buy-link:hover { background: var(--text); color: var(--bg); }
+.mobile-menu a.buy-link { font-weight: 700; }
+/* Ürün girişinde fiyat satırı */
+.hero-price { display: inline-flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-top: 16px; color: var(--dim); font-size: 14.5px; text-decoration: none; }
+.hero-price b { font: 700 17px 'Sora', sans-serif; color: var(--text); }
+.hero-price i { font-style: normal; opacity: .5; }
+.hero-price span:not(:first-of-type) { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.hero-price:hover span { color: var(--brand-ink); }
+@media (max-width: 520px) { .hero-price { margin-top: 12px; font-size: 13.5px; } .hero-price b { font-size: 16px; } }
