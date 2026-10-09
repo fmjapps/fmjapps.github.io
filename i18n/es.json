@@ -272,7 +272,7 @@
  "qr.d5": "Tarjetas QR de mesa listas para imprimir: 4 por hoja A4, en PDF con líneas de corte",
  "qr.hero.f1": "Sin app ni registro",
  "qr.hero.f2": "Cambios en segundos",
- "qr.hero.f3": "Sin gastos de impresión",
+ "qr.hero.f3": "Sin gastos de impresión recurrentes",
  "qr.hero.h1": "Su menú está en la mesa. <span class=\"grad\">Actualizarlo, en su bolsillo.</span>",
  "qr.hero.kick": "QR Menu · Menús digitales para cafeterías y restaurantes",
  "qr.hero.lede": "Su cliente escanea el código QR de la mesa con la cámara del teléfono y su menú se abre en el navegador, sin descargar nada. Usted cambia precios, productos y fotos desde su propio panel cuando quiera. El código QR se imprime una sola vez; aunque el menú cambie, nunca tendrá que volver a imprimirlo.",
