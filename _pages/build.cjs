@@ -46,7 +46,7 @@ const aboutPath = lang => lang === 'tr' ? '/hakkimizda/' : '/' + lang + '/about/
 // app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
 const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
 
-const CSP = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'";
+const CSP = "default-src 'self'; script-src 'self' https://titus.fmjapps.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://titus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'";
 
 function page(app, lang) {
   const t = UI[lang], c = app.text[lang];
@@ -295,6 +295,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 </div>
 
 <nav class="pager" id="pager" aria-label="${esc(t.pages)}"></nav>
+<script src="https://titus.fmjapps.com/widget.js" data-titus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 </body>
 </html>
 `;
