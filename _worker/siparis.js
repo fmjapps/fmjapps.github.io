@@ -432,7 +432,7 @@ function orderText(o) {
     '— Proje —',
     `İşletme: ${o.isletme}${o.sektor ? ' · ' + o.sektor : ''}`
   ];
-  if (o.domain) L.push(`Alan adı kaydı onayı (ödemeden hemen sonra kayıt, cayma hakkı biter): ${o.alanAdiOnay ? 'verildi' : 'YOK'}`);
+  if (o.domain) L.push(`Alan adı kaydı onayı (ödemeden hemen sonra kayıt; bu kalem için cayma hakkı biter): ${o.alanAdiOnay ? 'verildi' : 'YOK'}`);
   if (o.domain) L.push(`Alan adı: ${o.alanAdi} · ${o.yil} yıl · Cloudflare ${o.domain.usd} USD (kur ${o.domain.rate}) — KAYDETMEYİ UNUTMA`);
   if (o.menuAdres) L.push(`İstenen menü adresi: ${o.menuAdres}`);
   if (o.aciklama) L.push('', 'Açıklama:', o.aciklama);
