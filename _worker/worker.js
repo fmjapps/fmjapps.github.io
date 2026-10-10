@@ -3,7 +3,7 @@
 import { EmailMessage } from 'cloudflare:email';
 import { handleShop } from './siparis.js';
 
-const ALLOWED_ORIGINS = ['https://fmjapps.com', 'https://www.fmjapps.com', 'http://localhost:5190'];
+const ALLOWED_ORIGINS = ['https://fmjapps.com', 'https://www.fmjapps.com'];
 const FROM = 'form@fmjapps.com';
 const SHOWN_TO = 'contact@fmjapps.com';
 const MAX_BODY = 12000;

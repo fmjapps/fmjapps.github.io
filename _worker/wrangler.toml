@@ -33,7 +33,7 @@ binding = "ORDERS"
 id = "4db32cb135cf4224a2e20c9094317d28"
 
 # iyzico test ortamı. Canlıya geçerken: IYZI_BASE = "https://api.iyzipay.com". Alan adı sorgusu yalnızca okuma yapar, gerçek Registrar kullanılır.
-# Gizli değişkenler: IYZI_API_KEY, IYZI_SECRET, CF_REGISTRAR_TOKEN (npx wrangler secret put …)
+# Gizli değişkenler: IYZI_API_KEY, IYZI_SECRET, CF_REGISTRAR_TOKEN, RESEND_API_KEY (müşteriye sözleşme e-postası) (npx wrangler secret put …)
 [vars]
 CF_ACCOUNT_ID = "c511ed7f585c5cc48845309fac59fdb2"
 IYZI_BASE = "https://sandbox-api.iyzipay.com"

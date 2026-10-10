@@ -65,6 +65,68 @@ async function sendMail(env, subject, body, replyTo) {
   }
 }
 
+/* ---------- Müşteriye sipariş teyidi ve sözleşme kopyası (Resend) ----------
+   Mesafeli Sözleşmeler Yön. m.7/m.8: teyit ve sözleşme kalıcı veri saklayıcısıyla gönderilir.
+   Gizli değişken: RESEND_API_KEY (npx wrangler secret put RESEND_API_KEY). Yoksa gönderilmez, iç e-posta hatırlatır. */
+const CONTRACTS = [
+  ['on-bilgilendirme-formu.html', '/sozlesmeler/on-bilgilendirme/'],
+  ['mesafeli-satis-sozlesmesi.html', '/sozlesmeler/mesafeli-satis/'],
+  ['teslimat-ve-iade.html', '/sozlesmeler/teslimat-iade/']
+];
+
+function customerText(o) {
+  return [
+    `Merhaba ${o.ad} ${o.soyad},`,
+    '',
+    `${o.no} numaralı siparişiniz için ödemeniz alındı. Teşekkür ederiz.`,
+    '',
+    ...o.lines.map((l) => `${l.name}: ${money(l.net)} TL + KDV`),
+    `KDV (%20): ${money(o.kdv)} TL`,
+    `Ödenen toplam (KDV dahil): ${money(o.total)} TL`,
+    `Ödeme tarihi: ${new Date(o.paid).toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })}`,
+    '',
+    'Ön bilgilendirme formu, mesafeli satış sözleşmesi ve teslimat-iade şartları, siparişinizi verdiğiniz andaki halleriyle bu e-postanın ekindedir; lütfen saklayın.',
+    '',
+    'Cayma hakkı: Sipariş tarihinden itibaren 14 gün içinde gerekçe göstermeden cayabilirsiniz (kaydedilmiş alan adı ücreti hariç). Bunun için bu e-postayı yanıtlamanız ya da +90 533 318 15 55 numarasına WhatsApp\'tan yazmanız yeterlidir.',
+    '',
+    'En kısa sürede size WhatsApp ya da e-postayla ulaşacağız. e-Arşiv faturanız ayrıca gönderilecektir.',
+    '',
+    'FMJ Software · Oğulcan Fidan · Menemen VD · VKN 3870844488',
+    'İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir',
+    'contact@fmjapps.com · +90 533 318 15 55 · https://fmjapps.com'
+  ].join('\n');
+}
+
+async function sendCustomerMail(env, o) {
+  if (!env.RESEND_API_KEY) return false;
+  try {
+    const attachments = [];
+    for (const [filename, path] of CONTRACTS) {
+      const r = await fetch(SITE + path);
+      if (!r.ok) throw new Error(`sözleşme alınamadı: ${path} ${r.status}`);
+      attachments.push({ filename, content: b64(await r.text()) });
+    }
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: 'FMJ Software <siparis@fmjapps.com>',
+        to: [o.email],
+        bcc: ['contact@fmjapps.com'],
+        reply_to: 'contact@fmjapps.com',
+        subject: `Siparişiniz alındı: ${o.no} · ${PACKAGES[o.paket].name}`,
+        text: customerText(o),
+        attachments
+      })
+    });
+    if (!res.ok) throw new Error(`resend ${res.status} ${(await res.text()).slice(0, 200)}`);
+    return true;
+  } catch (e) {
+    console.error('müşteri e-postası', e && e.message);
+    return false;
+  }
+}
+
 /* ---------- Kur: TCMB döviz satış kuru (günde bir kez alınır) ---------- */
 async function usdRate() {
   const cache = caches.default;
@@ -335,6 +397,7 @@ async function paymentResult(request, env) {
     order.paymentId = r.paymentId;
     order.paidPrice = Number(r.paidPrice);
     order.card = [r.cardAssociation, r.cardFamily, r.lastFourDigits && '**** ' + r.lastFourDigits].filter(Boolean).join(' · ');
+    order.contractMailed = await sendCustomerMail(env, order);
     await env.ORDERS.put('siparis:' + no, JSON.stringify(order), { expirationTtl: 60 * 60 * 24 * 400 }); // ödenen sipariş 400 gün saklanır
     await sendMail(env, `[Yeni sipariş] ${no} · ${PACKAGES[order.paket].name} · ${money(order.total)} TL${order.status === 'incelemede' ? ' (iyzico incelemesinde)' : ''}`, orderText(order), order.email);
   }
@@ -362,7 +425,7 @@ function orderText(o) {
     '— Fatura —',
     o.faturaTip === 'kurumsal'
       ? `Kurumsal: ${o.unvan} · ${o.vergiDairesi} VD · VKN ${o.vkn}`
-      : `Bireysel${o.tckn ? ' · T.C. ' + o.tckn : ''}`,
+      : `Bireysel${o.tckn ? ' · T.C. kimlik no *******' + o.tckn.slice(-4) + ' (tamamı sipariş kaydında)' : ''}`,
     `Adres: ${o.adres}${o.ilce ? ', ' + o.ilce : ''} / ${o.il}`,
     '',
     '— Proje —',
@@ -372,6 +435,9 @@ function orderText(o) {
   if (o.domain) L.push(`Alan adı: ${o.alanAdi} · ${o.yil} yıl · Cloudflare ${o.domain.usd} USD (kur ${o.domain.rate}) — KAYDETMEYİ UNUTMA`);
   if (o.menuAdres) L.push(`İstenen menü adresi: ${o.menuAdres}`);
   if (o.aciklama) L.push('', 'Açıklama:', o.aciklama);
-  L.push('', 'Yapılacaklar: e-Arşiv faturayı kes, sözleşme kopyasını müşteriye e-postayla gönder, müşteriye WhatsApp\'tan ulaş.');
+  L.push('', o.contractMailed
+    ? 'Sipariş teyidi ve sözleşmeler müşteriye otomatik gönderildi (gizli kopyası contact@\'ta).'
+    : 'DİKKAT: Sözleşme e-postası müşteriye GİTMEDİ — 24 saat içinde elle gönder.');
+  L.push('Yapılacaklar: e-Arşiv faturayı kes, müşteriye WhatsApp\'tan ulaş.');
   return L.join('\n');
 }

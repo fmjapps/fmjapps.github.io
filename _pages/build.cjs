@@ -444,7 +444,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${TEMPLATES.map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
-${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'mirus/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
+${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'mirus/', 'qr-menu/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
 ${['mesafeli-satis/', 'on-bilgilendirme/', 'teslimat-iade/', 'cayma-formu/'].map(p => entry(BASE + '/sozlesmeler/' + p, '', '0.3')).join('\n')}
 </urlset>
 `;
