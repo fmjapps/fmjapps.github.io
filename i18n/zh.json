@@ -528,7 +528,7 @@
  "mirus.faq.title": "您可能想知道",
  "mirus.hero.h1": "客户凌晨 02:14 发来消息，<span class=\"grad\">02:14 就能收到回复。</span>",
  "mirus.hero.kick": "Mirus · 面向企业的 AI 客户助手",
- "mirus.hero.lede": "Mirus 在几秒内回复您企业 WhatsApp 和 Instagram 上的消息，使用客户自己的语言，依据您提供的信息。它会把预约写进您的日历，提前一天提醒客户，并把需要处理的事转给合适的员工。",
+ "mirus.hero.lede": "Mirus 在几秒内回复您企业 WhatsApp 和 Instagram 上的消息，使用客户自己的语言，依据您提供的信息。它还会回复您帖子下的评论，并私信评论者。它会把预约写进您的日历，提前一天提醒客户，并把需要处理的事转给合适的员工。",
  "mirus.how.kick": "Mirus 能做什么？",
  "mirus.how.title": "第一句回复由它来说，决定由您来做。",
  "mirus.km.data.d": "不询问症状、不适、病史、用药、检验结果、X 光片或照片。即使患者主动分享，它也不会复述或记录；遇到健康问题时，它会将对话转交给您的团队。",
