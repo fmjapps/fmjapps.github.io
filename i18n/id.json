@@ -704,5 +704,11 @@
  "web.x1": "Tersedia dalam beberapa bahasa bila perlu",
  "web.x2": "Gambar pratinjau saat tautan dibagikan",
  "web.x3": "Halaman yang cepat dan tidak berantakan",
- "web.x4": "Lokasi Anda di peta"
+ "web.x4": "Lokasi Anda di peta",
+ "cap.cmt.t": "Komentar postingan",
+ "cap.cmt.d": "Saat ada yang berkomentar “harga?” di postingan Anda, ia membalas lewat pesan pribadi dan meninggalkan catatan singkat “sudah kami DM”. Aktifkan jika Anda mau.",
+ "cap.web.t": "Messenger dan situs web",
+ "cap.web.d": "Pesan ke Halaman Facebook dan ke gelembung obrolan di situs Anda masuk ke panel yang sama dan dijawab oleh asisten yang sama.",
+ "mirus.q9": "Apakah ia juga membalas komentar di postingan saya?",
+ "mirus.a9": "Ya, jika Anda mau; fitur ini nonaktif sampai Anda mengaktifkannya. Saat ada komentar berisi pertanyaan atau minat di postingan Instagram atau Facebook Anda, Mirus membalas pengomentar lewat pesan pribadi dan menulis catatan singkat pilihan Anda di bawah komentar (mis. “Sudah kami kirim DM”). Harga dan data pribadi tidak muncul di balasan publik. Komentar negatif tidak dibalas tetapi dilaporkan kepada Anda; pujian dan tag dilewati."
 }

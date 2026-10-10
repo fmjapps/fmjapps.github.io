@@ -9,7 +9,6 @@ const SHOWN_TO = 'contact@fmjapps.com';
 const MAX_BODY = 12000;
 const SUBJECTS = {
   mirus: 'Mirus demo talebi',
-  titus: 'Mirus demo talebi', // ürünün eski adı (eski sayfalardan gelen formlar)
   qrmenu: 'QR Menü teklif talebi',
   web: 'Web sitesi teklif talebi',
   business: 'İşletmeye özel çözüm',

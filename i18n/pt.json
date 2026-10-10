@@ -704,5 +704,11 @@
  "web.x1": "Em mais de um idioma, se precisar",
  "web.x2": "Imagem de prévia quando o link for compartilhado",
  "web.x3": "Páginas rápidas e sem poluição visual",
- "web.x4": "Sua localização no mapa"
+ "web.x4": "Sua localização no mapa",
+ "cap.cmt.t": "Comentários nas publicações",
+ "cap.cmt.d": "Quando alguém comenta “preço?” na sua publicação, responde em mensagem privada e deixa uma nota curta de “enviamos uma DM”. Você ativa se quiser.",
+ "cap.web.t": "Messenger e site",
+ "cap.web.d": "As mensagens para a sua página do Facebook e para o balão de chat do seu site chegam ao mesmo painel e são respondidas pelo mesmo assistente.",
+ "mirus.q9": "Ele também responde aos comentários das minhas publicações?",
+ "mirus.a9": "Sim, se você quiser; o recurso fica desativado até você ativá-lo. Quando chega um comentário com pergunta ou interesse na sua publicação do Instagram ou do Facebook, o Mirus responde ao autor por mensagem privada e deixa sob o comentário uma nota curta escolhida por você (ex.: “Enviamos uma DM para você”). Preços e dados pessoais não aparecem na resposta pública. Comentários negativos não são respondidos, você é avisado; elogios e marcações são ignorados."
 }

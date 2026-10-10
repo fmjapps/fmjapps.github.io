@@ -704,5 +704,11 @@
  "web.x1": "En varios idiomas, si lo necesita",
  "web.x2": "Imagen de vista previa al compartir su enlace",
  "web.x3": "Páginas rápidas y despejadas",
- "web.x4": "Su ubicación en el mapa"
+ "web.x4": "Su ubicación en el mapa",
+ "cap.cmt.t": "Comentarios en publicaciones",
+ "cap.cmt.d": "Si alguien comenta “¿precio?” en tu publicación, le responde por mensaje privado y deja una breve nota de “te escribimos por DM”. Lo activas si lo deseas.",
+ "cap.web.t": "Messenger y sitio web",
+ "cap.web.d": "Los mensajes a tu página de Facebook y a la burbuja de chat de tu sitio llegan al mismo panel y los responde el mismo asistente.",
+ "mirus.q9": "¿También responde a los comentarios de mis publicaciones?",
+ "mirus.a9": "Sí, si lo deseas; la función está desactivada hasta que la actives. Cuando llega un comentario con una pregunta o interés en tu publicación de Instagram o Facebook, Mirus responde al autor por mensaje privado y deja bajo el comentario una breve nota elegida por ti (p. ej. “Te hemos escrito por DM”). En la respuesta pública no aparecen precios ni datos personales. Los comentarios negativos no se responden, se te notifican; los elogios y las etiquetas se omiten."
 }

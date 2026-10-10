@@ -704,5 +704,11 @@
  "web.x1": "In più lingue, se serve",
  "web.x2": "Un’immagine di anteprima quando il link viene condiviso",
  "web.x3": "Pagine veloci e ordinate",
- "web.x4": "La Sua posizione sulla mappa"
+ "web.x4": "La Sua posizione sulla mappa",
+ "cap.cmt.t": "Commenti ai post",
+ "cap.cmt.d": "Se qualcuno commenta “prezzo?” sotto il tuo post, gli risponde in privato e lascia una breve nota “ti abbiamo scritto in DM”. Lo attivi se vuoi.",
+ "cap.web.t": "Messenger e sito web",
+ "cap.web.d": "I messaggi alla tua pagina Facebook e alla bolla di chat del tuo sito arrivano nello stesso pannello e li gestisce lo stesso assistente.",
+ "mirus.q9": "Risponde anche ai commenti sotto i miei post?",
+ "mirus.a9": "Sì, se lo desideri; la funzione resta disattivata finché non la attivi. Quando sotto il tuo post Instagram o Facebook arriva un commento con una domanda o un interesse, Mirus risponde all’autore con un messaggio privato e lascia sotto il commento una breve nota scelta da te (es. “Ti abbiamo scritto in DM”). Nella risposta pubblica non compaiono prezzi né dati personali. Ai commenti negativi non risponde e te li segnala; complimenti e tag vengono ignorati."
 }

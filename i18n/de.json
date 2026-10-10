@@ -704,5 +704,11 @@
  "web.x1": "Auf Wunsch in mehreren Sprachen",
  "web.x2": "Vorschaubild, wenn Ihr Link geteilt wird",
  "web.x3": "Schnell ladende, übersichtliche Seiten",
- "web.x4": "Ihr Standort auf der Karte"
+ "web.x4": "Ihr Standort auf der Karte",
+ "cap.cmt.t": "Kommentare unter Beiträgen",
+ "cap.cmt.d": "Kommentiert jemand „Preis?“ unter Ihrem Beitrag, antwortet es per Privatnachricht und hinterlässt eine kurze Notiz „Wir haben Ihnen eine DM geschickt“. Sie schalten es ein, wenn Sie möchten.",
+ "cap.web.t": "Messenger und Website",
+ "cap.web.d": "Nachrichten an Ihre Facebook-Seite und an die Chat-Blase auf Ihrer Website landen im selben Posteingang und werden vom selben Assistenten beantwortet.",
+ "mirus.q9": "Antwortet er auch auf Kommentare unter meinen Beiträgen?",
+ "mirus.a9": "Ja, wenn Sie möchten; die Funktion bleibt aus, bis Sie sie einschalten. Kommt unter Ihrem Instagram- oder Facebook-Beitrag ein Kommentar mit einer Frage oder Interesse, antwortet Mirus der Person per Privatnachricht und schreibt unter den Kommentar eine kurze Notiz Ihrer Wahl (z. B. „Wir haben Ihnen eine DM geschickt“). In der öffentlichen Antwort stehen keine Preise und keine persönlichen Daten. Negative Kommentare werden nicht beantwortet, sondern Ihnen gemeldet; Lob und Markierungen werden übersprungen."
 }

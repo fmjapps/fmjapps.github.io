@@ -704,5 +704,11 @@
  "web.x1": "In more than one language if you need it",
  "web.x2": "A preview image when your link is shared",
  "web.x3": "Fast-loading, uncluttered pages",
- "web.x4": "Your location on a map"
+ "web.x4": "Your location on a map",
+ "cap.cmt.t": "Post comments",
+ "cap.cmt.d": "When someone comments “price?” on your post, it replies to them privately and leaves a short “we sent you a DM” note. You turn it on if you want it.",
+ "cap.web.t": "Messenger and website",
+ "cap.web.d": "Messages to your Facebook Page and to the chat bubble on your website land in the same inbox, answered by the same assistant.",
+ "mirus.q9": "Does it also reply to comments on my posts?",
+ "mirus.a9": "Yes, if you want it to; the feature stays off until you turn it on. When a question or interest comment arrives on your Instagram or Facebook post, Mirus replies to the commenter with a private message and posts a short note of your choice under the comment (e.g. “We’ve sent you a DM”). No prices or personal details appear in the public reply. Negative comments are not answered but reported to you; compliments and tags are skipped."
 }
