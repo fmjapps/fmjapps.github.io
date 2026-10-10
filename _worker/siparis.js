@@ -71,7 +71,8 @@ async function sendMail(env, subject, body, replyTo) {
 const CONTRACTS = [
   ['on-bilgilendirme-formu.html', '/sozlesmeler/on-bilgilendirme/'],
   ['mesafeli-satis-sozlesmesi.html', '/sozlesmeler/mesafeli-satis/'],
-  ['teslimat-ve-iade.html', '/sozlesmeler/teslimat-iade/']
+  ['teslimat-ve-iade.html', '/sozlesmeler/teslimat-iade/'],
+  ['cayma-formu.html', '/sozlesmeler/cayma-formu/']
 ];
 
 function customerText(o) {
@@ -85,9 +86,9 @@ function customerText(o) {
     `Ödenen toplam (KDV dahil): ${money(o.total)} TL`,
     `Ödeme tarihi: ${new Date(o.paid).toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })}`,
     '',
-    'Ön bilgilendirme formu, mesafeli satış sözleşmesi ve teslimat-iade şartları, siparişinizi verdiğiniz andaki halleriyle bu e-postanın ekindedir; lütfen saklayın.',
+    'Ön bilgilendirme formu, mesafeli satış sözleşmesi ve teslimat-iade şartları, ödeme anındaki halleriyle ve örnek cayma formuyla birlikte bu e-postanın ekindedir; lütfen saklayın.',
     '',
-    'Cayma hakkı: Sipariş tarihinden itibaren 14 gün içinde gerekçe göstermeden cayabilirsiniz (kaydedilmiş alan adı ücreti hariç). Bunun için bu e-postayı yanıtlamanız ya da +90 533 318 15 55 numarasına WhatsApp\'tan yazmanız yeterlidir.',
+    'Cayma hakkı: Ödemenin tamamlandığı günden itibaren 14 gün içinde gerekçe göstermeden cayabilirsiniz (kaydedilmiş alan adı ücreti hariç). Bunun için bu e-postayı yanıtlamanız ya da +90 533 318 15 55 numarasına WhatsApp\'tan yazmanız yeterlidir.',
     '',
     'En kısa sürede size WhatsApp ya da e-postayla ulaşacağız. e-Arşiv faturanız ayrıca gönderilecektir.',
     '',
@@ -398,7 +399,7 @@ async function paymentResult(request, env) {
     order.paidPrice = Number(r.paidPrice);
     order.card = [r.cardAssociation, r.cardFamily, r.lastFourDigits && '**** ' + r.lastFourDigits].filter(Boolean).join(' · ');
     order.contractMailed = await sendCustomerMail(env, order);
-    await env.ORDERS.put('siparis:' + no, JSON.stringify(order), { expirationTtl: 60 * 60 * 24 * 400 }); // ödenen sipariş 400 gün saklanır
+    await env.ORDERS.put('siparis:' + no, JSON.stringify(order), { expirationTtl: 60 * 60 * 24 * 1096 }); // ödenen sipariş ve sözleşme onayı 3 yıl saklanır (ispat)
     await sendMail(env, `[Yeni sipariş] ${no} · ${PACKAGES[order.paket].name} · ${money(order.total)} TL${order.status === 'incelemede' ? ' (iyzico incelemesinde)' : ''}`, orderText(order), order.email);
   }
   return back(`tamam/?no=${encodeURIComponent(no)}`);
