@@ -1,7 +1,7 @@
-# Kurumsal ana sayfanın, Titus, QR Menü ve Web Sitesi sayfalarının paylaşım görsellerini her dil için üretir (1200x630):
+# Kurumsal ana sayfanın, Mirus, QR Menü ve Web Sitesi sayfalarının paylaşım görsellerini her dil için üretir (1200x630):
 #   python _pages/og_site.py
-# Çıktı: assets/og-site-<dil>.jpg, assets/og-titus-<dil>.jpg, assets/og-qrmenu-<dil>.jpg ve assets/og-web-<dil>.jpg
-# Alt yazılar i18n/<dil>.json → co.tagline, titus.hero.kick, qr.hero.kick ve web.hero.kick ("… · " öneki atılır); Türkçesi aşağıda.
+# Çıktı: assets/og-site-<dil>.jpg, assets/og-mirus-<dil>.jpg, assets/og-qrmenu-<dil>.jpg ve assets/og-web-<dil>.jpg
+# Alt yazılar i18n/<dil>.json → co.tagline, mirus.hero.kick, qr.hero.kick ve web.hero.kick ("… · " öneki atılır); Türkçesi aşağıda.
 # Yazıyı tarayıcı çizer: Arapça ve Hintçe gibi yazılar ancak böyle doğru birleşir.
 # Gerekli: Pillow ve Chrome (ya da Edge).
 import os, json, shutil, subprocess, tempfile, html
@@ -9,7 +9,7 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).replace('\\', '/')
 LANGS = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id']
-TR = {'co.tagline': 'Güvenilir çözümler, verimli sonuçlar', 'titus.hero.kick': 'Titus · İşletmeler için yapay zekâ müşteri asistanı',
+TR = {'co.tagline': 'Güvenilir çözümler, verimli sonuçlar', 'mirus.hero.kick': 'Mirus · İşletmeler için yapay zekâ müşteri asistanı',
       'qr.hero.kick': 'QR Menü · Kafe ve restoranlar için dijital menü', 'qr.name': 'QR Menü',
       'web.hero.kick': 'Web Sitesi · İşletmeler ve kişiler için tanıtım sitesi', 'web.name': 'Web Sitesi',
       'hero.tagline': 'Sade, güvenilir oyunlar ve uygulamalar'}
@@ -84,10 +84,10 @@ def main():
                                body='<img class="wordmark" src="%s" alt="FMJ Software"><p class="cap" style="text-transform:none">%s</p>' % (wordmark, html.escape(t['hero.tagline'])),
                                foot='<span class="url" dir="ltr">%s</span>' % ('fmjapps.com/uygulamalar' if lang == 'tr' else 'fmjapps.com/' + lang + '/apps'))
             render(browser, tmp, 'apps', lang, apps)
-            titus = PAGE.format(lang=lang, dir=rtl, font=FONT,
-                                body='<div class="row"><span class="tile">T</span><h1>Titus</h1></div><p>%s</p>' % html.escape(t['titus.hero.kick'].split('·', 1)[-1].strip()),
-                                foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/titus</span>' % logo)
-            render(browser, tmp, 'titus', lang, titus)
+            mirus = PAGE.format(lang=lang, dir=rtl, font=FONT,
+                                body='<div class="row"><span class="tile">M</span><h1>Mirus</h1></div><p>%s</p>' % html.escape(t['mirus.hero.kick'].split('·', 1)[-1].strip()),
+                                foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/mirus</span>' % logo)
+            render(browser, tmp, 'mirus', lang, mirus)
             qr = PAGE.format(lang=lang, dir=rtl, font=FONT,
                              body='<div class="row"><span class="tile">%s</span><h1>%s</h1></div><p>%s</p>' % (QR_ICON, html.escape(t['qr.name']), html.escape(t['qr.hero.kick'].split('·', 1)[-1].strip())),
                              foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/qr-menu</span>' % logo)

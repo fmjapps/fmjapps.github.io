@@ -1,4 +1,4 @@
-// FMJ Software — kurumsal ana sayfa ve Titus sayfasının etkileşimleri
+// FMJ Software — kurumsal ana sayfa ve Mirus sayfasının etkileşimleri
 (function () {
   'use strict';
 
@@ -8,8 +8,8 @@
 
   // İletişim formunun gönderildiği Cloudflare Worker
   var FORM_URL = 'https://form.fmjapps.com/';
-  // Titus sunucusundaki site demosu (şifre gerekiyorsa sunucu söyler)
-  var DEMO_API = 'https://titus.fmjapps.com/api/site';
+  // Mirus sunucusundaki site demosu (şifre gerekiyorsa sunucu söyler)
+  var DEMO_API = 'https://mirus.fmjapps.com/api/site';
 
   function esc(str) { return String(str).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
@@ -45,16 +45,16 @@
     'chat.retry': 'Tekrar dene', 'chat.done': 'Mesajın gönderildi',
     'contact.copied': 'Adres kopyalandı',
     'form.sending': 'Gönderiliyor…',
-    'co.sub.titus': 'Titus için demo istiyorum',
+    'co.sub.mirus': 'Mirus için demo istiyorum',
     'co.sub.qrmenu': 'QR Menü için teklif istiyorum',
     'co.sub.web': 'Web sitesi için teklif istiyorum',
     'co.sub.business': 'İşletmem için bir çözüm',
     'co.sub.other': 'Başka bir konu',
     'co.chat.webMsg': 'Site kimin için, ne iş yapıyorsunuz? Aklınızda bir alan adı varsa onu da yazın; teklifimizi iletelim.',
     'co.chat.qrMsg': 'İşletmenizin adını ve türünü (kafe, restoran…) yazar mısınız? Menünüz elinizde fotoğraf, PDF ya da liste olarak varsa onu da belirtin; teklifimizi iletelim.',
-    'co.chat.titusMsg': 'İşletmenizin adını, sektörünüzü ve günde yaklaşık kaç mesaj aldığınızı yazar mısınız? Size uygun bir demo planlayalım.',
-    'demo.greet': 'Merhaba! Ben Titus, {name} adına mesajlarınızı cevaplıyorum. Size nasıl yardımcı olabilirim?',
-    'demo.handoff': 'Titus bu konuşmayı ekibe aktardı. Gerçek kullanımda işletmenin ekibi konuşmaya buradan devam eder.',
+    'co.chat.mirusMsg': 'İşletmenizin adını, sektörünüzü ve günde yaklaşık kaç mesaj aldığınızı yazar mısınız? Size uygun bir demo planlayalım.',
+    'demo.greet': 'Merhaba! Ben Mirus, {name} adına mesajlarınızı cevaplıyorum. Size nasıl yardımcı olabilirim?',
+    'demo.handoff': 'Mirus bu konuşmayı ekibe aktardı. Gerçek kullanımda işletmenin ekibi konuşmaya buradan devam eder.',
     'demo.restart': 'Yeni konuşma başlat',
     'demo.sample': 'örnek işletme',
     'demo.shield': 'Adil Kullanım Kalkanı devrede: bu mesaj için cevap üretilmedi ve ücretlendirilmez.',
@@ -171,7 +171,7 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
   }
 
-  /* ---------- Menüde açılır alt menü (Titus) ---------- */
+  /* ---------- Menüde açılır alt menü (Mirus) ---------- */
   document.querySelectorAll('.nav-drop').forEach(function (drop) {
     var btn = drop.querySelector('.drop-btn');
     var set = function (open) { drop.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); };
@@ -218,7 +218,7 @@
     function label(p) {
       if (p.id) { var a = document.querySelector('.links a[href="#' + p.id + '"]'); if (a) return a.textContent.trim(); }
       var e = p.querySelector('.eyebrow');
-      return e ? e.textContent.trim().split('·')[0].trim() : 'Titus';
+      return e ? e.textContent.trim().split('·')[0].trim() : 'Mirus';
     }
     function buildPager() {
       if (!pager) return;
@@ -413,9 +413,9 @@
     if (goToPage) goToPage(el); else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   }
 
-  /* ---------- Titus: selamlar; heykeli titus3d.js çizer ---------- */
+  /* ---------- Mirus: selamlar; heykeli mirus3d.js çizer ---------- */
   (function () {
-    var t = document.getElementById('titus');
+    var t = document.getElementById('mirus');
     if (!t) return;
     var say = document.getElementById('tSay');
     var GREET = [
@@ -435,13 +435,13 @@
     }
     var cycle = setInterval(next, 3800);
     var happyTimer;
-    function setHappy(on) { t.dispatchEvent(new CustomEvent('titus:happy', { detail: on })); }
+    function setHappy(on) { t.dispatchEvent(new CustomEvent('mirus:happy', { detail: on })); }
     var hit = document.getElementById('tHit');
     hit.addEventListener('click', function () {
       clearInterval(cycle);
       next();
       cycle = setInterval(next, 3800);
-      t.dispatchEvent(new CustomEvent('titus:nod'));
+      t.dispatchEvent(new CustomEvent('mirus:nod'));
       setHappy(true);
       clearTimeout(happyTimer);
       happyTimer = setTimeout(function () { setHappy(false); }, 1600);
@@ -519,11 +519,11 @@
     document.querySelectorAll('#sectorShort li').forEach(function (li) { shortNames[li.getAttribute('data-k')] = li.textContent.trim(); });
 
     var sectors = [], current = null, busy = false, locked = false;
-    var code = sget('titus-demo-code') || '';
+    var code = sget('mirus-demo-code') || '';
     var logs = {}; // sektör → ekrandaki mesajlar
     var tokens = {};
-    try { tokens = JSON.parse(sget('titus-demo-tokens') || '{}'); } catch (e) {}
-    function saveTokens() { sset('titus-demo-tokens', JSON.stringify(tokens)); }
+    try { tokens = JSON.parse(sget('mirus-demo-tokens') || '{}'); } catch (e) {}
+    function saveTokens() { sset('mirus-demo-tokens', JSON.stringify(tokens)); }
 
     // İşletme adındaki "(örnek)" etiketi sayfanın dilinde yazılır
     function bareName(s) { return s.name.replace(/\s*\(.*\)\s*$/, ''); }
@@ -634,7 +634,7 @@
           dots.remove();
           var j = res.body || {};
           if (res.status === 401 || res.status === 429 && j.locked) {
-            code = ''; sset('titus-demo-code', null);
+            code = ''; sset('mirus-demo-code', null);
             logs[s.key].pop();
             render();
             setLocked(true);
@@ -670,7 +670,7 @@
       lockErr.textContent = '';
       fetch(DEMO_API + '/unlock', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code: c }) })
         .then(function (r) {
-          if (r.ok) { code = c; sset('titus-demo-code', c); lockIn.value = ''; setLocked(false); input.focus({ preventScroll: true }); return; }
+          if (r.ok) { code = c; sset('mirus-demo-code', c); lockIn.value = ''; setLocked(false); input.focus({ preventScroll: true }); return; }
           lockErr.textContent = r.status === 429 ? t('co.lock.rate') : t('co.lock.bad');
         })
         .catch(function () { lockErr.textContent = t('demo.offline'); });
@@ -718,7 +718,7 @@
     var hp = form.querySelector('input[name=website]');
     // Konu anahtarları iletişim formu sunucusundaki listeyle aynıdır
     var SUBJECTS = [
-      { v: 'titus', key: 'co.sub.titus', ask: 'co.chat.titusMsg' },
+      { v: 'mirus', key: 'co.sub.mirus', ask: 'co.chat.mirusMsg' },
       { v: 'qrmenu', key: 'co.sub.qrmenu', ask: 'co.chat.qrMsg' },
       { v: 'web', key: 'co.sub.web', ask: 'co.chat.webMsg' },
       { v: 'business', key: 'co.sub.business' },

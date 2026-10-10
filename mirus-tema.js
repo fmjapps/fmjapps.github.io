@@ -1,4 +1,4 @@
-/* Titus sohbet balonunu sitenin temasına uydurur: renkler açık/koyu temaya göre, telefonda sohbet tam ekran.
+/* Mirus sohbet balonunu sitenin temasına uydurur: renkler açık/koyu temaya göre, telefonda sohbet tam ekran.
    Balon kendi stilini gölge DOM'da tutar; buraya yalnızca üzerine yazan küçük bir stil eklenir. */
 (function () {
   'use strict';

@@ -1,6 +1,6 @@
 // Uygulama sayfalarını ve sitenin ana sayfalarının dil kopyalarını üretir: node _pages/build.cjs
 // Çıktı: /<adres>/index.html (Türkçe), /<dil>/<adres>/index.html (diğer diller),
-// kurumsal ana sayfa, uygulamalar sayfası ve Titus sayfasının diğer dillerdeki hâli
+// kurumsal ana sayfa, uygulamalar sayfası ve Mirus sayfasının diğer dillerdeki hâli
 // (metni i18n/<dil>.json dosyasından), sitemap.xml
 // Türkçe ve İngilizce metin content.cjs içinde; diğer diller lang/<dil>.json dosyalarından okunur.
 // Ayrıca ana sayfadaki yapılandırılmış veriyi uygulama sayfalarının adresleriyle günceller.
@@ -46,7 +46,7 @@ const aboutPath = lang => lang === 'tr' ? '/hakkimizda/' : '/' + lang + '/about/
 // app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
 const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
 
-const CSP = "default-src 'self'; script-src 'self' https://titus.fmjapps.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://titus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'";
+const CSP = "default-src 'self'; script-src 'self' https://mirus.fmjapps.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://mirus.fmjapps.com; object-src 'none'; base-uri 'self'; form-action 'self'";
 
 function page(app, lang) {
   const t = UI[lang], c = app.text[lang];
@@ -295,8 +295,8 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 </div>
 
 <nav class="pager" id="pager" aria-label="${esc(t.pages)}"></nav>
-<script src="https://titus.fmjapps.com/widget.js" data-titus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
-<script src="/titus-tema.js" defer></script>
+<script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
+<script src="/mirus-tema.js" defer></script>
 </body>
 </html>
 `;
@@ -312,11 +312,11 @@ for (const app of APPS) for (const lang of LANGS) {
 }
 
 // Sitenin ana sayfaları: Türkçe kaynak dosya kendi adresinde durur (index.html, uygulamalar/index.html,
-// titus/index.html); diğer diller bundan üretilir. meta: başlık ve açıklamanın çeviri anahtarı öneki.
+// mirus/index.html); diğer diller bundan üretilir. meta: başlık ve açıklamanın çeviri anahtarı öneki.
 const TEMPLATES = [
   { id: 'home', out: homePath, meta: 'co.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'apps', out: appsPath, meta: 'meta', og: l => '/assets/og-apps-' + l + '.jpg' },
-  { id: 'titus', out: l => l === 'tr' ? '/titus/' : '/' + l + '/titus/', meta: 'titus.meta', og: l => '/assets/og-titus-' + l + '.jpg' },
+  { id: 'mirus', out: l => l === 'tr' ? '/mirus/' : '/' + l + '/mirus/', meta: 'mirus.meta', og: l => '/assets/og-mirus-' + l + '.jpg' },
   { id: 'about', out: aboutPath, meta: 'about.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' },
   { id: 'web', out: l => l === 'tr' ? '/web-sitesi/' : '/' + l + '/website/', meta: 'web.meta', og: l => '/assets/og-web-' + l + '.jpg' }
@@ -401,7 +401,7 @@ function homePage(tpl, src, lang) {
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
   h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
     if (node['@type'] === 'Organization' && tx('co.meta.desc')) node.description = tx('co.meta.desc');
-    // Hizmet açıklaması o sayfanın meta açıklamasıdır (Titus, QR Menü, Web Sitesi)
+    // Hizmet açıklaması o sayfanın meta açıklamasıdır (Mirus, QR Menü, Web Sitesi)
     if (node['@type'] === 'Service' && tx(tpl.meta + '.desc')) node.description = tx(tpl.meta + '.desc');
     const app = node['@type'] === 'MobileApplication' && appOfNode(node);
     if (app) {
@@ -444,7 +444,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${TEMPLATES.map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
-${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'titus/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
+${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'mirus/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
 ${['mesafeli-satis/', 'on-bilgilendirme/', 'teslimat-iade/', 'cayma-formu/'].map(p => entry(BASE + '/sozlesmeler/' + p, '', '0.3')).join('\n')}
 </urlset>
 `;

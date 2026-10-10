@@ -1,11 +1,11 @@
-// Titus: binlerce ışık noktasından oluşan, derinliği olan cinsiyetsiz bir insan yüzü ve omuzlar.
+// Mirus: binlerce ışık noktasından oluşan, derinliği olan cinsiyetsiz bir insan yüzü ve omuzlar.
 // Biçim Poly Haven "Marble Bust 01" (CC0, Rico Cilliers) modelinden alınır; saç ve yüz hatları yumuşatılır,
 // yüzeyden noktalar örneklenir. Noktalar açılışta dağınık hâlden toplanır, fare yaklaşınca dağılıp geri döner,
 // tıklanınca göğüsten başa bir ışık dalgası yükselir, sohbet sırasında parlar. Baş fareyi izler, sürüklenince döner.
 // WebGL2 yoksa yalnızca arka plan ışığı kalır.
 (function () {
   'use strict';
-  var host = document.getElementById('titus');
+  var host = document.getElementById('mirus');
   var cv = document.getElementById('tCanvas');
   if (!host || !cv) return;
   var gl = cv.getContext('webgl2', { antialias: true, premultipliedAlpha: true, alpha: true });
@@ -14,7 +14,7 @@
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var rtl = root.dir === 'rtl';
   var small = Math.min(innerWidth, innerHeight) < 700;
-  var BASE = '/assets/titus/';
+  var BASE = '/assets/mirus/';
 
   /* ---------- Baş çerçevesi: kafa büstte yaklaşık 15° sola dönüktür ---------- */
   var HC = { x: 0, z: 0.011 }, FC = Math.cos(0.2611), FS = Math.sin(0.2611);
@@ -164,7 +164,7 @@
       ready = true; born = performance.now();
       host.classList.add('t-ready');
     })
-    .catch(function (e) { if (window.console) console.warn('titus3d', e); });
+    .catch(function (e) { if (window.console) console.warn('mirus3d', e); });
 
   // Saç kütlesi düzleştirilir, yüz hatları yumuşatılır: cinsiyetsiz, sade bir baş biçimi.
   function soften(pos, idx) {
@@ -436,8 +436,8 @@
   }, true);
   var hit = document.getElementById('tHit');
   if (hit) hit.style.touchAction = 'pan-y';
-  host.addEventListener('titus:nod', function () { nodT = performance.now(); });
-  host.addEventListener('titus:happy', function (e) { happy = e.detail ? 1 : 0; });
+  host.addEventListener('mirus:nod', function () { nodT = performance.now(); });
+  host.addEventListener('mirus:happy', function (e) { happy = e.detail ? 1 : 0; });
 
   function frame(now) {
     if (!visible) return;

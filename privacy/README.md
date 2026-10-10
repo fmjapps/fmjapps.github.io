@@ -11,7 +11,7 @@ Her uygulama kendi klasöründe:
 - `kayip/` → https://fmjapps.com/privacy/kayip/
 - `paydos/` → https://fmjapps.com/privacy/paydos/
 - `prizma/` → https://fmjapps.com/privacy/prizma/
-- `titus/` → https://fmjapps.com/privacy/titus/ (web hizmeti; Android izinleri maddesi yok, Meta için veri silme talimatı `#veri-silme` / `#data-deletion`)
+- `mirus/` → https://fmjapps.com/privacy/mirus/ (web hizmeti; Android izinleri maddesi yok, Meta için veri silme talimatı `#veri-silme` / `#data-deletion`)
 - `site/` → https://fmjapps.com/privacy/site/ (fmjapps.com web sitesinin kendisi: iletişim formu ve canlı demo, KVKK aydınlatma metni; Android izinleri ve uygulama maddeleri yok, "Veri sorumlusu" ve "İşleme amaçları ve hukuki sebepler" maddeleri eklidir)
 
 Yeni bir uygulama eklerken: yeni bir klasör açıp içine `index.html` koymak ve
