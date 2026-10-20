@@ -14,7 +14,7 @@
   <div class="spectrum" aria-hidden="true"></div>
   <div class="eyebrow"><span class="dot"></span>Mirus · Müşteri Mesajlaşma Asistanı</div>
   <h1>Gizlilik Politikası</h1>
-  <div class="updated">Son güncelleme: 11 Ekim 2026</div>
+  <div class="updated">Son güncelleme: 21 Ekim 2026</div>
   <p class="lede">Mirus, FMJ Software'in işletmelere sunduğu yapay zekâ destekli bir müşteri mesajlaşma asistanıdır. İşletmenin müşterilerinden WhatsApp, Instagram, Facebook Messenger ve web sitesi sohbeti üzerinden gelen mesajlara işletme adına cevap verir, randevu kaydeder ve gerektiğinde konuşmayı işletmenin ekibine devreder. Bu sayfa, Mirus'un hangi verileri işlediğini, nerede sakladığını ve bu verilerin nasıl silinebileceğini açıklar.</p>
 
   <div class="chip-row">
@@ -43,7 +43,7 @@
 
   <section>
     <h2><span class="num">02</span>Yapay zekâ ile cevap üretimi</h2>
-    <p>Mirus cevaplarını Anthropic'in Claude yapay zekâ modeliyle üretir. Bir cevap hazırlanırken o konuşmanın geçmişi ve işletmenin Mirus'a verdiği bilgiler (hizmetler, fiyatlar, çalışma saatleri gibi) Anthropic'e (ABD) gönderilir. Anthropic, ticari kullanım koşulları gereği bu içerikleri modellerini eğitmek için kullanmaz ve kendi sistemlerinden varsayılan olarak 30 gün içinde siler; kullanım politikası ihlali ya da yasal zorunluluk gibi durumlar bu sürenin istisnasıdır.</p>
+    <p>Mirus cevaplarını Google Cloud'un (Vertex AI) Avrupa Birliği bölgesinde çalışan bir yapay zekâ modeliyle üretir. Kullanılan model Google'ın Gemini modelidir; Anthropic'in Claude modeli de yalnızca Google Cloud üzerinden kullanılabilir. Bir cevap hazırlanırken o konuşmanın geçmişi ve işletmenin Mirus'a verdiği bilgiler (hizmetler, fiyatlar, çalışma saatleri gibi) Google Cloud'un Avrupa Birliği bölgesine gönderilir. Google, Google Cloud koşulları gereği bu içerikleri modellerini eğitmek için kullanmaz.</p>
     <p>Mirus işletmenin verdiği bilgilerin dışına çıkmamak üzere ayarlanmıştır; teşhis koymaz, kesin söz vermez ve gerektiğinde konuşmayı bir çalışana devreder. Yine de yapay zekâ hata yapabilir; kesin bilgi için işletmeyle doğrudan teyitleşmenizi öneririz.</p>
   </section>
 
@@ -58,12 +58,12 @@
     <p>Mirus yalnızca hizmetin çalışması için gereken aşağıdaki sağlayıcılarla veri paylaşır. Veriler reklam ya da pazarlama amacıyla hiçbir üçüncü tarafa verilmez ve satılmaz.</p>
     <ul>
       <li><b>Oracle Cloud (Frankfurt, Almanya)</b>: verilerin ve günlük yedeklerin saklandığı sunucular. Ayrıca haftalık tam yedek, şifreli bir harici bellekte FMJ Software’de (Türkiye) tutulur.</li>
-      <li><b>Anthropic (ABD)</b>: cevapların üretilmesi (bkz. madde 02).</li>
+      <li><b>Google Cloud (Vertex AI, Avrupa Birliği bölgesi)</b>: cevapların üretilmesi (bkz. madde 02).</li>
       <li><b>Meta Platforms</b>: WhatsApp, Instagram ve Facebook Messenger üzerinden gelen ve giden mesajlar Meta'nın altyapısından geçer ve Meta'nın gizlilik politikasına tabidir: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a></li>
       <li><b>Google Takvim</b>: yalnızca işletme bu bağlantıyı açtıysa; randevunun tarihi, saati, müşterinin adı, hizmet ve paylaşılmışsa telefon numarası işletmenin Google Takvim'ine yazılır. Takvimden okunan bilgiler (dolu saatler) yalnızca randevu için boş saat bulmakta kullanılır; reklam ya da yapay zekâ modeli eğitimi için kullanılmaz, kimseye satılmaz ya da aktarılmaz ve Google API Hizmetleri Kullanıcı Verisi Politikası'na, Sınırlı Kullanım (Limited Use) şartları dahil, uygun olarak işlenir.</li>
       <li><b>Tarayıcı bildirim hizmetleri</b>: yalnızca içeriksiz uyarı (bkz. madde 03).</li>
     </ul>
-    <p>Anthropic'e ve Meta'ya gönderilen veriler, bu hizmetlerin niteliği gereği yurt dışına aktarılmış olur.</p>
+    <p>Google'a (Avrupa Birliği) ve Meta'ya gönderilen veriler, bu hizmetlerin niteliği gereği yurt dışına aktarılmış olur.</p>
   </section>
 
   <section>
@@ -107,7 +107,7 @@
   <div class="lang-divider">English version below</div>
 
   <h1 lang="en">Privacy Policy</h1>
-  <div class="updated" lang="en">Last updated: October 11, 2026</div>
+  <div class="updated" lang="en">Last updated: October 21, 2026</div>
   <p class="lede" lang="en">Mirus is an AI-powered customer messaging assistant that FMJ Software provides to businesses. It replies on a business's behalf to messages its customers send through WhatsApp, Instagram, Facebook Messenger and the business's website chat, books appointments, and hands the conversation to the business's staff when needed. This page explains what data Mirus processes, where it is stored, and how it can be deleted.</p>
 
   <section lang="en">
@@ -129,7 +129,7 @@
 
   <section lang="en">
     <h2><span class="num">02</span>How replies are generated</h2>
-    <p>Mirus generates its replies with Anthropic's Claude AI model. To prepare a reply, the conversation history and the information the business has given Mirus (services, prices, opening hours and so on) are sent to Anthropic (USA). Under its commercial terms Anthropic does not use this content to train its models and by default deletes it from its systems within 30 days; usage policy violations and legal requirements are exceptions to this period.</p>
+    <p>Mirus generates its replies with an AI model running on Google Cloud (Vertex AI) in the European Union region. The model is Google's Gemini; Anthropic's Claude model may also be used, but only through Google Cloud. To prepare a reply, the conversation history and the information the business has given Mirus (services, prices, opening hours and so on) are sent to Google Cloud in the European Union region. Under Google Cloud terms, Google does not use this content to train its models.</p>
     <p>Mirus is set up to stay within the information the business provides; it does not diagnose, does not make firm promises, and hands the conversation to a staff member when needed. AI can still make mistakes, so we recommend confirming important details directly with the business.</p>
   </section>
 
@@ -144,12 +144,12 @@
     <p>Mirus shares data only with the providers below that are needed to run the service. Data is never given to or sold to any third party for advertising or marketing.</p>
     <ul>
       <li><b>Oracle Cloud (Frankfurt, Germany)</b>: the servers where data and daily backups are stored. A weekly full backup is also kept on an encrypted external drive at FMJ Software (Türkiye).</li>
-      <li><b>Anthropic (USA)</b>: generating replies (see section 02).</li>
+      <li><b>Google Cloud (Vertex AI, European Union region)</b>: generating replies (see section 02).</li>
       <li><b>Meta Platforms</b>: messages sent and received on WhatsApp, Instagram and Facebook Messenger pass through Meta's infrastructure and are governed by Meta's privacy policy: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a></li>
       <li><b>Google Calendar</b>: only if the business has turned this on; the appointment's date, time, customer name, service and, if shared, phone number are written to the business's Google Calendar. Information read from the calendar (busy times) is used only to find free slots for appointments; it is not used for advertising or to train AI models, is not sold or transferred to anyone, and is handled in accordance with the Google API Services User Data Policy, including the Limited Use requirements.</li>
       <li><b>Browser notification services</b>: empty alerts only (see section 03).</li>
     </ul>
-    <p>By the nature of these services, data sent to Anthropic and Meta is transferred outside Turkey.</p>
+    <p>By the nature of these services, data sent to Google (European Union) and Meta is transferred outside Turkey.</p>
   </section>
 
   <section lang="en">
