@@ -8,7 +8,7 @@
 
   var KDV = 0.20;
   var PACKS = {
-    web: { name: 'Web Sitesi', price: 3400, domain: true },
+    web: { name: 'Web Sitesi', price: 3700, domain: true },
     qr: { name: 'QR Menü (1 yıllık kullanım)', price: 1450, domain: false }
   };
   var DRAFT = 'fmj-siparis-taslak';

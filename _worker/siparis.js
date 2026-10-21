@@ -17,7 +17,7 @@ const MAX_YEARS = 5;
 
 // Satılan paketler. Fiyatlar KDV hariç TL; sitedeki paket kartlarıyla aynı olmalı.
 export const PACKAGES = {
-  web: { name: 'Web Sitesi', price: 3400, domain: true, category: 'Web sitesi hizmeti' },
+  web: { name: 'Web Sitesi', price: 3700, domain: true, category: 'Web sitesi hizmeti' },
   qr: { name: 'QR Menü (1 yıllık kullanım)', price: 1450, domain: false, category: 'Dijital menü hizmeti' }
 };
 
