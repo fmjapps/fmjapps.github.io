@@ -290,7 +290,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
       </div>
     </div>
     <div class="wrap"><p class="foot-bottom">© 2026 FMJ Software · ${esc(t.android)}</p></div>
-    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · ${esc(t.vd)} · ${esc(t.vkn)} 3870844488 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
+    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · ${esc(t.vd)} · ${esc(t.vkn)} 3870844488 · ETBİS 4576267076 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
   </footer>
 </div>
 
