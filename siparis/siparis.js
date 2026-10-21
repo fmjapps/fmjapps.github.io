@@ -185,8 +185,15 @@
     return bad;
   }
 
+  // Satış kapalıyken (form.fmjapps.com/durum) ödeme düğmesi pasif kalır; tek anahtar sunucudadır (SATIS_ACIK).
+  var satisKapali = false;
+  var KAPALI_MSG = 'Online ödeme çok yakında açılıyor. Şimdilik siparişinizi WhatsApp’tan (+90 533 318 15 55) ya da contact@fmjapps.com adresinden verebilirsiniz.';
+  function kapat() { satisKapali = true; payBtn.disabled = true; showAlert(KAPALI_MSG); }
+  fetch(API + '/durum').then(function (r) { return r.json(); }).then(function (j) { if (!j || !j.satis) kapat(); }).catch(function () {});
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (satisKapali) { showAlert(KAPALI_MSG); return; }
     var o = collect();
     var bad = localCheck(o);
     if (bad.length) {
@@ -211,11 +218,12 @@
         }
         if (j.error === 'invalid' && j.fields) { markInvalid(j.fields); showAlert('Lütfen işaretli alanları kontrol edin.'); }
         else if (j.error === 'domain-taken') { domain = null; render(); setDomainMsg('bad', 'Bu alan adı az önce alınmış görünüyor; başka bir ad deneyin.'); showAlert('Alan adı artık boşta değil; lütfen yeniden sorgulayın.'); }
+        else if (j.error === 'kapali') kapat();
         else if (j.error === 'rate') showAlert('Çok sık denediniz; bir dakika sonra tekrar deneyin.');
         else showAlert('Ödeme sayfası şu an açılamadı. Biraz sonra tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55');
       })
       .catch(function () { showAlert('Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.'); })
-      .then(function () { payBtn.disabled = false; payBtn.classList.remove('busy'); });
+      .then(function () { payBtn.disabled = satisKapali; payBtn.classList.remove('busy'); });
   });
 
   /* ---------- Açılış ---------- */

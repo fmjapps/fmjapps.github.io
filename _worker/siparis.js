@@ -286,6 +286,9 @@ export async function handleShop(request, env, url, origin, json, ip) {
   // iyzico ödeme sonrası buraya form ile döner (tarayıcı yönlendirmesi; Origin denetimi yok)
   if (path === '/odeme/sonuc' && request.method === 'POST') return paymentResult(request, env);
 
+  // Satış anahtarı (wrangler.toml → SATIS_ACIK = "1" açık). Kapalıyken sipariş sayfası ödeme düğmesini pasif gösterir.
+  if (path === '/durum' && request.method === 'GET') return json({ ok: true, satis: env.SATIS_ACIK === '1' }, 200, origin);
+
   if (request.method !== 'POST') return json({ ok: false, error: 'method' }, 405, origin);
 
   if (path === '/alan-adi') {
@@ -308,6 +311,8 @@ export async function handleShop(request, env, url, origin, json, ip) {
   }
 
   if (path === '/siparis') {
+    // Satış kapalıyken sipariş hiç kaydedilmez, kişisel veri işlenmez.
+    if (env.SATIS_ACIK !== '1') return json({ ok: false, error: 'kapali' }, 503, origin);
     if (env.LIMITER) {
       const { success } = await env.LIMITER.limit({ key: ip });
       if (!success) return json({ ok: false, error: 'rate' }, 429, origin);
