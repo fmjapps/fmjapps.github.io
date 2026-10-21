@@ -1434,6 +1434,7 @@ html { scroll-padding-top: 96px; }
 .o-seg input:focus-visible + span { outline: 2px solid #376E6F; }
 
 .o-check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: var(--text); cursor: pointer; }
+.o-check[hidden] { display: none; }
 .o-check input { width: 18px; height: 18px; margin-top: 2px; accent-color: #244A4B; flex: none; }
 .o-pay { width: 100%; justify-content: center; height: 54px; font-size: 16px; }
 .o-pay.busy { opacity: .7; pointer-events: none; }
