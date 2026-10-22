@@ -17,7 +17,7 @@
  "contact.lede": "Bir fikrin, bir hata bildirimin ya da bir sorunun varsa buradan yaz. Türkçe ya da İngilizce, ikisi de olur.",
  "contact.title": "Bize yazın",
  "demo.klinik.foreign": "How much is a hair transplant package?",
- "demo.klinik.note": "Klinik modu: Türkçe yazan hastaya fiyat verilmez (Sağlık Tanıtım Yönetmeliği). Yurt dışından yazan hastaya sağlık turizmi kapsamında fiyat verilir. İki soruyu da deneyin.",
+ "demo.klinik.note": "Klinik modu: Türkçe yazan hastaya fiyat verilmez (Sağlık Hizmetlerinde Tanıtım ve Bilgilendirme Faaliyetleri Hakkında Yönetmelik). Yurt dışından yazan hastaya sağlık turizmi kapsamında fiyat verilir. İki soruyu da deneyin.",
  "ezber.desc": "Metnini sana okur, sıra sana gelince dinler, takıldığında suflör gibi fısıldar. Tiyatro repliği, 23 Nisan şiiri ya da iş sunumu; telefona dokunmadan, yürürken bile çalış.",
  "ezber.f1": "Sesli prova ve suflör",
  "ezber.f2": "PDF, Word ya da fotoğraftan aktar",
@@ -69,7 +69,7 @@
  "kol.desc": "Dedenin antika dükkânı artık senin. Müşteriler cep saati, sikke ve tablo getiriyor; eşyayı çevir, büyüteci gezdir, kataloğu aç. Sahteyi yakala, pazarlık et ve on sekiz büyük ustanın eserlerini tek bir vitrinde topla.",
  "kol.f1": "Büyüteç, UV lamba, pigment analizi",
  "kol.f2": "Satıcılarla pazarlık",
- "kol.f3": "18 ustalık koleksiyon",
+ "kol.f3": "18 ustanın koleksiyonu",
  "kol.f4": "8–10 dakikalık dükkân günleri",
  "kol.name": "Koleksiyoner: Antika Dedektifi",
  "kol.short": "Koleksiyoner",
@@ -121,6 +121,6 @@
  "v3.d": "Tahminle değil dikkatle kazanılır. Kayıp Eşya Bürosu ve Prizma'da günün içeriği dünyadaki herkese aynıdır.",
  "v3.t": "Adil oyun",
  "v4.d": "Oyunlar ve uygulamalar Türkçe ve İngilizce başta olmak üzere dokuz ya da on dilde, telefonunun diliyle açılır.",
- "v4.t": "Dokuz dil",
+ "v4.t": "Çok dilli",
  "values.title": "Nasıl yapıyoruz"
 }

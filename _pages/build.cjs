@@ -396,10 +396,16 @@ function homePage(tpl, src, lang) {
   h = h.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(tx(tpl.meta + '.title'))}</title>`);
   h = h.replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.desc')) + b);
   h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.desc')) + b);
-  if (tpl.id === 'home') h = h.replace(/(<meta property="og:title" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.title')) + b);
+  // Paylaşım başlığı da o dilin sayfa başlığıdır (Türkçe kaynakta kısa ad durur, çeviride kalmamalı)
+  h = h.replace(/(<meta property="og:title" content=")[^"]*(")/, (m, a, b) => a + esc(tx(tpl.meta + '.title')) + b);
   h = h.replace(/(<meta property="og:url" content=")[^"]*(")/, (m, a, b) => a + url + b);
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
+  // Yapılandırılmış verideki Türkçe sayfa ve hizmet adları o dildeki karşılığıyla değişir
+  const LD_NAMES = { 'QR Menü': 'qr.name', 'Web Sitesi': 'web.name', 'Hakkımızda': 'nav.about', 'Hakkımızda · FMJ Software': 'about.meta.title' };
+  const ldName = n => LD_NAMES[n] && tx(LD_NAMES[n]) ? tx(LD_NAMES[n]) : n;
   h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
+    if (typeof node.name === 'string') node.name = ldName(node.name);
+    if (node['@type'] === 'BreadcrumbList') (node.itemListElement || []).forEach(it => { it.name = ldName(it.name); });
     if (node['@type'] === 'Organization' && tx('co.meta.desc')) node.description = tx('co.meta.desc');
     // Hizmet açıklaması o sayfanın meta açıklamasıdır (Mirus, QR Menü, Web Sitesi)
     if (node['@type'] === 'Service' && tx(tpl.meta + '.desc')) node.description = tx(tpl.meta + '.desc');
@@ -413,6 +419,7 @@ function homePage(tpl, src, lang) {
   h = fillText(h, 'data-i18n-html', k => tx(k));
   h = fillText(h, 'data-i18n', k => tx(k) == null ? null : esc(tx(k)));
   h = fillAttr(h, 'data-i18n-aria', 'aria-label', k => tx(k));
+  h = fillAttr(h, 'data-i18n-aria', 'title', k => tx(k)); // aynı düğmedeki ipucu yazısı da çevrilir
   h = fillAttr(h, 'data-i18n-ph', 'placeholder', k => tx(k));
   // Ekran görüntüleri o dilin klasöründen, uygulama bağlantıları o dildeki sayfalardan
   h = h.split('/assets/shots/tr/').join('/assets/shots/' + lang + '/');

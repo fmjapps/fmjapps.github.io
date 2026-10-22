@@ -231,7 +231,7 @@
   var q = new URLSearchParams(location.search);
   var pk = q.get('paket');
   if (pk && PACKS[pk]) { var r = form.querySelector('input[name=paket][value="' + pk + '"]'); if (r) r.checked = true; }
-  if (q.get('hata')) showAlert('Ödeme tamamlanmadı; kartınızdan para çekilmedi. Bilgileriniz duruyor, tekrar deneyebilirsiniz.');
+  if (q.get('hata')) showAlert('Ödeme tamamlanmadı; kartınızdan bir çekim yapıldıysa otomatik olarak iade edilir. Bilgileriniz duruyor, tekrar deneyebilirsiniz.');
   render();
   if (pkgKey() === 'web' && normDomain(domainIn.value)) checkDomain();
 })();
