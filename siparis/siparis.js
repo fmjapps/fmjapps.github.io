@@ -211,7 +211,7 @@
     fetch(API + '/siparis', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(o) })
       .then(function (r) { return r.json(); })
       .then(function (j) {
-        if (j.ok && j.url && /^https:\/\/([a-z0-9-]+\.)*iyzipay\.com\//.test(j.url)) {
+        if (j.ok && j.url && /^https:\/\/([a-z0-9-]+\.)*iyzipay\.com([\/?#]|$)/.test(j.url)) {
           try { sessionStorage.setItem('fmj-siparis-son', JSON.stringify({ no: j.no, total: j.total, paket: o.paket })); } catch (err) {}
           location.href = j.url;
           return;
