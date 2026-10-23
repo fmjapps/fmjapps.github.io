@@ -6,6 +6,43 @@
   var API = 'https://form.fmjapps.com';
   try { if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && localStorage.getItem('fmj-api')) API = localStorage.getItem('fmj-api'); } catch (e) {}
 
+// İnsan doğrulaması (Cloudflare Turnstile): form.fmjapps.com/durum site anahtarını verirse görünmez bir doğrulama
+  // çalışır; yalnız şüpheli durumda sol altta küçük bir kutu çıkar. Anahtar yoksa ya da yüklenemezse null döner.
+  var tsLoading = null;
+  function tsLoad() {
+    if (window.turnstile) return Promise.resolve();
+    if (!tsLoading) tsLoading = new Promise(function (res, rej) {
+      var s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.async = true;
+      s.onload = res;
+      s.onerror = function () { tsLoading = null; rej(); };
+      document.head.appendChild(s);
+    });
+    return tsLoading;
+  }
+  function insanToken(api) {
+    return fetch(api + '/durum').then(function (r) { return r.json(); }).then(function (j) {
+      if (!j || !j.ts) return null;
+      return tsLoad().then(function () {
+        return new Promise(function (resolve) {
+          var box = document.createElement('div');
+          box.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483000';
+          document.body.appendChild(box);
+          var done = false, id;
+          function end(tok) {
+            if (done) return;
+            done = true;
+            resolve(tok || null);
+            setTimeout(function () { try { window.turnstile.remove(id); } catch (e) {} box.remove(); }, 0);
+          }
+          id = window.turnstile.render(box, { sitekey: j.ts, appearance: 'interaction-only', callback: end, 'error-callback': function () { end(null); }, 'expired-callback': function () { end(null); } });
+          setTimeout(function () { end(null); }, 45000);
+        });
+      });
+    }).catch(function () { return null; });
+  }
+
   var KDV = 0.20;
   var PACKS = {
     web: { name: 'Web Sitesi', price: 3700, domain: true },
@@ -208,7 +245,8 @@
     saveDraft();
     payBtn.disabled = true;
     payBtn.classList.add('busy');
-    fetch(API + '/siparis', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(o) })
+    insanToken(API)
+      .then(function (tok) { o.ts = tok; return fetch(API + '/siparis', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(o) }); })
       .then(function (r) { return r.json(); })
       .then(function (j) {
         if (j.ok && j.url && /^https:\/\/([a-z0-9-]+\.)*iyzipay\.com([\/?#]|$)/.test(j.url)) {
@@ -219,6 +257,7 @@
         if (j.error === 'invalid' && j.fields) { markInvalid(j.fields); showAlert('Lütfen işaretli alanları kontrol edin.'); }
         else if (j.error === 'domain-taken') { domain = null; render(); setDomainMsg('bad', 'Bu alan adı az önce alınmış görünüyor; başka bir ad deneyin.'); showAlert('Alan adı artık boşta değil; lütfen yeniden sorgulayın.'); }
         else if (j.error === 'kapali') kapat();
+        else if (j.error === 'bot') showAlert('Güvenlik doğrulaması tamamlanamadı. Sayfayı yenileyip tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55');
         else if (j.error === 'rate') showAlert('Çok sık denediniz; bir dakika sonra tekrar deneyin.');
         else showAlert('Ödeme sayfası şu an açılamadı. Biraz sonra tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55');
       })

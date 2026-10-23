@@ -6,10 +6,47 @@
   root.classList.add('js');
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // İletişim formunun gönderildiği Cloudflare Worker
+  // İletişim formunun gönderildiği sipariş/form servisi (BurtiNET İstanbul)
   var FORM_URL = 'https://form.fmjapps.com/';
   // Mirus sunucusundaki site demosu (şifre gerekiyorsa sunucu söyler)
   var DEMO_API = 'https://mirus.fmjapps.com/api/site';
+
+  // İnsan doğrulaması (Cloudflare Turnstile): form.fmjapps.com/durum site anahtarını verirse görünmez bir doğrulama
+  // çalışır; yalnız şüpheli durumda sol altta küçük bir kutu çıkar. Anahtar yoksa ya da yüklenemezse null döner.
+  var tsLoading = null;
+  function tsLoad() {
+    if (window.turnstile) return Promise.resolve();
+    if (!tsLoading) tsLoading = new Promise(function (res, rej) {
+      var s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.async = true;
+      s.onload = res;
+      s.onerror = function () { tsLoading = null; rej(); };
+      document.head.appendChild(s);
+    });
+    return tsLoading;
+  }
+  function insanToken(api) {
+    return fetch(api + '/durum').then(function (r) { return r.json(); }).then(function (j) {
+      if (!j || !j.ts) return null;
+      return tsLoad().then(function () {
+        return new Promise(function (resolve) {
+          var box = document.createElement('div');
+          box.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483000';
+          document.body.appendChild(box);
+          var done = false, id;
+          function end(tok) {
+            if (done) return;
+            done = true;
+            resolve(tok || null);
+            setTimeout(function () { try { window.turnstile.remove(id); } catch (e) {} box.remove(); }, 0);
+          }
+          id = window.turnstile.render(box, { sitekey: j.ts, appearance: 'interaction-only', callback: end, 'error-callback': function () { end(null); }, 'expired-callback': function () { end(null); } });
+          setTimeout(function () { end(null); }, 45000);
+        });
+      });
+    }).catch(function () { return null; });
+  }
 
   function esc(str) { return String(str).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
@@ -800,7 +837,8 @@
         subject: data.subject, subjectLabel: data.subjectLabel,
         website: hp.value, lang: curLang
       };
-      fetch(FORM_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      insanToken(FORM_URL.replace(/\/$/, ''))
+        .then(function (tok) { payload.ts = tok; return fetch(FORM_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then(function () {
           wait.remove();
