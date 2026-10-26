@@ -773,5 +773,6 @@
  "qr.hero.tapback": "Tap to go back to the menu",
  "co.refs.web": "Website",
  "co.refs.qr": "QR menu",
- "qr.hero.turn": "Flip it over"
+ "qr.hero.turn": "Flip it over",
+ "qr.hero.turn2": "Tap to flip"
 }

@@ -773,5 +773,6 @@
  "qr.hero.tapback": "탭해서 메뉴로 돌아가기",
  "co.refs.web": "웹사이트",
  "co.refs.qr": "QR 메뉴",
- "qr.hero.turn": "뒤집어 보기"
+ "qr.hero.turn": "뒤집어 보기",
+ "qr.hero.turn2": "탭해서 뒤집기"
 }

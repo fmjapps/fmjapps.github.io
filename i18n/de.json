@@ -773,5 +773,6 @@
  "qr.hero.tapback": "Tippen, um zur Karte zurückzukehren",
  "co.refs.web": "Website",
  "co.refs.qr": "QR-Speisekarte",
- "qr.hero.turn": "Umdrehen"
+ "qr.hero.turn": "Umdrehen",
+ "qr.hero.turn2": "Antippen, umdrehen"
 }

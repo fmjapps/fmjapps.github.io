@@ -773,5 +773,6 @@
  "qr.hero.tapback": "タップしてメニューに戻る",
  "co.refs.web": "ウェブサイト",
  "co.refs.qr": "QRメニュー",
- "qr.hero.turn": "裏返す"
+ "qr.hero.turn": "裏返す",
+ "qr.hero.turn2": "タップして裏返す"
 }

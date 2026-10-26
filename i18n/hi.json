@@ -773,5 +773,6 @@
  "qr.hero.tapback": "मेनू पर लौटने के लिए टैप करें",
  "co.refs.web": "वेबसाइट",
  "co.refs.qr": "QR मेन्यू",
- "qr.hero.turn": "पलटें"
+ "qr.hero.turn": "पलटें",
+ "qr.hero.turn2": "टैप करें, पलटें"
 }

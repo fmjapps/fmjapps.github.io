@@ -1846,3 +1846,41 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .qp-turn svg, .qp-turn:is(*) svg { width: 18px; height: 18px; margin: 0; transform: none; }
 .qr-phone.flipped .qp-turn { background: rgba(255, 255, 255, .85); color: #1C3334; }
 .qp-turn svg { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* İpucu telefonun sağında; köşe kıvrığı yok */
+.qp-curl { display: none; }
+.qp-turn, .qp-turn:is(*) { top: 16%; inset-inline-end: -168px; flex-direction: column; align-items: flex-start; gap: 2px; padding: 0; border-radius: 0; background: none; color: #FF8A70; font: 600 italic 22px/1.1 'Sora', sans-serif; letter-spacing: -.01em; transform: rotate(-5deg); }
+.qp-turn svg, .qp-turn:is(*) svg { width: 64px; height: 48px; margin-inline-start: -6px; stroke-width: 2.4; }
+[dir="rtl"] .qp-turn svg { transform: scaleX(-1); }
+.qr-phone.flipped .qp-turn { background: none; color: #FF8A70; }
+:root[data-theme="light"] .qp-turn { color: #E0442A; }
+.qp-turn:hover { color: #FF4F2E; }
+@media (max-width: 1180px) { .qp-turn, .qp-turn:is(*) { inset-inline-end: -128px; font-size: 18px; } }
+@media (max-width: 960px) { .qp-turn, .qp-turn:is(*) { position: relative; top: auto; inset-inline-end: auto; margin: 16px auto 0; flex-direction: row-reverse; align-items: center; transform: none; order: 3; } .qp-turn svg, .qp-turn:is(*) svg { width: 40px; height: 30px; transform: rotate(80deg); } .qr-phone { display: flex; flex-direction: column; align-items: center; } }
+
+/* Arka yüz: duvar, ahşap masa, akrilik QR standı */
+.qp-back { padding: 0; justify-content: flex-end; background: radial-gradient(90% 55% at 50% 22%, #4a5f63 0%, #2c3c40 55%, #1d2a2d 100%); }
+.qt-light { position: absolute; inset: 0 0 auto 0; height: 60%; background: radial-gradient(40% 50% at 50% 0%, rgba(255, 228, 190, .28), transparent 70%); pointer-events: none; }
+.qt-table { position: absolute; inset: auto 0 0 0; height: 40%;
+  background:
+    linear-gradient(180deg, rgba(255, 220, 170, .18), transparent 30%),
+    repeating-linear-gradient(92deg, rgba(0, 0, 0, .06) 0 2px, transparent 2px 9px, rgba(255, 255, 255, .04) 9px 10px, transparent 10px 23px),
+    linear-gradient(180deg, #a8764a 0%, #8b5d38 45%, #6e4529 100%);
+  box-shadow: inset 0 3px 0 rgba(255, 230, 200, .25); }
+.qt-acrylic { position: relative; z-index: 1; display: grid; justify-items: center; width: 70%; margin: 0 auto 18%; }
+.qt-card { position: relative; width: 100%; padding: 14px 12px 12px; border-radius: 6px; background: #FBF7F2; box-shadow: 0 0 0 5px rgba(255, 255, 255, .22), 0 0 0 6px rgba(255, 255, 255, .45), 0 18px 26px -12px rgba(0, 0, 0, .6); transform: perspective(600px) rotateX(5deg); }
+.qt-card::after { content: ""; position: absolute; inset: -5px; border-radius: 9px; background: linear-gradient(115deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, 0) 32%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, .25) 100%); pointer-events: none; }
+.qt-base { width: 112%; height: 14px; margin-top: 4px; border-radius: 3px; background: linear-gradient(180deg, rgba(255, 255, 255, .7), rgba(220, 235, 240, .35) 60%, rgba(255, 255, 255, .55)); box-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset, 0 6px 8px -4px rgba(0, 0, 0, .45); }
+.qt-shadow { width: 120%; height: 18px; margin-top: -6px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 0, 0, .45), transparent); }
+.qt-stand { display: none; }
+@media (min-width: 961px) and (max-width: 1320px) {
+  .qp-turn, .qp-turn:is(*) { top: -54px; inset-inline-end: -14px; flex-direction: row; align-items: flex-end; gap: 4px; font-size: 18px; transform: rotate(-3deg); }
+  .qp-turn svg, .qp-turn:is(*) svg { order: 2; width: 46px; height: 36px; }
+}
+@media (max-width: 1320px) {
+  .qr-phone { display: flex; flex-direction: column; align-items: center; }
+  .qp-flip { align-self: stretch; }
+  .qp-turn, .qp-turn:is(*) { position: relative; top: auto; inset-inline-end: auto; order: 3; margin: 14px auto 0; flex-direction: row-reverse; align-items: center; gap: 6px; transform: none; font-size: 18px; }
+  .qp-turn svg, .qp-turn:is(*) svg { order: 0; width: 40px; height: 30px; transform: rotate(75deg); }
+}
+@media (max-width: 1320px) { .qr-phone > .dv-cap { order: 4; } }

@@ -773,5 +773,6 @@
  "qr.hero.tapback": "Toque para voltar ao cardápio",
  "co.refs.web": "Site",
  "co.refs.qr": "Cardápio QR",
- "qr.hero.turn": "Vire o celular"
+ "qr.hero.turn": "Vire o celular",
+ "qr.hero.turn2": "Toque e vire"
 }

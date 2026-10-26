@@ -773,5 +773,6 @@
  "qr.hero.tapback": "Toque para volver al menú",
  "co.refs.web": "Sitio web",
  "co.refs.qr": "Menú QR",
- "qr.hero.turn": "Dale la vuelta"
+ "qr.hero.turn": "Dale la vuelta",
+ "qr.hero.turn2": "Toca y gira"
 }

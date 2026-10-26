@@ -773,5 +773,6 @@
  "qr.hero.tapback": "点击返回菜单",
  "co.refs.web": "网站",
  "co.refs.qr": "二维码菜单",
- "qr.hero.turn": "翻过来看看"
+ "qr.hero.turn": "翻过来看看",
+ "qr.hero.turn2": "点一下，翻过来"
 }
