@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026w">
+<link rel="stylesheet" href="/site.css?v=261026x">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -85,11 +85,26 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Des solutions fiables, des résultats efficaces</span>
     </a>
     <nav class="links" aria-label="Sections" data-i18n-aria="nav.sections">
-      <a class="home-link" href="/fr/" data-en-href="/en/"><b aria-hidden="true">←</b> <span data-i18n="nav.home">Accueil</span></a>
-      <a href="#neler" data-i18n="web.nav.inc">Ce qui est inclus</a>
-      <a href="#alan-adi" data-i18n="web.nav.host">Domaine et hébergement</a>
-      <a href="#fiyat" data-i18n="pk.kick">Tarifs</a>
-      <a href="#sss" data-i18n="mirus.nav.faq">FAQ</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/fr/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">Découvrir Mirus</a>
+          <a href="/fr/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">Secteurs</a>
+          <a href="/fr/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Démo en direct</a>
+          <a href="/fr/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">Fonctionnalités</a>
+        </div>
+      </div>
+      <a href="/fr/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menu</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-current="page"><span data-i18n="web.name">Site web</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="#neler" data-i18n="web.nav.inc">Ce qui est inclus</a>
+          <a href="#alan-adi" data-i18n="web.nav.host">Domaine et hébergement</a>
+          <a href="#fiyat" data-i18n="pk.kick">Tarifs</a>
+          <a href="#sss" data-i18n="mirus.nav.faq">FAQ</a>
+        </div>
+      </div>
+      <a href="/fr/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Applis</a>
       <a href="/fr/about/" data-en-href="/en/about/" data-i18n="nav.about">À propos</a>
       <div class="nav-drop refs-drop">
         <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Nos clients</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
@@ -99,7 +114,7 @@
         </div>
       </div>
       <a class="buy-link" href="/siparis/?paket=web" data-i18n="pk.buy">Acheter maintenant</a>
-      <a class="cta-link" href="#iletisim" data-subject="web" data-i18n="qr.nav.cta">Demander un devis</a>
+      <a class="cta-link" href="#iletisim" data-subject="web" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="tools">
       <div class="lang" id="lang">
@@ -400,7 +415,7 @@
 <nav class="pager" id="pager" aria-label="Pages" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026w" defer></script>
+<script src="/site.js?v=261026x" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

@@ -17,7 +17,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026w">
+<link rel="stylesheet" href="/site.css?v=261026x">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -59,11 +59,28 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Güvenilir çözümler, verimli sonuçlar</span>
     </a>
     <nav class="links" aria-label="Bölümler">
-      <a class="home-link" href="/"><b aria-hidden="true">←</b> <span>Ana sayfa</span></a>
-      <a href="/web-sitesi/">Web Sitesi</a>
-      <a href="/qr-menu/">QR Menü</a>
-      <a href="/hakkimizda/">Hakkımızda</a>
-      <a class="cta-link" href="https://wa.me/905333181555" target="_blank" rel="noopener">WhatsApp</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">Mirus’u tanıyın</a>
+          <a href="/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">Sektörler</a>
+          <a href="/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Canlı demo</a>
+          <a href="/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">Özellikler</a>
+        </div>
+      </div>
+      <a href="/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menü</a>
+      <a href="/web-sitesi/" data-en-href="/en/website/" data-i18n="web.name">Web Sitesi</a>
+      <a href="/uygulamalar/" data-en-href="/en/apps/" data-i18n="nav.apps">Uygulamalar</a>
+      <a href="/hakkimizda/" data-en-href="/en/about/" data-i18n="nav.about">Hakkımızda</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Referanslarımız</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Web sitesi</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">QR menü</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/siparis/" data-i18n="pk.buy">Satın al</a>
+      <a class="cta-link" href="/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
       <div class="lang" id="lang">
@@ -140,7 +157,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026w" defer></script>
+<script src="/site.js?v=261026x" defer></script>
 <script src="/siparis/tamam.js" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>

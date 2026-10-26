@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026w">
+<link rel="stylesheet" href="/site.css?v=261026x">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -85,14 +85,25 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Soluções confiáveis, resultados eficientes</span>
     </a>
     <nav class="links" aria-label="Seções" data-i18n-aria="nav.sections">
-      <a class="home-link" href="/pt/" data-en-href="/en/"><b aria-hidden="true">←</b> <span data-i18n="nav.home">Início</span></a>
-      <a href="/pt/mirus/" data-en-href="/en/mirus/">Mirus</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/pt/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">Conheça o Mirus</a>
+          <a href="/pt/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">Setores</a>
+          <a href="/pt/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Demo ao vivo</a>
+          <a href="/pt/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">Recursos</a>
+        </div>
+      </div>
       <a href="/pt/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menu</a>
       <a href="/pt/website/" data-en-href="/en/website/" data-i18n="web.name">Site</a>
-      <a href="#urunler" data-i18n="about.what.kick">O que fazemos</a>
-      <a href="#kunye" data-i18n="about.info.kick">Informações legais</a>
       <a href="/pt/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Apps</a>
-      <a href="/pt/about/" data-en-href="/en/about/" data-i18n="nav.about">Quem somos</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-current="page"><span data-i18n="nav.about">Quem somos</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="#urunler" data-i18n="about.what.kick">O que fazemos</a>
+          <a href="#kunye" data-i18n="about.info.kick">Informações legais</a>
+        </div>
+      </div>
       <div class="nav-drop refs-drop">
         <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Nossos clientes</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
         <div class="drop-menu refs-menu">
@@ -100,6 +111,7 @@
           <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">Cardápio QR</small></a>
         </div>
       </div>
+      <a class="buy-link" href="/siparis/" data-i18n="pk.buy">Comprar agora</a>
       <a class="cta-link" href="/pt/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">Contato</a>
     </nav>
     <div class="tools">
@@ -237,7 +249,7 @@
 <nav class="pager" id="pager" aria-label="Páginas" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026w" defer></script>
+<script src="/site.js?v=261026x" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>
