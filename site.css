@@ -1687,25 +1687,12 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .hero-demo-btn .kick3d { font-size: 11px; padding: 1px 6px; }
 .hero .btn.ghost.hero-demo-btn { border-color: #FF4F2E; background: color-mix(in srgb, #FF4F2E 10%, transparent); }
 
-/* Referanslar: logolar tek renk, temanın yazı rengini alır */
+/* Referanslar (üst menü): logolar tek renk, temanın yazı rengini alır */
 .ref { display: block; color: var(--text); opacity: .6; text-decoration: none; transition: opacity .25s, transform .25s; }
 .ref:hover, .ref:focus-visible { opacity: 1; }
 .ref-logo { display: block; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
 .ref-unipakt { --logo: url(/assets/refs/unipakt.png); width: 98px; height: 21px; }
 .ref-americano { --logo: url(/assets/refs/americano.png); width: 72px; height: 32px; }
-
-/* Ana sayfa: yalnızca geniş ekranda içeriğin solundaki boş kenarda sabit sütun */
-.hero .refs { display: none; }
-@media (min-width: 1420px) {
-  .hero .refs { position: absolute; z-index: 2; top: min(50%, 50svh); left: calc((100% - 1180px) / 4); transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; width: calc((100% - 1180px) / 2 - 24px); text-align: center; }
-  .refs-t { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); line-height: 1.35; }
-  .refs-row { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 16px; padding-top: 18px; border-top: 1px solid var(--line-2); }
-  .hero .ref:hover, .hero .ref:focus-visible { transform: translateY(-2px); }
-  .refs-sep { width: 22px; height: 1px; background: var(--line-2); }
-  .hero .ref-unipakt { width: 96px; height: 21px; }
-  .hero .ref-americano { width: 76px; height: 34px; }
-}
-@media (min-width: 1700px) { .refs-t { font-size: 11.5px; } .hero .ref-unipakt { width: 112px; height: 24px; } .hero .ref-americano { width: 88px; height: 39px; } }
 
 /* Üst menüde "Referanslarımız": açılınca iki logo yan yana, aralarında ince çizgi */
 .drop-btn span { pointer-events: none; }
