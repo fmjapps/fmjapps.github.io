@@ -1790,3 +1790,4 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 @keyframes qb-spin { to { transform: rotate(360deg); } }
 @keyframes qb-wobble { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
 @media (max-width: 960px) { .qp-badge { inset-inline-start: -14px; top: 14px; width: 104px; height: 104px; } .qb-core { width: 46px; height: 46px; } }
+.qp-badge { display: none; }
