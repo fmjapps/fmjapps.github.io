@@ -48,6 +48,9 @@
     web: { name: 'Web Sitesi', price: 3700, domain: true },
     qr: { name: 'QR Menü (1 yıllık kullanım)', price: 1450, domain: false }
   };
+  // QR Menü'ye 3D model ve artırılmış gerçeklik eki: ürün başına ücret, isteğe bağlı İzmir içi çekim (sunucuyla aynı)
+  var EK3D = { perItem: 100, min: 1, max: 200, shoot: 1000 };
+  var isIzmir = function (il) { return String(il || '').trim().toLocaleLowerCase('tr').replace(/ı/g, 'i').replace(/[^a-z]/g, '') === 'izmir'; };
   var DRAFT = 'fmj-siparis-taslak';
 
   var form = document.getElementById('orderForm');
@@ -60,12 +63,23 @@
   var payBtn = document.getElementById('payBtn');
   var sumLines = document.getElementById('sumLines');
   var sumHint = document.getElementById('sumHint');
+  var urunIn = document.getElementById('urun3d');
+  var urunSum = document.getElementById('urun3dSum');
+  var cekimRes = document.getElementById('cekimRes');
 
   var domain = null; // son başarılı sorgu: { domain, years, price, renewalPerYear }
 
   var fmt = function (n) { return n.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TL'; };
   var pkgKey = function () { var r = form.querySelector('input[name=paket]:checked'); return r ? r.value : 'web'; };
   var field = function (n) { return form.elements[n]; };
+  var radio = function (n, def) { var r = form.querySelector('input[name=' + n + ']:checked'); return r ? r.value : def; };
+  var fmtTl = function (n) { return n.toLocaleString('tr-TR') + ' TL'; };
+  // 3D eki durumu: yalnız QR Menü seçiliyken
+  function ek3d() {
+    if (pkgKey() !== 'qr' || radio('ek', 'yok') !== '3d') return null;
+    var n = Number(urunIn.value);
+    return { n: n, ok: Number.isInteger(n) && n >= EK3D.min && n <= EK3D.max, cekim: radio('foto', 'ben') === 'cekim' };
+  }
 
   function showAlert(msg) {
     alertEl.textContent = msg || '';
@@ -79,9 +93,24 @@
     form.querySelectorAll('[data-for]').forEach(function (el) { el.hidden = el.getAttribute('data-for') !== key; });
     var tip = (form.querySelector('input[name=faturaTip]:checked') || {}).value || 'bireysel';
     form.querySelectorAll('[data-fatura]').forEach(function (el) { el.hidden = el.getAttribute('data-fatura') !== tip; });
+    var e3 = ek3d();
+    form.querySelectorAll('[data-ek]').forEach(function (el) { el.hidden = !e3; });
+    form.querySelectorAll('[data-cekim]').forEach(function (el) { el.hidden = !(e3 && e3.cekim); });
+    var cayma = key === 'web' ? ['kaydedilen alan adı ücreti'] : [];
+    if (e3 && e3.cekim) cayma.push('yapılmış ürün çekimi');
+    if (e3) cayma.push('yayına alınmış 3D modeller');
+    document.querySelectorAll('[data-cayma]').forEach(function (el) { el.textContent = cayma.length ? ' (' + cayma.join(', ') + ' hariç)' : ''; });
 
     var lines = [{ name: p.name, net: p.price }];
     var ready = true;
+    if (e3) {
+      urunSum.textContent = e3.ok ? '× ' + EK3D.perItem + ' TL = ' + fmtTl(e3.n * EK3D.perItem) + ' + KDV' : EK3D.min + ' ile ' + EK3D.max + ' arasında bir sayı yazın';
+      if (e3.ok) lines.push({ name: '3D model ve AR (' + e3.n + ' ürün × ' + EK3D.perItem + ' TL)', net: e3.n * EK3D.perItem });
+      else ready = false;
+      if (e3.cekim) lines.push({ name: 'Ürün çekimi (İzmir içi)', net: EK3D.shoot });
+      var il = field('il').value.trim();
+      cekimRes.textContent = e3.cekim && il && !isIzmir(il) ? 'Ürün çekimi yalnız İzmir il sınırları içinde yapılıyor. İzmir dışındaysanız fotoğrafları siz çekin; nasıl çekileceğini tarif ederiz.' : '';
+    }
     if (p.domain) {
       if (domain && domain.domain === normDomain(domainIn.value) && String(domain.years) === yearSel.value) {
         lines.push({ name: 'Alan adı: ' + domain.domain + ' (' + domain.years + ' yıl)', net: domain.price });
@@ -98,13 +127,13 @@
     });
     if (!ready) {
       var li = document.createElement('li'); li.className = 'muted';
-      li.innerHTML = '<span>Alan adı</span><b>sorgulanmadı</b>';
+      li.innerHTML = p.domain ? '<span>Alan adı</span><b>sorgulanmadı</b>' : '<span>3D ürün sayısı</span><b>geçersiz</b>';
       sumLines.appendChild(li);
     }
     document.getElementById('sumNet').textContent = fmt(net);
     document.getElementById('sumKdv').textContent = fmt(kdv);
     document.getElementById('sumTotal').textContent = ready ? fmt(net + kdv) : '—';
-    sumHint.hidden = ready;
+    sumHint.hidden = ready || !p.domain;
   }
 
   /* ---------- Alan adı ---------- */
@@ -153,11 +182,13 @@
   yearSel.addEventListener('change', function () { if (normDomain(domainIn.value)) checkDomain(); else render(); });
 
   form.addEventListener('change', function (e) {
-    if (e.target.name === 'paket' || e.target.name === 'faturaTip') render();
+    if (['paket', 'faturaTip', 'ek', 'foto', 'il'].indexOf(e.target.name) >= 0) render();
   });
+  urunIn.addEventListener('input', render);
+  field('il').addEventListener('input', function () { if (ek3d()) render(); });
 
   /* ---------- Taslak: ödeme başarısız olursa bilgiler geri gelir ---------- */
-  var KEEP = ['paket', 'isletme', 'sektor', 'alanAdi', 'yil', 'menuAdres', 'aciklama', 'ad', 'soyad', 'email', 'telefon', 'faturaTip', 'unvan', 'vergiDairesi', 'adres', 'ilce', 'il'];
+  var KEEP = ['paket', 'ek', 'urun3d', 'foto', 'isletme', 'sektor', 'alanAdi', 'yil', 'menuAdres', 'aciklama', 'ad', 'soyad', 'email', 'telefon', 'faturaTip', 'unvan', 'vergiDairesi', 'adres', 'ilce', 'il'];
   function collect() {
     var o = {};
     KEEP.concat(['tckn', 'vkn', 'website']).forEach(function (n) {
@@ -169,11 +200,19 @@
     o.sozlesme = field('sozlesme').checked;
     // Alan adı kaydı onayı yalnız Web Sitesi paketinde sorulur
     o.alanAdiOnay = PACKS[o.paket] && PACKS[o.paket].domain ? field('alanAdiOnay').checked : false;
+    // 3D eki ve onayları yalnız QR Menü + 3D/AR seçiliyken gönderilir
+    var e3 = ek3d();
+    o.ek = e3 ? '3d' : 'yok';
+    o.urun3d = e3 ? e3.n : 0;
+    o.cekim = !!(e3 && e3.cekim);
+    o.onay3d = !!e3 && field('onay3d').checked;
+    o.cekimOnay = o.cekim && field('cekimOnay').checked;
     return o;
   }
   function saveDraft() {
     var o = collect(), keep = {};
     KEEP.forEach(function (n) { keep[n] = o[n]; });
+    keep.ek = radio('ek', 'yok'); keep.urun3d = urunIn.value; keep.foto = radio('foto', 'ben');
     try { sessionStorage.setItem(DRAFT, JSON.stringify(keep)); } catch (e) {}
   }
   function loadDraft() {
@@ -191,15 +230,18 @@
   }
 
   /* ---------- Gönder ---------- */
-  var LABELS = { ad: 'ad', soyad: 'soyad', email: 'e-posta', telefon: 'cep telefonu', tckn: 'T.C. kimlik no', unvan: 'şirket unvanı', vergiDairesi: 'vergi dairesi', vkn: 'vergi no', adres: 'adres', il: 'il', isletme: 'işletme adı', alanAdi: 'alan adı', menuAdres: 'menü adresi', onBilgi: 'ön bilgilendirme onayı', sozlesme: 'sözleşme onayı', alanAdiOnay: 'alan adı kaydı onayı', paket: 'paket' };
+  var LABELS = { ad: 'ad', soyad: 'soyad', email: 'e-posta', telefon: 'cep telefonu', tckn: 'T.C. kimlik no', unvan: 'şirket unvanı', vergiDairesi: 'vergi dairesi', vkn: 'vergi no', adres: 'adres', il: 'il', isletme: 'işletme adı', alanAdi: 'alan adı', menuAdres: 'menü adresi', onBilgi: 'ön bilgilendirme onayı', sozlesme: 'sözleşme onayı', alanAdiOnay: 'alan adı kaydı onayı', paket: 'paket', urun3d: '3D ürün sayısı', cekim: 'ürün çekimi (yalnız İzmir içi)', onay3d: '3D model onayı', cekimOnay: 'ürün çekimi onayı' };
+  var ALIAS = { cekim: 'foto' };
+  // Radyo grubunda (RadioNodeList) işaretlenecek öğe son seçenektir
+  var one = function (el) { return el && el.length !== undefined && el.tagName !== 'SELECT' ? el[el.length - 1] : el; };
   function markInvalid(names) {
     form.querySelectorAll('.invalid').forEach(function (el) { el.classList.remove('invalid'); });
     names.forEach(function (n) {
-      var el = field(n);
+      var el = one(field(ALIAS[n] || n));
       var box = el && (el.closest ? el.closest('.o-field, .o-check') : null);
       if (box) box.classList.add('invalid');
     });
-    var first = names.length && field(names[0]);
+    var first = names.length && one(field(ALIAS[names[0]] || names[0]));
     if (first && first.focus) first.focus({ preventScroll: true });
   }
   function localCheck(o) {
@@ -219,6 +261,12 @@
     if (!o.onBilgi) bad.push('onBilgi');
     if (!o.sozlesme) bad.push('sozlesme');
     if (PACKS[o.paket].domain && !o.alanAdiOnay) bad.push('alanAdiOnay');
+    if (o.ek === '3d') {
+      if (!(Number.isInteger(o.urun3d) && o.urun3d >= EK3D.min && o.urun3d <= EK3D.max)) bad.push('urun3d');
+      if (o.cekim && !isIzmir(o.il)) bad.push('cekim');
+      if (!o.onay3d) bad.push('onay3d');
+      if (o.cekim && !o.cekimOnay) bad.push('cekimOnay');
+    }
     return bad;
   }
 
@@ -270,6 +318,8 @@
   var q = new URLSearchParams(location.search);
   var pk = q.get('paket');
   if (pk && PACKS[pk]) { var r = form.querySelector('input[name=paket][value="' + pk + '"]'); if (r) r.checked = true; }
+  // Tanıtım sayfasındaki "QR Menü + 3D/AR" düğmesi: /siparis/?paket=qr&ek=3d
+  if (pk === 'qr' && q.get('ek') === '3d') { var ek = form.querySelector('input[name=ek][value="3d"]'); if (ek) ek.checked = true; }
   if (q.get('hata')) showAlert('Ödeme tamamlanmadı; kartınızdan bir çekim yapıldıysa otomatik olarak iade edilir. Bilgileriniz duruyor, tekrar deneyebilirsiniz.');
   render();
   if (pkgKey() === 'web' && normDomain(domainIn.value)) checkDomain();

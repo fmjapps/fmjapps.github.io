@@ -87,6 +87,7 @@
     <nav class="links" aria-label="Разделы" data-i18n-aria="nav.sections">
       <a class="home-link" href="/ru/" data-en-href="/en/"><b aria-hidden="true">←</b> <span data-i18n="nav.home">Главная</span></a>
       <a href="#menu" data-i18n="qr.nav.menu">Что видят гости</a>
+      <a class="nav-ar" href="#ar" data-i18n="qr.nav.ar">3D / AR</a>
       <a href="#panel" data-i18n="qr.nav.panel">Панель заведения</a>
       <a href="#nasil" data-i18n="qr.nav.how">Как это работает</a>
       <a href="#fiyat" data-i18n="pk.kick">Цены</a>
@@ -120,6 +121,7 @@
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
       <div>
+        <a class="hero-new" href="#ar"><i data-i18n="qr.new">Новинка</i> <span data-i18n="qr.hero.new">3D-модели и дополненная реальность: ваш товар на столе в натуральную величину</span> <b aria-hidden="true">→</b></a>
         <p class="eyebrow" data-i18n="qr.hero.kick">QR Menu · Электронное меню для кафе и ресторанов</p>
         <h1 data-i18n-html="qr.hero.h1">Ваше меню — на столе. <span class="grad">А управление им — у вас в кармане.</span></h1>
         <p class="lede" data-i18n="qr.hero.lede">Гость наводит камеру телефона на QR-код на столе, и меню открывается в браузере — ничего скачивать не нужно. Цены, блюда и фото вы меняете в своей панели когда угодно. QR-код печатается один раз: даже если меню изменится, перепечатывать его не придётся.</p>
@@ -234,6 +236,76 @@
         <div><strong data-i18n="qr.t1.t">Приложение не нужно</strong><span data-i18n="qr.t1.d">Меню открывается в браузере телефона, ничего не скачивается.</span></div>
         <div><strong data-i18n="qr.t2.t">Без регистрации и входа</strong><span data-i18n="qr.t2.d">Гость сканирует QR-код, и меню открывается.</span></div>
         <div><strong data-i18n="qr.t3.t">Тёмная тема</strong><span data-i18n="qr.t3.d">Если на телефоне включена тёмная тема, меню тоже откроется в тёмном оформлении.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D MODEL VE ARTIRILMIŞ GERÇEKLİK (isteğe bağlı ek; koşullar mesafeli satış sözleşmesi madde 03-07) -->
+  <section class="sec page ar-sec" id="ar">
+    <span class="ar-glow" aria-hidden="true"></span>
+    <div class="wrap ar-grid">
+      <div class="ar-copy">
+        <header class="sec-head reveal">
+          <p class="eyebrow"><i class="ar-new" data-i18n="qr.new">Новинка</i> <span data-i18n="qr.ar.kick">3D-модели и дополненная реальность</span></p>
+          <h2 data-i18n-html="qr.ar.title">Покажите товар на столе <span class="grad">в натуральную величину</span>.</h2>
+          <p data-i18n="qr.ar.lede">Позиции вашего меню оживают в виде 3D-моделей. Гость вращает товар на телефоне и видит его размеры; на поддерживаемых телефонах он наводит камеру на стол и видит товар прямо на нём в натуральную величину. Скачивать приложение не нужно.</p>
+        </header>
+        <ul class="ar-feats">
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><div><h3 data-i18n="qr.ar.f1.t">Смотреть в 3D</h3><p data-i18n="qr.ar.f1.d">Гость вращает и приближает товар пальцем и рассматривает его со всех сторон.</p></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21Z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></svg></span><div><h3 data-i18n="qr.ar.f2.t">Размеры</h3><p data-i18n="qr.ar.f2.d">Одно касание показывает ширину, глубину и высоту в сантиметрах. Работает на любом телефоне.</p></div></li>
+          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 15.5h8M9.5 15.5V11h5v4.5"/></svg></span><div><h3 data-i18n="qr.ar.f3.t">Посмотреть на столе</h3><p data-i18n="qr.ar.f3.d">На поддерживаемых телефонах товар появляется в кадре камеры на столе в натуральную величину.</p></div></li>
+        </ul>
+        <p class="ar-note reveal" data-i18n="qr.ar.note">Функция «Посмотреть на столе» зависит от поддержки камеры и датчиков телефона; на тёмных, блестящих или однотонных поверхностях ей может быть трудно найти плоскость. На телефонах без поддержки 3D-просмотр и размеры всё равно работают.</p>
+        <div class="ar-how reveal">
+          <h3 data-i18n="qr.ar.how">Как это делается?</h3>
+          <ol>
+            <li data-i18n="qr.ar.h1">Вы присылаете 5 фото и размер каждого товара; мы объясняем, как их снять.</li>
+            <li data-i18n="qr.ar.h2">Мы создаём 3D-модель и отправляем вам превью на утверждение.</li>
+            <li data-i18n="qr.ar.h3">После вашего одобрения модель добавляется к товару в вашем меню.</li>
+          </ol>
+          <p data-i18n="qr.ar.shoot">Если вы в İzmir, мы можем приехать к вам в заведение и сделать фото сами.</p>
+        </div>
+        <div class="actions reveal">
+          <a class="btn primary" href="/siparis/?paket=qr&amp;ek=3d"><span data-i18n="qr.ar.buy">Купить QR Menu + 3D/AR</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">Открыть живое демо</a>
+        </div>
+        <p class="ar-price reveal"><b data-i18n="qr.ar.price">+100 TL + НДС / товар</b> <span data-i18n="qr.ar.price2">Дополнение к QR Menu · Фотосъёмка товаров в İzmir +1 000 TL + НДС</span></p>
+      </div>
+
+      <div class="ar-side">
+        <!-- Temsili telefon ekranı: 3D görünüm, ölçüler ve "Masada gör" -->
+        <div class="ar-phone reveal" aria-hidden="true">
+          <div class="ap-screen">
+            <div class="ap-top"><b data-i18n="qr.ar.m.item">Кружка</b><small>· 3D</small></div>
+            <div class="ap-view">
+              <svg class="ap-model" viewBox="0 0 200 180">
+                <ellipse cx="100" cy="150" rx="70" ry="14" class="ap-shadow"/>
+                <g class="ap-spin">
+                  <path d="M58 52h84l-8 88a12 12 0 0 1-12 10H78a12 12 0 0 1-12-10Z" class="ap-cup"/>
+                  <ellipse cx="100" cy="52" rx="42" ry="10" class="ap-rim"/>
+                  <ellipse cx="100" cy="53" rx="36" ry="7" class="ap-coffee"/>
+                  <path d="M140 70c22 0 24 34 2 38" class="ap-handle"/>
+                  <path d="M80 30c0-8 8-8 8-16M100 32c0-8 8-8 8-16" class="ap-steam"/>
+                </g>
+                <path d="M44 52v98M40 52h8M40 150h8" class="ap-dim"/>
+                <path d="M58 166h84M58 162v8M142 162v8" class="ap-dim"/>
+              </svg>
+              <span class="ap-tag ap-h">9,5 cm</span>
+              <span class="ap-tag ap-w">8,4 cm</span>
+              <span class="ap-orbit"><svg viewBox="0 0 24 24"><path d="M4 12a8 4 0 0 0 16 0M20 12a8 4 0 0 0-16 0"/><path d="m17 9 3 3-3 3"/></svg></span>
+            </div>
+            <div class="ap-btns">
+              <span data-i18n="qr.ar.f1.t">Смотреть в 3D</span>
+              <span data-i18n="qr.ar.f2.t">Размеры</span>
+              <span class="on"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg><span data-i18n="qr.ar.f3.t">Посмотреть на столе</span></span>
+            </div>
+          </div>
+          <p class="dv-cap" data-i18n="qr.m.cap">Пример оформления</p>
+        </div>
+        <a class="ar-demo reveal" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
+          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
+          <span><b data-i18n="qr.ar.demo.t">Попробуйте на своём телефоне</b><small data-i18n="qr.ar.demo.d">Отсканируйте QR-код: «3D-просмотр», «Размеры» и «Посмотреть на столе» работают на позициях «Kupa» и «DJI Neo».</small></span>
+        </a>
       </div>
     </div>
   </section>
@@ -379,6 +451,18 @@
         </div>
         <p class="pk-trust" data-i18n="pk.trustQr">Безопасная оплата через iyzico · Право отказа в течение 14 дней без объяснения причин · Выставляем счёт</p>
       </div>
+      <div class="pk-card pk-addon reveal">
+        <div class="pk-top">
+          <h3><span data-i18n="pk.ar.name">3D-модели и дополненная реальность</span> <i class="ar-new" data-i18n="qr.new">Новинка</i></h3>
+          <p class="pk-price"><b data-i18n="pk.ar.price">+100 TL</b> <span data-i18n="pk.ar.per">+ НДС / товар (итого 120 TL за товар)</span></p>
+          <p class="pk-extra" data-i18n="pk.ar.only">Дополнительная опция к QR Menu; отдельно не продаётся. Вы сами выбираете, для скольких товаров делать модель.</p>
+        </div>
+        <ul class="pk-feats"><li><span class="pk-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span><span data-i18n="pk.ar.f1">3D-модели выбранных вами товаров; в вашем меню — «Смотреть в 3D», «Размеры» и, на поддерживаемых телефонах, «Посмотреть на столе»</span></li><li><span class="pk-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span><span data-i18n="pk.ar.f2">Каждая модель масштабируется до реальных размеров и отправляется вам на утверждение до публикации</span></li><li><span class="pk-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span><span data-i18n="pk.ar.f3">Дополнительно — фотосъёмка товаров в İzmir: +1 000 TL + НДС, один выезд</span></li><li><span class="pk-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span><span data-i18n="pk.ar.f4">Пример: 15 товаров + фотосъёмка + QR Menu = 3 950 TL + НДС (итого 4 740 TL), 1 год</span></li></ul>
+        <div class="pk-actions">
+          <a class="btn primary" href="/siparis/?paket=qr&amp;ek=3d"><span data-i18n="qr.ar.buy">Купить QR Menu + 3D/AR</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">Открыть живое демо</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -396,7 +480,10 @@
         <details name="faq"><summary data-i18n="qr.q4">У меня нет фото блюд. Это проблема?</summary><p data-i18n="qr.a4">Совсем нет. При подключении мы добавляем к блюдам примерные изображения. Позже вы сможете заменить их своими фото, загрузив их с телефона.</p></details>
         <details name="faq"><summary data-i18n="qr.q5">Можно ли через меню сделать заказ или оплатить?</summary><p data-i18n="qr.a5">Нет. QR Menu показывает ваше меню; заказ и оплата проходят так, как обычно принято в вашем заведении.</p></details>
         <details name="faq"><summary data-i18n="qr.q6">Сколько времени занимает подключение?</summary><p data-i18n="qr.a6">Как только вы пришлёте фото меню и логотип, мы быстро всё настроим; чаще всего меню начинает работать в тот же день.</p></details>
-        <details name="faq"><summary data-i18n="qr.q7">Сколько это стоит?</summary><p data-i18n="qr.a7">QR Menu стоит 1 450 TL + НДС (итого 1 740 TL) в год. Заказать можно кнопкой «Купить» выше, а если остались вопросы — напишите нам.</p></details>
+        <details name="faq"><summary data-i18n="qr.q7">Сколько это стоит?</summary><p data-i18n="qr.a7">QR Menu стоит 1 450 TL + НДС (итого 1 740 TL) в год. Дополнительная опция 3D-моделей и дополненной реальности стоит 100 TL + НДС за товар. Заказать можно кнопкой «Купить» выше, а если остались вопросы — напишите нам.</p></details>
+        <details name="faq"><summary data-i18n="qr.q8">Что нужно прислать для 3D-модели?</summary><p data-i18n="qr.a8">Не менее 5 чётких фотографий каждого товара с разных ракурсов и его размеры (высота и самая длинная сторона или диаметр). Мы объясним, как снимать; на фото должен быть только товар. Мы создадим модель, покажем превью и добавим её в ваше меню после вашего одобрения.</p></details>
+        <details name="faq"><summary data-i18n="qr.q9">Работает ли «Посмотреть на столе» на всех телефонах?</summary><p data-i18n="qr.a9">Нет. Это зависит от камеры, датчиков и браузера телефона; функция работает на большинстве современных iPhone и на Android-телефонах с поддержкой ARCore. На тёмных, блестящих или однотонных поверхностях ей может быть трудно найти плоскость. На телефонах без поддержки гости всё равно могут вращать товар в 3D и смотреть его размеры.</p></details>
+        <details name="faq"><summary data-i18n="qr.q10">Вы можете сделать фото за нас?</summary><p data-i18n="qr.a10">Да, если вы находитесь в провинции İzmir: мы один раз приезжаем к вам в заведение и фотографируем товары за 1 000 TL + НДС. За пределами İzmir вы снимаете сами, а мы объясняем, как это сделать, письменно и на видео.</p></details>
       </div>
     </div>
   </section>
