@@ -311,9 +311,9 @@
  "qr.hero.f1": "Ni appli, ni inscription",
  "qr.hero.f2": "Mises à jour en quelques secondes",
  "qr.hero.f3": "Plus de frais d’impression à répétition",
- "qr.hero.h1": "Votre menu est sur la table. <span class=\"grad\">Sa mise à jour, dans votre poche.</span>",
- "qr.hero.kick": "QR Menu · Menus numériques pour cafés et restaurants",
- "qr.hero.lede": "Votre client scanne le QR code sur la table avec l’appareil photo de son téléphone, et votre menu s’ouvre dans le navigateur, sans rien télécharger. Vous modifiez prix, produits et photos depuis votre propre espace, quand vous voulez. Le QR code est imprimé une seule fois ; même si le menu change, vous n’avez jamais à le réimprimer.",
+ "qr.hero.h1": "Votre menu sur la table, <span class=\"grad\">vos produits en 3D.</span>",
+ "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menus numériques pour cafés et restaurants",
+ "qr.hero.lede": "Votre client scanne le QR code sur la table et votre menu s’ouvre sur son téléphone, sans rien télécharger. Il fait tourner vos produits en 3D et voit leurs dimensions ; sur les téléphones compatibles, « Voir sur la table » affiche le produit sur sa table, en taille réelle. Vous modifiez prix, articles et photos depuis votre propre espace quand vous le souhaitez.",
  "qr.how.title": "Un menu numérique en trois étapes.",
  "qr.k1": "mise en place",
  "qr.k1v": "Rapide",
@@ -339,8 +339,8 @@
  "qr.m.out": "Épuisé",
  "qr.m.search": "Rechercher dans le menu",
  "qr.m.sub": "Petit-déjeuner · Café · Desserts",
- "qr.meta.desc": "Le client scanne le QR code sur la table, votre menu s’ouvre sur son téléphone, sans appli. Modifiez prix, produits et photos à tout moment ; le QR code s’imprime une fois.",
- "qr.meta.title": "QR Menu · Menus QR code pour cafés et restaurants · FMJ Software",
+ "qr.meta.desc": "Le client scanne le QR code sur la table et votre menu s’ouvre sur son téléphone, sans rien télécharger ; il fait tourner les produits en 3D et, sur les téléphones compatibles, les voit sur la table en taille réelle. Modifiez prix, articles et photos depuis votre espace à tout moment.",
+ "qr.meta.title": "3D QR Menu · Menus numériques par QR code avec modèles 3D et réalité augmentée · FMJ Software",
  "qr.name": "QR Menu",
  "qr.nav.cta": "Demander un devis",
  "qr.nav.how": "Comment ça marche",
@@ -756,5 +756,7 @@
  "qr.q9": "« Voir sur la table » fonctionne-t-il sur tous les téléphones ?",
  "qr.a9": "Non. Cela dépend de la caméra, des capteurs et du navigateur du téléphone ; cela fonctionne sur la plupart des iPhone récents et des téléphones Android compatibles ARCore. La détection de la surface peut être difficile sur les surfaces sombres, brillantes ou unies. Sur les téléphones non compatibles, les clients peuvent toujours faire tourner le produit en 3D et voir ses dimensions.",
  "qr.q10": "Pouvez-vous prendre les photos pour nous ?",
- "qr.a10": "Oui, si vous êtes dans la province d’İzmir : nous nous rendons une fois dans votre établissement et photographions les produits pour 1 000 TL + TVA. En dehors d’İzmir, vous prenez les photos et nous vous expliquons comment faire par écrit et en vidéo."
+ "qr.a10": "Oui, si vous êtes dans la province d’İzmir : nous nous rendons une fois dans votre établissement et photographions les produits pour 1 000 TL + TVA. En dehors d’İzmir, vous prenez les photos et nous vous expliquons comment faire par écrit et en vidéo.",
+ "qr.hero.f4": "Modèles 3D et réalité augmentée",
+ "qr.hero.cta3d": "Voir la 3D et la RA"
 }

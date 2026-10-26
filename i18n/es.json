@@ -311,9 +311,9 @@
  "qr.hero.f1": "Sin app ni registro",
  "qr.hero.f2": "Cambios en segundos",
  "qr.hero.f3": "Sin gastos de impresión recurrentes",
- "qr.hero.h1": "Su menú está en la mesa. <span class=\"grad\">Actualizarlo, en su bolsillo.</span>",
- "qr.hero.kick": "QR Menu · Menús digitales para cafeterías y restaurantes",
- "qr.hero.lede": "Su cliente escanea el código QR de la mesa con la cámara del teléfono y su menú se abre en el navegador, sin descargar nada. Usted cambia precios, productos y fotos desde su propio panel cuando quiera. El código QR se imprime una sola vez; aunque el menú cambie, nunca tendrá que volver a imprimirlo.",
+ "qr.hero.h1": "Su menú en la mesa, <span class=\"grad\">sus productos en 3D.</span>",
+ "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menús digitales para cafeterías y restaurantes",
+ "qr.hero.lede": "Su cliente escanea el código QR de la mesa y su menú se abre en el teléfono, sin descargar nada. Gira sus productos en 3D y ve sus medidas; en los teléfonos compatibles, “Ver en la mesa” muestra el producto sobre su mesa, a tamaño real. Usted cambia precios, productos y fotos desde su propio panel cuando quiera.",
  "qr.how.title": "Un menú digital en tres pasos.",
  "qr.k1": "puesta en marcha",
  "qr.k1v": "Rápida",
@@ -339,8 +339,8 @@
  "qr.m.out": "Agotado",
  "qr.m.search": "Buscar en el menú",
  "qr.m.sub": "Desayunos · Café · Postres",
- "qr.meta.desc": "El cliente escanea el QR de la mesa y su menú se abre en su teléfono, sin apps. Cambie precios, productos y fotos cuando quiera; el QR se imprime una sola vez.",
- "qr.meta.title": "QR Menu · Menús digitales QR para cafeterías y restaurantes · FMJ Software",
+ "qr.meta.desc": "El cliente escanea el QR de la mesa y su menú se abre en el teléfono, sin apps; gira los productos en 3D y, en teléfonos compatibles, los ve sobre la mesa a tamaño real. Cambie precios, productos y fotos desde su panel cuando quiera.",
+ "qr.meta.title": "3D QR Menu · Menús digitales con código QR, modelos 3D y realidad aumentada · FMJ Software",
  "qr.name": "QR Menu",
  "qr.nav.cta": "Solicite una cotización",
  "qr.nav.how": "Cómo funciona",
@@ -756,5 +756,7 @@
  "qr.q9": "¿“Ver en la mesa” funciona en todos los teléfonos?",
  "qr.a9": "No. Depende de la cámara, los sensores y el navegador del teléfono; funciona en la mayoría de los iPhone recientes y en los teléfonos Android compatibles con ARCore. Puede costarle detectar la superficie en superficies oscuras, brillantes o lisas. En los teléfonos sin compatibilidad, los clientes igualmente pueden girar el producto en 3D y ver sus medidas.",
  "qr.q10": "¿Pueden tomar las fotos por nosotros?",
- "qr.a10": "Sí, si está dentro de la provincia de İzmir: visitamos su local una vez y fotografiamos los productos por 1.000 TL + IVA. Fuera de İzmir, usted toma las fotos y le explicamos cómo hacerlo por escrito y en video."
+ "qr.a10": "Sí, si está dentro de la provincia de İzmir: visitamos su local una vez y fotografiamos los productos por 1.000 TL + IVA. Fuera de İzmir, usted toma las fotos y le explicamos cómo hacerlo por escrito y en video.",
+ "qr.hero.f4": "Modelos 3D y realidad aumentada",
+ "qr.hero.cta3d": "Ver 3D y RA"
 }

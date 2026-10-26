@@ -311,9 +311,9 @@
  "qr.hero.f1": "No app, no sign-up",
  "qr.hero.f2": "Updates in seconds",
  "qr.hero.f3": "No recurring printing costs",
- "qr.hero.h1": "Your menu is on the table. <span class=\"grad\">Updating it is in your pocket.</span>",
- "qr.hero.kick": "QR Menu · Digital menus for cafés and restaurants",
- "qr.hero.lede": "Your guest scans the QR code on the table with their phone camera, and your menu opens in the browser, with nothing to download. You change prices, items and photos from your own panel whenever you like. The QR code is printed once; even when the menu changes, you never have to reprint it.",
+ "qr.hero.h1": "Your menu on the table, <span class=\"grad\">your products in 3D.</span>",
+ "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Digital menus for cafés and restaurants",
+ "qr.hero.lede": "Your guest scans the QR code on the table and your menu opens on their phone, with nothing to download. They turn your products around in 3D and see their dimensions; on supported phones, “See on table” shows the product on their table at real size. You change prices, items and photos from your own panel whenever you like.",
  "qr.how.title": "A digital menu in three steps.",
  "qr.k1": "setup",
  "qr.k1v": "Quick",
@@ -339,8 +339,8 @@
  "qr.m.out": "Sold out",
  "qr.m.search": "Search the menu",
  "qr.m.sub": "Breakfast · Coffee · Desserts",
- "qr.meta.desc": "Guests scan the QR code on the table and your menu opens on their phone, with no app to download. Update prices, items and photos from your panel anytime; the QR code is printed once.",
- "qr.meta.title": "QR Menu · QR code digital menus for cafés and restaurants · FMJ Software",
+ "qr.meta.desc": "Guests scan the QR code on the table and your menu opens on their phone with nothing to download; they rotate products in 3D and, on supported phones, see them on the table at real size. Update prices, items and photos from your panel any time.",
+ "qr.meta.title": "3D QR Menu · QR code digital menus with 3D models and augmented reality · FMJ Software",
  "qr.name": "QR Menu",
  "qr.nav.cta": "Get a quote",
  "qr.nav.how": "How it works",
@@ -756,5 +756,7 @@
  "qr.q9": "Does “See on table” work on every phone?",
  "qr.a9": "No. It depends on the phone’s camera, sensors and browser; it works on most recent iPhones and ARCore-supported Android phones. It may struggle to find the surface on dark, shiny or plain surfaces. On phones without support, guests can still rotate the product in 3D and see its dimensions.",
  "qr.q10": "Can you take the photos for us?",
- "qr.a10": "Yes, if you are within İzmir province: we visit your venue once and photograph the products for 1,000 TL + VAT. Outside İzmir, you take the photos and we explain how in writing and on video."
+ "qr.a10": "Yes, if you are within İzmir province: we visit your venue once and photograph the products for 1,000 TL + VAT. Outside İzmir, you take the photos and we explain how in writing and on video.",
+ "qr.hero.f4": "3D models and augmented reality",
+ "qr.hero.cta3d": "See 3D and AR"
 }

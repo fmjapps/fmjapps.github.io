@@ -311,9 +311,9 @@
  "qr.hero.f1": "Nessuna app, nessuna registrazione",
  "qr.hero.f2": "Aggiornamenti in pochi secondi",
  "qr.hero.f3": "Niente costi di stampa ricorrenti",
- "qr.hero.h1": "Il Suo menu è in tavola. <span class=\"grad\">Per aggiornarlo basta lo smartphone.</span>",
- "qr.hero.kick": "QR Menu · Menu digitali per bar e ristoranti",
- "qr.hero.lede": "Il cliente inquadra il QR code sul tavolo con la fotocamera del telefono e il menu si apre nel browser, senza scaricare nulla. Prezzi, piatti e foto li modifica Lei dal Suo pannello, quando vuole. Il QR code si stampa una volta sola: anche se il menu cambia, non dovrà mai ristamparlo.",
+ "qr.hero.h1": "Il Suo menu sul tavolo, <span class=\"grad\">i Suoi prodotti in 3D.</span>",
+ "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menu digitali per bar e ristoranti",
+ "qr.hero.lede": "Il cliente inquadra il QR code sul tavolo e il Suo menu si apre sul telefono, senza scaricare nulla. Ruota i Suoi prodotti in 3D e ne vede le dimensioni; sui telefoni compatibili “Vedi sul tavolo” mostra il prodotto sul suo tavolo, a grandezza naturale. Prezzi, prodotti e foto li modifica Lei dal Suo pannello, quando vuole.",
  "qr.how.title": "Un menu digitale in tre passi.",
  "qr.k1": "attivazione",
  "qr.k1v": "Rapida",
@@ -339,8 +339,8 @@
  "qr.m.out": "Esaurito",
  "qr.m.search": "Cerca nel menu",
  "qr.m.sub": "Colazione · Caffè · Dolci",
- "qr.meta.desc": "Il cliente inquadra il QR code e il menu si apre sul telefono, senza app. Aggiorni prezzi, piatti e foto dal pannello; il QR code si stampa una volta sola.",
- "qr.meta.title": "QR Menu · Menu digitali con QR code per bar e ristoranti · FMJ Software",
+ "qr.meta.desc": "Il cliente inquadra il QR code sul tavolo e il Suo menu si apre sul telefono, senza scaricare nulla; ruota i prodotti in 3D e, sui telefoni compatibili, li vede sul tavolo a grandezza naturale. Aggiorni prezzi, prodotti e foto dal pannello quando vuole.",
+ "qr.meta.title": "3D QR Menu · Menu digitali con QR code, modelli 3D e realtà aumentata · FMJ Software",
  "qr.name": "QR Menu",
  "qr.nav.cta": "Richieda un preventivo",
  "qr.nav.how": "Come funziona",
@@ -756,5 +756,7 @@
  "qr.q9": "“Vedi sul tavolo” funziona su tutti i telefoni?",
  "qr.a9": "No. Dipende dalla fotocamera, dai sensori e dal browser del telefono; funziona sulla maggior parte degli iPhone recenti e sui telefoni Android compatibili con ARCore. Su superfici scure, lucide o uniformi può far fatica a trovare il piano. Sui telefoni non compatibili i clienti possono comunque ruotare il prodotto in 3D e vederne le dimensioni.",
  "qr.q10": "Potete scattare voi le foto per noi?",
- "qr.a10": "Sì, se si trova in provincia di İzmir: veniamo una volta nel Suo locale e fotografiamo i prodotti per 1.000 TL + IVA. Fuori da İzmir, le foto le scatta Lei e noi Le spieghiamo come fare per iscritto e in video."
+ "qr.a10": "Sì, se si trova in provincia di İzmir: veniamo una volta nel Suo locale e fotografiamo i prodotti per 1.000 TL + IVA. Fuori da İzmir, le foto le scatta Lei e noi Le spieghiamo come fare per iscritto e in video.",
+ "qr.hero.f4": "Modelli 3D e realtà aumentata",
+ "qr.hero.cta3d": "Scopri 3D e AR"
 }

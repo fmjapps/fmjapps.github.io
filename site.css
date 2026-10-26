@@ -1616,3 +1616,27 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 @media (prefers-reduced-motion: reduce) { .qp-ar { animation: none; } }
 .checks .li-new a { color: inherit; font-weight: 600; text-decoration: underline; text-decoration-color: #FF4F2E; text-underline-offset: 4px; }
 .checks .li-new .ar-new { margin-inline-start: 4px; vertical-align: 1px; }
+
+/* QR Menü girişi: "3D QR Menü" etiketi, 3D özelliği ve iki telefonlu görsel */
+.kick3d { display: inline-block; margin-inline-end: 2px; padding: 2px 8px; border-radius: 7px; background: #FF4F2E; color: #fff; letter-spacing: .04em; font-weight: 800; }
+.hero-feats .feat3d { color: #FF4F2E; }
+.hero-feats .feat3d .ico { background: #FF4F2E; border-color: #FF4F2E; }
+.hero-feats .feat3d .ico svg { stroke: #fff; }
+.btn.ghost.btn3d { border-color: #FF4F2E; }
+.btn.ghost.btn3d::before { content: "3D"; margin-inline-end: 8px; padding: 1px 6px; border-radius: 6px; background: #FF4F2E; color: #fff; font: 800 11px/1.5 'Inter', sans-serif; }
+.qr-hero .qr-phone { padding-inline-end: 70px; }
+.qp-arphone { position: absolute; inset-inline-end: -10px; bottom: 40px; width: 46%; z-index: 2; padding: 6px; border-radius: 26px; background: #0F1C1D; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .65), 0 0 0 1px rgba(255, 255, 255, .08); animation: qa-float 5s ease-in-out infinite; transform: rotate(5deg); }
+@keyframes qa-float { 0%, 100% { transform: rotate(5deg) translateY(0); } 50% { transform: rotate(5deg) translateY(-7px); } }
+.qa-screen { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 160 / 200; }
+.qa-scene { display: block; width: 100%; height: 100%; }
+.qa-top { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: #FF4F2E; color: #fff; white-space: nowrap; font: 700 11px 'Inter', sans-serif; }
+.qa-top svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; }
+.qa-dim { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); padding: 3px 8px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: #1C3334; white-space: nowrap; font: 700 10.5px 'Inter', sans-serif; }
+@media (max-width: 520px) { .qr-hero .qr-phone { padding-inline-end: 44px; } .qp-arphone { width: 48%; inset-inline-end: -4px; bottom: 30px; } }
+@media (prefers-reduced-motion: reduce) { .qp-arphone { animation: none; } }
+.qr-hero .qr-phone { padding-inline-end: 0; }
+.qp-arphone { inset-inline-end: -38px; width: 42%; }
+.qr-hero h1 .grad { background: none; -webkit-text-fill-color: #FF4F2E; color: #FF4F2E; }
+.hero .btn.ghost.btn3d { background: color-mix(in srgb, #FF4F2E 10%, transparent); color: inherit; border-color: #FF4F2E; }
+@media (max-width: 960px) { .qp-arphone { inset-inline-end: -18px; } }
+@media (max-width: 520px) { .qr-hero .qr-phone { padding-inline-end: 0; } .qp-arphone { width: 44%; inset-inline-end: -8px; } }

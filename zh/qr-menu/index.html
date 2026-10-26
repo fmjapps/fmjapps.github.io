@@ -5,13 +5,13 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QR Menu · 咖啡馆和餐厅的二维码电子菜单 · FMJ Software</title>
-<meta name="description" content="顾客扫一扫桌上的二维码，菜单就在手机上打开，无需下载 App。随时在后台更新价格、菜品和照片；二维码只需印一次。">
+<title>3D QR Menu · 带 3D 模型与增强现实的二维码电子菜单 · FMJ Software</title>
+<meta name="description" content="顾客扫描桌上的二维码，菜单即在手机上打开，无需下载；可 3D 旋转产品，在支持的手机上还能看到产品以真实大小摆在桌上。价格、品项和照片可随时在后台更新。">
 <meta name="theme-color" content="#1C3334">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FMJ Software">
-<meta property="og:title" content="QR Menu · 咖啡馆和餐厅的二维码电子菜单 · FMJ Software">
-<meta property="og:description" content="顾客扫一扫桌上的二维码，菜单就在手机上打开，无需下载 App。随时在后台更新价格、菜品和照片；二维码只需印一次。">
+<meta property="og:title" content="3D QR Menu · 带 3D 模型与增强现实的二维码电子菜单 · FMJ Software">
+<meta property="og:description" content="顾客扫描桌上的二维码，菜单即在手机上打开，无需下载；可 3D 旋转产品，在支持的手机上还能看到产品以真实大小摆在桌上。价格、品项和照片可随时在后台更新。">
 <meta property="og:image" content="https://fmjapps.com/assets/og-qrmenu-zh.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -33,7 +33,7 @@
 <link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/qr-menu/">
 <link rel="alternate" hreflang="id" href="https://fmjapps.com/id/qr-menu/">
 <link rel="alternate" hreflang="x-default" href="https://fmjapps.com/qr-menu/">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/qr-menu/#service","name":"QR Menu","serviceType":"QR kodlu dijital menü","description":"顾客扫一扫桌上的二维码，菜单就在手机上打开，无需下载 App。随时在后台更新价格、菜品和照片；二维码只需印一次。","url":"https://fmjapps.com/qr-menu/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"QR Menu","item":"https://fmjapps.com/qr-menu/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/qr-menu/#service","name":"QR Menu","serviceType":"QR kodlu dijital menü","description":"顾客扫描桌上的二维码，菜单即在手机上打开，无需下载；可 3D 旋转产品，在支持的手机上还能看到产品以真实大小摆在桌上。价格、品项和照片可随时在后台更新。","url":"https://fmjapps.com/qr-menu/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"QR Menu","item":"https://fmjapps.com/qr-menu/"}]}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
@@ -122,17 +122,18 @@
     <div class="wrap hero-grid qr-hero">
       <div>
         <a class="hero-new" href="#ar"><i data-i18n="qr.new">新</i> <span data-i18n="qr.hero.new">3D 模型与增强现实：您的产品就在桌上，真实大小</span> <b aria-hidden="true">→</b></a>
-        <p class="eyebrow" data-i18n="qr.hero.kick">QR Menu · 咖啡馆和餐厅的电子菜单</p>
-        <h1 data-i18n-html="qr.hero.h1">菜单在桌上，<span class="grad">更新就在您手中。</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">顾客用手机相机扫一扫桌上的二维码，菜单就在浏览器中打开，无需下载任何东西。价格、菜品和照片，您随时可以在自己的后台修改。二维码只需印一次，菜单再怎么变，也不用重新印刷。</p>
+        <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · 咖啡馆与餐厅的电子菜单</p>
+        <h1 data-i18n-html="qr.hero.h1">菜单上桌，<span class="grad">产品以 3D 呈现。</span></h1>
+        <p class="lede" data-i18n="qr.hero.lede">顾客扫描桌上的二维码，您的菜单就在手机上打开，无需下载任何东西。他们可以 3D 旋转您的产品并查看尺寸；在支持的手机上，「在桌上查看」会把产品以真实大小显示在他们的桌上。价格、品项和照片，您随时可以在自己的后台修改。</p>
         <ul class="hero-feats">
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">无需 App，无需注册</span></li>
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">几秒钟完成更新</span></li>
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">省去反复印刷的费用</span></li>
+          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">3D 模型与增强现实</span></li>
         </ul>
         <div class="actions">
           <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">让您的菜单电子化</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost" href="#nasil" data-i18n="qr.nav.how">使用流程</a>
+          <a class="btn ghost btn3d" href="#ar"><span data-i18n="qr.hero.cta3d">查看 3D 与 AR</span></a>
         </div>
         <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ 增值税 / 年（合计 1,740 TL）</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">查看套餐</span> <span aria-hidden="true">→</span></a>
       </div>
@@ -155,7 +156,24 @@
             <li><span class="qp-img i4"><svg viewBox="0 0 24 24"><path d="M5 8h14v3a7 7 0 0 1-14 0Z"/><path d="M8 4.5c0 1.2 1 1.2 1 2.5M12 4.5c0 1.2 1 1.2 1 2.5"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i4">冰咖啡</b><small data-i18n="qr.m.i4d">加冰，加奶</small></span><span class="qp-price">95 ₺</span></li>
           </ul>
         </div>
-        <span class="qp-ar"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg><span><b data-i18n="qr.ar.f3.t">在桌上查看</b><small data-i18n="qr.ar.kick">3D 模型与增强现实</small></span></span>
+        <div class="qp-arphone">
+          <div class="qa-screen">
+            <span class="qa-top"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg><b data-i18n="qr.ar.f3.t">在桌上查看</b></span>
+            <svg class="qa-scene" viewBox="0 0 160 200">
+              <defs><linearGradient id="qaWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4a4a"/><stop offset="1" stop-color="#26302f"/></linearGradient><linearGradient id="qaTable" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b98a5e"/><stop offset="1" stop-color="#7a5236"/></linearGradient></defs>
+              <rect width="160" height="200" fill="url(#qaWall)"/>
+              <path d="M0 118 L160 104 L160 200 L0 200Z" fill="url(#qaTable)"/>
+              <g fill="#fff" opacity=".55"><circle cx="40" cy="150" r="1.4"/><circle cx="60" cy="146" r="1.4"/><circle cx="100" cy="158" r="1.4"/><circle cx="122" cy="142" r="1.4"/><circle cx="84" cy="172" r="1.4"/><circle cx="30" cy="176" r="1.4"/><circle cx="134" cy="170" r="1.4"/></g>
+              <ellipse cx="80" cy="154" rx="34" ry="7" fill="rgba(0,0,0,.28)"/>
+              <path d="M57 98h46l-5 50a7 7 0 0 1-7 6H69a7 7 0 0 1-7-6Z" fill="#FF4F2E"/>
+              <ellipse cx="80" cy="98" rx="23" ry="5.5" fill="#FF8A70"/>
+              <ellipse cx="80" cy="98.6" rx="19" ry="3.8" fill="#5B3A29"/>
+              <path d="M102 108c13 0 14 20 1 22" fill="none" stroke="#E0442A" stroke-width="5" stroke-linecap="round"/>
+              <path d="M66 70v84" stroke="#9CC98F" stroke-width="1" stroke-dasharray="2 2"/>
+            </svg>
+            <span class="qa-dim">9,5 × 8,4 cm</span>
+          </div>
+        </div>
         <p class="dv-cap" data-i18n="qr.m.cap">示意图</p>
       </div>
     </div>

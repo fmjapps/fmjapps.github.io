@@ -311,9 +311,9 @@
  "qr.hero.f1": "Sem app, sem cadastro",
  "qr.hero.f2": "Atualização em segundos",
  "qr.hero.f3": "Sem custos recorrentes de impressão",
- "qr.hero.h1": "Seu cardápio está na mesa. <span class=\"grad\">E a atualização, no seu bolso.</span>",
- "qr.hero.kick": "QR Menu · Cardápios digitais para cafeterias e restaurantes",
- "qr.hero.lede": "Seu cliente escaneia o QR code da mesa com a câmera do celular, e o cardápio abre no navegador, sem baixar nada. Você muda preços, itens e fotos no seu próprio painel quando quiser. O QR code é impresso uma vez só; mesmo quando o cardápio muda, você nunca precisa imprimir de novo.",
+ "qr.hero.h1": "Seu cardápio na mesa, <span class=\"grad\">seus produtos em 3D.</span>",
+ "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Cardápios digitais para cafés e restaurantes",
+ "qr.hero.lede": "Seu cliente escaneia o QR code da mesa e o cardápio abre no celular, sem baixar nada. Ele gira seus produtos em 3D e vê as dimensões; em celulares compatíveis, “Ver na mesa” mostra o produto na mesa dele, em tamanho real. Você altera preços, itens e fotos pelo seu próprio painel quando quiser.",
  "qr.how.title": "Cardápio digital em três passos.",
  "qr.k1": "implantação",
  "qr.k1v": "Rápida",
@@ -339,8 +339,8 @@
  "qr.m.out": "Esgotado",
  "qr.m.search": "Buscar no cardápio",
  "qr.m.sub": "Café da manhã · Cafés · Sobremesas",
- "qr.meta.desc": "O cliente escaneia o QR code da mesa e o cardápio abre no celular, sem baixar app. Mude preços, itens e fotos no painel quando quiser; o QR code é impresso uma vez só.",
- "qr.meta.title": "QR Menu · Cardápio digital QR para cafés e restaurantes · FMJ Software",
+ "qr.meta.desc": "O cliente escaneia o QR code da mesa e o cardápio abre no celular, sem baixar nada; ele gira os produtos em 3D e, em celulares compatíveis, os vê na mesa em tamanho real. Atualize preços, itens e fotos pelo painel quando quiser.",
+ "qr.meta.title": "3D QR Menu · Cardápios digitais com QR code, modelos 3D e realidade aumentada · FMJ Software",
  "qr.name": "QR Menu",
  "qr.nav.cta": "Peça um orçamento",
  "qr.nav.how": "Como funciona",
@@ -756,5 +756,7 @@
  "qr.q9": "“Ver na mesa” funciona em todos os celulares?",
  "qr.a9": "Não. Depende da câmera, dos sensores e do navegador do celular; funciona na maioria dos iPhones recentes e nos Androids compatíveis com ARCore. Pode ter dificuldade para encontrar a superfície em superfícies escuras, brilhantes ou lisas. Em celulares sem suporte, os clientes ainda podem girar o produto em 3D e ver as dimensões.",
  "qr.q10": "Vocês podem tirar as fotos para a gente?",
- "qr.a10": "Sim, se você estiver na província de İzmir: visitamos seu estabelecimento uma vez e fotografamos os produtos por 1.000 TL + IVA. Fora de İzmir, você tira as fotos e a gente explica como por escrito e em vídeo."
+ "qr.a10": "Sim, se você estiver na província de İzmir: visitamos seu estabelecimento uma vez e fotografamos os produtos por 1.000 TL + IVA. Fora de İzmir, você tira as fotos e a gente explica como por escrito e em vídeo.",
+ "qr.hero.f4": "Modelos 3D e realidade aumentada",
+ "qr.hero.cta3d": "Ver 3D e RA"
 }

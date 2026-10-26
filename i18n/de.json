@@ -311,9 +311,9 @@
  "qr.hero.f1": "Keine App, keine Anmeldung",
  "qr.hero.f2": "Änderungen in Sekunden",
  "qr.hero.f3": "Keine laufenden Druckkosten",
- "qr.hero.h1": "Ihre Karte liegt auf dem Tisch. <span class=\"grad\">Ändern können Sie sie vom Handy aus.</span>",
- "qr.hero.kick": "QR Menu · Digitale Speisekarten für Cafés und Restaurants",
- "qr.hero.lede": "Ihre Gäste scannen den QR-Code auf dem Tisch mit der Handykamera, und Ihre Speisekarte öffnet sich im Browser – ganz ohne Download. Preise, Produkte und Fotos ändern Sie jederzeit in Ihrem eigenen Panel. Der QR-Code wird einmal gedruckt; auch wenn sich die Karte ändert, müssen Sie ihn nie neu drucken.",
+ "qr.hero.h1": "Ihre Karte auf dem Tisch, <span class=\"grad\">Ihre Produkte in 3D.</span>",
+ "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Digitale Speisekarten für Cafés und Restaurants",
+ "qr.hero.lede": "Ihr Gast scannt den QR-Code auf dem Tisch, und Ihre Karte öffnet sich auf seinem Smartphone, ohne dass er etwas herunterladen muss. Er dreht Ihre Produkte in 3D und sieht ihre Maße; auf unterstützten Smartphones zeigt „Auf dem Tisch ansehen“ das Produkt in Originalgröße auf seinem Tisch. Preise, Artikel und Fotos ändern Sie jederzeit in Ihrem eigenen Panel.",
  "qr.how.title": "In drei Schritten zur digitalen Speisekarte.",
  "qr.k1": "eingerichtet",
  "qr.k1v": "Schnell",
@@ -339,8 +339,8 @@
  "qr.m.out": "Ausverkauft",
  "qr.m.search": "Speisekarte durchsuchen",
  "qr.m.sub": "Frühstück · Kaffee · Desserts",
- "qr.meta.desc": "Gäste scannen den QR-Code am Tisch, die Karte öffnet sich auf dem Handy – ohne App. Preise, Produkte und Fotos jederzeit ändern; der QR-Code wird nur einmal gedruckt.",
- "qr.meta.title": "QR Menu · QR-Speisekarten für Cafés und Restaurants · FMJ Software",
+ "qr.meta.desc": "Gäste scannen den QR-Code auf dem Tisch, und Ihre Karte öffnet sich auf dem Smartphone ohne Download; sie drehen Produkte in 3D und sehen sie auf unterstützten Smartphones in Originalgröße auf dem Tisch. Preise, Artikel und Fotos aktualisieren Sie jederzeit im Panel.",
+ "qr.meta.title": "3D QR Menu · Digitale Speisekarten mit QR-Code, 3D-Modellen und Augmented Reality · FMJ Software",
  "qr.name": "QR Menu",
  "qr.nav.cta": "Angebot anfordern",
  "qr.nav.how": "So funktioniert’s",
@@ -756,5 +756,7 @@
  "qr.q9": "Funktioniert „Auf dem Tisch ansehen“ auf jedem Smartphone?",
  "qr.a9": "Nein. Es hängt von Kamera, Sensoren und Browser des Smartphones ab; es funktioniert auf den meisten aktuellen iPhones und auf Android-Smartphones mit ARCore-Unterstützung. Auf dunklen, glänzenden oder einfarbigen Oberflächen kann die Erkennung der Fläche schwerfallen. Auf Smartphones ohne Unterstützung können Gäste das Produkt trotzdem in 3D drehen und seine Maße ansehen.",
  "qr.q10": "Können Sie die Fotos für uns machen?",
- "qr.a10": "Ja, wenn Sie in der Provinz İzmir sind: Wir kommen einmal zu Ihnen ins Lokal und fotografieren die Produkte für 1.000 TL zzgl. MwSt. Außerhalb von İzmir machen Sie die Fotos selbst, und wir erklären Ihnen schriftlich und per Video, wie."
+ "qr.a10": "Ja, wenn Sie in der Provinz İzmir sind: Wir kommen einmal zu Ihnen ins Lokal und fotografieren die Produkte für 1.000 TL zzgl. MwSt. Außerhalb von İzmir machen Sie die Fotos selbst, und wir erklären Ihnen schriftlich und per Video, wie.",
+ "qr.hero.f4": "3D-Modelle und Augmented Reality",
+ "qr.hero.cta3d": "3D und AR ansehen"
 }

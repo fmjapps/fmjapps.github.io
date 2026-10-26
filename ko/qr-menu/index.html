@@ -5,13 +5,13 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QR Menu · 카페·레스토랑용 QR 코드 디지털 메뉴 · FMJ Software</title>
-<meta name="description" content="손님이 테이블의 QR 코드를 찍으면 앱 설치 없이 휴대폰에서 메뉴가 열립니다. 가격, 메뉴, 사진은 관리 화면에서 언제든 수정하고, QR 코드는 한 번만 인쇄하면 됩니다.">
+<title>3D QR Menu · 3D 모델과 증강현실을 지원하는 QR 코드 디지털 메뉴 · FMJ Software</title>
+<meta name="description" content="손님이 테이블의 QR 코드를 스캔하면 앱 없이 휴대폰에서 메뉴가 열리고, 제품을 3D로 돌려 보며 지원되는 휴대폰에서는 테이블 위에 실제 크기로 볼 수 있습니다. 가격, 품목, 사진은 관리 화면에서 언제든 수정하세요.">
 <meta name="theme-color" content="#1C3334">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FMJ Software">
-<meta property="og:title" content="QR Menu · 카페·레스토랑용 QR 코드 디지털 메뉴 · FMJ Software">
-<meta property="og:description" content="손님이 테이블의 QR 코드를 찍으면 앱 설치 없이 휴대폰에서 메뉴가 열립니다. 가격, 메뉴, 사진은 관리 화면에서 언제든 수정하고, QR 코드는 한 번만 인쇄하면 됩니다.">
+<meta property="og:title" content="3D QR Menu · 3D 모델과 증강현실을 지원하는 QR 코드 디지털 메뉴 · FMJ Software">
+<meta property="og:description" content="손님이 테이블의 QR 코드를 스캔하면 앱 없이 휴대폰에서 메뉴가 열리고, 제품을 3D로 돌려 보며 지원되는 휴대폰에서는 테이블 위에 실제 크기로 볼 수 있습니다. 가격, 품목, 사진은 관리 화면에서 언제든 수정하세요.">
 <meta property="og:image" content="https://fmjapps.com/assets/og-qrmenu-ko.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -33,7 +33,7 @@
 <link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/qr-menu/">
 <link rel="alternate" hreflang="id" href="https://fmjapps.com/id/qr-menu/">
 <link rel="alternate" hreflang="x-default" href="https://fmjapps.com/qr-menu/">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/qr-menu/#service","name":"QR Menu","serviceType":"QR kodlu dijital menü","description":"손님이 테이블의 QR 코드를 찍으면 앱 설치 없이 휴대폰에서 메뉴가 열립니다. 가격, 메뉴, 사진은 관리 화면에서 언제든 수정하고, QR 코드는 한 번만 인쇄하면 됩니다.","url":"https://fmjapps.com/qr-menu/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"QR Menu","item":"https://fmjapps.com/qr-menu/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://fmjapps.com/qr-menu/#service","name":"QR Menu","serviceType":"QR kodlu dijital menü","description":"손님이 테이블의 QR 코드를 스캔하면 앱 없이 휴대폰에서 메뉴가 열리고, 제품을 3D로 돌려 보며 지원되는 휴대폰에서는 테이블 위에 실제 크기로 볼 수 있습니다. 가격, 품목, 사진은 관리 화면에서 언제든 수정하세요.","url":"https://fmjapps.com/qr-menu/","provider":{"@type":"Organization","@id":"https://fmjapps.com/#org","name":"FMJ Software","url":"https://fmjapps.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FMJ Software","item":"https://fmjapps.com/"},{"@type":"ListItem","position":2,"name":"QR Menu","item":"https://fmjapps.com/qr-menu/"}]}]}</script>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
@@ -122,17 +122,18 @@
     <div class="wrap hero-grid qr-hero">
       <div>
         <a class="hero-new" href="#ar"><i data-i18n="qr.new">신규</i> <span data-i18n="qr.hero.new">3D 모델과 증강현실: 제품을 테이블 위에 실제 크기로</span> <b aria-hidden="true">→</b></a>
-        <p class="eyebrow" data-i18n="qr.hero.kick">QR Menu · 카페와 레스토랑을 위한 디지털 메뉴</p>
-        <h1 data-i18n-html="qr.hero.h1">메뉴는 테이블 위에, <span class="grad">수정은 사장님 손안에서.</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">손님이 테이블의 QR 코드를 휴대폰 카메라로 찍으면 앱을 내려받지 않아도 브라우저에서 메뉴가 열립니다. 가격, 메뉴, 사진은 관리 화면에서 언제든 바꿀 수 있어요. QR 코드는 한 번만 인쇄하면 되고, 메뉴가 바뀌어도 다시 인쇄할 필요가 없습니다.</p>
+        <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · 카페·레스토랑용 디지털 메뉴</p>
+        <h1 data-i18n-html="qr.hero.h1">메뉴는 테이블 위에, <span class="grad">제품은 3D로.</span></h1>
+        <p class="lede" data-i18n="qr.hero.lede">손님이 테이블의 QR 코드를 스캔하면 아무것도 내려받지 않아도 휴대폰에서 메뉴가 열립니다. 제품을 3D로 돌려 보며 치수를 확인하고, 지원되는 휴대폰에서는 ‘테이블에서 보기’로 제품을 자기 테이블 위에 실제 크기로 볼 수 있습니다. 가격, 품목, 사진은 직접 관리 화면에서 언제든 바꾸실 수 있습니다.</p>
         <ul class="hero-feats">
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">앱 설치, 회원가입 없음</span></li>
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">몇 초 만에 수정</span></li>
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">반복되는 인쇄 비용 없음</span></li>
+          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">3D 모델과 증강현실</span></li>
         </ul>
         <div class="actions">
           <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">메뉴판을 디지털로 바꿔 보세요</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost" href="#nasil" data-i18n="qr.nav.how">이용 방법</a>
+          <a class="btn ghost btn3d" href="#ar"><span data-i18n="qr.hero.cta3d">3D·AR 보기</span></a>
         </div>
         <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ 부가세 / 년 (총 1,740 TL)</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">패키지 보기</span> <span aria-hidden="true">→</span></a>
       </div>
@@ -155,7 +156,24 @@
             <li><span class="qp-img i4"><svg viewBox="0 0 24 24"><path d="M5 8h14v3a7 7 0 0 1-14 0Z"/><path d="M8 4.5c0 1.2 1 1.2 1 2.5M12 4.5c0 1.2 1 1.2 1 2.5"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i4">아이스 커피</b><small data-i18n="qr.m.i4d">얼음, 우유</small></span><span class="qp-price">95 ₺</span></li>
           </ul>
         </div>
-        <span class="qp-ar"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg><span><b data-i18n="qr.ar.f3.t">테이블에서 보기</b><small data-i18n="qr.ar.kick">3D 모델과 증강현실</small></span></span>
+        <div class="qp-arphone">
+          <div class="qa-screen">
+            <span class="qa-top"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg><b data-i18n="qr.ar.f3.t">테이블에서 보기</b></span>
+            <svg class="qa-scene" viewBox="0 0 160 200">
+              <defs><linearGradient id="qaWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4a4a"/><stop offset="1" stop-color="#26302f"/></linearGradient><linearGradient id="qaTable" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b98a5e"/><stop offset="1" stop-color="#7a5236"/></linearGradient></defs>
+              <rect width="160" height="200" fill="url(#qaWall)"/>
+              <path d="M0 118 L160 104 L160 200 L0 200Z" fill="url(#qaTable)"/>
+              <g fill="#fff" opacity=".55"><circle cx="40" cy="150" r="1.4"/><circle cx="60" cy="146" r="1.4"/><circle cx="100" cy="158" r="1.4"/><circle cx="122" cy="142" r="1.4"/><circle cx="84" cy="172" r="1.4"/><circle cx="30" cy="176" r="1.4"/><circle cx="134" cy="170" r="1.4"/></g>
+              <ellipse cx="80" cy="154" rx="34" ry="7" fill="rgba(0,0,0,.28)"/>
+              <path d="M57 98h46l-5 50a7 7 0 0 1-7 6H69a7 7 0 0 1-7-6Z" fill="#FF4F2E"/>
+              <ellipse cx="80" cy="98" rx="23" ry="5.5" fill="#FF8A70"/>
+              <ellipse cx="80" cy="98.6" rx="19" ry="3.8" fill="#5B3A29"/>
+              <path d="M102 108c13 0 14 20 1 22" fill="none" stroke="#E0442A" stroke-width="5" stroke-linecap="round"/>
+              <path d="M66 70v84" stroke="#9CC98F" stroke-width="1" stroke-dasharray="2 2"/>
+            </svg>
+            <span class="qa-dim">9,5 × 8,4 cm</span>
+          </div>
+        </div>
         <p class="dv-cap" data-i18n="qr.m.cap">예시 화면</p>
       </div>
     </div>
