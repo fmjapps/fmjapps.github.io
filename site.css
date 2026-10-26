@@ -1682,3 +1682,7 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .hero-opt3d { border-color: #FF4F2E; background: color-mix(in srgb, #FF4F2E 8%, transparent); }
 .hero-demo-link { display: inline-block; margin-top: 14px; font: 600 14px 'Inter', sans-serif; color: var(--text); text-decoration: underline; text-decoration-color: #FF4F2E; text-underline-offset: 4px; }
 @media (max-width: 420px) { .hero-opts { grid-template-columns: 1fr; } }
+
+.hero-demo-btn { margin-top: 14px; width: 100%; max-width: 480px; justify-content: center; gap: 10px; border-color: #FF4F2E; }
+.hero-demo-btn .kick3d { font-size: 11px; padding: 1px 6px; }
+.hero .btn.ghost.hero-demo-btn { border-color: #FF4F2E; background: color-mix(in srgb, #FF4F2E 10%, transparent); }
