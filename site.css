@@ -1600,3 +1600,19 @@ html { scroll-padding-top: 96px; }
 .pk-addon { margin-top: 18px; border-color: color-mix(in srgb, #FF4F2E 45%, transparent); box-shadow: 0 0 0 3px color-mix(in srgb, #FF4F2E 10%, transparent), 0 30px 60px -40px rgba(17, 17, 17, .35); }
 .pk-addon .pk-top h3 { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .pk-addon .pk-price b { font-size: 34px; }
+
+/* 3D/AR: girişteki telefon görselinde rozet ve "Masada gör" kartı; ana sayfa QR kartında yeni satırı */
+main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%, #1C3334 55%, #142627 100%); }
+.qr-phone { position: relative; }
+.qp-img { position: relative; }
+.qp-3d { position: absolute; top: -6px; inset-inline-end: -6px; padding: 1px 5px; border-radius: 6px; background: #FF4F2E; color: #fff; font: 800 9.5px/1.4 'Inter', sans-serif; font-style: normal; box-shadow: 0 2px 6px -2px rgba(0, 0, 0, .4); }
+.qp-items li.has3d { border-color: color-mix(in srgb, #FF4F2E 55%, transparent); box-shadow: 0 0 0 2px color-mix(in srgb, #FF4F2E 18%, transparent); }
+.qp-ar { position: absolute; inset-inline-start: -28px; bottom: 64px; display: flex; align-items: center; gap: 10px; padding: 10px 14px 10px 10px; border-radius: 16px; background: #1C3334; color: #fff; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .55); animation: qp-float 4s ease-in-out infinite; }
+.qp-ar > svg { width: 34px; height: 34px; padding: 7px; border-radius: 10px; background: #FF4F2E; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.qp-ar b { display: block; font: 700 14px 'Sora', sans-serif; }
+.qp-ar small { display: block; font: 500 11.5px 'Inter', sans-serif; color: #C9D3D8; }
+@keyframes qp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@media (max-width: 520px) { .qp-ar { inset-inline-start: 0; bottom: 56px; } }
+@media (prefers-reduced-motion: reduce) { .qp-ar { animation: none; } }
+.checks .li-new a { color: inherit; font-weight: 600; text-decoration: underline; text-decoration-color: #FF4F2E; text-underline-offset: 4px; }
+.checks .li-new .ar-new { margin-inline-start: 4px; vertical-align: 1px; }
