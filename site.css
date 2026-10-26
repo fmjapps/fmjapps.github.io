@@ -1770,3 +1770,23 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 @media (prefers-reduced-motion: reduce) { .qp-live { animation: ql-spin 3s linear infinite; } .qr-phone.flipped .qp-live { animation: none; } }
 @media (min-width: 961px) { .qr-hero .qr-phone { width: min(100%, 300px); } .qr-hero .qp-screen { padding: 18px 14px 14px; } }
 @media (min-width: 961px) { .qr-hero .qp-items li:nth-child(4) { display: none; } .qr-hero .qp-live { margin-top: 18px; } }
+
+/* Canlı örnek: telefonun köşesine taşan, yazısı dönen rozet (tıklayınca telefon döner) */
+.qp-live { display: none; }
+@media (min-width: 961px) { .qr-hero .qp-items li:nth-child(4) { display: flex; } }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.qp-badge { position: absolute; z-index: 4; top: 26px; inset-inline-start: -62px; width: 124px; height: 124px; padding: 0; border: 0; border-radius: 50%; background: #FF4F2E; color: #fff; cursor: pointer; display: grid; place-items: center; box-shadow: 0 20px 40px -14px rgba(255, 79, 46, .85), 0 0 0 6px rgba(255, 79, 46, .18); transition: transform .25s, background-color .3s; animation: qb-wobble 3.2s ease-in-out infinite; }
+.qp-badge:hover { transform: scale(1.06) rotate(-4deg); }
+.qp-badge:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+.qb-ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: qb-spin 12s linear infinite; }
+.qb-ring text { fill: #fff; font: 800 10.5px 'Inter', sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.qb-core { position: relative; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; background: #fff; box-shadow: 0 4px 12px -4px rgba(0, 0, 0, .35); }
+.qb-core svg { width: 28px; height: 28px; fill: none; stroke: #FF4F2E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.qp-badge .ql-off { display: none; }
+.qr-phone.flipped .qp-badge { background: #1C3334; box-shadow: 0 20px 40px -14px rgba(0, 0, 0, .6), 0 0 0 6px rgba(255, 79, 46, .35); animation: none; }
+.qr-phone.flipped .qp-badge .ql-on { display: none; }
+.qr-phone.flipped .qp-badge .ql-off { display: inline; }
+.qr-phone.flipped .qb-core svg { stroke: #1C3334; }
+@keyframes qb-spin { to { transform: rotate(360deg); } }
+@keyframes qb-wobble { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+@media (max-width: 960px) { .qp-badge { inset-inline-start: -14px; top: 14px; width: 104px; height: 104px; } .qb-core { width: 46px; height: 46px; } }
