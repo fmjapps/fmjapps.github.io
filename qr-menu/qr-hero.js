@@ -1,5 +1,5 @@
-/* QR Menü girişi: telefona ya da sağ üstteki "Canlı hâlini görmek için tıkla" etiketine tıklayınca telefon döner;
-   arkada deneme menüsünün QR kodu durur. Dönmeden önce telefon ara ara hafifçe yana dönüp geri gelir (çevrilebildiği belli olsun). */
+/* QR Menü girişi: telefona ya da yanındaki "Arkasını çevir" yazısına tıklayınca telefon yumuşakça döner;
+   arkada masa üstünde duran bir QR kartı (deneme menüsü) görünür. */
 (function () {
   'use strict';
   var box = document.getElementById('qrShow');
@@ -9,7 +9,6 @@
   if (!box || !tap || !back || !flip) return;
   function toggle() {
     var on = !box.classList.contains('flipped');
-    box.classList.add('used');
     box.classList.toggle('flipped', on);
     tap.setAttribute('aria-expanded', String(on));
     back.setAttribute('aria-hidden', String(!on));

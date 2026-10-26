@@ -770,5 +770,8 @@
  "qr.hero.back": "Zurück zur Karte",
  "qr.hero.open": "Auf diesem Gerät öffnen",
  "qr.hero.tap": "Tippen, um es live zu sehen",
- "qr.hero.tapback": "Tippen, um zur Karte zurückzukehren"
+ "qr.hero.tapback": "Tippen, um zur Karte zurückzukehren",
+ "co.refs.web": "Website",
+ "co.refs.qr": "QR-Speisekarte",
+ "qr.hero.turn": "Umdrehen"
 }

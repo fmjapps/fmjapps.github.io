@@ -770,5 +770,8 @@
  "qr.hero.back": "Retour au menu",
  "qr.hero.open": "Ouvrir sur cet appareil",
  "qr.hero.tap": "Touchez pour le voir en direct",
- "qr.hero.tapback": "Touchez pour revenir au menu"
+ "qr.hero.tapback": "Touchez pour revenir au menu",
+ "co.refs.web": "Site web",
+ "co.refs.qr": "Menu QR",
+ "qr.hero.turn": "Retournez-le"
 }

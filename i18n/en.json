@@ -770,5 +770,8 @@
  "qr.hero.back": "Back to menu",
  "qr.hero.open": "Open on this device",
  "qr.hero.tap": "Tap to see it live",
- "qr.hero.tapback": "Tap to go back to the menu"
+ "qr.hero.tapback": "Tap to go back to the menu",
+ "co.refs.web": "Website",
+ "co.refs.qr": "QR menu",
+ "qr.hero.turn": "Flip it over"
 }

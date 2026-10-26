@@ -770,5 +770,8 @@
  "qr.hero.back": "Kembali ke menu",
  "qr.hero.open": "Buka di perangkat ini",
  "qr.hero.tap": "Ketuk untuk melihat langsung",
- "qr.hero.tapback": "Ketuk untuk kembali ke menu"
+ "qr.hero.tapback": "Ketuk untuk kembali ke menu",
+ "co.refs.web": "Situs web",
+ "co.refs.qr": "Menu QR",
+ "qr.hero.turn": "Balikkan"
 }

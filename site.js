@@ -187,7 +187,18 @@
   var mobileMenu = document.getElementById('mobileMenu');
   if (menuBtn && mobileMenu) {
     // Telefon menüsü üst menüdeki bağlantılardan kurulur
-    document.querySelectorAll('.links a').forEach(function (a) { mobileMenu.appendChild(a.cloneNode(true)); });
+    // Referans logoları tek tek değil, başlıklı tek bir grup olarak eklenir
+    document.querySelectorAll('.links a').forEach(function (a) {
+      var refs = a.closest('.refs-menu');
+      if (!refs) { mobileMenu.appendChild(a.cloneNode(true)); return; }
+      if (mobileMenu.querySelector('.m-refs')) return;
+      var group = document.createElement('div'), title = document.createElement('p'), row = refs.cloneNode(true);
+      group.className = 'm-refs';
+      title.textContent = refs.parentNode.querySelector('.drop-btn').textContent.trim();
+      row.className = 'm-refs-row';
+      group.appendChild(title); group.appendChild(row);
+      mobileMenu.appendChild(group);
+    });
     var setMenu = function (open) { mobileMenu.hidden = !open; menuBtn.setAttribute('aria-expanded', open); };
     menuBtn.addEventListener('click', function (e) { e.stopPropagation(); setMenu(mobileMenu.hidden); });
     mobileMenu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });

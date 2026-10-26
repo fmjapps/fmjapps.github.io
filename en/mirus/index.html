@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026p">
+<link rel="stylesheet" href="/site.css?v=261026r">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -93,6 +93,13 @@
       <a href="#guvenlik" data-i18n="mirus.nav.security">Security</a>
       <a href="#sss" data-i18n="mirus.nav.faq">FAQ</a>
       <a href="/en/about/" data-en-href="/en/about/" data-i18n="nav.about">About us</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Our clients</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Website</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">QR menu</small></a>
+        </div>
+      </div>
       <a class="cta-link" href="/en/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Live demo</a>
     </nav>
     <div class="tools">
@@ -501,7 +508,7 @@
 <nav class="pager" id="pager" aria-label="Pages" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026p" defer></script>
+<script src="/site.js?v=261026r" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

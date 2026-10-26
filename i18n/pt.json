@@ -770,5 +770,8 @@
  "qr.hero.back": "Voltar ao cardápio",
  "qr.hero.open": "Abrir neste dispositivo",
  "qr.hero.tap": "Toque para ver ao vivo",
- "qr.hero.tapback": "Toque para voltar ao cardápio"
+ "qr.hero.tapback": "Toque para voltar ao cardápio",
+ "co.refs.web": "Site",
+ "co.refs.qr": "Cardápio QR",
+ "qr.hero.turn": "Vire o celular"
 }
