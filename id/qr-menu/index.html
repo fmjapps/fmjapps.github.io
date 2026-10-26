@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026a">
+<link rel="stylesheet" href="/site.css?v=261026c">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -120,7 +120,7 @@
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
       <div>
-        <a class="hero-new" href="#ar"><i data-i18n="qr.new">Baru</i> <span data-i18n="qr.hero.new">Model 3D dan augmented reality: produk Anda di atas meja, dalam ukuran asli</span> <b aria-hidden="true">→</b></a>
+        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">Baru</i> <span data-i18n="qr.hero.new">Model 3D dan augmented reality: produk Anda di atas meja, dalam ukuran asli</span> <b aria-hidden="true">→</b></a>
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · Menu digital untuk kafe dan restoran</p>
         <h1 data-i18n-html="qr.hero.h1">Menu Anda di meja, <span class="grad">produk Anda dalam 3D.</span></h1>
         <p class="lede" data-i18n="qr.hero.lede">Tamu memindai kode QR di meja dan menu Anda terbuka di ponselnya, tanpa mengunduh apa pun. Mereka memutar produk Anda dalam 3D dan melihat dimensinya; di ponsel yang didukung, “Lihat di meja” menampilkan produk di meja mereka dalam ukuran asli. Anda mengubah harga, item, dan foto dari panel Anda sendiri kapan saja.</p>
@@ -132,9 +132,10 @@
         </ul>
         <div class="actions">
           <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">Jadikan menu Anda digital</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="#ar"><span data-i18n="qr.hero.cta3d">Lihat 3D dan AR</span></a>
+          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">Buka demo langsung</span></a>
         </div>
         <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1.450 TL</b> <span data-i18n="pk.qr.per">+ PPN / tahun (total 1.740 TL)</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">Lihat paket</span> <span aria-hidden="true">→</span></a>
+        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + PPN / produk</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -174,6 +175,10 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">Tampilan ilustrasi</p>
+        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
+          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
+          <span><b data-i18n="qr.ar.demo.t">Coba di ponsel Anda</b><small data-i18n="qr.ar.demo.d">Pindai kode QR; “Tampilan 3D”, “Dimensi”, dan “Lihat di meja” berfungsi pada item “Kupa” dan “DJI Neo”.</small></span>
+        </a>
       </div>
     </div>
   </section>
@@ -254,76 +259,6 @@
         <div><strong data-i18n="qr.t1.t">Tanpa aplikasi</strong><span data-i18n="qr.t1.d">Menu terbuka di browser ponsel; tidak ada yang perlu diunduh.</span></div>
         <div><strong data-i18n="qr.t2.t">Tanpa daftar atau login</strong><span data-i18n="qr.t2.d">Tamu memindai kode QR, menu langsung terbuka.</span></div>
         <div><strong data-i18n="qr.t3.t">Mode gelap</strong><span data-i18n="qr.t3.d">Jika ponsel dalam mode gelap, menu juga tampil gelap.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3D MODEL VE ARTIRILMIŞ GERÇEKLİK (isteğe bağlı ek; koşullar mesafeli satış sözleşmesi madde 03-07) -->
-  <section class="sec page ar-sec" id="ar">
-    <span class="ar-glow" aria-hidden="true"></span>
-    <div class="wrap ar-grid">
-      <div class="ar-copy">
-        <header class="sec-head reveal">
-          <p class="eyebrow"><i class="ar-new" data-i18n="qr.new">Baru</i> <span data-i18n="qr.ar.kick">Model 3D dan augmented reality</span></p>
-          <h2 data-i18n-html="qr.ar.title">Tampilkan produk Anda di atas meja, <span class="grad">dalam ukuran asli</span>.</h2>
-          <p data-i18n="qr.ar.lede">Item di menu Anda hidup sebagai model 3D. Tamu memutar produk di ponselnya dan melihat dimensinya; di ponsel yang didukung, mereka mengarahkan kamera ke meja dan melihat produk berada di sana dalam ukuran asli. Tanpa perlu mengunduh aplikasi.</p>
-        </header>
-        <ul class="ar-feats">
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><div><h3 data-i18n="qr.ar.f1.t">Lihat dalam 3D</h3><p data-i18n="qr.ar.f1.d">Tamu memutar dan memperbesar produk dengan jari serta melihatnya dari segala sisi.</p></div></li>
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21Z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></svg></span><div><h3 data-i18n="qr.ar.f2.t">Dimensi</h3><p data-i18n="qr.ar.f2.d">Satu ketukan menampilkan lebar, kedalaman, dan tinggi dalam sentimeter. Berfungsi di semua ponsel.</p></div></li>
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 15.5h8M9.5 15.5V11h5v4.5"/></svg></span><div><h3 data-i18n="qr.ar.f3.t">Lihat di meja</h3><p data-i18n="qr.ar.f3.d">Di ponsel yang didukung, produk muncul di tampilan kamera, di atas meja, dalam ukuran asli.</p></div></li>
-        </ul>
-        <p class="ar-note reveal" data-i18n="qr.ar.note">“Lihat di meja” bergantung pada dukungan kamera dan sensor ponsel; fitur ini bisa kesulitan mendeteksi permukaan yang gelap, mengilap, atau polos. Di ponsel yang tidak didukung, tampilan 3D dan dimensi tetap berfungsi.</p>
-        <div class="ar-how reveal">
-          <h3 data-i18n="qr.ar.how">Bagaimana prosesnya?</h3>
-          <ol>
-            <li data-i18n="qr.ar.h1">Anda mengirim 5 foto dan ukuran tiap produk; kami jelaskan cara memotretnya.</li>
-            <li data-i18n="qr.ar.h2">Kami membuat model 3D dan mengirim pratinjau untuk Anda setujui.</li>
-            <li data-i18n="qr.ar.h3">Setelah Anda setujui, model ditambahkan ke produk di menu Anda.</li>
-          </ol>
-          <p data-i18n="qr.ar.shoot">Jika Anda berada di İzmir, kami bisa datang ke tempat usaha Anda dan memotretnya untuk Anda.</p>
-        </div>
-        <div class="actions reveal">
-          <a class="btn primary" href="/siparis/?paket=qr&amp;ek=3d"><span data-i18n="qr.ar.buy">Beli QR Menu + 3D/AR</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">Buka demo langsung</a>
-        </div>
-        <p class="ar-price reveal"><b data-i18n="qr.ar.price">+100 TL + PPN / produk</b> <span data-i18n="qr.ar.price2">Tambahan untuk QR Menu · Pemotretan produk di İzmir +1.000 TL + PPN</span></p>
-      </div>
-
-      <div class="ar-side">
-        <!-- Temsili telefon ekranı: 3D görünüm, ölçüler ve "Masada gör" -->
-        <div class="ar-phone reveal" aria-hidden="true">
-          <div class="ap-screen">
-            <div class="ap-top"><b data-i18n="qr.ar.m.item">Mug</b><small>· 3D</small></div>
-            <div class="ap-view">
-              <svg class="ap-model" viewBox="0 0 200 180">
-                <ellipse cx="100" cy="150" rx="70" ry="14" class="ap-shadow"/>
-                <g class="ap-spin">
-                  <path d="M58 52h84l-8 88a12 12 0 0 1-12 10H78a12 12 0 0 1-12-10Z" class="ap-cup"/>
-                  <ellipse cx="100" cy="52" rx="42" ry="10" class="ap-rim"/>
-                  <ellipse cx="100" cy="53" rx="36" ry="7" class="ap-coffee"/>
-                  <path d="M140 70c22 0 24 34 2 38" class="ap-handle"/>
-                  <path d="M80 30c0-8 8-8 8-16M100 32c0-8 8-8 8-16" class="ap-steam"/>
-                </g>
-                <path d="M44 52v98M40 52h8M40 150h8" class="ap-dim"/>
-                <path d="M58 166h84M58 162v8M142 162v8" class="ap-dim"/>
-              </svg>
-              <span class="ap-tag ap-h">9,5 cm</span>
-              <span class="ap-tag ap-w">8,4 cm</span>
-              <span class="ap-orbit"><svg viewBox="0 0 24 24"><path d="M4 12a8 4 0 0 0 16 0M20 12a8 4 0 0 0-16 0"/><path d="m17 9 3 3-3 3"/></svg></span>
-            </div>
-            <div class="ap-btns">
-              <span data-i18n="qr.ar.f1.t">Lihat dalam 3D</span>
-              <span data-i18n="qr.ar.f2.t">Dimensi</span>
-              <span class="on"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg><span data-i18n="qr.ar.f3.t">Lihat di meja</span></span>
-            </div>
-          </div>
-          <p class="dv-cap" data-i18n="qr.m.cap">Tampilan ilustrasi</p>
-        </div>
-        <a class="ar-demo reveal" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">Coba di ponsel Anda</b><small data-i18n="qr.ar.demo.d">Pindai kode QR; “Tampilan 3D”, “Dimensi”, dan “Lihat di meja” berfungsi pada item “Kupa” dan “DJI Neo”.</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -576,7 +511,7 @@
 <nav class="pager" id="pager" aria-label="Halaman" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026a" defer></script>
+<script src="/site.js?v=261026c" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

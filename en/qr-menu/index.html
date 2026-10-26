@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026a">
+<link rel="stylesheet" href="/site.css?v=261026c">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -120,7 +120,7 @@
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
       <div>
-        <a class="hero-new" href="#ar"><i data-i18n="qr.new">New</i> <span data-i18n="qr.hero.new">3D models and augmented reality: your product on the table, at real size</span> <b aria-hidden="true">→</b></a>
+        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">New</i> <span data-i18n="qr.hero.new">3D models and augmented reality: your product on the table, at real size</span> <b aria-hidden="true">→</b></a>
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · Digital menus for cafés and restaurants</p>
         <h1 data-i18n-html="qr.hero.h1">Your menu on the table, <span class="grad">your products in 3D.</span></h1>
         <p class="lede" data-i18n="qr.hero.lede">Your guest scans the QR code on the table and your menu opens on their phone, with nothing to download. They turn your products around in 3D and see their dimensions; on supported phones, “See on table” shows the product on their table at real size. You change prices, items and photos from your own panel whenever you like.</p>
@@ -132,9 +132,10 @@
         </ul>
         <div class="actions">
           <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">Let’s take your menu digital</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="#ar"><span data-i18n="qr.hero.cta3d">See 3D and AR</span></a>
+          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">Open the live demo</span></a>
         </div>
         <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ VAT / year (1,740 TL total)</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">See the package</span> <span aria-hidden="true">→</span></a>
+        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + VAT / product</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -174,6 +175,10 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">Illustrative view</p>
+        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
+          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
+          <span><b data-i18n="qr.ar.demo.t">Try it on your phone</b><small data-i18n="qr.ar.demo.d">Scan the QR code; “View in 3D”, “Dimensions” and “See on table” work on the “Kupa” and “DJI Neo” items.</small></span>
+        </a>
       </div>
     </div>
   </section>
@@ -254,76 +259,6 @@
         <div><strong data-i18n="qr.t1.t">No app needed</strong><span data-i18n="qr.t1.d">The menu opens in the phone’s browser; nothing is downloaded.</span></div>
         <div><strong data-i18n="qr.t2.t">No sign-up or login</strong><span data-i18n="qr.t2.d">Guests scan the QR code and the menu opens.</span></div>
         <div><strong data-i18n="qr.t3.t">Dark mode</strong><span data-i18n="qr.t3.d">If the phone is in dark mode, the menu opens dark too.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3D MODEL VE ARTIRILMIŞ GERÇEKLİK (isteğe bağlı ek; koşullar mesafeli satış sözleşmesi madde 03-07) -->
-  <section class="sec page ar-sec" id="ar">
-    <span class="ar-glow" aria-hidden="true"></span>
-    <div class="wrap ar-grid">
-      <div class="ar-copy">
-        <header class="sec-head reveal">
-          <p class="eyebrow"><i class="ar-new" data-i18n="qr.new">New</i> <span data-i18n="qr.ar.kick">3D models and augmented reality</span></p>
-          <h2 data-i18n-html="qr.ar.title">Show your product on the table, <span class="grad">at real size</span>.</h2>
-          <p data-i18n="qr.ar.lede">The items on your menu come alive as 3D models. Guests turn the product around on their phone and see its dimensions; on supported phones they point the camera at the table and see the product sitting there at real size. No app to download.</p>
-        </header>
-        <ul class="ar-feats">
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><div><h3 data-i18n="qr.ar.f1.t">View in 3D</h3><p data-i18n="qr.ar.f1.d">Guests rotate and zoom the product with a finger and look at it from every side.</p></div></li>
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21Z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></svg></span><div><h3 data-i18n="qr.ar.f2.t">Dimensions</h3><p data-i18n="qr.ar.f2.d">One tap shows width, depth and height in centimeters. Works on every phone.</p></div></li>
-          <li class="reveal"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 15.5h8M9.5 15.5V11h5v4.5"/></svg></span><div><h3 data-i18n="qr.ar.f3.t">See on table</h3><p data-i18n="qr.ar.f3.d">On supported phones the product appears in the camera view, on the table, at real size.</p></div></li>
-        </ul>
-        <p class="ar-note reveal" data-i18n="qr.ar.note">“See on table” depends on the phone’s camera and sensor support; it may struggle to find the surface on dark, shiny or plain surfaces. On phones without support, the 3D view and dimensions still work.</p>
-        <div class="ar-how reveal">
-          <h3 data-i18n="qr.ar.how">How is it made?</h3>
-          <ol>
-            <li data-i18n="qr.ar.h1">You send 5 photos and the size of each product; we explain how to take them.</li>
-            <li data-i18n="qr.ar.h2">We build the 3D model and send you a preview for approval.</li>
-            <li data-i18n="qr.ar.h3">Once you approve, the model is added to the product on your menu.</li>
-          </ol>
-          <p data-i18n="qr.ar.shoot">If you are in İzmir, we can come to your venue and take the photos for you.</p>
-        </div>
-        <div class="actions reveal">
-          <a class="btn primary" href="/siparis/?paket=qr&amp;ek=3d"><span data-i18n="qr.ar.buy">Buy QR Menu + 3D/AR</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">Open the live demo</a>
-        </div>
-        <p class="ar-price reveal"><b data-i18n="qr.ar.price">+100 TL + VAT / product</b> <span data-i18n="qr.ar.price2">Add-on to QR Menu · Product photo shoot in İzmir +1,000 TL + VAT</span></p>
-      </div>
-
-      <div class="ar-side">
-        <!-- Temsili telefon ekranı: 3D görünüm, ölçüler ve "Masada gör" -->
-        <div class="ar-phone reveal" aria-hidden="true">
-          <div class="ap-screen">
-            <div class="ap-top"><b data-i18n="qr.ar.m.item">Mug</b><small>· 3D</small></div>
-            <div class="ap-view">
-              <svg class="ap-model" viewBox="0 0 200 180">
-                <ellipse cx="100" cy="150" rx="70" ry="14" class="ap-shadow"/>
-                <g class="ap-spin">
-                  <path d="M58 52h84l-8 88a12 12 0 0 1-12 10H78a12 12 0 0 1-12-10Z" class="ap-cup"/>
-                  <ellipse cx="100" cy="52" rx="42" ry="10" class="ap-rim"/>
-                  <ellipse cx="100" cy="53" rx="36" ry="7" class="ap-coffee"/>
-                  <path d="M140 70c22 0 24 34 2 38" class="ap-handle"/>
-                  <path d="M80 30c0-8 8-8 8-16M100 32c0-8 8-8 8-16" class="ap-steam"/>
-                </g>
-                <path d="M44 52v98M40 52h8M40 150h8" class="ap-dim"/>
-                <path d="M58 166h84M58 162v8M142 162v8" class="ap-dim"/>
-              </svg>
-              <span class="ap-tag ap-h">9,5 cm</span>
-              <span class="ap-tag ap-w">8,4 cm</span>
-              <span class="ap-orbit"><svg viewBox="0 0 24 24"><path d="M4 12a8 4 0 0 0 16 0M20 12a8 4 0 0 0-16 0"/><path d="m17 9 3 3-3 3"/></svg></span>
-            </div>
-            <div class="ap-btns">
-              <span data-i18n="qr.ar.f1.t">View in 3D</span>
-              <span data-i18n="qr.ar.f2.t">Dimensions</span>
-              <span class="on"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg><span data-i18n="qr.ar.f3.t">See on table</span></span>
-            </div>
-          </div>
-          <p class="dv-cap" data-i18n="qr.m.cap">Illustrative view</p>
-        </div>
-        <a class="ar-demo reveal" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">Try it on your phone</b><small data-i18n="qr.ar.demo.d">Scan the QR code; “View in 3D”, “Dimensions” and “See on table” work on the “Kupa” and “DJI Neo” items.</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -576,7 +511,7 @@
 <nav class="pager" id="pager" aria-label="Pages" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026a" defer></script>
+<script src="/site.js?v=261026c" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>
