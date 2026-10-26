@@ -42,7 +42,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/app.css?v=261026y">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:#9CC98F;--acc-2:#E9D9B4">
@@ -54,11 +54,28 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">믿을 수 있는 솔루션, 확실한 성과</span>
     </a>
     <nav class="links" aria-label="FMJ Software">
-      <a class="home-link" href="/ko/"><b aria-hidden="true">←</b> 홈</a>
-      <a href="/ko/apps/#oyunlar">게임</a>
-      <a href="/ko/apps/#uygulamalar">앱</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/ko/mirus/">Mirus 알아보기</a>
+          <a href="/ko/#sektorler">업종</a>
+          <a href="/ko/#demo">라이브 데모</a>
+          <a href="/ko/#yetenekler">기능</a>
+        </div>
+      </div>
+      <a href="/ko/qr-menu/">3D QR Menu</a>
+      <a href="/ko/website/">웹사이트</a>
+      <a href="/ko/apps/">앱</a>
       <a href="/ko/about/">회사 소개</a>
-      <a class="cta-link" href="/ko/apps/#iletisim">문의</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span>고객사</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small>웹사이트</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small>QR 메뉴</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/siparis/">지금 구매</a>
+      <a class="cta-link" href="/ko/#iletisim">문의</a>
     </nav>
     <div class="tools">
       <a class="home-mini" href="/ko/"><b aria-hidden="true">←</b> 홈</a>

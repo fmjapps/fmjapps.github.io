@@ -48,6 +48,45 @@ const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[
 
 const CSP = "default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'";
 
+// Uygulama sayfalarının üst menüsü: sitenin diğer sayfalarındakiyle birebir aynı (metin ve adres o dilin)
+const NAV_TR = { 'co.hero.cta2': 'Mirus’u tanıyın', 'nav.sectors': 'Sektörler', 'nav.demo': 'Canlı demo', 'nav.features': 'Özellikler', 'qr.name': '3D QR Menü', 'web.name': 'Web Sitesi', 'nav.apps': 'Uygulamalar', 'nav.about': 'Hakkımızda', 'co.refs.t': 'Referanslarımız', 'co.refs.web': 'Web sitesi', 'co.refs.qr': 'QR menü', 'pk.buy': 'Satın al', 'nav.contact': 'İletişim' };
+const NAV_DICT = {};
+function navTx(lang, k) {
+  if (lang === 'tr') return NAV_TR[k];
+  if (!NAV_DICT[lang]) { const f = path.join(ROOT, 'i18n', lang + '.json'); NAV_DICT[lang] = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; }
+  if (!NAV_DICT.en) NAV_DICT.en = JSON.parse(fs.readFileSync(path.join(ROOT, 'i18n', 'en.json'), 'utf8'));
+  return NAV_DICT[lang][k] != null ? NAV_DICT[lang][k] : NAV_DICT.en[k];
+}
+function siteNav(lang) {
+  const x = k => esc(navTx(lang, k));
+  const L = lang === 'tr' ? '' : '/' + lang;
+  const caret = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>';
+  return `
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus ${caret}</button>
+        <div class="drop-menu">
+          <a href="${L}/mirus/">${x('co.hero.cta2')}</a>
+          <a href="${homeOf(lang, 'sektorler')}">${x('nav.sectors')}</a>
+          <a href="${homeOf(lang, 'demo')}">${x('nav.demo')}</a>
+          <a href="${homeOf(lang, 'yetenekler')}">${x('nav.features')}</a>
+        </div>
+      </div>
+      <a href="${L}/qr-menu/">${x('qr.name')}</a>
+      <a href="${lang === 'tr' ? '/web-sitesi/' : L + '/website/'}">${x('web.name')}</a>
+      <a href="${appsPath(lang)}">${x('nav.apps')}</a>
+      <a href="${aboutPath(lang)}">${x('nav.about')}</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span>${x('co.refs.t')}</span> ${caret}</button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small>${x('co.refs.web')}</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small>${x('co.refs.qr')}</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/siparis/">${x('pk.buy')}</a>
+      <a class="cta-link" href="${homeOf(lang, 'iletisim')}">${x('nav.contact')}</a>
+    `;
+}
+
 function page(app, lang) {
   const t = UI[lang], c = app.text[lang];
   const url = BASE + urlOf(app, lang);
@@ -139,7 +178,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/app.css?v=261026y">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:${app.acc}${app.acc2 ? ';--acc-2:' + app.acc2 : ''}">
@@ -150,13 +189,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
     <a class="brand" href="${homeOf(lang)}" aria-label="FMJ Software">
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">${esc(t.slogan)}</span>
     </a>
-    <nav class="links" aria-label="FMJ Software">
-      <a class="home-link" href="${homeOf(lang)}"><b aria-hidden="true">←</b> ${esc(t.home)}</a>
-      <a href="${appsOf(lang, 'oyunlar')}">${esc(t.games)}</a>
-      <a href="${appsOf(lang, 'uygulamalar')}">${esc(t.apps)}</a>
-      <a href="${aboutPath(lang)}">${esc(t.about)}</a>
-      <a class="cta-link" href="${appsOf(lang, 'iletisim')}">${esc(t.contact)}</a>
-    </nav>
+    <nav class="links" aria-label="FMJ Software">${siteNav(lang)}</nav>
     <div class="tools">
       <a class="home-mini" href="${homeOf(lang)}"><b aria-hidden="true">←</b> ${esc(t.home)}</a>
       <details class="lang" id="lang">

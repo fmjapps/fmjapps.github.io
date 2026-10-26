@@ -42,7 +42,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/app.css?v=261026y">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:#2FC4A8">
@@ -54,11 +54,28 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">Güvenilir çözümler, verimli sonuçlar</span>
     </a>
     <nav class="links" aria-label="FMJ Software">
-      <a class="home-link" href="/"><b aria-hidden="true">←</b> Ana sayfa</a>
-      <a href="/uygulamalar/#oyunlar">Oyunlar</a>
-      <a href="/uygulamalar/#uygulamalar">Uygulamalar</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/mirus/">Mirus’u tanıyın</a>
+          <a href="/#sektorler">Sektörler</a>
+          <a href="/#demo">Canlı demo</a>
+          <a href="/#yetenekler">Özellikler</a>
+        </div>
+      </div>
+      <a href="/qr-menu/">3D QR Menü</a>
+      <a href="/web-sitesi/">Web Sitesi</a>
+      <a href="/uygulamalar/">Uygulamalar</a>
       <a href="/hakkimizda/">Hakkımızda</a>
-      <a class="cta-link" href="/uygulamalar/#iletisim">İletişim</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span>Referanslarımız</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small>Web sitesi</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small>QR menü</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/siparis/">Satın al</a>
+      <a class="cta-link" href="/#iletisim">İletişim</a>
     </nav>
     <div class="tools">
       <a class="home-mini" href="/"><b aria-hidden="true">←</b> Ana sayfa</a>

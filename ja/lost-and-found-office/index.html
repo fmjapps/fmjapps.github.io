@@ -42,7 +42,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/app.css?v=261026y">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:#9CC98F;--acc-2:#E9D9B4">
@@ -54,11 +54,28 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">信頼できるソリューション、確かな成果</span>
     </a>
     <nav class="links" aria-label="FMJ Software">
-      <a class="home-link" href="/ja/"><b aria-hidden="true">←</b> ホーム</a>
-      <a href="/ja/apps/#oyunlar">ゲーム</a>
-      <a href="/ja/apps/#uygulamalar">アプリ</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/ja/mirus/">Mirusについて</a>
+          <a href="/ja/#sektorler">業種</a>
+          <a href="/ja/#demo">ライブデモ</a>
+          <a href="/ja/#yetenekler">機能</a>
+        </div>
+      </div>
+      <a href="/ja/qr-menu/">3D QR Menu</a>
+      <a href="/ja/website/">ウェブサイト</a>
+      <a href="/ja/apps/">アプリ</a>
       <a href="/ja/about/">私たちについて</a>
-      <a class="cta-link" href="/ja/apps/#iletisim">お問い合わせ</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span>導入実績</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small>ウェブサイト</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small>QRメニュー</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/siparis/">今すぐ購入</a>
+      <a class="cta-link" href="/ja/#iletisim">お問い合わせ</a>
     </nav>
     <div class="tools">
       <a class="home-mini" href="/ja/"><b aria-hidden="true">←</b> ホーム</a>
