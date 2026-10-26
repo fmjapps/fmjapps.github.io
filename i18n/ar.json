@@ -763,5 +763,9 @@
  "qr.hero.opt1": "QR Menu فقط",
  "qr.hero.opt1.per": "+ الضريبة / سنة",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ الضريبة / منتج"
+ "qr.hero.opt2.per": "+ الضريبة / منتج",
+ "co.refs.t": "مشاريع شاركنا في بنائها",
+ "co.refs.web": "موقع إلكتروني",
+ "co.refs.qr": "قائمة QR",
+ "qr.hero.scan": "امسح رمز QR لمشاهدة العرض المباشر"
 }

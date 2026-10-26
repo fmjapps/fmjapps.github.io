@@ -763,5 +763,9 @@
  "qr.hero.opt1": "Только QR Menu",
  "qr.hero.opt1.per": "+ НДС / год",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ НДС / позиция"
+ "qr.hero.opt2.per": "+ НДС / позиция",
+ "co.refs.t": "Наши проекты",
+ "co.refs.web": "Сайт",
+ "co.refs.qr": "QR-меню",
+ "qr.hero.scan": "Сканируйте QR-код, чтобы увидеть демо"
 }

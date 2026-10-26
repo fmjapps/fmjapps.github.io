@@ -763,5 +763,9 @@
  "qr.hero.opt1": "QR Menu のみ",
  "qr.hero.opt1.per": "+ 税 / 年",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ 税 / 商品"
+ "qr.hero.opt2.per": "+ 税 / 商品",
+ "co.refs.t": "制作実績",
+ "co.refs.web": "ウェブサイト",
+ "co.refs.qr": "QRメニュー",
+ "qr.hero.scan": "QR コードを読み取ってデモを体験"
 }

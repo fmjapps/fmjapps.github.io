@@ -763,5 +763,9 @@
  "qr.hero.opt1": "QR Menu만",
  "qr.hero.opt1.per": "+ 부가세 / 년",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ 부가세 / 상품"
+ "qr.hero.opt2.per": "+ 부가세 / 상품",
+ "co.refs.t": "참여한 프로젝트",
+ "co.refs.web": "웹사이트",
+ "co.refs.qr": "QR 메뉴",
+ "qr.hero.scan": "QR 코드를 스캔해 라이브 데모 보기"
 }

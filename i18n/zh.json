@@ -763,5 +763,9 @@
  "qr.hero.opt1": "仅 QR Menu",
  "qr.hero.opt1.per": "+ 增值税 / 年",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ 增值税 / 件"
+ "qr.hero.opt2.per": "+ 增值税 / 件",
+ "co.refs.t": "我们参与的项目",
+ "co.refs.web": "网站",
+ "co.refs.qr": "二维码菜单",
+ "qr.hero.scan": "扫描二维码查看在线示例"
 }

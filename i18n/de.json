@@ -763,5 +763,9 @@
  "qr.hero.opt1": "Nur QR Menu",
  "qr.hero.opt1.per": "zzgl. MwSt. / Jahr",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "zzgl. MwSt. / Produkt"
+ "qr.hero.opt2.per": "zzgl. MwSt. / Produkt",
+ "co.refs.t": "Projekte, an denen wir mitgewirkt haben",
+ "co.refs.web": "Website",
+ "co.refs.qr": "QR-Speisekarte",
+ "qr.hero.scan": "QR-Code scannen für die Live-Demo"
 }

@@ -1686,3 +1686,39 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .hero-demo-btn { margin-top: 14px; width: 100%; max-width: 480px; justify-content: center; gap: 10px; border-color: #FF4F2E; }
 .hero-demo-btn .kick3d { font-size: 11px; padding: 1px 6px; }
 .hero .btn.ghost.hero-demo-btn { border-color: #FF4F2E; background: color-mix(in srgb, #FF4F2E 10%, transparent); }
+
+/* Ana sayfa referansları: Mirus'un altında yavaşça kayan logo şeridi */
+@media (min-width: 961px) {
+  .hero-grid:has(.refs) > .hero-copy { grid-row: 1 / span 2; }
+  .hero-grid:has(.refs) > .mirus { grid-column: 2; grid-row: 1; align-self: end; }
+  .refs { grid-column: 2; grid-row: 2; align-self: start; }
+}
+.refs { width: min(100%, 460px); margin-inline: auto; text-align: center; }
+.refs-t { font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+:root[lang="tr"] .refs-t { letter-spacing: .06em; }
+.refs-track { margin-top: 10px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
+.refs-row { display: flex; width: max-content; animation: refs-flow 26s linear infinite; }
+.refs-track:hover .refs-row, .refs-track:focus-within .refs-row { animation-play-state: paused; }
+.ref { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 7px; padding: 4px 30px; color: var(--text); text-decoration: none; opacity: .6; transition: opacity .25s, transform .25s; }
+.ref:hover, .ref:focus-visible { opacity: 1; transform: translateY(-2px); }
+.ref small { font-size: 11.5px; color: var(--dim); white-space: nowrap; }
+.ref-logo { display: block; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.ref-unipakt { --logo: url(/assets/refs/unipakt.png); width: 122px; height: 26px; }
+.ref-americano { --logo: url(/assets/refs/americano.png); width: 92px; height: 41px; }
+@keyframes refs-flow { to { transform: translateX(-50%); } }
+@keyframes refs-flow-rtl { to { transform: translateX(50%); } }
+[dir="rtl"] .refs-row { animation-name: refs-flow-rtl; }
+@media (prefers-reduced-motion: reduce) {
+  .refs-row { animation: none; width: auto; justify-content: center; }
+  .refs-row > [aria-hidden="true"] { display: none; }
+}
+@media (max-width: 960px) { .refs { order: -1; margin-block: -14px 6px; } }
+@media (max-width: 520px) { .refs-t { font-size: 10.5px; } .refs-track { margin-top: 6px; } .ref { padding-inline: 22px; gap: 5px; } .ref small { font-size: 10.5px; } .ref-unipakt { width: 99px; height: 21px; } .ref-americano { width: 74px; height: 33px; } }
+
+/* Girişte deneme menüsünün QR kodu */
+.hero-scan { display: flex; align-items: center; gap: 14px; margin-top: 14px; width: 100%; max-width: 480px; padding: 10px 14px 10px 10px; border-radius: 16px; border: 1.5px solid #FF4F2E; background: color-mix(in srgb, #FF4F2E 8%, transparent); color: var(--text); text-decoration: none; transition: transform .2s; }
+.hero-scan:hover { transform: translateY(-2px); }
+.hs-qr { flex: none; width: 76px; height: 76px; padding: 6px; border-radius: 12px; background: #fff; }
+.hs-qr img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.hs-txt { display: flex; align-items: center; gap: 8px; font: 600 15.5px 'Sora', sans-serif; }
+.hs-txt .kick3d { font-size: 11px; padding: 1px 6px; }

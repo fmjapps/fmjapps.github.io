@@ -763,5 +763,9 @@
  "qr.hero.opt1": "Solo QR Menu",
  "qr.hero.opt1.per": "+ IVA / anno",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ IVA / prodotto"
+ "qr.hero.opt2.per": "+ IVA / prodotto",
+ "co.refs.t": "Progetti realizzati",
+ "co.refs.web": "Sito web",
+ "co.refs.qr": "Menu QR",
+ "qr.hero.scan": "Scansiona il codice QR per la demo"
 }

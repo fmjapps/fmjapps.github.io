@@ -763,5 +763,9 @@
  "qr.hero.opt1": "Hanya QR Menu",
  "qr.hero.opt1.per": "+ PPN / tahun",
  "qr.hero.opt2": "QR Menu + 3D",
- "qr.hero.opt2.per": "+ PPN / produk"
+ "qr.hero.opt2.per": "+ PPN / produk",
+ "co.refs.t": "Proyek yang kami kerjakan",
+ "co.refs.web": "Situs web",
+ "co.refs.qr": "Menu QR",
+ "qr.hero.scan": "Pindai kode QR untuk demo langsung"
 }
