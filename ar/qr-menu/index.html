@@ -85,12 +85,27 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">حلول موثوقة، ونتائج فعّالة</span>
     </a>
     <nav class="links" aria-label="الأقسام" data-i18n-aria="nav.sections">
-      <a class="home-link" href="/ar/" data-en-href="/en/"><b aria-hidden="true">←</b> <span data-i18n="nav.home">الرئيسية</span></a>
-      <a href="#menu" data-i18n="qr.nav.menu">ما يراه الزبون</a>
-      <a href="#panel" data-i18n="qr.nav.panel">لوحة التحكم</a>
-      <a href="#nasil" data-i18n="qr.nav.how">كيف يعمل</a>
-      <a href="#fiyat" data-i18n="pk.kick">الأسعار</a>
-      <a href="#sss" data-i18n="mirus.nav.faq">الأسئلة الشائعة</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/ar/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">تعرّفوا على Mirus</a>
+          <a href="/ar/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">القطاعات</a>
+          <a href="/ar/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">تجربة مباشرة</a>
+          <a href="/ar/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">المزايا</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-current="page"><span data-i18n="qr.name">3D QR Menu</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="#menu" data-i18n="qr.nav.menu">ما يراه الزبون</a>
+          <a href="#panel" data-i18n="qr.nav.panel">لوحة التحكم</a>
+          <a href="#nasil" data-i18n="qr.nav.how">كيف يعمل</a>
+          <a href="#fiyat" data-i18n="pk.kick">الأسعار</a>
+          <a href="#sss" data-i18n="mirus.nav.faq">الأسئلة الشائعة</a>
+        </div>
+      </div>
+      <a href="/ar/website/" data-en-href="/en/website/" data-i18n="web.name">موقع إلكتروني</a>
+      <a href="/ar/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">التطبيقات</a>
       <a href="/ar/about/" data-en-href="/en/about/" data-i18n="nav.about">من نحن</a>
       <div class="nav-drop refs-drop">
         <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">عملاؤنا</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
@@ -100,7 +115,7 @@
         </div>
       </div>
       <a class="buy-link" href="/siparis/?paket=qr" data-i18n="pk.buy">اشتروا الآن</a>
-      <a class="cta-link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">اطلبوا عرض سعر</a>
+      <a class="cta-link" href="#iletisim" data-subject="qrmenu" data-i18n="nav.contact">تواصل</a>
     </nav>
     <div class="tools">
       <div class="lang" id="lang">

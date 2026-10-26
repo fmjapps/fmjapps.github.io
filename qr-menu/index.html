@@ -85,12 +85,27 @@
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Güvenilir çözümler, verimli sonuçlar</span>
     </a>
     <nav class="links" aria-label="Bölümler" data-i18n-aria="nav.sections">
-      <a class="home-link" href="/" data-en-href="/en/"><b aria-hidden="true">←</b> <span data-i18n="nav.home">Ana sayfa</span></a>
-      <a href="#menu" data-i18n="qr.nav.menu">Müşteri ne görür</a>
-      <a href="#panel" data-i18n="qr.nav.panel">İşletme paneli</a>
-      <a href="#nasil" data-i18n="qr.nav.how">Nasıl çalışır</a>
-      <a href="#fiyat" data-i18n="pk.kick">Fiyat</a>
-      <a href="#sss" data-i18n="mirus.nav.faq">SSS</a>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">Mirus’u tanıyın</a>
+          <a href="/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">Sektörler</a>
+          <a href="/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Canlı demo</a>
+          <a href="/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">Özellikler</a>
+        </div>
+      </div>
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-current="page"><span data-i18n="qr.name">3D QR Menü</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="#menu" data-i18n="qr.nav.menu">Müşteri ne görür</a>
+          <a href="#panel" data-i18n="qr.nav.panel">İşletme paneli</a>
+          <a href="#nasil" data-i18n="qr.nav.how">Nasıl çalışır</a>
+          <a href="#fiyat" data-i18n="pk.kick">Fiyat</a>
+          <a href="#sss" data-i18n="mirus.nav.faq">SSS</a>
+        </div>
+      </div>
+      <a href="/web-sitesi/" data-en-href="/en/website/" data-i18n="web.name">Web Sitesi</a>
+      <a href="/uygulamalar/" data-en-href="/en/apps/" data-i18n="nav.apps">Uygulamalar</a>
       <a href="/hakkimizda/" data-en-href="/en/about/" data-i18n="nav.about">Hakkımızda</a>
       <div class="nav-drop refs-drop">
         <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Referanslarımız</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
@@ -100,7 +115,7 @@
         </div>
       </div>
       <a class="buy-link" href="/siparis/?paket=qr" data-i18n="pk.buy">Satın al</a>
-      <a class="cta-link" href="#iletisim" data-subject="qrmenu" data-i18n="qr.nav.cta">Teklif alın</a>
+      <a class="cta-link" href="#iletisim" data-subject="qrmenu" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
       <div class="lang" id="lang">
