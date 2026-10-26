@@ -693,3 +693,5 @@ html { scroll-padding-top: 96px; }
 .tools .home-mini { display: none; }
 @media (max-width: 1240px) { .links a, .drop-btn { padding: 8px 9px; font-size: 13.5px; } }
 @media (max-width: 1120px) { .links { display: none; } .tools .home-mini { display: inline-flex; } }
+.links { align-items: center; }
+.links a, .drop-btn { white-space: nowrap; }

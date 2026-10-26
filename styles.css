@@ -1613,3 +1613,30 @@ html { scroll-padding-top: 96px; }
 .o-paylogos { display: block; height: 26px; width: auto; max-width: 100%; margin: 0 auto; }
 :root[data-theme="dark"] .o-paylogos { content: url("/assets/pay/iyzico-band-white.png"); }
 @media (max-width: 520px) { .pay-band img { height: 18px; } .o-paylogos { height: 20px; } }
+
+/* Üst menü sitenin diğer sayfalarıyla aynı: açılır menü (Mirus, Referanslar), Satın al, İletişim */
+.nav-drop { position: relative; display: flex; }
+.drop-btn { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; cursor: pointer; color: var(--head-ink, var(--dim)); font: 500 14px 'Inter', sans-serif; padding: 8px 12px; border-radius: 10px; white-space: nowrap; transition: color .2s, background-color .2s; }
+.drop-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+.drop-btn span { pointer-events: none; }
+.nav-drop:hover .drop-btn, .nav-drop:focus-within .drop-btn { color: var(--text); background: var(--line); }
+.drop-menu { position: absolute; top: 100%; inset-inline-start: 0; min-width: 210px; padding: 8px; margin-top: 6px; display: none; flex-direction: column; gap: 2px; border-radius: 14px; background: var(--head-bg, var(--surface)); border: 1px solid var(--head-line, var(--line)); box-shadow: 0 18px 40px -18px rgba(17, 17, 17, .35); z-index: 60; }
+.drop-menu::before { content: ''; position: absolute; inset-inline: 0; top: -10px; height: 10px; }
+.nav-drop:hover .drop-menu, .nav-drop:focus-within .drop-menu { display: flex; }
+.drop-menu a { display: block; white-space: nowrap; }
+.links a.buy-link { color: var(--text); border: 1.5px solid var(--text); border-radius: 999px; padding: 7px 16px; font-weight: 600; margin-inline-start: 6px; }
+.links a.buy-link:hover { background: var(--text); color: var(--bg); }
+.ref-logo { display: block; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.ref-unipakt { --logo: url(/assets/refs/unipakt.png); width: 98px; height: 21px; }
+.ref-americano { --logo: url(/assets/refs/americano.png); width: 72px; height: 32px; }
+.drop-menu.refs-menu { flex-direction: row; align-items: stretch; gap: 0; min-width: 0; padding: 8px; }
+.links .refs-menu a.ref { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; color: var(--text); }
+.links .refs-menu a.ref + a.ref { border-inline-start: 1px solid var(--line); }
+.links .refs-menu a.ref .ref-logo { opacity: .75; transition: opacity .2s; }
+.links .refs-menu a.ref:hover .ref-logo { opacity: 1; }
+.refs-menu small { font-size: 11.5px; font-weight: 500; color: var(--dim); white-space: nowrap; }
+.tools .home-mini { display: none; }
+@media (max-width: 1240px) { .links a, .drop-btn { padding: 8px 9px; font-size: 13.5px; } }
+@media (max-width: 1120px) { .links { display: none; } .tools .home-mini { display: inline-flex; } }
+.links { align-items: center; }
+.links a, .drop-btn { white-space: nowrap; }
