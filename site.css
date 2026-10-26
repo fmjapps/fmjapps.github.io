@@ -1662,3 +1662,10 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .hero-demo .ar-qr { width: 72px; height: 72px; }
 .qp-arphone { bottom: auto; top: 50%; }
 @media (max-width: 520px) { .qp-arphone { top: 48%; } }
+
+/* QR Menü girişi: sade düzen */
+.qr-hero-copy { display: grid; gap: 0; max-width: 560px; }
+.qr-hero-copy .lede { max-width: 30em; }
+.qr-hero-copy .actions { margin-top: 26px; }
+.hero-pricing { margin: 18px 0 0; color: var(--dim); font-size: 14.5px; }
+.hero-pricing b { color: var(--text); font: 700 17px 'Sora', sans-serif; margin-inline-end: 4px; }

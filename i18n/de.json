@@ -313,7 +313,7 @@
  "qr.hero.f3": "Keine laufenden Druckkosten",
  "qr.hero.h1": "Ihre Karte auf dem Tisch, <span class=\"grad\">Ihre Produkte in 3D.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Digitale Speisekarten für Cafés und Restaurants",
- "qr.hero.lede": "Ihr Gast scannt den QR-Code auf dem Tisch, und Ihre Karte öffnet sich auf seinem Smartphone, ohne dass er etwas herunterladen muss. Er dreht Ihre Produkte in 3D und sieht ihre Maße; auf unterstützten Smartphones zeigt „Auf dem Tisch ansehen“ das Produkt in Originalgröße auf seinem Tisch. Preise, Artikel und Fotos ändern Sie jederzeit in Ihrem eigenen Panel.",
+ "qr.hero.lede": "Ihr Gast scannt den QR-Code, und Ihre Karte öffnet sich auf seinem Smartphone. Er dreht Produkte in 3D und sieht sie auf unterstützten Smartphones in Originalgröße auf seinem Tisch.",
  "qr.how.title": "In drei Schritten zur digitalen Speisekarte.",
  "qr.k1": "eingerichtet",
  "qr.k1v": "Schnell",
@@ -758,5 +758,6 @@
  "qr.q10": "Können Sie die Fotos für uns machen?",
  "qr.a10": "Ja, wenn Sie in der Provinz İzmir sind: Wir kommen einmal zu Ihnen ins Lokal und fotografieren die Produkte für 1.000 TL zzgl. MwSt. Außerhalb von İzmir machen Sie die Fotos selbst, und wir erklären Ihnen schriftlich und per Video, wie.",
  "qr.hero.f4": "3D-Modelle und Augmented Reality",
- "qr.hero.cta3d": "3D und AR ansehen"
+ "qr.hero.cta3d": "3D und AR ansehen",
+ "qr.hero.price": "zzgl. MwSt. / Jahr · 3D-Modelle +100 TL zzgl. MwSt. pro Produkt"
 }

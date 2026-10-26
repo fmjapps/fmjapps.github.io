@@ -313,7 +313,7 @@
  "qr.hero.f3": "Sin gastos de impresión recurrentes",
  "qr.hero.h1": "Su menú en la mesa, <span class=\"grad\">sus productos en 3D.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menús digitales para cafeterías y restaurantes",
- "qr.hero.lede": "Su cliente escanea el código QR de la mesa y su menú se abre en el teléfono, sin descargar nada. Gira sus productos en 3D y ve sus medidas; en los teléfonos compatibles, “Ver en la mesa” muestra el producto sobre su mesa, a tamaño real. Usted cambia precios, productos y fotos desde su propio panel cuando quiera.",
+ "qr.hero.lede": "Su cliente escanea el código QR y el menú se abre en su teléfono. Gira los productos en 3D y, en teléfonos compatibles, los ve en su mesa a tamaño real.",
  "qr.how.title": "Un menú digital en tres pasos.",
  "qr.k1": "puesta en marcha",
  "qr.k1v": "Rápida",
@@ -758,5 +758,6 @@
  "qr.q10": "¿Pueden tomar las fotos por nosotros?",
  "qr.a10": "Sí, si está dentro de la provincia de İzmir: visitamos su local una vez y fotografiamos los productos por 1.000 TL + IVA. Fuera de İzmir, usted toma las fotos y le explicamos cómo hacerlo por escrito y en video.",
  "qr.hero.f4": "Modelos 3D y realidad aumentada",
- "qr.hero.cta3d": "Ver 3D y RA"
+ "qr.hero.cta3d": "Ver 3D y RA",
+ "qr.hero.price": "+ IVA / año · modelos 3D +100 TL + IVA por producto"
 }

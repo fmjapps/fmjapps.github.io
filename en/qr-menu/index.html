@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026c">
+<link rel="stylesheet" href="/site.css?v=261026d">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -119,23 +119,15 @@
     <span class="glow g1" aria-hidden="true"></span>
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
-      <div>
-        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">New</i> <span data-i18n="qr.hero.new">3D models and augmented reality: your product on the table, at real size</span> <b aria-hidden="true">→</b></a>
+      <div class="qr-hero-copy">
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · Digital menus for cafés and restaurants</p>
         <h1 data-i18n-html="qr.hero.h1">Your menu on the table, <span class="grad">your products in 3D.</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">Your guest scans the QR code on the table and your menu opens on their phone, with nothing to download. They turn your products around in 3D and see their dimensions; on supported phones, “See on table” shows the product on their table at real size. You change prices, items and photos from your own panel whenever you like.</p>
-        <ul class="hero-feats">
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">No app, no sign-up</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">Updates in seconds</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">No recurring printing costs</span></li>
-          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">3D models and augmented reality</span></li>
-        </ul>
+        <p class="lede" data-i18n="qr.hero.lede">Your guest scans the QR code and your menu opens on their phone. They turn products around in 3D and, on supported phones, see them on their table at real size.</p>
         <div class="actions">
-          <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">Let’s take your menu digital</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">Open the live demo</span></a>
+          <a class="btn primary" href="/siparis/?paket=qr"><span data-i18n="pk.buy">Buy now</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">Open the live demo</a>
         </div>
-        <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ VAT / year (1,740 TL total)</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">See the package</span> <span aria-hidden="true">→</span></a>
-        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + VAT / product</span></p>
+        <p class="hero-pricing"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="qr.hero.price">+ VAT / year · 3D models +100 TL + VAT per product</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -175,10 +167,6 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">Illustrative view</p>
-        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">Try it on your phone</b><small data-i18n="qr.ar.demo.d">Scan the QR code; “View in 3D”, “Dimensions” and “See on table” work on the “Kupa” and “DJI Neo” items.</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -511,7 +499,7 @@
 <nav class="pager" id="pager" aria-label="Pages" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026c" defer></script>
+<script src="/site.js?v=261026d" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026c">
+<link rel="stylesheet" href="/site.css?v=261026d">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -119,23 +119,15 @@
     <span class="glow g1" aria-hidden="true"></span>
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
-      <div>
-        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">新</i> <span data-i18n="qr.hero.new">3D 模型与增强现实：您的产品就在桌上，真实大小</span> <b aria-hidden="true">→</b></a>
+      <div class="qr-hero-copy">
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · 咖啡馆与餐厅的电子菜单</p>
         <h1 data-i18n-html="qr.hero.h1">菜单上桌，<span class="grad">产品以 3D 呈现。</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">顾客扫描桌上的二维码，您的菜单就在手机上打开，无需下载任何东西。他们可以 3D 旋转您的产品并查看尺寸；在支持的手机上，「在桌上查看」会把产品以真实大小显示在他们的桌上。价格、品项和照片，您随时可以在自己的后台修改。</p>
-        <ul class="hero-feats">
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">无需 App，无需注册</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">几秒钟完成更新</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">省去反复印刷的费用</span></li>
-          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">3D 模型与增强现实</span></li>
-        </ul>
+        <p class="lede" data-i18n="qr.hero.lede">顾客扫描二维码，菜单即在手机上打开。可 3D 旋转查看商品，在支持的手机上还能看到商品以真实大小摆在桌上。</p>
         <div class="actions">
-          <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">让您的菜单电子化</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">打开在线演示</span></a>
+          <a class="btn primary" href="/siparis/?paket=qr"><span data-i18n="pk.buy">立即购买</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">打开在线演示</a>
         </div>
-        <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ 增值税 / 年（合计 1,740 TL）</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">查看套餐</span> <span aria-hidden="true">→</span></a>
-        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + 增值税 / 每件产品</span></p>
+        <p class="hero-pricing"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="qr.hero.price">+ 增值税 / 年 · 3D 模型每件商品 +100 TL + 增值税</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -175,10 +167,6 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">示意图</p>
-        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">在手机上试试</b><small data-i18n="qr.ar.demo.d">扫描二维码；「3D 查看」「尺寸」和「在桌上查看」可在「Kupa」和「DJI Neo」两个品项上使用。</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -511,7 +499,7 @@
 <nav class="pager" id="pager" aria-label="页面" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026c" defer></script>
+<script src="/site.js?v=261026d" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

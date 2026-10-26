@@ -313,7 +313,7 @@
  "qr.hero.f3": "Tanpa biaya cetak berulang",
  "qr.hero.h1": "Menu Anda di meja, <span class=\"grad\">produk Anda dalam 3D.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menu digital untuk kafe dan restoran",
- "qr.hero.lede": "Tamu memindai kode QR di meja dan menu Anda terbuka di ponselnya, tanpa mengunduh apa pun. Mereka memutar produk Anda dalam 3D dan melihat dimensinya; di ponsel yang didukung, “Lihat di meja” menampilkan produk di meja mereka dalam ukuran asli. Anda mengubah harga, item, dan foto dari panel Anda sendiri kapan saja.",
+ "qr.hero.lede": "Pelanggan memindai kode QR dan menu Anda terbuka di ponselnya. Ia memutar produk dalam 3D dan, di ponsel yang didukung, melihatnya di mejanya dalam ukuran asli.",
  "qr.how.title": "Menu digital dalam tiga langkah.",
  "qr.k1": "pemasangan",
  "qr.k1v": "Cepat",
@@ -758,5 +758,6 @@
  "qr.q10": "Bisakah kalian memotret produk kami?",
  "qr.a10": "Bisa, jika Anda berada di provinsi İzmir: kami datang sekali ke tempat usaha Anda dan memotret produknya seharga 1.000 TL + PPN. Di luar İzmir, Anda yang memotret dan kami jelaskan caranya secara tertulis dan lewat video.",
  "qr.hero.f4": "Model 3D dan augmented reality",
- "qr.hero.cta3d": "Lihat 3D dan AR"
+ "qr.hero.cta3d": "Lihat 3D dan AR",
+ "qr.hero.price": "+ PPN / tahun · model 3D +100 TL + PPN per produk"
 }

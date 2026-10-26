@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026c">
+<link rel="stylesheet" href="/site.css?v=261026d">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -119,23 +119,15 @@
     <span class="glow g1" aria-hidden="true"></span>
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
-      <div>
-        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">Baru</i> <span data-i18n="qr.hero.new">Model 3D dan augmented reality: produk Anda di atas meja, dalam ukuran asli</span> <b aria-hidden="true">→</b></a>
+      <div class="qr-hero-copy">
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · Menu digital untuk kafe dan restoran</p>
         <h1 data-i18n-html="qr.hero.h1">Menu Anda di meja, <span class="grad">produk Anda dalam 3D.</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">Tamu memindai kode QR di meja dan menu Anda terbuka di ponselnya, tanpa mengunduh apa pun. Mereka memutar produk Anda dalam 3D dan melihat dimensinya; di ponsel yang didukung, “Lihat di meja” menampilkan produk di meja mereka dalam ukuran asli. Anda mengubah harga, item, dan foto dari panel Anda sendiri kapan saja.</p>
-        <ul class="hero-feats">
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">Tanpa aplikasi, tanpa daftar</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">Diperbarui dalam hitungan detik</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">Tanpa biaya cetak berulang</span></li>
-          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">Model 3D dan augmented reality</span></li>
-        </ul>
+        <p class="lede" data-i18n="qr.hero.lede">Pelanggan memindai kode QR dan menu Anda terbuka di ponselnya. Ia memutar produk dalam 3D dan, di ponsel yang didukung, melihatnya di mejanya dalam ukuran asli.</p>
         <div class="actions">
-          <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">Jadikan menu Anda digital</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">Buka demo langsung</span></a>
+          <a class="btn primary" href="/siparis/?paket=qr"><span data-i18n="pk.buy">Beli sekarang</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">Buka demo langsung</a>
         </div>
-        <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1.450 TL</b> <span data-i18n="pk.qr.per">+ PPN / tahun (total 1.740 TL)</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">Lihat paket</span> <span aria-hidden="true">→</span></a>
-        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + PPN / produk</span></p>
+        <p class="hero-pricing"><b data-i18n="pk.qr.price">1.450 TL</b> <span data-i18n="qr.hero.price">+ PPN / tahun · model 3D +100 TL + PPN per produk</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -175,10 +167,6 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">Tampilan ilustrasi</p>
-        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">Coba di ponsel Anda</b><small data-i18n="qr.ar.demo.d">Pindai kode QR; “Tampilan 3D”, “Dimensi”, dan “Lihat di meja” berfungsi pada item “Kupa” dan “DJI Neo”.</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -511,7 +499,7 @@
 <nav class="pager" id="pager" aria-label="Halaman" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026c" defer></script>
+<script src="/site.js?v=261026d" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

@@ -313,7 +313,7 @@
  "qr.hero.f3": "Plus de frais d’impression à répétition",
  "qr.hero.h1": "Votre menu sur la table, <span class=\"grad\">vos produits en 3D.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menus numériques pour cafés et restaurants",
- "qr.hero.lede": "Votre client scanne le QR code sur la table et votre menu s’ouvre sur son téléphone, sans rien télécharger. Il fait tourner vos produits en 3D et voit leurs dimensions ; sur les téléphones compatibles, « Voir sur la table » affiche le produit sur sa table, en taille réelle. Vous modifiez prix, articles et photos depuis votre propre espace quand vous le souhaitez.",
+ "qr.hero.lede": "Votre client scanne le QR code et votre carte s’ouvre sur son téléphone. Il fait pivoter les produits en 3D et, sur les téléphones compatibles, les voit sur sa table en taille réelle.",
  "qr.how.title": "Un menu numérique en trois étapes.",
  "qr.k1": "mise en place",
  "qr.k1v": "Rapide",
@@ -758,5 +758,6 @@
  "qr.q10": "Pouvez-vous prendre les photos pour nous ?",
  "qr.a10": "Oui, si vous êtes dans la province d’İzmir : nous nous rendons une fois dans votre établissement et photographions les produits pour 1 000 TL + TVA. En dehors d’İzmir, vous prenez les photos et nous vous expliquons comment faire par écrit et en vidéo.",
  "qr.hero.f4": "Modèles 3D et réalité augmentée",
- "qr.hero.cta3d": "Voir la 3D et la RA"
+ "qr.hero.cta3d": "Voir la 3D et la RA",
+ "qr.hero.price": "+ TVA / an · modèles 3D +100 TL + TVA par produit"
 }

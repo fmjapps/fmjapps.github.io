@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026c">
+<link rel="stylesheet" href="/site.css?v=261026d">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -119,23 +119,15 @@
     <span class="glow g1" aria-hidden="true"></span>
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
-      <div>
-        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">신규</i> <span data-i18n="qr.hero.new">3D 모델과 증강현실: 제품을 테이블 위에 실제 크기로</span> <b aria-hidden="true">→</b></a>
+      <div class="qr-hero-copy">
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · 카페·레스토랑용 디지털 메뉴</p>
         <h1 data-i18n-html="qr.hero.h1">메뉴는 테이블 위에, <span class="grad">제품은 3D로.</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">손님이 테이블의 QR 코드를 스캔하면 아무것도 내려받지 않아도 휴대폰에서 메뉴가 열립니다. 제품을 3D로 돌려 보며 치수를 확인하고, 지원되는 휴대폰에서는 ‘테이블에서 보기’로 제품을 자기 테이블 위에 실제 크기로 볼 수 있습니다. 가격, 품목, 사진은 직접 관리 화면에서 언제든 바꾸실 수 있습니다.</p>
-        <ul class="hero-feats">
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">앱 설치, 회원가입 없음</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">몇 초 만에 수정</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">반복되는 인쇄 비용 없음</span></li>
-          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">3D 모델과 증강현실</span></li>
-        </ul>
+        <p class="lede" data-i18n="qr.hero.lede">손님이 QR 코드를 스캔하면 메뉴가 휴대폰에서 열립니다. 상품을 3D로 돌려 보고, 지원되는 휴대폰에서는 테이블 위에 실제 크기로 볼 수 있습니다.</p>
         <div class="actions">
-          <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">메뉴판을 디지털로 바꿔 보세요</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">라이브 데모 열기</span></a>
+          <a class="btn primary" href="/siparis/?paket=qr"><span data-i18n="pk.buy">지금 구매</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">라이브 데모 열기</a>
         </div>
-        <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ 부가세 / 년 (총 1,740 TL)</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">패키지 보기</span> <span aria-hidden="true">→</span></a>
-        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + 부가세 / 제품</span></p>
+        <p class="hero-pricing"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="qr.hero.price">+ 부가세 / 년 · 3D 모델 상품당 +100 TL + 부가세</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -175,10 +167,6 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">예시 화면</p>
-        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">휴대폰으로 체험해 보세요</b><small data-i18n="qr.ar.demo.d">QR 코드를 스캔하세요. ‘Kupa’와 ‘DJI Neo’ 품목에서 ‘3D로 보기’, ‘치수’, ‘테이블에서 보기’를 사용해 볼 수 있습니다.</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -511,7 +499,7 @@
 <nav class="pager" id="pager" aria-label="페이지" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026c" defer></script>
+<script src="/site.js?v=261026d" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

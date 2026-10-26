@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026c">
+<link rel="stylesheet" href="/site.css?v=261026d">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -119,23 +119,15 @@
     <span class="glow g1" aria-hidden="true"></span>
     <span class="glow g2" aria-hidden="true"></span>
     <div class="wrap hero-grid qr-hero">
-      <div>
-        <a class="hero-new" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><i data-i18n="qr.new">新機能</i> <span data-i18n="qr.hero.new">3D モデルと拡張現実：商品をテーブルの上に、実物大で</span> <b aria-hidden="true">→</b></a>
+      <div class="qr-hero-copy">
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · カフェ・レストラン向けデジタルメニュー</p>
         <h1 data-i18n-html="qr.hero.h1">メニューはテーブルに、<span class="grad">商品は3Dで。</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">お客様がテーブルのQRコードを読み取ると、アプリをダウンロードすることなくスマホでメニューが開きます。商品を3Dで回して寸法を確認でき、対応するスマホなら「テーブルに置いて見る」で、実物大の商品を自分のテーブルの上に表示できます。価格や商品、写真は、ご自身の管理画面からいつでも変更できます。</p>
-        <ul class="hero-feats">
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><span data-i18n="qr.hero.f1">アプリも会員登録も不要</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="qr.hero.f2">数秒で更新</span></li>
-          <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7Z"/></svg></span><span data-i18n="qr.hero.f3">刷り直しのコストなし</span></li>
-          <li class="feat3d"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span><span data-i18n="qr.hero.f4">3D モデルと拡張現実</span></li>
-        </ul>
+        <p class="lede" data-i18n="qr.hero.lede">お客様が QR コードを読み取ると、メニューがスマホで開きます。商品を 3D で回して見られ、対応スマホではテーブルの上に実物大で表示されます。</p>
         <div class="actions">
-          <a class="btn primary" href="#iletisim" data-subject="qrmenu"><span data-i18n="qr.cta.main">メニューをデジタルにしましょう</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost btn3d" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">ライブデモを開く</span></a>
+          <a class="btn primary" href="/siparis/?paket=qr"><span data-i18n="pk.buy">今すぐ購入</span> <b aria-hidden="true">→</b></a>
+          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">ライブデモを開く</a>
         </div>
-        <a class="hero-price" href="#fiyat"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="pk.qr.per">+ VAT／年（合計 1,740 TL）</span> <i aria-hidden="true">·</i> <span data-i18n="pk.see">プランを見る</span> <span aria-hidden="true">→</span></a>
-        <p class="hero-3dprice"><b class="kick3d">3D</b> <span data-i18n="qr.ar.price">+100 TL + VAT / 商品</span></p>
+        <p class="hero-pricing"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="qr.hero.price">+ 税 / 年 · 3D モデルは 1 商品あたり +100 TL + 税</span></p>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -175,10 +167,6 @@
           </div>
         </div>
         <p class="dv-cap" data-i18n="qr.m.cap">画面イメージ</p>
-        <a class="ar-demo hero-demo" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">
-          <span class="ar-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
-          <span><b data-i18n="qr.ar.demo.t">スマートフォンで試す</b><small data-i18n="qr.ar.demo.d">QR コードを読み取ってください。「Kupa」と「DJI Neo」で「3D 表示」「寸法」「テーブルに置いて見る」をお試しいただけます。</small></span>
-        </a>
       </div>
     </div>
   </section>
@@ -511,7 +499,7 @@
 <nav class="pager" id="pager" aria-label="ページ" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026c" defer></script>
+<script src="/site.js?v=261026d" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>
