@@ -1669,3 +1669,16 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .qr-hero-copy .actions { margin-top: 26px; }
 .hero-pricing { margin: 18px 0 0; color: var(--dim); font-size: 14.5px; }
 .hero-pricing b { color: var(--text); font: 700 17px 'Sora', sans-serif; margin-inline-end: 4px; }
+
+/* QR Menü girişi: iki seçenek kartı */
+.hero-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; max-width: 480px; }
+.hero-opt { display: grid; gap: 4px; padding: 14px 16px; border-radius: 16px; border: 1.5px solid var(--line-2); background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--text); text-decoration: none; transition: border-color .2s, transform .2s; }
+.hero-opt:hover { border-color: var(--text); transform: translateY(-2px); }
+.ho-t { display: flex; align-items: center; gap: 6px; font: 600 14.5px 'Inter', sans-serif; color: var(--dim); }
+.ho-t .kick3d { font-size: 10.5px; padding: 1px 6px; }
+.ho-p b { font: 700 22px 'Sora', sans-serif; color: var(--text); }
+.ho-p small { font-size: 12.5px; color: var(--faint); }
+.ho-buy { margin-top: 4px; font: 700 13.5px 'Inter', sans-serif; color: #FF4F2E; }
+.hero-opt3d { border-color: #FF4F2E; background: color-mix(in srgb, #FF4F2E 8%, transparent); }
+.hero-demo-link { display: inline-block; margin-top: 14px; font: 600 14px 'Inter', sans-serif; color: var(--text); text-decoration: underline; text-decoration-color: #FF4F2E; text-underline-offset: 4px; }
+@media (max-width: 420px) { .hero-opts { grid-template-columns: 1fr; } }

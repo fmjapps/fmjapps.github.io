@@ -311,9 +311,9 @@
  "qr.hero.f1": "No app, no sign-up",
  "qr.hero.f2": "Updates in seconds",
  "qr.hero.f3": "No recurring printing costs",
- "qr.hero.h1": "Your menu on the table, <span class=\"grad\">your products in 3D.</span>",
+ "qr.hero.h1": "Your menu, one QR code. <span class=\"grad\">3D if you like.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Digital menus for cafés and restaurants",
- "qr.hero.lede": "Your guest scans the QR code and your menu opens on their phone. They turn products around in 3D and, on supported phones, see them on their table at real size.",
+ "qr.hero.lede": "Your guest scans the QR code and your menu opens on their phone. If you like, we add 3D models to your products: guests turn them around and, on supported phones, see them on their table at real size.",
  "qr.how.title": "A digital menu in three steps.",
  "qr.k1": "setup",
  "qr.k1v": "Quick",
@@ -759,5 +759,9 @@
  "qr.a10": "Yes, if you are within İzmir province: we visit your venue once and photograph the products for 1,000 TL + VAT. Outside İzmir, you take the photos and we explain how in writing and on video.",
  "qr.hero.f4": "3D models and augmented reality",
  "qr.hero.cta3d": "See 3D and AR",
- "qr.hero.price": "+ VAT / year · 3D models +100 TL + VAT per product"
+ "qr.hero.price": "+ VAT / year · 3D models +100 TL + VAT per product",
+ "qr.hero.opt1": "QR Menu only",
+ "qr.hero.opt1.per": "+ VAT / year",
+ "qr.hero.opt2": "QR Menu + 3D",
+ "qr.hero.opt2.per": "+ VAT / product"
 }

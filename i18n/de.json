@@ -311,9 +311,9 @@
  "qr.hero.f1": "Keine App, keine Anmeldung",
  "qr.hero.f2": "Änderungen in Sekunden",
  "qr.hero.f3": "Keine laufenden Druckkosten",
- "qr.hero.h1": "Ihre Karte auf dem Tisch, <span class=\"grad\">Ihre Produkte in 3D.</span>",
+ "qr.hero.h1": "Ihre Karte, ein QR-Code. <span class=\"grad\">Auf Wunsch in 3D.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Digitale Speisekarten für Cafés und Restaurants",
- "qr.hero.lede": "Ihr Gast scannt den QR-Code, und Ihre Karte öffnet sich auf seinem Smartphone. Er dreht Produkte in 3D und sieht sie auf unterstützten Smartphones in Originalgröße auf seinem Tisch.",
+ "qr.hero.lede": "Ihr Gast scannt den QR-Code, und Ihre Karte öffnet sich auf seinem Smartphone. Auf Wunsch ergänzen wir 3D-Modelle Ihrer Produkte: Gäste drehen sie und sehen sie auf unterstützten Smartphones in Originalgröße auf ihrem Tisch.",
  "qr.how.title": "In drei Schritten zur digitalen Speisekarte.",
  "qr.k1": "eingerichtet",
  "qr.k1v": "Schnell",
@@ -759,5 +759,9 @@
  "qr.a10": "Ja, wenn Sie in der Provinz İzmir sind: Wir kommen einmal zu Ihnen ins Lokal und fotografieren die Produkte für 1.000 TL zzgl. MwSt. Außerhalb von İzmir machen Sie die Fotos selbst, und wir erklären Ihnen schriftlich und per Video, wie.",
  "qr.hero.f4": "3D-Modelle und Augmented Reality",
  "qr.hero.cta3d": "3D und AR ansehen",
- "qr.hero.price": "zzgl. MwSt. / Jahr · 3D-Modelle +100 TL zzgl. MwSt. pro Produkt"
+ "qr.hero.price": "zzgl. MwSt. / Jahr · 3D-Modelle +100 TL zzgl. MwSt. pro Produkt",
+ "qr.hero.opt1": "Nur QR Menu",
+ "qr.hero.opt1.per": "zzgl. MwSt. / Jahr",
+ "qr.hero.opt2": "QR Menu + 3D",
+ "qr.hero.opt2.per": "zzgl. MwSt. / Produkt"
 }

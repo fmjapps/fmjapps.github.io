@@ -311,9 +311,9 @@
  "qr.hero.f1": "Sem app, sem cadastro",
  "qr.hero.f2": "Atualização em segundos",
  "qr.hero.f3": "Sem custos recorrentes de impressão",
- "qr.hero.h1": "Seu cardápio na mesa, <span class=\"grad\">seus produtos em 3D.</span>",
+ "qr.hero.h1": "Seu cardápio em um QR. <span class=\"grad\">Em 3D, se quiser.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Cardápios digitais para cafés e restaurantes",
- "qr.hero.lede": "Seu cliente escaneia o QR code e o cardápio abre no celular. Ele gira os produtos em 3D e, em celulares compatíveis, vê-os na mesa em tamanho real.",
+ "qr.hero.lede": "Seu cliente escaneia o QR code e o cardápio abre no celular. Se quiser, adicionamos modelos 3D aos seus produtos: o cliente os gira e, em celulares compatíveis, vê-os na mesa em tamanho real.",
  "qr.how.title": "Cardápio digital em três passos.",
  "qr.k1": "implantação",
  "qr.k1v": "Rápida",
@@ -759,5 +759,9 @@
  "qr.a10": "Sim, se você estiver na província de İzmir: visitamos seu estabelecimento uma vez e fotografamos os produtos por 1.000 TL + IVA. Fora de İzmir, você tira as fotos e a gente explica como por escrito e em vídeo.",
  "qr.hero.f4": "Modelos 3D e realidade aumentada",
  "qr.hero.cta3d": "Ver 3D e RA",
- "qr.hero.price": "+ IVA / ano · modelos 3D +100 TL + IVA por produto"
+ "qr.hero.price": "+ IVA / ano · modelos 3D +100 TL + IVA por produto",
+ "qr.hero.opt1": "Só QR Menu",
+ "qr.hero.opt1.per": "+ IVA / ano",
+ "qr.hero.opt2": "QR Menu + 3D",
+ "qr.hero.opt2.per": "+ IVA / produto"
 }

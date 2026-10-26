@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026d">
+<link rel="stylesheet" href="/site.css?v=261026e">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -121,13 +121,21 @@
     <div class="wrap hero-grid qr-hero">
       <div class="qr-hero-copy">
         <p class="eyebrow hero-kick3d" data-i18n-html="qr.hero.kick"><b class="kick3d">3D</b> QR Menu · カフェ・レストラン向けデジタルメニュー</p>
-        <h1 data-i18n-html="qr.hero.h1">メニューはテーブルに、<span class="grad">商品は3Dで。</span></h1>
-        <p class="lede" data-i18n="qr.hero.lede">お客様が QR コードを読み取ると、メニューがスマホで開きます。商品を 3D で回して見られ、対応スマホではテーブルの上に実物大で表示されます。</p>
-        <div class="actions">
-          <a class="btn primary" href="/siparis/?paket=qr"><span data-i18n="pk.buy">今すぐ購入</span> <b aria-hidden="true">→</b></a>
-          <a class="btn ghost" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" data-i18n="qr.ar.try">ライブデモを開く</a>
+        <h1 data-i18n-html="qr.hero.h1">メニューは QR ひとつで。 <span class="grad">ご希望なら 3D も。</span></h1>
+        <p class="lede" data-i18n="qr.hero.lede">お客様が QR コードを読み取ると、メニューがスマホで開きます。ご希望なら商品に 3D モデルを追加します。お客様は商品を回して見られ、対応スマホではテーブルの上に実物大で表示されます。</p>
+        <div class="hero-opts">
+          <a class="hero-opt" href="/siparis/?paket=qr">
+            <span class="ho-t" data-i18n="qr.hero.opt1">QR Menu のみ</span>
+            <span class="ho-p"><b data-i18n="pk.qr.price">1,450 TL</b> <small data-i18n="qr.hero.opt1.per">+ 税 / 年</small></span>
+            <span class="ho-buy"><span data-i18n="pk.buy">今すぐ購入</span> →</span>
+          </a>
+          <a class="hero-opt hero-opt3d" href="/siparis/?paket=qr&amp;ek=3d">
+            <span class="ho-t"><span data-i18n="qr.hero.opt2">QR Menu + 3D</span> <b class="kick3d">3D</b></span>
+            <span class="ho-p"><b>+100 TL</b> <small data-i18n="qr.hero.opt2.per">+ 税 / 商品</small></span>
+            <span class="ho-buy"><span data-i18n="pk.buy">今すぐ購入</span> →</span>
+          </a>
         </div>
-        <p class="hero-pricing"><b data-i18n="pk.qr.price">1,450 TL</b> <span data-i18n="qr.hero.price">+ 税 / 年 · 3D モデルは 1 商品あたり +100 TL + 税</span></p>
+        <a class="hero-demo-link" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span data-i18n="qr.ar.try">ライブデモを開く</span> ↗</a>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
@@ -499,7 +507,7 @@
 <nav class="pager" id="pager" aria-label="ページ" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026d" defer></script>
+<script src="/site.js?v=261026e" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

@@ -311,9 +311,9 @@
  "qr.hero.f1": "Tanpa aplikasi, tanpa daftar",
  "qr.hero.f2": "Diperbarui dalam hitungan detik",
  "qr.hero.f3": "Tanpa biaya cetak berulang",
- "qr.hero.h1": "Menu Anda di meja, <span class=\"grad\">produk Anda dalam 3D.</span>",
+ "qr.hero.h1": "Menu Anda dalam satu QR. <span class=\"grad\">Bisa juga 3D.</span>",
  "qr.hero.kick": "<b class=\"kick3d\">3D</b> QR Menu · Menu digital untuk kafe dan restoran",
- "qr.hero.lede": "Pelanggan memindai kode QR dan menu Anda terbuka di ponselnya. Ia memutar produk dalam 3D dan, di ponsel yang didukung, melihatnya di mejanya dalam ukuran asli.",
+ "qr.hero.lede": "Pelanggan memindai kode QR dan menu Anda terbuka di ponselnya. Jika Anda mau, kami tambahkan model 3D untuk produk Anda: pelanggan memutarnya dan, di ponsel yang didukung, melihatnya di mejanya dalam ukuran asli.",
  "qr.how.title": "Menu digital dalam tiga langkah.",
  "qr.k1": "pemasangan",
  "qr.k1v": "Cepat",
@@ -759,5 +759,9 @@
  "qr.a10": "Bisa, jika Anda berada di provinsi İzmir: kami datang sekali ke tempat usaha Anda dan memotret produknya seharga 1.000 TL + PPN. Di luar İzmir, Anda yang memotret dan kami jelaskan caranya secara tertulis dan lewat video.",
  "qr.hero.f4": "Model 3D dan augmented reality",
  "qr.hero.cta3d": "Lihat 3D dan AR",
- "qr.hero.price": "+ PPN / tahun · model 3D +100 TL + PPN per produk"
+ "qr.hero.price": "+ PPN / tahun · model 3D +100 TL + PPN per produk",
+ "qr.hero.opt1": "Hanya QR Menu",
+ "qr.hero.opt1.per": "+ PPN / tahun",
+ "qr.hero.opt2": "QR Menu + 3D",
+ "qr.hero.opt2.per": "+ PPN / produk"
 }
