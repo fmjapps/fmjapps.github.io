@@ -76,8 +76,8 @@
   var fmtTl = function (n) { return n.toLocaleString('tr-TR') + ' TL'; };
   // 3D eki durumu: yalnız QR Menü seçiliyken
   function ek3d() {
-    if (pkgKey() !== 'qr' || radio('ek', 'yok') !== '3d') return null;
-    var n = Number(urunIn.value);
+    if (pkgKey() !== 'qr' || !field('ek3d').checked) return null;
+    var n = urunIn.value.trim() === '' ? NaN : Number(urunIn.value);
     return { n: n, ok: Number.isInteger(n) && n >= EK3D.min && n <= EK3D.max, cekim: radio('foto', 'ben') === 'cekim' };
   }
 
@@ -104,7 +104,7 @@
     var lines = [{ name: p.name, net: p.price }];
     var ready = true;
     if (e3) {
-      urunSum.textContent = e3.ok ? '× ' + EK3D.perItem + ' TL = ' + fmtTl(e3.n * EK3D.perItem) + ' + KDV' : EK3D.min + ' ile ' + EK3D.max + ' arasında bir sayı yazın';
+      urunSum.textContent = e3.ok ? 'ürün × ' + EK3D.perItem + ' TL = ' + fmtTl(e3.n * EK3D.perItem) + ' + KDV' : (urunIn.value.trim() === '' ? 'ürün × ' + EK3D.perItem + ' TL + KDV' : EK3D.min + ' ile ' + EK3D.max + ' arasında bir sayı yazın');
       if (e3.ok) lines.push({ name: '3D model ve AR (' + e3.n + ' ürün × ' + EK3D.perItem + ' TL)', net: e3.n * EK3D.perItem });
       else ready = false;
       if (e3.cekim) lines.push({ name: 'Ürün çekimi (İzmir içi)', net: EK3D.shoot });
@@ -127,7 +127,7 @@
     });
     if (!ready) {
       var li = document.createElement('li'); li.className = 'muted';
-      li.innerHTML = p.domain ? '<span>Alan adı</span><b>sorgulanmadı</b>' : '<span>3D ürün sayısı</span><b>geçersiz</b>';
+      li.innerHTML = p.domain ? '<span>Alan adı</span><b>sorgulanmadı</b>' : '<span>3D model: ürün sayısı</span><b>girilmedi</b>';
       sumLines.appendChild(li);
     }
     document.getElementById('sumNet').textContent = fmt(net);
@@ -182,13 +182,13 @@
   yearSel.addEventListener('change', function () { if (normDomain(domainIn.value)) checkDomain(); else render(); });
 
   form.addEventListener('change', function (e) {
-    if (['paket', 'faturaTip', 'ek', 'foto', 'il'].indexOf(e.target.name) >= 0) render();
+    if (['paket', 'faturaTip', 'ek3d', 'foto', 'il'].indexOf(e.target.name) >= 0) render();
   });
   urunIn.addEventListener('input', render);
   field('il').addEventListener('input', function () { if (ek3d()) render(); });
 
   /* ---------- Taslak: ödeme başarısız olursa bilgiler geri gelir ---------- */
-  var KEEP = ['paket', 'ek', 'urun3d', 'foto', 'isletme', 'sektor', 'alanAdi', 'yil', 'menuAdres', 'aciklama', 'ad', 'soyad', 'email', 'telefon', 'faturaTip', 'unvan', 'vergiDairesi', 'adres', 'ilce', 'il'];
+  var KEEP = ['paket', 'urun3d', 'foto', 'isletme', 'sektor', 'alanAdi', 'yil', 'menuAdres', 'aciklama', 'ad', 'soyad', 'email', 'telefon', 'faturaTip', 'unvan', 'vergiDairesi', 'adres', 'ilce', 'il'];
   function collect() {
     var o = {};
     KEEP.concat(['tckn', 'vkn', 'website']).forEach(function (n) {
@@ -212,13 +212,14 @@
   function saveDraft() {
     var o = collect(), keep = {};
     KEEP.forEach(function (n) { keep[n] = o[n]; });
-    keep.ek = radio('ek', 'yok'); keep.urun3d = urunIn.value; keep.foto = radio('foto', 'ben');
+    keep.ek3d = field('ek3d').checked; keep.urun3d = urunIn.value; keep.foto = radio('foto', 'ben');
     try { sessionStorage.setItem(DRAFT, JSON.stringify(keep)); } catch (e) {}
   }
   function loadDraft() {
     var o = null;
     try { o = JSON.parse(sessionStorage.getItem(DRAFT) || 'null'); } catch (e) {}
     if (!o) return;
+    if (o.ek3d) field('ek3d').checked = true;
     KEEP.forEach(function (n) {
       var el = field(n);
       if (!el || o[n] == null) return;
@@ -319,7 +320,7 @@
   var pk = q.get('paket');
   if (pk && PACKS[pk]) { var r = form.querySelector('input[name=paket][value="' + pk + '"]'); if (r) r.checked = true; }
   // Tanıtım sayfasındaki "QR Menü + 3D/AR" düğmesi: /siparis/?paket=qr&ek=3d
-  if (pk === 'qr' && q.get('ek') === '3d') { var ek = form.querySelector('input[name=ek][value="3d"]'); if (ek) ek.checked = true; }
+  if (pk === 'qr' && q.get('ek') === '3d') field('ek3d').checked = true;
   if (q.get('hata')) showAlert('Ödeme tamamlanmadı; kartınızdan bir çekim yapıldıysa otomatik olarak iade edilir. Bilgileriniz duruyor, tekrar deneyebilirsiniz.');
   render();
   if (pkgKey() === 'web' && normDomain(domainIn.value)) checkDomain();

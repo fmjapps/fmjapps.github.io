@@ -17,7 +17,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/site.css?v=261026a">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -114,37 +114,29 @@
                 <b>QR Menü</b>
                 <span class="o-price">1.450 TL <small>+ KDV / yıl (toplam 1.740 TL)</small></span>
                 <small>Dijital menü, yönetim paneli, QR masa kartları, kullanım kılavuzu</small>
-                <span class="o-pack-tag">İsteğe bağlı 3D ve artırılmış gerçeklik eki</span>
               </span>
             </label>
           </div>
 
-          <!-- QR Menü eki: 3D model ve artırılmış gerçeklik (fiyat ve koşullar: mesafeli satış sözleşmesi madde 03-06) -->
+          <!-- QR Menü eki: 3D model ve artırılmış gerçeklik (fiyat ve koşullar: mesafeli satış sözleşmesi madde 03-06).
+               Varsayılan kapalı; açılınca ürün sayısı, fotoğraf seçeneği ve fiyat görünür. -->
           <div class="o-ek" data-for="qr" hidden>
-            <p class="o-ek-h">QR Menü seçeneği</p>
-            <div class="o-packs">
-              <label class="o-pack">
-                <input type="radio" name="ek" value="yok" checked>
-                <span class="o-pack-in">
-                  <b>Yalnız QR Menü</b>
-                  <small>Fotoğraflı dijital menü</small>
+            <label class="o-addon">
+              <input type="checkbox" name="ek3d" id="ek3d">
+              <span class="o-addon-in">
+                <span class="o-switch" aria-hidden="true"></span>
+                <span class="o-addon-txt">
+                  <b>3D model ve artırılmış gerçeklik ekle <i class="o-new">Yeni</i> <em>isteğe bağlı</em></b>
+                  <small>Ürün başına +100 TL + KDV. Müşteriniz ürünü telefonunda 3D çevirir, ölçülerini görür; destekleyen telefonlarda masada gerçek boyutunda görür.</small>
                 </span>
-              </label>
-              <label class="o-pack o-pack-3d">
-                <input type="radio" name="ek" value="3d">
-                <span class="o-pack-in">
-                  <b>QR Menü + 3D/AR <i class="o-new">Yeni</i></b>
-                  <span class="o-price">+100 TL <small>+ KDV / ürün</small></span>
-                  <small>Müşteriniz ürünü telefonunda 3D çevirir, ölçülerini görür; destekleyen telefonlarda masada gerçek boyutunda görür</small>
-                </span>
-              </label>
-            </div>
+              </span>
+            </label>
 
             <div class="o-3d" data-ek="3d" hidden>
-              <label class="o-field"><span>3D model hazırlanacak ürün sayısı</span>
+              <label class="o-field"><span>Kaç ürün için 3D model hazırlansın?</span>
                 <span class="o-qty">
-                  <input name="urun3d" id="urun3d" type="number" inputmode="numeric" min="1" max="200" step="1" value="10">
-                  <i id="urun3dSum">× 100 TL = 1.000 TL + KDV</i>
+                  <input name="urun3d" id="urun3d" type="number" inputmode="numeric" min="1" max="200" step="1" placeholder="örn. 15">
+                  <i id="urun3dSum">ürün × 100 TL + KDV</i>
                 </span>
               </label>
               <div class="o-radios" role="radiogroup" aria-label="Fotoğraflar">
@@ -272,7 +264,7 @@
     <div class="foot-col">
       <span class="foot-h" data-i18n="nav.solutions">Çözümler</span>
       <a href="/mirus/" data-en-href="/en/mirus/">Mirus</a>
-      <a href="/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">QR Menü</a>
+      <a href="/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menü</a>
       <a href="/web-sitesi/" data-en-href="/en/website/" data-i18n="web.name">Web Sitesi</a>
       <a href="/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">İşletmenize özel çözüm</a>
     </div>
@@ -302,8 +294,8 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js" defer></script>
-<script src="/siparis/siparis.js" defer></script>
+<script src="/site.js?v=261026a" defer></script>
+<script src="/siparis/siparis.js?v=261026a" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

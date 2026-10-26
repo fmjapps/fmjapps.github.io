@@ -1419,6 +1419,20 @@ html { scroll-padding-top: 96px; }
 .o-ek[hidden], .o-3d[hidden] { display: none; }
 .o-ek-h { margin: 0; font: 600 13.5px 'Inter', sans-serif; color: var(--text); }
 .o-new { display: inline-block; margin-inline-start: 6px; padding: 2px 7px; border-radius: 999px; background: #FF4F2E; color: #fff; font: 700 10.5px/1.4 'Inter', sans-serif; font-style: normal; letter-spacing: .3px; vertical-align: 2px; }
+.o-addon { position: relative; cursor: pointer; }
+.o-addon input { position: absolute; opacity: 0; pointer-events: none; }
+.o-addon-in { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; border: 1.5px dashed var(--line-2); border-radius: 16px; background: var(--bg); transition: border-color .2s, background-color .2s; }
+.o-addon-txt { display: grid; gap: 4px; }
+.o-addon-txt b { font: 600 15px 'Sora', sans-serif; color: var(--text); }
+.o-addon-txt em { font: 500 12px 'Inter', sans-serif; font-style: normal; color: var(--faint); margin-inline-start: 4px; }
+.o-addon-txt small { color: var(--dim); font-size: 13px; line-height: 1.45; }
+.o-switch { position: relative; flex: none; width: 42px; height: 24px; margin-top: 1px; border-radius: 999px; background: var(--line-2); transition: background-color .2s; }
+.o-switch::after { content: ""; position: absolute; top: 3px; inset-inline-start: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); transition: transform .2s; }
+.o-addon input:checked + .o-addon-in { border-style: solid; border-color: #FF4F2E; background: color-mix(in srgb, #FF4F2E 6%, var(--bg)); }
+.o-addon input:checked + .o-addon-in .o-switch { background: #FF4F2E; }
+.o-addon input:checked + .o-addon-in .o-switch::after { transform: translateX(18px); }
+[dir="rtl"] .o-addon input:checked + .o-addon-in .o-switch::after { transform: translateX(-18px); }
+.o-addon input:focus-visible + .o-addon-in { outline: 2px solid #376E6F; outline-offset: 2px; }
 .o-pack-3d input:checked + .o-pack-in { border-color: #FF4F2E; box-shadow: 0 0 0 3px color-mix(in srgb, #FF4F2E 20%, transparent); }
 .o-3d { display: grid; gap: 12px; padding: 16px; border-radius: 16px; background: color-mix(in srgb, #FF4F2E 6%, var(--bg)); border: 1px dashed color-mix(in srgb, #FF4F2E 35%, transparent); }
 .o-qty { display: flex; align-items: center; gap: 12px; }

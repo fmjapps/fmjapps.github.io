@@ -341,7 +341,7 @@
  "qr.m.sub": "早餐 · 咖啡 · 甜点",
  "qr.meta.desc": "顾客扫描桌上的二维码，菜单即在手机上打开，无需下载；可 3D 旋转产品，在支持的手机上还能看到产品以真实大小摆在桌上。价格、品项和照片可随时在后台更新。",
  "qr.meta.title": "3D QR Menu · 带 3D 模型与增强现实的二维码电子菜单 · FMJ Software",
- "qr.name": "QR Menu",
+ "qr.name": "3D QR Menu",
  "qr.nav.cta": "获取报价",
  "qr.nav.how": "使用流程",
  "qr.nav.menu": "顾客看到什么",
