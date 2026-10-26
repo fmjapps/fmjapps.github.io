@@ -767,5 +767,8 @@
  "co.refs.t": "Projekte, an denen wir mitgewirkt haben",
  "co.refs.web": "Website",
  "co.refs.qr": "QR-Speisekarte",
- "qr.hero.scan": "QR-Code scannen für die Live-Demo"
+ "qr.hero.scan": "QR-Code scannen für die Live-Demo",
+ "qr.hero.live": "Live ansehen",
+ "qr.hero.back": "Zurück zur Karte",
+ "qr.hero.open": "Auf diesem Gerät öffnen"
 }

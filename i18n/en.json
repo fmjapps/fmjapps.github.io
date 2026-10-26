@@ -767,5 +767,8 @@
  "co.refs.t": "Projects we built",
  "co.refs.web": "Website",
  "co.refs.qr": "QR menu",
- "qr.hero.scan": "Scan the QR code for a live demo"
+ "qr.hero.scan": "Scan the QR code for a live demo",
+ "qr.hero.live": "See it live",
+ "qr.hero.back": "Back to menu",
+ "qr.hero.open": "Open on this device"
 }

@@ -767,5 +767,8 @@
  "co.refs.t": "Proyek yang kami kerjakan",
  "co.refs.web": "Situs web",
  "co.refs.qr": "Menu QR",
- "qr.hero.scan": "Pindai kode QR untuk demo langsung"
+ "qr.hero.scan": "Pindai kode QR untuk demo langsung",
+ "qr.hero.live": "Lihat langsung",
+ "qr.hero.back": "Kembali ke menu",
+ "qr.hero.open": "Buka di perangkat ini"
 }

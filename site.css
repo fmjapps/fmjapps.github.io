@@ -1722,3 +1722,30 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
 .hs-qr img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
 .hs-txt { display: flex; align-items: center; gap: 8px; font: 600 15.5px 'Sora', sans-serif; }
 .hs-txt .kick3d { font-size: 11px; padding: 1px 6px; }
+
+/* QR Menü girişi: telefon çevrilince arkada deneme menüsünün QR kodu */
+.hero-scan { display: none; }
+.qr-phone { position: relative; perspective: 1400px; }
+.qp-flip { position: relative; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2, .7, .2, 1); }
+.qr-phone.flipped .qp-flip { transform: rotateY(180deg); }
+.qp-screen, .qp-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.qp-back { position: absolute; inset: 0; transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 28px 22px; border-radius: 38px; border: 8px solid #0f0b0c; background: radial-gradient(120% 80% at 50% 0%, #2A4F50, #1C3334 60%, #142627); color: #fff; text-align: center; box-shadow: var(--shadow); }
+.qp-back .kick3d { font-size: 13px; padding: 3px 10px; }
+.qb-qr { width: 78%; max-width: 230px; aspect-ratio: 1; padding: 14px; border-radius: 22px; background: #fff; box-shadow: 0 0 0 6px rgba(255, 79, 46, .35); }
+.qb-qr img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.qp-back strong { font: 700 19px/1.3 'Sora', sans-serif; max-width: 14em; }
+.qb-open { font: 600 13.5px 'Inter', sans-serif; color: #FFB199; text-decoration: underline; text-underline-offset: 4px; }
+.qp-arphone { transition: opacity .35s, transform .35s; }
+.qr-phone.flipped .qp-arphone { opacity: 0; pointer-events: none; }
+.qp-live { position: absolute; z-index: 3; left: 50%; bottom: 44px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border: 0; border-radius: 999px; background: #FF4F2E; color: #fff; font: 700 15px 'Inter', sans-serif; white-space: nowrap; cursor: pointer; box-shadow: 0 14px 34px -10px rgba(255, 79, 46, .8); animation: ql-pulse 2.2s ease-in-out infinite; }
+.qp-live:hover { filter: brightness(1.06); }
+.qp-live:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.ql-dot { width: 10px; height: 10px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(255, 255, 255, .7); animation: ql-dot 1.6s ease-out infinite; }
+.ql-off { display: none; }
+.qr-phone.flipped .ql-on { display: none; }
+.qr-phone.flipped .ql-off { display: inline; }
+.qr-phone.flipped .qp-live { background: #1C3334; box-shadow: 0 14px 34px -12px rgba(0, 0, 0, .6), 0 0 0 1.5px rgba(255, 255, 255, .3); animation: none; }
+.qr-phone.flipped .ql-dot { display: none; }
+@keyframes ql-pulse { 0%, 100% { box-shadow: 0 14px 34px -10px rgba(255, 79, 46, .8), 0 0 0 0 rgba(255, 79, 46, .45); } 50% { box-shadow: 0 14px 34px -10px rgba(255, 79, 46, .8), 0 0 0 12px rgba(255, 79, 46, 0); } }
+@keyframes ql-dot { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, .7); } 100% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); } }
+@media (prefers-reduced-motion: reduce) { .qp-flip { transition: none; } .qp-live, .ql-dot { animation: none; } }

@@ -767,5 +767,8 @@
  "co.refs.t": "Progetti realizzati",
  "co.refs.web": "Sito web",
  "co.refs.qr": "Menu QR",
- "qr.hero.scan": "Scansiona il codice QR per la demo"
+ "qr.hero.scan": "Scansiona il codice QR per la demo",
+ "qr.hero.live": "Guardalo dal vivo",
+ "qr.hero.back": "Torna al menu",
+ "qr.hero.open": "Apri su questo dispositivo"
 }

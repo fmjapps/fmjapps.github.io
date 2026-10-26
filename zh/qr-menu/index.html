@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026h">
+<link rel="stylesheet" href="/site.css?v=261026i">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -135,12 +135,12 @@
             <span class="ho-buy"><span data-i18n="pk.buy">立即购买</span> →</span>
           </a>
         </div>
-        <a class="hero-scan" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener"><span class="hs-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span><span class="hs-txt"><b class="kick3d">3D</b> <span data-i18n="qr.hero.scan">扫描二维码查看在线示例</span></span></a>
       </div>
 
       <!-- Temsili telefon ekranı: uydurma bir kafenin menüsü -->
-      <div class="qr-phone reveal" aria-hidden="true">
-        <div class="qp-screen">
+      <div class="qr-phone reveal" id="qrShow">
+        <div class="qp-flip">
+        <div class="qp-screen" aria-hidden="true">
           <div class="qp-head">
             <span class="qp-logo">ÖK</span>
             <strong data-i18n="qr.m.name">示例咖啡馆</strong>
@@ -156,7 +156,14 @@
             <li><span class="qp-img i4"><svg viewBox="0 0 24 24"><path d="M5 8h14v3a7 7 0 0 1-14 0Z"/><path d="M8 4.5c0 1.2 1 1.2 1 2.5M12 4.5c0 1.2 1 1.2 1 2.5"/></svg></span><span class="qp-txt"><b data-i18n="qr.m.i4">冰咖啡</b><small data-i18n="qr.m.i4d">加冰，加奶</small></span><span class="qp-price">95 ₺</span></li>
           </ul>
         </div>
-        <div class="qp-arphone">
+        <div class="qp-back" id="qrBack" aria-hidden="true">
+          <b class="kick3d">3D</b>
+          <span class="qb-qr"><img src="/assets/qr-menu/qr-3d-deneme.svg" alt="" width="29" height="29"></span>
+          <strong data-i18n="qr.hero.scan">扫描二维码查看在线示例</strong>
+          <a class="qb-open" href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener" tabindex="-1"><span data-i18n="qr.hero.open">在此设备上打开</span> ↗</a>
+        </div>
+        </div>
+        <div class="qp-arphone" aria-hidden="true">
           <div class="qa-screen">
             <span class="qa-top"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg><b data-i18n="qr.ar.f3.t">在桌上查看</b></span>
             <svg class="qa-scene" viewBox="0 0 160 200">
@@ -174,6 +181,7 @@
             <span class="qa-dim">9,5 × 8,4 cm</span>
           </div>
         </div>
+        <button class="qp-live" type="button" id="qrLive" aria-controls="qrBack" aria-expanded="false"><span class="ql-dot" aria-hidden="true"></span><span class="ql-on" data-i18n="qr.hero.live">查看实况</span><span class="ql-off" data-i18n="qr.hero.back">返回菜单</span></button>
         <p class="dv-cap" data-i18n="qr.m.cap">示意图</p>
       </div>
     </div>
@@ -507,8 +515,9 @@
 <nav class="pager" id="pager" aria-label="页面" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026h" defer></script>
+<script src="/site.js?v=261026i" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
+<script src="/qr-menu/qr-hero.js?v=261026i" defer></script>
 </body>
 </html>

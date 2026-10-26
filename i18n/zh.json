@@ -767,5 +767,8 @@
  "co.refs.t": "我们参与的项目",
  "co.refs.web": "网站",
  "co.refs.qr": "二维码菜单",
- "qr.hero.scan": "扫描二维码查看在线示例"
+ "qr.hero.scan": "扫描二维码查看在线示例",
+ "qr.hero.live": "查看实况",
+ "qr.hero.back": "返回菜单",
+ "qr.hero.open": "在此设备上打开"
 }

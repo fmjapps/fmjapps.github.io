@@ -767,5 +767,8 @@
  "co.refs.t": "制作実績",
  "co.refs.web": "ウェブサイト",
  "co.refs.qr": "QRメニュー",
- "qr.hero.scan": "QR コードを読み取ってデモを体験"
+ "qr.hero.scan": "QR コードを読み取ってデモを体験",
+ "qr.hero.live": "ライブで見る",
+ "qr.hero.back": "メニューに戻る",
+ "qr.hero.open": "この端末で開く"
 }
