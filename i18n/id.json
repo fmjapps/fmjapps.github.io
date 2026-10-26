@@ -764,11 +764,11 @@
  "qr.hero.opt1.per": "+ PPN / tahun",
  "qr.hero.opt2": "QR Menu + 3D",
  "qr.hero.opt2.per": "+ PPN / produk",
- "co.refs.t": "Proyek yang kami kerjakan",
- "co.refs.web": "Situs web",
- "co.refs.qr": "Menu QR",
+ "co.refs.t": "Klien kami",
  "qr.hero.scan": "Pindai kode QR untuk demo langsung",
  "qr.hero.live": "Lihat langsung",
  "qr.hero.back": "Kembali ke menu",
- "qr.hero.open": "Buka di perangkat ini"
+ "qr.hero.open": "Buka di perangkat ini",
+ "qr.hero.tap": "Ketuk untuk melihat langsung",
+ "qr.hero.tapback": "Ketuk untuk kembali ke menu"
 }

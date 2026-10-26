@@ -1,21 +1,19 @@
-/* QR Menü girişi: telefon kendiliğinden döner; önde menü (4 sn), arkada deneme menüsünün QR kodu (6 sn).
-   Fare telefonun üstündeyken (QR okutulurken) ya da sekme görünmezken dönüş durur. */
+/* QR Menü girişi: telefona ya da sağ üstteki "Canlı hâlini görmek için tıkla" etiketine tıklayınca telefon döner;
+   arkada deneme menüsünün QR kodu durur. Dönmeden önce telefon ara ara hafifçe yana dönüp geri gelir (çevrilebildiği belli olsun). */
 (function () {
   'use strict';
   var box = document.getElementById('qrShow');
+  var tap = document.getElementById('qrTap');
   var back = document.getElementById('qrBack');
-  if (!box || !back) return;
-  var hold = false, timer = null;
-  function next() {
+  var flip = box && box.querySelector('.qp-flip');
+  if (!box || !tap || !back || !flip) return;
+  function toggle() {
     var on = !box.classList.contains('flipped');
-    timer = setTimeout(function () {
-      if (hold || document.hidden) { next(); return; }
-      box.classList.toggle('flipped', on);
-      back.setAttribute('aria-hidden', String(!on));
-      next();
-    }, on ? 4000 : 6000);
+    box.classList.add('used');
+    box.classList.toggle('flipped', on);
+    tap.setAttribute('aria-expanded', String(on));
+    back.setAttribute('aria-hidden', String(!on));
   }
-  box.addEventListener('mouseenter', function () { hold = true; });
-  box.addEventListener('mouseleave', function () { hold = false; });
-  next();
+  tap.addEventListener('click', toggle);
+  flip.addEventListener('click', toggle);
 })();

@@ -41,7 +41,7 @@
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=261026n">
+<link rel="stylesheet" href="/site.css?v=261026p">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -128,6 +128,14 @@
         <p class="eyebrow" data-i18n="co.hero.kick">Mirus · Assistente de atendimento com IA</p>
         <h1 data-i18n-html="co.hero.h1">Não perca clientes <span class="grad">por mensagens sem resposta.</span></h1>
         <p class="lede" data-i18n="co.hero.lede2">Movido pelo Gemini, a IA do Google, o Mirus responde 24/7 às mensagens que chegam pelo WhatsApp, Instagram, Messenger e pelo seu site, no idioma dos seus clientes e com as suas informações.</p>
+        <!-- Referanslar: açıklamanın altında tek satır logo -->
+        <div class="refs">
+          <p class="refs-t" data-i18n="co.refs.t">Nossos clientes</p>
+          <div class="refs-row">
+            <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener" title="unipakt.com"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span></a>
+            <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener" title="Americano Concept Coffee"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span></a>
+          </div>
+        </div>
         <ul class="hero-feats">
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><span data-i18n="mirus.f1.t">Responde na hora</span></li>
           <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg></span><span data-i18n="mirus.f2.t">Fala o idioma do cliente</span></li>
@@ -160,12 +168,6 @@
         <p class="t-say" id="tSay" aria-live="polite">Merhaba! Size nasıl yardımcı olabilirim?</p>
         <div class="t-chip"><i></i><span data-i18n="co.mirus.online">Mirus online · 24/7</span></div>
         <button class="t-hit" id="tHit" type="button" data-i18n-aria="co.mirus.hello" aria-label="Dizer olá ao Mirus"></button>
-      </div>
-
-      <!-- Referanslar: yapımında yer aldığımız işler, yavaşça kayan logo şeridi -->
-      <div class="refs">
-        <p class="refs-t" data-i18n="co.refs.t">Projetos que fizemos</p>
-        <div class="refs-track"><div class="refs-row"><a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Site</small></a><a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">Cardápio QR</small></a><a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Site</small></a><a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">Cardápio QR</small></a><a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Site</small></a><a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">Cardápio QR</small></a><a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Site</small></a><a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">Cardápio QR</small></a></div></div>
       </div>
     </div>
   </section>
@@ -552,7 +554,7 @@
 <nav class="pager" id="pager" aria-label="Páginas" data-i18n-aria="pages"></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=261026n" defer></script>
+<script src="/site.js?v=261026p" defer></script>
 <script src="/mirus3d.js" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>

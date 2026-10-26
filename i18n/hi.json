@@ -764,11 +764,11 @@
  "qr.hero.opt1.per": "+ VAT / वर्ष",
  "qr.hero.opt2": "QR Menu + 3D",
  "qr.hero.opt2.per": "+ VAT / उत्पाद",
- "co.refs.t": "हमारे बनाए प्रोजेक्ट",
- "co.refs.web": "वेबसाइट",
- "co.refs.qr": "QR मेन्यू",
+ "co.refs.t": "हमारे क्लाइंट",
  "qr.hero.scan": "लाइव डेमो के लिए QR कोड स्कैन करें",
  "qr.hero.live": "लाइव देखें",
  "qr.hero.back": "मेनू पर वापस",
- "qr.hero.open": "इसी डिवाइस पर खोलें"
+ "qr.hero.open": "इसी डिवाइस पर खोलें",
+ "qr.hero.tap": "लाइव देखने के लिए टैप करें",
+ "qr.hero.tapback": "मेनू पर लौटने के लिए टैप करें"
 }

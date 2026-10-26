@@ -764,11 +764,11 @@
  "qr.hero.opt1.per": "zzgl. MwSt. / Jahr",
  "qr.hero.opt2": "QR Menu + 3D",
  "qr.hero.opt2.per": "zzgl. MwSt. / Produkt",
- "co.refs.t": "Projekte, an denen wir mitgewirkt haben",
- "co.refs.web": "Website",
- "co.refs.qr": "QR-Speisekarte",
+ "co.refs.t": "Unsere Kunden",
  "qr.hero.scan": "QR-Code scannen für die Live-Demo",
  "qr.hero.live": "Live ansehen",
  "qr.hero.back": "Zurück zur Karte",
- "qr.hero.open": "Auf diesem Gerät öffnen"
+ "qr.hero.open": "Auf diesem Gerät öffnen",
+ "qr.hero.tap": "Tippen, um es live zu sehen",
+ "qr.hero.tapback": "Tippen, um zur Karte zurückzukehren"
 }

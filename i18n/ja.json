@@ -764,11 +764,11 @@
  "qr.hero.opt1.per": "+ 税 / 年",
  "qr.hero.opt2": "QR Menu + 3D",
  "qr.hero.opt2.per": "+ 税 / 商品",
- "co.refs.t": "制作実績",
- "co.refs.web": "ウェブサイト",
- "co.refs.qr": "QRメニュー",
+ "co.refs.t": "導入実績",
  "qr.hero.scan": "QR コードを読み取ってデモを体験",
  "qr.hero.live": "ライブで見る",
  "qr.hero.back": "メニューに戻る",
- "qr.hero.open": "この端末で開く"
+ "qr.hero.open": "この端末で開く",
+ "qr.hero.tap": "タップしてライブで見る",
+ "qr.hero.tapback": "タップしてメニューに戻る"
 }

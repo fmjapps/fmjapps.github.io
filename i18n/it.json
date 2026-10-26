@@ -764,11 +764,11 @@
  "qr.hero.opt1.per": "+ IVA / anno",
  "qr.hero.opt2": "QR Menu + 3D",
  "qr.hero.opt2.per": "+ IVA / prodotto",
- "co.refs.t": "Progetti realizzati",
- "co.refs.web": "Sito web",
- "co.refs.qr": "Menu QR",
+ "co.refs.t": "I nostri clienti",
  "qr.hero.scan": "Scansiona il codice QR per la demo",
  "qr.hero.live": "Guardalo dal vivo",
  "qr.hero.back": "Torna al menu",
- "qr.hero.open": "Apri su questo dispositivo"
+ "qr.hero.open": "Apri su questo dispositivo",
+ "qr.hero.tap": "Tocca per vederlo dal vivo",
+ "qr.hero.tapback": "Tocca per tornare al menu"
 }

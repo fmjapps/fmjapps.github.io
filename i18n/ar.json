@@ -764,11 +764,11 @@
  "qr.hero.opt1.per": "+ الضريبة / سنة",
  "qr.hero.opt2": "QR Menu + 3D",
  "qr.hero.opt2.per": "+ الضريبة / منتج",
- "co.refs.t": "مشاريع شاركنا في بنائها",
- "co.refs.web": "موقع إلكتروني",
- "co.refs.qr": "قائمة QR",
+ "co.refs.t": "عملاؤنا",
  "qr.hero.scan": "امسح رمز QR لمشاهدة العرض المباشر",
  "qr.hero.live": "شاهده مباشرة",
  "qr.hero.back": "العودة إلى القائمة",
- "qr.hero.open": "افتح على هذا الجهاز"
+ "qr.hero.open": "افتح على هذا الجهاز",
+ "qr.hero.tap": "اضغط لمشاهدته مباشرة",
+ "qr.hero.tapback": "اضغط للعودة إلى القائمة"
 }
