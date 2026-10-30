@@ -1,4 +1,4 @@
-/* FMJ Software — uygulama sayfalarının stilleri (ana sayfadan bağımsızdır) */
+/* FMJ Apps — uygulama sayfalarının stilleri (ana sayfadan bağımsızdır) */
 
 :root {
   --bg: #1C3334;
@@ -516,7 +516,7 @@ h1 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 700; overflow-wrap: anywh
 :root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(.kind, .foot-h, .more-hint, .sec-head span) { letter-spacing: 0; text-transform: none; }
 :root:is([lang="zh"], [lang="ja"], [lang="ko"], [lang="hi"], [lang="ar"]) :is(h1, h2, h3, .h2, .brand-name, summary, strong) { letter-spacing: 0; line-height: 1.3; }
 
-/* FMJ Software ana sayfasına dönüş: sol kenarda sabit, belirgin sekme */
+/* FMJ Apps ana sayfasına dönüş: sol kenarda sabit, belirgin sekme */
 .back-sw {
   position: fixed; z-index: 55; inset-inline-start: 0; top: 50%; transform: translateY(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 20px 12px;
@@ -618,7 +618,7 @@ body { background: var(--bg); }
 :root, :root[data-theme="light"] { --brand-2: #244A4B; --cyan: #111111; }
 :root[data-theme="dark"] { --brand-2: #6FB0B0; --cyan: #F6F1E9; }
 
-/* FMJ Software logosu (kurumsal sayfalarla aynı): açık zeminde siyah, koyu zeminde krem harfli */
+/* FMJ Apps logosu (kurumsal sayfalarla aynı): açık zeminde siyah, koyu zeminde krem harfli */
 .brand .logo { display: block; height: 36px; width: auto; }
 .foot-logo { display: block; }
 .foot-logo .logo { display: block; height: 30px; width: auto; margin-bottom: 6px; }

@@ -1,4 +1,4 @@
-// FMJ Software — kurumsal ana sayfa ve Mirus sayfasının etkileşimleri
+// FMJ Apps — kurumsal ana sayfa ve Mirus sayfasının etkileşimleri
 (function () {
   'use strict';
 

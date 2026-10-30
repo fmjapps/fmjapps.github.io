@@ -1,4 +1,4 @@
-// FMJ Software — uygulamalar vitrini etkileşimleri
+// FMJ Apps — uygulamalar vitrini etkileşimleri
 (function () {
   'use strict';
 
@@ -820,7 +820,7 @@
     var reset = document.getElementById('chatReset');
     var hp = form.querySelector('input[name=website]');
     var SUBJECTS = [
-      { v: 'general', key: null, label: 'FMJ Software' },
+      { v: 'general', key: null, label: 'FMJ Apps' },
       { v: 'kayip', key: 'kayip.name' }, { v: 'koleksiyoncu', key: 'kol.short' }, { v: 'prizma', key: 'prizma.name' },
       { v: 'ezber', key: 'ezber.short' }, { v: 'paydos', key: 'paydos.name' }
     ];

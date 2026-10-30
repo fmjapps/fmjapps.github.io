@@ -76,25 +76,25 @@ def main():
             t = texts(lang)
             rtl = ' dir="rtl"' if lang == 'ar' else ''
             site = PAGE.format(lang=lang, dir=rtl, font=FONT,
-                               body='<img class="wordmark" src="%s" alt="FMJ Software"><p class="cap">%s</p>' % (wordmark, html.escape(t['co.tagline'])),
+                               body='<img class="wordmark" src="%s" alt="FMJ Apps"><p class="cap">%s</p>' % (wordmark, html.escape(t['co.tagline'])),
                                foot='<span class="url" dir="ltr">fmjapps.com</span>')
             render(browser, tmp, 'site', lang, site)
             # Oyun ve uygulamalar vitrini: aynı logo, altında vitrinin sloganı
             apps = PAGE.format(lang=lang, dir=rtl, font=FONT,
-                               body='<img class="wordmark" src="%s" alt="FMJ Software"><p class="cap" style="text-transform:none">%s</p>' % (wordmark, html.escape(t['hero.tagline'])),
+                               body='<img class="wordmark" src="%s" alt="FMJ Apps"><p class="cap" style="text-transform:none">%s</p>' % (wordmark, html.escape(t['hero.tagline'])),
                                foot='<span class="url" dir="ltr">%s</span>' % ('fmjapps.com/uygulamalar' if lang == 'tr' else 'fmjapps.com/' + lang + '/apps'))
             render(browser, tmp, 'apps', lang, apps)
             mirus = PAGE.format(lang=lang, dir=rtl, font=FONT,
                                 body='<div class="row"><span class="tile">M</span><h1>Mirus</h1></div><p>%s</p>' % html.escape(t['mirus.hero.kick'].split('·', 1)[-1].strip()),
-                                foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/mirus</span>' % logo)
+                                foot='<span class="by" dir="ltr"><img src="%s">FMJ Apps</span><span class="url" dir="ltr">fmjapps.com/mirus</span>' % logo)
             render(browser, tmp, 'mirus', lang, mirus)
             qr = PAGE.format(lang=lang, dir=rtl, font=FONT,
                              body='<div class="row"><span class="tile">%s</span><h1>%s</h1></div><p>%s</p>' % (QR_ICON, html.escape(t['qr.name']), html.escape(t['qr.hero.kick'].split('·', 1)[-1].strip())),
-                             foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">fmjapps.com/qr-menu</span>' % logo)
+                             foot='<span class="by" dir="ltr"><img src="%s">FMJ Apps</span><span class="url" dir="ltr">fmjapps.com/qr-menu</span>' % logo)
             render(browser, tmp, 'qrmenu', lang, qr)
             web = PAGE.format(lang=lang, dir=rtl, font=FONT,
                               body='<div class="row"><span class="tile">%s</span><h1>%s</h1></div><p>%s</p>' % (WEB_ICON, html.escape(t['web.name']), html.escape(t['web.hero.kick'].split('·', 1)[-1].strip())),
-                              foot='<span class="by" dir="ltr"><img src="%s">FMJ Software</span><span class="url" dir="ltr">%s</span>' % (logo, 'fmjapps.com/web-sitesi' if lang == 'tr' else 'fmjapps.com/' + lang + '/website'))
+                              foot='<span class="by" dir="ltr"><img src="%s">FMJ Apps</span><span class="url" dir="ltr">%s</span>' % (logo, 'fmjapps.com/web-sitesi' if lang == 'tr' else 'fmjapps.com/' + lang + '/website'))
             render(browser, tmp, 'web', lang, web)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)

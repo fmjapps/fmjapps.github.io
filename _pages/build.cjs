@@ -109,11 +109,11 @@ function page(app, lang) {
         image: BASE + '/assets/' + app.id + '-icon.webp',
         screenshot: app.shots.map(s => BASE + shot(app, s, lang)),
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        author: { '@type': 'Organization', name: 'FMJ Software', url: BASE + '/' }
+        author: { '@type': 'Organization', name: 'FMJ Apps', url: BASE + '/' }
       },
       {
         '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'FMJ Software', item: BASE + homePath(lang) },
+          { '@type': 'ListItem', position: 1, name: 'FMJ Apps', item: BASE + homePath(lang) },
           { '@type': 'ListItem', position: 2, name: group, item: BASE + appsPath(lang) },
           { '@type': 'ListItem', position: 3, name: c.short, item: url }
         ]
@@ -158,7 +158,7 @@ ${isTest ? `      <p class="join-note">${esc(t.joinNote)}</p>
 <meta name="description" content="${esc(c.desc)}">
 <meta name="theme-color" content="#1C3334">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="FMJ Software">
+<meta property="og:site_name" content="FMJ Apps">
 <meta property="og:title" content="${esc(c.name)}">
 <meta property="og:description" content="${esc(c.desc)}">
 <meta property="og:image" content="${og}">
@@ -178,7 +178,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css?v=261026za">
+<link rel="stylesheet" href="/app.css?v=301026a">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:${app.acc}${app.acc2 ? ';--acc-2:' + app.acc2 : ''}">
@@ -186,10 +186,10 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="${homeOf(lang)}" aria-label="FMJ Software">
+    <a class="brand" href="${homeOf(lang)}" aria-label="FMJ Apps">
       <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag">${esc(t.slogan)}</span>
     </a>
-    <nav class="links" aria-label="FMJ Software">${siteNav(lang)}</nav>
+    <nav class="links" aria-label="FMJ Apps">${siteNav(lang)}</nav>
     <div class="tools">
       <a class="home-mini" href="${homeOf(lang)}"><b aria-hidden="true">←</b> ${esc(t.home)}</a>
       <details class="lang" id="lang">
@@ -210,7 +210,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
   <section class="page hero" data-label="${esc(c.short)}">
     <div class="wrap">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="${homeOf(lang)}">FMJ Software</a></li>
+        <li><a href="${homeOf(lang)}">FMJ Apps</a></li>
         <li><a href="${appsOf(lang, groupHash)}">${esc(group)}</a></li>
         <li aria-current="page">${esc(c.short)}</li>
       </ol></nav>
@@ -322,8 +322,8 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
         <a href="/privacy/">${esc(t.footPrivacy)}</a>
       </div>
     </div>
-    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Software · ${esc(t.android)}</p></div>
-    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Software · ${esc(t.vd)} · ${esc(t.vkn)} 3870844488 · ETBİS 4576267076 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
+    <div class="wrap"><p class="foot-bottom">© 2026 FMJ Apps · ${esc(t.android)}</p></div>
+    <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Apps · ${esc(t.vd)} · ${esc(t.vkn)} 3870844488 · ETBİS 4576267076 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="${aboutPath(lang)}">${esc(t.about)}</a></p></div>
   </footer>
 </div>
 
@@ -434,7 +434,7 @@ function homePage(tpl, src, lang) {
   h = h.replace(/(<meta property="og:url" content=")[^"]*(")/, (m, a, b) => a + url + b);
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => a + url + b);
   // Yapılandırılmış verideki Türkçe sayfa ve hizmet adları o dildeki karşılığıyla değişir
-  const LD_NAMES = { 'QR Menü': 'qr.name', 'Web Sitesi': 'web.name', 'Hakkımızda': 'nav.about', 'Hakkımızda · FMJ Software': 'about.meta.title' };
+  const LD_NAMES = { 'QR Menü': 'qr.name', 'Web Sitesi': 'web.name', 'Hakkımızda': 'nav.about', 'Hakkımızda · FMJ Apps': 'about.meta.title' };
   const ldName = n => LD_NAMES[n] && tx(LD_NAMES[n]) ? tx(LD_NAMES[n]) : n;
   h = ldOf(h, ld => (ld['@graph'] || []).forEach(node => {
     if (typeof node.name === 'string') node.name = ldName(node.name);

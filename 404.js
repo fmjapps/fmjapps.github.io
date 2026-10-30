@@ -47,7 +47,7 @@
 
   d.lang = lang;
   if (lang === 'ar') d.dir = 'rtl'; else d.removeAttribute('dir');
-  document.title = t.title + ' · FMJ Software';
+  document.title = t.title + ' · FMJ Apps';
   if (lang !== 'tr') d.className += ' i18n-wait';
 
   function apply() {

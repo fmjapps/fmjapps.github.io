@@ -57,7 +57,7 @@ Aşağıda `<urun>` yeni ürünün adres adıdır (küçük harf, Türkçe karak
 | 3B figür | `mirus3d.js` (yalnızca ana sayfada yüklenir) | Mirus'a özel ışık noktalarından yüz figürü. **Yeni ürün için kullanılmamalı**; o ürünün kendi görseli olmalı. |
 | Gizlilik politikası | `privacy/mirus/index.html`, `privacy/index.html` listesi, `privacy/README.md` | Meta (WhatsApp/Instagram) uygulama yayını bunu istiyor. `privacy/README.md` şemasına uyar; Android izin maddesi yok. Veri silme talimatı `#veri-silme` (EN: `#data-deletion`). Sadece koddaki gerçek davranış yazıldı. |
 | Site haritası | `_pages/build.cjs` | Şablon sayfalar `TEMPLATES`'ten otomatik girer. Gizlilik sayfaları ise sitemap satırındaki elle yazılmış listede (`['', 'kayip/', …, 'mirus/']`). |
-| Uygulamalar taşındı | `/uygulamalar/` (EN: `/en/apps/`) | Ana sayfa artık FMJ Software kurumsal sayfası; oyun ve uygulamalar vitrini bu adrese taşındı. |
+| Uygulamalar taşındı | `/uygulamalar/` (EN: `/en/apps/`) | Ana sayfa artık FMJ Apps kurumsal sayfası; oyun ve uygulamalar vitrini bu adrese taşındı. |
 
 ## 3. Yeni ürün eklemek: adım adım
 
