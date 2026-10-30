@@ -19,7 +19,7 @@
 
   <div class="chip-row">
     <span class="chip"><b>Ziyaretçi hesabı:</b>&nbsp;yok</span>
-    <span class="chip"><b>Çerez:</b>&nbsp;yalnızca panel oturumu</span>
+    <span class="chip"><b>Çerez:</b>&nbsp;panel oturumu; müdavim kartı kullanılan menülerde anonim kart çerezi</span>
     <span class="chip"><b>Sunucu:</b>&nbsp;İstanbul, Türkiye</span>
     <span class="chip"><b>Reklam ve analitik:</b>&nbsp;yok</span>
   </div>
@@ -31,8 +31,9 @@
 
   <section>
     <h2><span class="num">02</span>Topladığımız veriler</h2>
-    <p><b>Menüyü görüntüleyen ziyaretçiler:</b> Sizden hiçbir bilgi istenmez; çerez, analitik, reklam ya da takip kodu yoktur, yazı tipleri de kendi sunucumuzdan yüklenir. Sunucumuz, 5651 sayılı Kanun gereği her istek için IP adresinizi, erişim zamanını, açılan adresi ve tarayıcı bilgisini erişim kaydına yazar.</p>
-    <p><b>İşletme paneli kullanıcıları:</b> Kullanıcı adı, şifrenin geri çevrilemeyen özeti (bcrypt; şifrenin kendisi saklanmaz), oturum çerezi (qrs, 30 gün, yalnızca giriş için), işletmenin girdiği menü içerikleri, logo ve ürün fotoğrafları ile erişim kaydı.</p>
+    <p><b>Menüyü görüntüleyen ziyaretçiler:</b> Sizden hiçbir bilgi istenmez; analitik, reklam ya da takip kodu yoktur, menüyü görüntülemek için çerez kullanılmaz, yazı tipleri de kendi sunucumuzdan yüklenir. Sunucumuz, 5651 sayılı Kanun gereği her istek için IP adresinizi, erişim zamanını, açılan adresi ve tarayıcı bilgisini erişim kaydına yazar.</p>
+    <p><b>Müdavim kartı (NFC/QR ile damga):</b> Yalnızca işletmenin bu özelliği açtığı menülerde ve siz kasadaki etiketi okuttuğunuzda tarayıcınızda rastgele üretilmiş anonim bir kart numarası saklanır (dm çerezi, 2 yıl, yalnızca o işletmenin sayfalarına gönderilir). Damga sayınızı ve ödül hakkınızı bu numarayla tutarız; ad, telefon, e-posta ya da konum alınmaz ve numara sizi tanımlamaz. Hukuki sebep, istediğiniz hizmetin sunulmasıdır (KVKK m.5/2-c). Tarayıcı verilerinizi silerseniz kartınız da silinir; kart kayıtları son kullanımdan 400 gün sonra silinir.</p>
+    <p><b>İşletme paneli kullanıcıları:</b> Kullanıcı adı, şifrenin geri çevrilemeyen özeti (bcrypt; şifrenin kendisi saklanmaz), oturum çerezi (qrs, 30 gün, yalnızca giriş için), kasa ekranı oturum çerezi (qrk, 30 gün), işletmenin girdiği menü içerikleri, logo ve ürün fotoğrafları ile erişim kaydı.</p>
     <p><b>3D görünüm ve “Masada gör” (artırılmış gerçeklik):</b> 3D eki olan menülerde ürün modelleri kendi sunucumuzdan yüklenir. “Masada gör” telefonunuzun kamerasını kullanır; kamera görüntüsü yalnızca telefonunuzda işlenir, bize ya da işletmeye gönderilmez ve kaydedilmez. Bazı Android telefonlarda AR görünümü Google’ın ARCore / Scene Viewer bileşeniyle açılır; bu durumda bileşen, ürünün model dosyasını sunucumuzdan indirir.</p>
   </section>
 
@@ -83,8 +84,9 @@
 
   <section lang="en">
     <h2><span class="num">02</span>What we collect</h2>
-    <p><b>Menu visitors:</b> We ask for nothing. There are no cookies, analytics, ads or trackers, and fonts are served from our own server. As required by Turkish Law No. 5651, our server logs each request's IP address, time, requested address and browser information.</p>
-    <p><b>Business panel users:</b> Username, a one-way hash of the password (bcrypt; the password itself is not stored), a session cookie (qrs, 30 days, sign-in only), the menu content, logo and product photos the business enters, and access logs.</p>
+    <p><b>Menu visitors:</b> We ask for nothing. There are no analytics, ads or trackers, and no cookies are needed to view a menu, and fonts are served from our own server. As required by Turkish Law No. 5651, our server logs each request's IP address, time, requested address and browser information.</p>
+    <p><b>Loyalty card (stamps via NFC/QR):</b> Only on menus where the business has enabled this feature, and only when you tap the tag at the counter, a randomly generated anonymous card number is stored in your browser (dm cookie, 2 years, sent only to that business's pages). We use it to keep your stamp count and reward; no name, phone, email or location is collected and the number does not identify you. Legal basis: providing the service you request (KVKK art. 5/2-c). If you clear your browser data your card is lost; card records are deleted 400 days after last use.</p>
+    <p><b>Business panel users:</b> Username, a one-way hash of the password (bcrypt; the password itself is not stored), a session cookie (qrs, 30 days, sign-in only), a cashier-screen session cookie (qrk, 30 days), the menu content, logo and product photos the business enters, and access logs.</p>
     <p><b>3D view and “See on table” (augmented reality):</b> On menus with the 3D add-on, product models load from our own server. “See on table” uses your phone’s camera; the camera image is processed only on your phone and is never sent to us or the business, nor stored. On some Android phones the AR view opens in Google’s ARCore / Scene Viewer component, which then downloads the product’s model file from our server.</p>
   </section>
 
