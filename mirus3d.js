@@ -5,6 +5,8 @@
 // WebGL2 yoksa yalnızca arka plan ışığı kalır.
 (function () {
   'use strict';
+  // Heykel sayfa çizildikten ve tarayıcı boşa çıktıktan sonra başlar: ilk görünüm ve ilk dokunuş beklemez.
+  function start() {
   var host = document.getElementById('mirus');
   var cv = document.getElementById('tCanvas');
   if (!host || !cv) return;
@@ -159,7 +161,7 @@
       for (var i = 1; i < pos.length; i += 3) maxY = Math.max(maxY, pos[i]);
       head = { x: HC.x, y: maxY - 0.075, z: HC.z, top: maxY };
       var nor = soften(pos, idx);
-      cloud = sample(pos, nor, idx, small ? 20000 : 42000);
+      cloud = sample(pos, nor, idx, small ? 9000 : 42000);
       buildRings();
       ready = true; born = performance.now();
       host.classList.add('t-ready');
@@ -469,4 +471,7 @@
     }).observe(host);
   }
   requestAnimationFrame(frame);
+  }
+  function later() { if (window.requestIdleCallback) requestIdleCallback(start, { timeout: 2500 }); else setTimeout(start, 800); }
+  if (document.readyState === 'complete') later(); else addEventListener('load', later, { once: true });
 })();
