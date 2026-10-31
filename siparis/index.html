@@ -2,7 +2,7 @@
 <html lang="tr" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-6oEdQK3h+cOOHDNLXJ9DrbMAXmkHtOISua+mdHWanL8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, follow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,6 +10,21 @@
 <meta name="description" content="Web Sitesi ve QR Menü (isteğe bağlı 3D model ve artırılmış gerçeklik ekiyle) siparişi: üyelik gerekmez, ödeme iyzico güvencesiyle.">
 <meta name="theme-color" content="#1C3334">
 <link rel="canonical" href="https://fmjapps.com/siparis/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/siparis/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/order/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/order/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/order/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/order/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/order/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/order/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/order/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/order/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/order/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/order/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/order/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/order/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/order/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/siparis/">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
@@ -20,7 +35,7 @@
 <link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=311026a">
+<link rel="stylesheet" href="/site.css?v=311026g">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -47,7 +62,7 @@
     var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
     if (alt) {
       d.className = 'js i18n-wait';
-      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.search + location.hash);
     }
   })();
 </script>
@@ -82,7 +97,7 @@
           <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">QR menü</small></a>
         </div>
       </div>
-      <a class="buy-link" href="/siparis/" data-i18n="pk.buy">Satın al</a>
+      <a class="buy-link" href="/siparis/" data-en-href="/en/order/" data-i18n="pk.buy">Satın al</a>
       <a class="cta-link" href="/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
@@ -105,9 +120,9 @@
 <main id="top" class="order-page">
   <section class="order-wrap wrap">
     <header class="order-head">
-      <p class="eyebrow">Sipariş</p>
-      <h1>Siparişinizi oluşturun</h1>
-      <p class="lede">Üyelik gerekmez. Bilgilerinizi girin, sözleşmeleri onaylayın, ödemenizi iyzico’nun güvenli ödeme sayfasında kartla yapın.</p>
+      <p class="eyebrow" data-i18n="ord.eyebrow">Sipariş</p>
+      <h1 data-i18n="ord.h1">Siparişinizi oluşturun</h1>
+      <p class="lede" data-i18n="ord.lede">Üyelik gerekmez. Bilgilerinizi girin, sözleşmeleri onaylayın, ödemenizi iyzico’nun güvenli ödeme sayfasında kartla yapın.</p>
     </header>
 
     <p class="order-alert" id="orderAlert" role="alert" hidden></p>
@@ -118,22 +133,22 @@
 
         <!-- 1. Paket -->
         <fieldset class="o-step">
-          <legend><span class="o-num">1</span>Paket</legend>
+          <legend><span class="o-num">1</span><span data-i18n="ord.s1">Paket</span></legend>
           <div class="o-packs">
             <label class="o-pack">
               <input type="radio" name="paket" value="web" checked>
               <span class="o-pack-in">
-                <b>Web Sitesi</b>
-                <span class="o-price">3.700 TL <small>+ KDV (toplam 4.440 TL) + alan adı</small></span>
-                <small>İşletmenize özel site, alan adı kaydı, ücretsiz barındırma, temel SEO</small>
+                <b data-i18n="web.name">Web Sitesi</b>
+                <span class="o-price" data-i18n-html="ord.web.price">3.700 TL <small>+ KDV (toplam 4.440 TL) + alan adı</small></span>
+                <small data-i18n="ord.web.desc">İşletmenize özel site, alan adı kaydı, ücretsiz barındırma, temel SEO</small>
               </span>
             </label>
             <label class="o-pack">
               <input type="radio" name="paket" value="qr">
               <span class="o-pack-in">
-                <b>QR Menü</b>
-                <span class="o-price">1.450 TL <small>+ KDV / yıl (toplam 1.740 TL)</small></span>
-                <small>Dijital menü, yönetim paneli, QR masa kartları, kullanım kılavuzu</small>
+                <b data-i18n="ord.pack.qr">QR Menü</b>
+                <span class="o-price" data-i18n-html="ord.qr.price">1.450 TL <small>+ KDV / yıl (toplam 1.740 TL)</small></span>
+                <small data-i18n="ord.qr.desc">Dijital menü, yönetim paneli, QR masa kartları, kullanım kılavuzu</small>
               </span>
             </label>
           </div>
@@ -146,130 +161,131 @@
               <span class="o-addon-in">
                 <span class="o-switch" aria-hidden="true"></span>
                 <span class="o-addon-txt">
-                  <b>3D model ve artırılmış gerçeklik ekle <i class="o-new">Yeni</i> <em>isteğe bağlı</em></b>
-                  <small>Ürün başına +100 TL + KDV. Müşteriniz ürünü telefonunda 3D çevirir, ölçülerini görür; destekleyen telefonlarda masada gerçek boyutunda görür.</small>
+                  <b data-i18n-html="ord.ek.t">3D model ve artırılmış gerçeklik ekle <i class="o-new">Yeni</i> <em>isteğe bağlı</em></b>
+                  <small data-i18n="ord.ek.d">Ürün başına +100 TL + KDV. Müşteriniz ürünü telefonunda 3D çevirir, ölçülerini görür; destekleyen telefonlarda masada gerçek boyutunda görür.</small>
                 </span>
               </span>
             </label>
 
             <div class="o-3d" data-ek="3d" hidden>
-              <label class="o-field"><span>Kaç ürün için 3D model hazırlansın?</span>
+              <label class="o-field"><span data-i18n="ord.ek.q">Kaç ürün için 3D model hazırlansın?</span>
                 <span class="o-qty">
-                  <input name="urun3d" id="urun3d" type="number" inputmode="numeric" min="1" max="200" step="1" placeholder="örn. 15">
+                  <input name="urun3d" id="urun3d" type="number" inputmode="numeric" min="1" max="200" step="1" placeholder="örn. 15" data-i18n-ph="ord.ek.ph">
                   <i id="urun3dSum">ürün × 100 TL + KDV</i>
                 </span>
               </label>
-              <div class="o-radios" role="radiogroup" aria-label="Fotoğraflar">
-                <label class="o-check"><input type="radio" name="foto" value="ben" checked><span><b>Fotoğrafları ben çekeceğim.</b> Her ürün için en az 5 fotoğraf ve ürünün ölçüsü yeterli; size nasıl çekileceğini tarif ederiz.</span></label>
-                <label class="o-check"><input type="radio" name="foto" value="cekim"><span><b>Ürün çekimi istiyorum</b> (yalnız İzmir içi): işletmenize gelip çekiyoruz, +1.000 TL + KDV, tek ziyaret.</span></label>
+              <div class="o-radios" role="radiogroup" aria-label="Fotoğraflar" data-i18n-aria="ord.ek.photos">
+                <label class="o-check"><input type="radio" name="foto" value="ben" checked><span data-i18n-html="ord.ek.r1"><b>Fotoğrafları ben çekeceğim.</b> Her ürün için en az 5 fotoğraf ve ürünün ölçüsü yeterli; size nasıl çekileceğini tarif ederiz.</span></label>
+                <label class="o-check"><input type="radio" name="foto" value="cekim"><span data-i18n-html="ord.ek.r2"><b>Ürün çekimi istiyorum</b> (yalnız İzmir içi): işletmenize gelip çekiyoruz, +1.000 TL + KDV, tek ziyaret.</span></label>
               </div>
               <p class="o-domain-res bad" id="cekimRes" aria-live="polite"></p>
-              <p class="o-note">Modelleri hazırlayıp önizleme olarak gösteririz; onayınızla menünüze ekleriz. Canlı örneği telefonunuzda deneyin: <a href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">qr.fmjapps.com/fmj-3d-deneme</a></p>
+              <p class="o-note" data-i18n-html="ord.ek.note">Modelleri hazırlayıp önizleme olarak gösteririz; onayınızla menünüze ekleriz. Canlı örneği telefonunuzda deneyin: <a href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">qr.fmjapps.com/fmj-3d-deneme</a></p>
             </div>
           </div>
         </fieldset>
 
         <!-- 2. Proje -->
         <fieldset class="o-step">
-          <legend><span class="o-num">2</span>İşletmeniz</legend>
+          <legend><span class="o-num">2</span><span data-i18n="ord.s2">İşletmeniz</span></legend>
           <div class="o-row">
-            <label class="o-field"><span>İşletme adı</span><input name="isletme" maxlength="120" required autocomplete="organization"></label>
-            <label class="o-field"><span>Sektör <em>(isteğe bağlı)</em></span><input name="sektor" maxlength="80" placeholder="Kafe, güzellik salonu, klinik…"></label>
+            <label class="o-field"><span data-i18n="ord.f.biz">İşletme adı</span><input name="isletme" maxlength="120" required autocomplete="organization"></label>
+            <label class="o-field"><span data-i18n-html="ord.f.sector">Sektör <em>(isteğe bağlı)</em></span><input name="sektor" maxlength="80" placeholder="Kafe, güzellik salonu, klinik…" data-i18n-ph="ord.f.sector.ph"></label>
           </div>
 
           <div class="o-domain" data-for="web">
-            <label class="o-field"><span>İstediğiniz alan adı</span>
+            <label class="o-field"><span data-i18n="ord.f.domain">İstediğiniz alan adı</span>
               <span class="o-domain-row">
-                <input name="alanAdi" id="alanAdi" maxlength="80" placeholder="isletmeniz.com" autocapitalize="off" spellcheck="false">
-                <select name="yil" id="yil" aria-label="Kayıt süresi">
-                  <option value="1">1 yıl</option><option value="2">2 yıl</option><option value="3">3 yıl</option><option value="4">4 yıl</option><option value="5">5 yıl</option>
+                <input name="alanAdi" id="alanAdi" maxlength="80" placeholder="isletmeniz.com" autocapitalize="off" spellcheck="false" data-i18n-ph="ord.f.domain.ph">
+                <select name="yil" id="yil" aria-label="Kayıt süresi" data-i18n-aria="ord.f.period">
+                  <option value="1" data-i18n="ord.y1">1 yıl</option><option value="2" data-i18n="ord.y2">2 yıl</option><option value="3" data-i18n="ord.y3">3 yıl</option><option value="4" data-i18n="ord.y4">4 yıl</option><option value="5" data-i18n="ord.y5">5 yıl</option>
                 </select>
-                <button class="btn small ghost" type="button" id="domainBtn">Sorgula</button>
+                <button class="btn small ghost" type="button" id="domainBtn" data-i18n="ord.f.check">Sorgula</button>
               </span>
             </label>
             <p class="o-domain-res" id="domainRes" aria-live="polite"></p>
-            <p class="o-note">Alan adı fiyatı, kaydı yaptığımız Cloudflare’in güncel fiyatından TL’ye çevrilerek hesaplanır ve sipariş tutarına eklenir. Fiyat yüksek gelirse farklı bir ad ya da uzantı (.com, .net gibi) deneyin; daha uygun olabilir. Alan adı seçtiğiniz süre sonunda yenilenmezse siteniz yayından kalkar; süre dolmadan size hatırlatırız.</p>
+            <p class="o-note" data-i18n="ord.f.domain.note">Alan adı fiyatı, kaydı yaptığımız Cloudflare’in güncel fiyatından TL’ye çevrilerek hesaplanır ve sipariş tutarına eklenir. Fiyat yüksek gelirse farklı bir ad ya da uzantı (.com, .net gibi) deneyin; daha uygun olabilir. Alan adı seçtiğiniz süre sonunda yenilenmezse siteniz yayından kalkar; süre dolmadan size hatırlatırız.</p>
           </div>
 
           <div class="o-qr" data-for="qr" hidden>
-            <label class="o-field"><span>Menü adresi <em>(isteğe bağlı)</em></span>
-              <span class="o-prefix"><i>qr.fmjapps.com/</i><input name="menuAdres" maxlength="40" placeholder="isletmeniz" autocapitalize="off" spellcheck="false"></span>
+            <label class="o-field"><span data-i18n-html="ord.f.menuaddr">Menü adresi <em>(isteğe bağlı)</em></span>
+              <span class="o-prefix"><i>qr.fmjapps.com/</i><input name="menuAdres" maxlength="40" placeholder="isletmeniz" autocapitalize="off" spellcheck="false" data-i18n-ph="ord.f.menuaddr.ph"></span>
             </label>
-            <p class="o-note">Menünüz bu adreste yayınlanır; boş bırakırsanız işletme adınıza göre biz belirleriz.</p>
+            <p class="o-note" data-i18n="ord.f.menuaddr.note">Menünüz bu adreste yayınlanır; boş bırakırsanız işletme adınıza göre biz belirleriz.</p>
           </div>
 
-          <label class="o-field"><span>Kısaca anlatın <em>(isteğe bağlı)</em></span><textarea name="aciklama" rows="3" maxlength="2000" placeholder="Ne iş yapıyorsunuz, sitede neler olsun, beğendiğiniz renkler ya da örnek siteler…"></textarea></label>
-          <p class="o-note">Logonuzu, fotoğraflarınızı ve menünüzü siparişten sonra WhatsApp’tan ya da e-postayla alırız.</p>
+          <label class="o-field"><span data-i18n-html="ord.f.brief">Kısaca anlatın <em>(isteğe bağlı)</em></span><textarea name="aciklama" rows="3" maxlength="2000" placeholder="Ne iş yapıyorsunuz, sitede neler olsun, beğendiğiniz renkler ya da örnek siteler…" data-i18n-ph="ord.f.brief.ph"></textarea></label>
+          <p class="o-note" data-i18n="ord.f.brief.note">Logonuzu, fotoğraflarınızı ve menünüzü siparişten sonra WhatsApp’tan ya da e-postayla alırız.</p>
         </fieldset>
 
         <!-- 3. İletişim -->
         <fieldset class="o-step">
-          <legend><span class="o-num">3</span>İletişim bilgileri</legend>
+          <legend><span class="o-num">3</span><span data-i18n="ord.s3">İletişim bilgileri</span></legend>
           <div class="o-row">
-            <label class="o-field"><span>Ad</span><input name="ad" maxlength="60" required autocomplete="given-name"></label>
-            <label class="o-field"><span>Soyad</span><input name="soyad" maxlength="60" required autocomplete="family-name"></label>
+            <label class="o-field"><span data-i18n="ord.f.first">Ad</span><input name="ad" maxlength="60" required autocomplete="given-name"></label>
+            <label class="o-field"><span data-i18n="ord.f.last">Soyad</span><input name="soyad" maxlength="60" required autocomplete="family-name"></label>
           </div>
           <div class="o-row">
-            <label class="o-field"><span>E-posta</span><input name="email" type="email" maxlength="120" required autocomplete="email"></label>
-            <label class="o-field"><span>Cep telefonu</span><input name="telefon" type="tel" maxlength="20" required autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+            <label class="o-field"><span data-i18n="ord.f.email">E-posta</span><input name="email" type="email" maxlength="120" required autocomplete="email"></label>
+            <label class="o-field"><span data-i18n="ord.f.phone">Cep telefonu</span><input name="telefon" type="tel" maxlength="20" required autocomplete="tel" placeholder="05xx xxx xx xx"></label>
           </div>
         </fieldset>
 
         <!-- 4. Fatura -->
         <fieldset class="o-step">
-          <legend><span class="o-num">4</span>Fatura bilgileri</legend>
-          <div class="o-seg" role="radiogroup" aria-label="Fatura tipi">
-            <label><input type="radio" name="faturaTip" value="bireysel" checked><span>Bireysel</span></label>
-            <label><input type="radio" name="faturaTip" value="kurumsal"><span>Kurumsal</span></label>
+          <legend><span class="o-num">4</span><span data-i18n="ord.s4">Fatura bilgileri</span></legend>
+          <div class="o-seg" role="radiogroup" aria-label="Fatura tipi" data-i18n-aria="ord.f.invtype">
+            <label><input type="radio" name="faturaTip" value="bireysel" checked><span data-i18n="ord.f.indiv">Bireysel</span></label>
+            <label><input type="radio" name="faturaTip" value="kurumsal"><span data-i18n="ord.f.corp">Kurumsal</span></label>
           </div>
           <div data-fatura="bireysel">
-            <label class="o-field"><span>T.C. kimlik no <em>(isteğe bağlı)</em></span><input name="tckn" inputmode="numeric" maxlength="11" autocomplete="off"></label>
+            <label class="o-field"><span data-i18n-html="ord.f.tckn">T.C. kimlik no <em>(isteğe bağlı)</em></span><input name="tckn" inputmode="numeric" maxlength="11" autocomplete="off"></label>
           </div>
           <div data-fatura="kurumsal" hidden>
-            <label class="o-field"><span>Şirket unvanı</span><input name="unvan" maxlength="160" autocomplete="organization"></label>
+            <label class="o-field"><span data-i18n="ord.f.company">Şirket unvanı</span><input name="unvan" maxlength="160" autocomplete="organization"></label>
             <div class="o-row">
-              <label class="o-field"><span>Vergi dairesi</span><input name="vergiDairesi" maxlength="80"></label>
-              <label class="o-field"><span>Vergi / T.C. kimlik no</span><input name="vkn" inputmode="numeric" maxlength="11"></label>
+              <label class="o-field"><span data-i18n="ord.f.taxoff">Vergi dairesi</span><input name="vergiDairesi" maxlength="80"></label>
+              <label class="o-field"><span data-i18n="ord.f.taxno">Vergi / T.C. kimlik no</span><input name="vkn" inputmode="numeric" maxlength="11"></label>
             </div>
           </div>
-          <label class="o-field"><span>Adres</span><textarea name="adres" rows="2" maxlength="300" required autocomplete="street-address"></textarea></label>
+          <label class="o-field"><span data-i18n="ord.f.addr">Adres</span><textarea name="adres" rows="2" maxlength="300" required autocomplete="street-address"></textarea></label>
           <div class="o-row">
-            <label class="o-field"><span>İlçe</span><input name="ilce" maxlength="40" autocomplete="address-level2"></label>
-            <label class="o-field"><span>İl</span><input name="il" maxlength="40" required autocomplete="address-level1"></label>
+            <label class="o-field"><span data-i18n="ord.f.district">İlçe</span><input name="ilce" maxlength="40" autocomplete="address-level2"></label>
+            <label class="o-field"><span data-i18n="ord.f.city">İl</span><input name="il" maxlength="40" required autocomplete="address-level1"></label>
           </div>
-          <p class="o-note">Satış yalnızca Türkiye’de yerleşik alıcılara yapılır.</p>
+          <p class="o-note" data-i18n="ord.f.trnote">Satış yalnızca Türkiye’de yerleşik alıcılara yapılır.</p>
         </fieldset>
 
         <!-- 5. Onay -->
         <fieldset class="o-step">
-          <legend><span class="o-num">5</span>Onay ve ödeme</legend>
-          <label class="o-check"><input type="checkbox" name="onBilgi"><span><a href="/sozlesmeler/on-bilgilendirme/" target="_blank" rel="noopener">Ön bilgilendirme formunu</a> okudum.</span></label>
-          <label class="o-check"><input type="checkbox" name="sozlesme"><span><a href="/sozlesmeler/mesafeli-satis/" target="_blank" rel="noopener">Mesafeli satış sözleşmesini</a> ve <a href="/sozlesmeler/teslimat-iade/" target="_blank" rel="noopener">teslimat ve iade şartlarını</a> okudum, kabul ediyorum.</span></label>
-          <label class="o-check" data-for="web"><input type="checkbox" name="alanAdiOnay"><span>Alan adının ödemeden hemen sonra adıma kaydedilmesini istiyorum; kayıt yapıldığında bu kalem için cayma hakkımın sona ereceğini biliyorum.</span></label>
-          <label class="o-check" data-ek="3d" hidden><input type="checkbox" name="onay3d"><span>3D modellerin cayma süresi içinde hazırlanıp menüme eklenmesini istiyorum; yayına alınan modeller için cayma hakkımın sona ereceğini biliyorum.</span></label>
-          <label class="o-check" data-cekim hidden><input type="checkbox" name="cekimOnay"><span>Ürün çekiminin cayma süresi içinde yapılmasını istiyorum; çekim yapıldığında bu kalem için cayma hakkımın sona ereceğini biliyorum.</span></label>
-          <p class="o-note">Kişisel verileriniz siparişinizi yerine getirmek ve fatura kesmek için işlenir: <a href="/privacy/site/" target="_blank" rel="noopener">Gizlilik ve KVKK Aydınlatma Metni</a>. Kart bilgileriniz bize ulaşmaz; ödeme iyzico’nun sayfasında yapılır.</p>
-          <button class="btn primary o-pay" type="submit" id="payBtn"><span>Ödeme yükümlülüğüyle siparişi onayla</span> <b aria-hidden="true">→</b></button>
+          <legend><span class="o-num">5</span><span data-i18n="ord.s5">Onay ve ödeme</span></legend>
+          <label class="o-check"><input type="checkbox" name="onBilgi"><span data-i18n-html="ord.c.info"><a href="/sozlesmeler/on-bilgilendirme/" target="_blank" rel="noopener">Ön bilgilendirme formunu</a> okudum.</span></label>
+          <label class="o-check"><input type="checkbox" name="sozlesme"><span data-i18n-html="ord.c.terms"><a href="/sozlesmeler/mesafeli-satis/" target="_blank" rel="noopener">Mesafeli satış sözleşmesini</a> ve <a href="/sozlesmeler/teslimat-iade/" target="_blank" rel="noopener">teslimat ve iade şartlarını</a> okudum, kabul ediyorum.</span></label>
+          <p class="o-note" id="trLegal" data-i18n="ord.c.legaltr" hidden>Sözleşme ve ön bilgilendirme metinleri Türkçedir.</p>
+          <label class="o-check" data-for="web"><input type="checkbox" name="alanAdiOnay"><span data-i18n="ord.c.domain">Alan adının ödemeden hemen sonra adıma kaydedilmesini istiyorum; kayıt yapıldığında bu kalem için cayma hakkımın sona ereceğini biliyorum.</span></label>
+          <label class="o-check" data-ek="3d" hidden><input type="checkbox" name="onay3d"><span data-i18n="ord.c.3d">3D modellerin cayma süresi içinde hazırlanıp menüme eklenmesini istiyorum; yayına alınan modeller için cayma hakkımın sona ereceğini biliyorum.</span></label>
+          <label class="o-check" data-cekim hidden><input type="checkbox" name="cekimOnay"><span data-i18n="ord.c.shoot">Ürün çekiminin cayma süresi içinde yapılmasını istiyorum; çekim yapıldığında bu kalem için cayma hakkımın sona ereceğini biliyorum.</span></label>
+          <p class="o-note" data-i18n-html="ord.c.privacy">Kişisel verileriniz siparişinizi yerine getirmek ve fatura kesmek için işlenir: <a href="/privacy/site/" target="_blank" rel="noopener">Gizlilik ve KVKK Aydınlatma Metni</a>. Kart bilgileriniz bize ulaşmaz; ödeme iyzico’nun sayfasında yapılır.</p>
+          <button class="btn primary o-pay" type="submit" id="payBtn"><span data-i18n="ord.c.pay">Ödeme yükümlülüğüyle siparişi onayla</span> <b aria-hidden="true">→</b></button>
           <img class="o-paylogos" src="/assets/pay/iyzico-band-colored.png" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" width="429" height="32">
-          <p class="o-secure"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>Ödemeniz iyzico güvencesiyle alınır · 14 gün içinde gerekçe göstermeden cayma hakkı<span data-cayma> (kaydedilen alan adı ücreti hariç)</span></p>
+          <p class="o-secure"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span data-i18n="ord.c.secure">Ödemeniz iyzico güvencesiyle alınır · 14 gün içinde gerekçe göstermeden cayma hakkı</span><span data-cayma> (kaydedilen alan adı ücreti hariç)</span></p>
         </fieldset>
       </form>
 
-      <aside class="order-sum" aria-label="Sipariş özeti">
-        <h2>Sipariş özeti</h2>
+      <aside class="order-sum" aria-label="Sipariş özeti" data-i18n-aria="ord.sum.t">
+        <h2 data-i18n="ord.sum.t">Sipariş özeti</h2>
         <ul class="sum-lines" id="sumLines"></ul>
         <dl class="sum-tot">
-          <div><dt>Ara toplam</dt><dd id="sumNet">—</dd></div>
-          <div><dt>KDV (%20)</dt><dd id="sumKdv">—</dd></div>
-          <div class="sum-grand"><dt>Toplam</dt><dd id="sumTotal">—</dd></div>
+          <div><dt data-i18n="ord.sum.net">Ara toplam</dt><dd id="sumNet">—</dd></div>
+          <div><dt data-i18n="ord.sum.vat">KDV (%20)</dt><dd id="sumKdv">—</dd></div>
+          <div class="sum-grand"><dt data-i18n="ord.sum.total">Toplam</dt><dd id="sumTotal">—</dd></div>
         </dl>
-        <p class="o-note" id="sumHint">Alan adını sorguladığınızda fiyatı özete eklenir.</p>
+        <p class="o-note" id="sumHint" data-i18n="ord.sum.hint">Alan adını sorguladığınızda fiyatı özete eklenir.</p>
         <ul class="sum-trust">
-          <li>Barındırma ücreti yok</li>
-          <li>14 gün içinde gerekçe göstermeden cayma hakkı<span data-cayma> (kaydedilen alan adı ücreti hariç)</span></li>
-          <li>Faturalı satış · FMJ Apps</li>
+          <li data-i18n="ord.sum.t1">Barındırma ücreti yok</li>
+          <li><span data-i18n="ord.sum.t2">14 gün içinde gerekçe göstermeden cayma hakkı</span><span data-cayma> (kaydedilen alan adı ücreti hariç)</span></li>
+          <li data-i18n="ord.sum.t3">Faturalı satış · FMJ Apps</li>
         </ul>
-        <p class="sum-help">Sorunuz mu var? <a href="https://wa.me/905333181555" target="_blank" rel="noopener">WhatsApp’tan yazın</a> ya da <a href="tel:+905333181555">+90 533 318 15 55</a></p>
+        <p class="sum-help" data-i18n-html="ord.sum.help">Sorunuz mu var? <a href="https://wa.me/905333181555" target="_blank" rel="noopener">WhatsApp’tan yazın</a> ya da <a href="tel:+905333181555">+90 533 318 15 55</a></p>
       </aside>
     </div>
   </section>
@@ -314,8 +330,8 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=311026a" defer></script>
-<script src="/siparis/siparis.js?v=311026a" defer></script>
+<script src="/site.js?v=311026g" defer></script>
+<script src="/siparis/siparis.js?v=311026g" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>
 </body>

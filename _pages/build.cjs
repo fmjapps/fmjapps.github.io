@@ -42,6 +42,7 @@ const appsPath = lang => lang === 'tr' ? '/uygulamalar/' : '/' + lang + '/apps/'
 const appsOf = (lang, hash) => appsPath(lang) + (hash ? '#' + hash : '');
 // Hakkımızda ve künye: Türkçesi /hakkimizda/, diğer diller /<dil>/about/
 const aboutPath = lang => lang === 'tr' ? '/hakkimizda/' : '/' + lang + '/about/';
+const orderPath = lang => lang === 'tr' ? '/siparis/' : '/' + lang + '/order/';
 // Her dilin kendi ekran görüntüleri var (assets/shots/<dil>/<uygulama>-<n>.webp, uygulamaların mağaza görsellerinden)
 // app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
 const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
@@ -82,7 +83,7 @@ function siteNav(lang) {
           <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small>${x('co.refs.qr')}</small></a>
         </div>
       </div>
-      <a class="buy-link" href="/siparis/">${x('pk.buy')}</a>
+      <a class="buy-link" href="${orderPath(lang)}">${x('pk.buy')}</a>
       <a class="cta-link" href="${homeOf(lang, 'iletisim')}">${x('nav.contact')}</a>
     `;
 }
@@ -178,7 +179,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css?v=311026a">
+<link rel="stylesheet" href="/app.css?v=311026g">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:${app.acc}${app.acc2 ? ';--acc-2:' + app.acc2 : ''}">
@@ -352,7 +353,10 @@ const TEMPLATES = [
   { id: 'mirus', out: l => l === 'tr' ? '/mirus/' : '/' + l + '/mirus/', meta: 'mirus.meta', og: l => '/assets/og-mirus-' + l + '.jpg' },
   { id: 'about', out: aboutPath, meta: 'about.meta', og: l => '/assets/og-site-' + l + '.jpg' },
   { id: 'qrmenu', out: l => l === 'tr' ? '/qr-menu/' : '/' + l + '/qr-menu/', meta: 'qr.meta', og: l => '/assets/og-qrmenu-' + l + '.jpg' },
-  { id: 'web', out: l => l === 'tr' ? '/web-sitesi/' : '/' + l + '/website/', meta: 'web.meta', og: l => '/assets/og-web-' + l + '.jpg' }
+  { id: 'web', out: l => l === 'tr' ? '/web-sitesi/' : '/' + l + '/website/', meta: 'web.meta', og: l => '/assets/og-web-' + l + '.jpg' },
+  // Sipariş sayfaları dizine girmez (noindex); site haritasına da yazılmaz
+  { id: 'order', out: orderPath, meta: 'ord.meta', og: l => '/assets/og-site-' + l + '.jpg', noindex: true },
+  { id: 'orderdone', out: l => l === 'tr' ? '/siparis/tamam/' : '/' + l + '/order/done/', meta: 'done.meta', og: l => '/assets/og-site-' + l + '.jpg', noindex: true }
 ];
 const HOME_DICT = {};
 const HOME_LANGS_OK = HOME_LANGS.filter(l => l === 'tr' || fs.existsSync(path.join(ROOT, 'i18n', l + '.json')));
@@ -484,7 +488,7 @@ const appAlts = app => LANGS.map(l => `    <xhtml:link rel="alternate" hreflang=
   `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE + urlOf(app, 'en')}"/>`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${TEMPLATES.map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
+${TEMPLATES.filter(tpl => !tpl.noindex).map((tpl, i) => HOME_LANGS_OK.map(l => entry(BASE + tpl.out(l), tplAlts(tpl), ((l === 'tr' ? 1 : l === 'en' ? 0.9 : 0.7) - (i ? 0.1 : 0)).toFixed(1))).join('\n')).join('\n')}
 ${APPS.map(app => LANGS.map(l => entry(BASE + urlOf(app, l), appAlts(app), '0.8')).join('\n')).join('\n')}
 ${['', 'kayip/', 'collector/', 'prizma/', 'ezber/', 'paydos/', 'mirus/', 'qr-menu/', 'site/'].map(p => entry(BASE + '/privacy/' + p, '', '0.3')).join('\n')}
 ${['mesafeli-satis/', 'on-bilgilendirme/', 'teslimat-iade/', 'cayma-formu/'].map(p => entry(BASE + '/sozlesmeler/' + p, '', '0.3')).join('\n')}

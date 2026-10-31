@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-6oEdQK3h+cOOHDNLXJ9DrbMAXmkHtOISua+mdHWanL8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Заказ принят · FMJ Apps</title>
+<meta name="description" content="Ваш заказ принят.">
+<meta name="theme-color" content="#1C3334">
+<link rel="canonical" href="https://fmjapps.com/ru/order/done/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/siparis/tamam/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/order/done/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/order/done/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/order/done/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/order/done/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/order/done/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/order/done/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/order/done/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/order/done/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/order/done/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/order/done/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/order/done/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/order/done/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/order/done/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/siparis/tamam/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css?v=311026g">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'light';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.search + location.hash);
+    }
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#top">İçeriğe geç</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/ru/" data-en-href="/en/" aria-label="FMJ Apps">
+      <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Надёжные решения, эффективные результаты</span>
+    </a>
+    <nav class="links" aria-label="Bölümler">
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/ru/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">Познакомьтесь с Mirus</a>
+          <a href="/ru/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">Отрасли</a>
+          <a href="/ru/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Живое демо</a>
+          <a href="/ru/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">Возможности</a>
+        </div>
+      </div>
+      <a href="/ru/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menu</a>
+      <a href="/ru/website/" data-en-href="/en/website/" data-i18n="web.name">Сайт</a>
+      <a href="/ru/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Приложения</a>
+      <a href="/ru/about/" data-en-href="/en/about/" data-i18n="nav.about">О нас</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Наши клиенты</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Сайт</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">QR-меню</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/ru/order/" data-en-href="/en/order/" data-i18n="pk.buy">Купить</a>
+      <a class="cta-link" href="/ru/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">Контакты</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="Сменить тему">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="Меню" data-i18n-aria="menu"></nav>
+
+<main id="top" class="order-page">
+  <section class="order-wrap wrap order-done">
+    <span class="done-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span>
+    <p class="eyebrow" data-i18n="done.eyebrow">Платёж получен</p>
+    <h1 data-i18n="done.h1">Спасибо, ваш заказ у нас.</h1>
+    <p class="lede" data-i18n-html="done.lede">Номер вашего заказа: <b id="doneNo">—</b></p>
+    <ol class="done-steps">
+      <li data-i18n="done.l1">Подтверждение заказа и соглашения отправлены на ваш адрес электронной почты.</li>
+      <li data-i18n="done.l2">Счёт и копию вашего договора мы пришлём по электронной почте.</li>
+      <li data-i18n="done.l3">Мы свяжемся с вами в WhatsApp или по телефону, чтобы получить логотип, фотографии и другие данные.</li>
+    </ol>
+    <p class="o-note" data-i18n-html="done.note">Если вы передумаете, у вас есть 14 дней на отказ от заказа без объяснения причин (кроме платы за зарегистрированное доменное имя). Подробнее: <a href="/sozlesmeler/teslimat-iade/">Условия доставки и возврата</a></p>
+    <div class="actions">
+      <a class="btn primary" href="https://wa.me/905333181555" target="_blank" rel="noopener"><span data-i18n="done.wa">Написать в WhatsApp</span> <b aria-hidden="true">→</b></a>
+      <a class="btn ghost" href="/ru/" data-en-href="/en/" data-i18n="done.home">На главную</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="foot-logo"><img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="164" height="30"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="164" height="30"></span>
+      <span data-i18n="co.tagline">Надёжные решения, эффективные результаты</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">Решения</span>
+      <a href="/ru/mirus/" data-en-href="/en/mirus/">Mirus</a>
+      <a href="/ru/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menu</a>
+      <a href="/ru/website/" data-en-href="/en/website/" data-i18n="web.name">Сайт</a>
+      <a href="/ru/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">Решение для вашего бизнеса</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">Контакты</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+      <a href="tel:+905333181555">+90 533 318 15 55</a>
+      <a href="https://wa.me/905333181555" target="_blank" rel="noopener">WhatsApp</a>
+      <nav class="foot-social" aria-label="Instagram, TikTok, YouTube, Facebook, Google Play"><a href="https://www.instagram.com/fmjapps" target="_blank" rel="noopener me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@fmjsoftware" target="_blank" rel="noopener me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.3 1.9 3.8 4.2 4v3.2a7.6 7.6 0 0 1-4.1-1.2v6.3A6 6 0 1 1 10.8 9.4v3.3a2.8 2.8 0 1 0 2.6 2.8V3Z"/></svg></a><a href="https://www.youtube.com/@fmjapps" target="_blank" rel="noopener me" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8ZM10 15V9l5.2 3Z"/></svg></a><a href="https://www.facebook.com/profile.php?id=61594978658646" target="_blank" rel="noopener me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21Z"/></svg></a><a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener me" aria-label="Google Play" title="Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.6 2.8 13.9 12l-9.3 9.2A1.3 1.3 0 0 1 4 20V4c0-.5.2-1 .6-1.2Zm10.4 10.3 2.3 2.3-10.6 6 8.3-8.3Zm0-2.2L6.7 2.6l10.6 6-2.3 2.3Zm3.7 3.6-2.6-2.5 2.6-2.5 2.7 1.5c.9.5.9 1.6 0 2.1Z"/></svg></a></nav>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="co.foot.company">Компания</span>
+      <a href="/ru/about/" data-en-href="/en/about/" data-i18n="nav.about">О нас</a>
+      <a href="/ru/about/#kunye" data-en-href="/en/about/#kunye" data-i18n="about.info.kick">Реквизиты</a>
+      <a href="/privacy/" data-i18n="about.privacy">Политики конфиденциальности</a>
+      <a href="/sozlesmeler/mesafeli-satis/" data-i18n="foot.sales">Договор дистанционной продажи</a>
+      <a href="/sozlesmeler/teslimat-iade/" data-i18n="foot.returns">Доставка и возврат</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Apps</span>
+    <a href="#top" data-i18n="foot.top">Наверх ↑</a>
+  </div>
+  <div class="wrap pay-band"><img src="/assets/pay/iyzico-band-white.png" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" width="456" height="32" loading="lazy"></div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Apps · <span data-i18n="co.kunye.vd">Налоговая инспекция Menemen</span> · <span data-i18n="co.kunye.vkn">ИНН</span> 3870844488 · ETBİS 4576267076 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="/ru/about/" data-en-href="/en/about/" data-i18n="nav.about">О нас</a></p></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js?v=311026g" defer></script>
+<script src="/siparis/tamam.js" defer></script>
+<script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
+<script src="/mirus-tema.js" defer></script>
+</body>
+</html>

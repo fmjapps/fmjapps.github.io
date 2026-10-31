@@ -2,7 +2,7 @@
 <html lang="tr" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-8tOT994V3PGwaF8JNNl80VGj/DC66oD59ksGpM7Fn/c='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-6oEdQK3h+cOOHDNLXJ9DrbMAXmkHtOISua+mdHWanL8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,6 +10,21 @@
 <meta name="description" content="Siparişiniz alındı.">
 <meta name="theme-color" content="#1C3334">
 <link rel="canonical" href="https://fmjapps.com/siparis/tamam/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/siparis/tamam/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/order/done/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/order/done/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/order/done/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/order/done/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/order/done/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/order/done/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/order/done/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/order/done/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/order/done/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/order/done/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/order/done/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/order/done/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/order/done/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/siparis/tamam/">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
@@ -20,7 +35,7 @@
 <link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css?v=311026a">
+<link rel="stylesheet" href="/site.css?v=311026g">
 <script>
   // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
   (function () {
@@ -47,7 +62,7 @@
     var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
     if (alt) {
       d.className = 'js i18n-wait';
-      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.hash);
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.search + location.hash);
     }
   })();
 </script>
@@ -82,7 +97,7 @@
           <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">QR menü</small></a>
         </div>
       </div>
-      <a class="buy-link" href="/siparis/" data-i18n="pk.buy">Satın al</a>
+      <a class="buy-link" href="/siparis/" data-en-href="/en/order/" data-i18n="pk.buy">Satın al</a>
       <a class="cta-link" href="/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
@@ -105,18 +120,18 @@
 <main id="top" class="order-page">
   <section class="order-wrap wrap order-done">
     <span class="done-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></svg></span>
-    <p class="eyebrow">Ödeme alındı</p>
-    <h1>Teşekkürler, siparişiniz bize ulaştı.</h1>
-    <p class="lede">Sipariş numaranız: <b id="doneNo">—</b></p>
+    <p class="eyebrow" data-i18n="done.eyebrow">Ödeme alındı</p>
+    <h1 data-i18n="done.h1">Teşekkürler, siparişiniz bize ulaştı.</h1>
+    <p class="lede" data-i18n-html="done.lede">Sipariş numaranız: <b id="doneNo">—</b></p>
     <ol class="done-steps">
-      <li>Sipariş teyidiniz ve sözleşmeleriniz e-posta adresinize gönderildi.</li>
-      <li>Faturanızı ve sözleşmenizin bir kopyasını e-postayla iletiyoruz.</li>
-      <li>Logonuz, fotoğraflarınız ve diğer bilgiler için size WhatsApp’tan ya da telefonla ulaşıyoruz.</li>
+      <li data-i18n="done.l1">Sipariş teyidiniz ve sözleşmeleriniz e-posta adresinize gönderildi.</li>
+      <li data-i18n="done.l2">Faturanızı ve sözleşmenizin bir kopyasını e-postayla iletiyoruz.</li>
+      <li data-i18n="done.l3">Logonuz, fotoğraflarınız ve diğer bilgiler için size WhatsApp’tan ya da telefonla ulaşıyoruz.</li>
     </ol>
-    <p class="o-note">Fikriniz değişirse 14 gün içinde gerekçe göstermeden cayma hakkınız var (kaydedilen alan adı ücreti hariç). Ayrıntılar: <a href="/sozlesmeler/teslimat-iade/">Teslimat ve iade şartları</a></p>
+    <p class="o-note" data-i18n-html="done.note">Fikriniz değişirse 14 gün içinde gerekçe göstermeden cayma hakkınız var (kaydedilen alan adı ücreti hariç). Ayrıntılar: <a href="/sozlesmeler/teslimat-iade/">Teslimat ve iade şartları</a></p>
     <div class="actions">
-      <a class="btn primary" href="https://wa.me/905333181555" target="_blank" rel="noopener"><span>WhatsApp’tan yazın</span> <b aria-hidden="true">→</b></a>
-      <a class="btn ghost" href="/">Ana sayfaya dön</a>
+      <a class="btn primary" href="https://wa.me/905333181555" target="_blank" rel="noopener"><span data-i18n="done.wa">WhatsApp’tan yazın</span> <b aria-hidden="true">→</b></a>
+      <a class="btn ghost" href="/" data-en-href="/en/" data-i18n="done.home">Ana sayfaya dön</a>
     </div>
   </section>
 </main>
@@ -160,7 +175,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="/site.js?v=311026a" defer></script>
+<script src="/site.js?v=311026g" defer></script>
 <script src="/siparis/tamam.js" defer></script>
 <script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
 <script src="/mirus-tema.js" defer></script>

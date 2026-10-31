@@ -11,7 +11,7 @@
   // Mirus sunucusundaki site demosu (şifre gerekiyorsa sunucu söyler)
   var DEMO_API = 'https://mirus.fmjapps.com/api/site';
 
-  // İnsan doğrulaması (Cloudflare Turnstile): form.fmjapps.com/durum site anahtarını verirse görünmez bir doğrulama
+  // İnsan doğrulaması: form.fmjapps.com/durum "pow" derse kendi iş kanıtımız (aşağıda); geçiş süresince Turnstile anahtarı verirse eski yol
   // çalışır; yalnız şüpheli durumda sol altta küçük bir kutu çıkar. Anahtar yoksa ya da yüklenemezse null döner.
   var tsLoading = null;
   function tsLoad() {
@@ -26,9 +26,32 @@
     });
     return tsLoading;
   }
+  // Kendi iş kanıtı doğrulamamız: form.fmjapps.com/zorluk imzalı bir bulmaca verir, tarayıcı çözer, çözüm formla birlikte gider.
+  // Üçüncü tarafa istek gitmez. sha256(salt + sayı) = challenge olan sayıyı 0..maxnumber arasında arar.
+  function solvePow(c) {
+    var enc = new TextEncoder(), n = 0;
+    function hex(buf) { var a = new Uint8Array(buf), h = ''; for (var i = 0; i < a.length; i++) h += (a[i] < 16 ? '0' : '') + a[i].toString(16); return h; }
+    function next() {
+      if (n > c.maxnumber) return Promise.reject(new Error('pow'));
+      var start = n, end = Math.min(n + 512, c.maxnumber + 1), ps = [];
+      n = end;
+      for (var i = start; i < end; i++) ps.push(crypto.subtle.digest('SHA-256', enc.encode(c.salt + i)));
+      return Promise.all(ps).then(function (hs) {
+        for (var k = 0; k < hs.length; k++) if (hex(hs[k]) === c.challenge) return start + k;
+        return next();
+      });
+    }
+    if (!window.crypto || !crypto.subtle) return Promise.reject(new Error('pow'));
+    return next().then(function (num) {
+      var json = JSON.stringify({ challenge: c.challenge, salt: c.salt, signature: c.signature, number: num });
+      return 'pow1.' + btoa(json).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    });
+  }
   function insanToken(api) {
     return fetch(api + '/durum').then(function (r) { return r.json(); }).then(function (j) {
-      if (!j || !j.ts) return null;
+      if (!j) return null;
+      if (j.pow) return fetch(api + '/zorluk').then(function (r) { return r.json(); }).then(solvePow);
+      if (!j.ts) return null;
       return tsLoad().then(function () {
         return new Promise(function (resolve) {
           var box = document.createElement('div');

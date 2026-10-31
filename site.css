@@ -1884,3 +1884,19 @@ main > .sec.ar-sec { background: radial-gradient(120% 90% at 85% 10%, #2A4F50 0%
   .qp-turn svg, .qp-turn:is(*) svg { order: 0; width: 40px; height: 30px; transform: rotate(75deg); }
 }
 @media (max-width: 1320px) { .qr-phone > .dv-cap { order: 4; } }
+
+/* Sipariş formu: fieldset içeriğe göre genişlemesin; uzun çeviriler dar ekranda taşmasın */
+.o-step { min-width: 0; }
+.o-check span, .o-note, .o-field > span, .order-head p { overflow-wrap: anywhere; }
+
+/* Dar ekranda uzun sloganlar (Fransızca, Rusça...) üst çubuğu taşırıp menü düğmesini dışarı itmesin */
+@media (max-width: 520px) {
+  .nav-in .brand { flex: 1 1 0; min-width: 0; }
+  .nav-in .brand .brand-tag { max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 960px) {
+  .hero-grid > * { min-width: 0; }
+  .hero.page .actions { flex-wrap: wrap; }
+  .hero.page .actions .btn { min-width: 0; flex: 1 1 auto; justify-content: center; }
+}
+.o-pay { white-space: normal; height: auto; min-height: 50px; padding-block: 12px; text-align: center; line-height: 1.3; }

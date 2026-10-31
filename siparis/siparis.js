@@ -6,7 +6,7 @@
   var API = 'https://form.fmjapps.com';
   try { if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && localStorage.getItem('fmj-api')) API = localStorage.getItem('fmj-api'); } catch (e) {}
 
-// İnsan doğrulaması (Cloudflare Turnstile): form.fmjapps.com/durum site anahtarını verirse görünmez bir doğrulama
+// İnsan doğrulaması: form.fmjapps.com/durum "pow" derse kendi iş kanıtımız (aşağıda); geçiş süresince Turnstile anahtarı verirse eski yol
   // çalışır; yalnız şüpheli durumda sol altta küçük bir kutu çıkar. Anahtar yoksa ya da yüklenemezse null döner.
   var tsLoading = null;
   function tsLoad() {
@@ -21,9 +21,32 @@
     });
     return tsLoading;
   }
+  // Kendi iş kanıtı doğrulamamız: form.fmjapps.com/zorluk imzalı bir bulmaca verir, tarayıcı çözer, çözüm formla birlikte gider.
+  // Üçüncü tarafa istek gitmez. sha256(salt + sayı) = challenge olan sayıyı 0..maxnumber arasında arar.
+  function solvePow(c) {
+    var enc = new TextEncoder(), n = 0;
+    function hex(buf) { var a = new Uint8Array(buf), h = ''; for (var i = 0; i < a.length; i++) h += (a[i] < 16 ? '0' : '') + a[i].toString(16); return h; }
+    function next() {
+      if (n > c.maxnumber) return Promise.reject(new Error('pow'));
+      var start = n, end = Math.min(n + 512, c.maxnumber + 1), ps = [];
+      n = end;
+      for (var i = start; i < end; i++) ps.push(crypto.subtle.digest('SHA-256', enc.encode(c.salt + i)));
+      return Promise.all(ps).then(function (hs) {
+        for (var k = 0; k < hs.length; k++) if (hex(hs[k]) === c.challenge) return start + k;
+        return next();
+      });
+    }
+    if (!window.crypto || !crypto.subtle) return Promise.reject(new Error('pow'));
+    return next().then(function (num) {
+      var json = JSON.stringify({ challenge: c.challenge, salt: c.salt, signature: c.signature, number: num });
+      return 'pow1.' + btoa(json).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    });
+  }
   function insanToken(api) {
     return fetch(api + '/durum').then(function (r) { return r.json(); }).then(function (j) {
-      if (!j || !j.ts) return null;
+      if (!j) return null;
+      if (j.pow) return fetch(api + '/zorluk').then(function (r) { return r.json(); }).then(solvePow);
+      if (!j.ts) return null;
       return tsLoad().then(function () {
         return new Promise(function (resolve) {
           var box = document.createElement('div');
@@ -43,10 +66,92 @@
     }).catch(function () { return null; });
   }
 
+  // Sayfanın dili adresinden gelir (/en/order/ ...); Türkçe metinler burada, diğer diller /i18n/<dil>.json içinde
+  var LANG = document.documentElement.lang || 'tr';
+  var TR = {
+    "ord.y1": "1 yıl",
+    "ord.y2": "2 yıl",
+    "ord.y3": "3 yıl",
+    "ord.y4": "4 yıl",
+    "ord.y5": "5 yıl",
+    "ordj.pk.web": "Web Sitesi",
+    "ordj.pk.qr": "QR Menü (1 yıllık kullanım)",
+    "ordj.l3d": "3D model ve AR ({n} ürün × {p} TL)",
+    "ordj.lshoot": "Ürün çekimi (İzmir içi)",
+    "ordj.ldomain": "Alan adı: {d} ({y})",
+    "ordj.sum.ok": "ürün × {p} TL = {t} + KDV",
+    "ordj.sum.empty": "ürün × {p} TL + KDV",
+    "ordj.sum.bad": "{min} ile {max} arasında bir sayı yazın",
+    "ordj.cekimwarn": "Ürün çekimi yalnız İzmir il sınırları içinde yapılıyor. İzmir dışındaysanız fotoğrafları siz çekin; nasıl çekileceğini tarif ederiz.",
+    "ordj.cay.dom": "kaydedilen alan adı ücreti",
+    "ordj.cay.shoot": "yapılmış ürün çekimi",
+    "ordj.cay.3d": "yayına alınmış 3D modeller",
+    "ordj.cay.sep": ", ",
+    "ordj.cay.wrap": " ({list} hariç)",
+    "ordj.m.dom.a": "Alan adı",
+    "ordj.m.dom.b": "sorgulanmadı",
+    "ordj.m.3d.a": "3D model: ürün sayısı",
+    "ordj.m.3d.b": "girilmedi",
+    "ordj.r.ext": "Bu uzantıyı şu an otomatik kaydedemiyoruz. .com, .net gibi bir uzantı deneyin ya da bize WhatsApp’tan yazın.",
+    "ordj.r.taken": "Bu alan adı alınmış. Farklı bir ad ya da uzantı deneyin.",
+    "ordj.r.premium": "Bu alan adı “premium” fiyatlı; çok pahalı olduğu için başka bir ad deneyin.",
+    "ordj.d.bad": "Alan adını uzantısıyla birlikte yazın, örneğin isletmeniz.com",
+    "ordj.d.wait": "Sorgulanıyor…",
+    "ordj.d.rate": "Çok sık sorguladınız; bir dakika sonra tekrar deneyin.",
+    "ordj.d.fail": "Şu an sorgulanamadı. Biraz sonra tekrar deneyin ya da bize WhatsApp’tan yazın.",
+    "ordj.d.free": "{d} boşta. Kayıt ({y}): {p} + KDV.",
+    "ordj.d.renew": " Süre bitince yenileme yıllık yaklaşık {p} + KDV (o günkü kura göre).",
+    "ordj.d.conn": "Bağlantı kurulamadı. Biraz sonra tekrar deneyin.",
+    "ordj.lb.ad": "ad",
+    "ordj.lb.soyad": "soyad",
+    "ordj.lb.email": "e-posta",
+    "ordj.lb.telefon": "cep telefonu",
+    "ordj.lb.tckn": "T.C. kimlik no",
+    "ordj.lb.unvan": "şirket unvanı",
+    "ordj.lb.vergiDairesi": "vergi dairesi",
+    "ordj.lb.vkn": "vergi no",
+    "ordj.lb.adres": "adres",
+    "ordj.lb.il": "il",
+    "ordj.lb.isletme": "işletme adı",
+    "ordj.lb.alanAdi": "alan adı",
+    "ordj.lb.menuAdres": "menü adresi",
+    "ordj.lb.onBilgi": "ön bilgilendirme onayı",
+    "ordj.lb.sozlesme": "sözleşme onayı",
+    "ordj.lb.alanAdiOnay": "alan adı kaydı onayı",
+    "ordj.lb.paket": "paket",
+    "ordj.lb.urun3d": "3D ürün sayısı",
+    "ordj.lb.cekim": "ürün çekimi (yalnız İzmir içi)",
+    "ordj.lb.onay3d": "3D model onayı",
+    "ordj.lb.cekimOnay": "ürün çekimi onayı",
+    "ordj.closed": "Online ödeme çok yakında açılıyor. Şimdilik siparişinizi WhatsApp’tan (+90 533 318 15 55) ya da contact@fmjapps.com adresinden verebilirsiniz.",
+    "ordj.err.dom": "Devam etmek için alan adını sorgulayın.",
+    "ordj.err.fields": "Lütfen işaretli alanları kontrol edin: {list}.",
+    "ordj.err.fields2": "Lütfen işaretli alanları kontrol edin.",
+    "ordj.err.taken1": "Bu alan adı az önce alınmış görünüyor; başka bir ad deneyin.",
+    "ordj.err.taken2": "Alan adı artık boşta değil; lütfen yeniden sorgulayın.",
+    "ordj.err.bot": "Güvenlik doğrulaması tamamlanamadı. Sayfayı yenileyip tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55",
+    "ordj.err.rate": "Çok sık denediniz; bir dakika sonra tekrar deneyin.",
+    "ordj.err.pay": "Ödeme sayfası şu an açılamadı. Biraz sonra tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55",
+    "ordj.err.conn": "Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.",
+    "ordj.err.hata": "Ödeme tamamlanmadı; kartınızdan bir çekim yapıldıysa otomatik olarak iade edilir. Bilgileriniz duruyor, tekrar deneyebilirsiniz."
+  };
+  var DICT = null;
+  function s(key, vars) {
+    var v = (LANG !== 'tr' && DICT && DICT[key]) || TR[key] || key;
+    return vars ? v.replace(/\{(\w+)\}/g, function (m, k) { return vars[k] != null ? vars[k] : m; }) : v;
+  }
+  var langReady = LANG === 'tr' ? Promise.resolve() : fetch('/i18n/' + LANG + '.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (j) { DICT = j; })
+    .catch(function () {});
+  // Para birimi hep TL kalır; yalnız sayı yazımı sayfanın diline uyar (3.700 / 3,700)
+  var NUM = LANG === 'tr' ? 'tr-TR' : LANG + '-u-nu-latn';
+  var num = function (n, o) { try { return n.toLocaleString(NUM, o); } catch (e) { return n.toLocaleString('tr-TR', o); } };
+
   var KDV = 0.20;
   var PACKS = {
-    web: { name: 'Web Sitesi', price: 3700, domain: true },
-    qr: { name: 'QR Menü (1 yıllık kullanım)', price: 1450, domain: false }
+    web: { k: 'ordj.pk.web', price: 3700, domain: true },
+    qr: { k: 'ordj.pk.qr', price: 1450, domain: false }
   };
   // QR Menü'ye 3D model ve artırılmış gerçeklik eki: ürün başına ücret, isteğe bağlı İzmir içi çekim (sunucuyla aynı)
   var EK3D = { perItem: 100, min: 1, max: 200, shoot: 1000 };
@@ -69,11 +174,11 @@
 
   var domain = null; // son başarılı sorgu: { domain, years, price, renewalPerYear }
 
-  var fmt = function (n) { return n.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TL'; };
+  var fmt = function (n) { return num(n, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' TL'; };
   var pkgKey = function () { var r = form.querySelector('input[name=paket]:checked'); return r ? r.value : 'web'; };
   var field = function (n) { return form.elements[n]; };
   var radio = function (n, def) { var r = form.querySelector('input[name=' + n + ']:checked'); return r ? r.value : def; };
-  var fmtTl = function (n) { return n.toLocaleString('tr-TR') + ' TL'; };
+  var fmtTl = function (n) { return num(n) + ' TL'; };
   // 3D eki durumu: yalnız QR Menü seçiliyken
   function ek3d() {
     if (pkgKey() !== 'qr' || !field('ek3d').checked) return null;
@@ -96,24 +201,24 @@
     var e3 = ek3d();
     form.querySelectorAll('[data-ek]').forEach(function (el) { el.hidden = !e3; });
     form.querySelectorAll('[data-cekim]').forEach(function (el) { el.hidden = !(e3 && e3.cekim); });
-    var cayma = key === 'web' ? ['kaydedilen alan adı ücreti'] : [];
-    if (e3 && e3.cekim) cayma.push('yapılmış ürün çekimi');
-    if (e3) cayma.push('yayına alınmış 3D modeller');
-    document.querySelectorAll('[data-cayma]').forEach(function (el) { el.textContent = cayma.length ? ' (' + cayma.join(', ') + ' hariç)' : ''; });
+    var cayma = key === 'web' ? [s('ordj.cay.dom')] : [];
+    if (e3 && e3.cekim) cayma.push(s('ordj.cay.shoot'));
+    if (e3) cayma.push(s('ordj.cay.3d'));
+    document.querySelectorAll('[data-cayma]').forEach(function (el) { el.textContent = cayma.length ? s('ordj.cay.wrap', { list: cayma.join(s('ordj.cay.sep')) }) : ''; });
 
-    var lines = [{ name: p.name, net: p.price }];
+    var lines = [{ name: s(p.k), net: p.price }];
     var ready = true;
     if (e3) {
-      urunSum.textContent = e3.ok ? 'ürün × ' + EK3D.perItem + ' TL = ' + fmtTl(e3.n * EK3D.perItem) + ' + KDV' : (urunIn.value.trim() === '' ? 'ürün × ' + EK3D.perItem + ' TL + KDV' : EK3D.min + ' ile ' + EK3D.max + ' arasında bir sayı yazın');
-      if (e3.ok) lines.push({ name: '3D model ve AR (' + e3.n + ' ürün × ' + EK3D.perItem + ' TL)', net: e3.n * EK3D.perItem });
+      urunSum.textContent = e3.ok ? s('ordj.sum.ok', { p: EK3D.perItem, t: fmtTl(e3.n * EK3D.perItem) }) : (urunIn.value.trim() === '' ? s('ordj.sum.empty', { p: EK3D.perItem }) : s('ordj.sum.bad', { min: EK3D.min, max: EK3D.max }));
+      if (e3.ok) lines.push({ name: s('ordj.l3d', { n: e3.n, p: EK3D.perItem }), net: e3.n * EK3D.perItem });
       else ready = false;
-      if (e3.cekim) lines.push({ name: 'Ürün çekimi (İzmir içi)', net: EK3D.shoot });
+      if (e3.cekim) lines.push({ name: s('ordj.lshoot'), net: EK3D.shoot });
       var il = field('il').value.trim();
-      cekimRes.textContent = e3.cekim && il && !isIzmir(il) ? 'Ürün çekimi yalnız İzmir il sınırları içinde yapılıyor. İzmir dışındaysanız fotoğrafları siz çekin; nasıl çekileceğini tarif ederiz.' : '';
+      cekimRes.textContent = e3.cekim && il && !isIzmir(il) ? s('ordj.cekimwarn') : '';
     }
     if (p.domain) {
       if (domain && domain.domain === normDomain(domainIn.value) && String(domain.years) === yearSel.value) {
-        lines.push({ name: 'Alan adı: ' + domain.domain + ' (' + domain.years + ' yıl)', net: domain.price });
+        lines.push({ name: s('ordj.ldomain', { d: domain.domain, y: s('ord.y' + domain.years) }), net: domain.price });
       } else ready = false;
     }
     var net = lines.reduce(function (a, l) { return a + l.net; }, 0);
@@ -127,7 +232,9 @@
     });
     if (!ready) {
       var li = document.createElement('li'); li.className = 'muted';
-      li.innerHTML = p.domain ? '<span>Alan adı</span><b>sorgulanmadı</b>' : '<span>3D model: ürün sayısı</span><b>girilmedi</b>';
+      var ma = document.createElement('span'), mb = document.createElement('b');
+      ma.textContent = s(p.domain ? 'ordj.m.dom.a' : 'ordj.m.3d.a'); mb.textContent = s(p.domain ? 'ordj.m.dom.b' : 'ordj.m.3d.b');
+      li.appendChild(ma); li.appendChild(mb);
       sumLines.appendChild(li);
     }
     document.getElementById('sumNet').textContent = fmt(net);
@@ -141,13 +248,7 @@
     var d = String(v || '').trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/.*$/, '');
     return /^(?=.{4,253}$)([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,24}$/.test(d) ? d : null;
   }
-  var REASONS = {
-    extension_not_supported_via_api: 'Bu uzantıyı şu an otomatik kaydedemiyoruz. .com, .net gibi bir uzantı deneyin ya da bize WhatsApp’tan yazın.',
-    extension_not_supported: 'Bu uzantıyı şu an otomatik kaydedemiyoruz. .com, .net gibi bir uzantı deneyin ya da bize WhatsApp’tan yazın.',
-    domain_unavailable: 'Bu alan adı alınmış. Farklı bir ad ya da uzantı deneyin.',
-    premium: 'Bu alan adı “premium” fiyatlı; çok pahalı olduğu için başka bir ad deneyin.',
-    unavailable: 'Bu alan adı alınmış. Farklı bir ad ya da uzantı deneyin.'
-  };
+  var REASONS = { extension_not_supported_via_api: 'ordj.r.ext', extension_not_supported: 'ordj.r.ext', domain_unavailable: 'ordj.r.taken', premium: 'ordj.r.premium', unavailable: 'ordj.r.taken' };
   function setDomainMsg(cls, text) {
     domainRes.className = 'o-domain-res ' + (cls || '');
     domainRes.textContent = text || '';
@@ -155,25 +256,25 @@
   function checkDomain() {
     var d = normDomain(domainIn.value);
     domain = null; render();
-    if (!d) { setDomainMsg('bad', 'Alan adını uzantısıyla birlikte yazın, örneğin isletmeniz.com'); domainIn.focus(); return; }
+    if (!d) { setDomainMsg('bad', s('ordj.d.bad')); domainIn.focus(); return; }
     domainIn.value = d;
     domainBtn.disabled = true;
-    setDomainMsg('wait', 'Sorgulanıyor…');
+    setDomainMsg('wait', s('ordj.d.wait'));
     fetch(API + '/alan-adi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ domain: d, years: Number(yearSel.value) }) })
       .then(function (r) { return r.json(); })
       .then(function (j) {
         if (!j.ok) {
-          setDomainMsg('bad', j.error === 'rate' ? 'Çok sık sorguladınız; bir dakika sonra tekrar deneyin.' : 'Şu an sorgulanamadı. Biraz sonra tekrar deneyin ya da bize WhatsApp’tan yazın.');
+          setDomainMsg('bad', j.error === 'rate' ? s('ordj.d.rate') : s('ordj.d.fail'));
           return;
         }
-        if (!j.available) { setDomainMsg('bad', d + ' · ' + (REASONS[j.reason] || REASONS.unavailable)); return; }
+        if (!j.available) { setDomainMsg('bad', d + ' · ' + s(REASONS[j.reason] || REASONS.unavailable)); return; }
         domain = { domain: j.domain, years: j.years, price: j.price, renewalPerYear: j.renewalPerYear };
-        var msg = d + ' boşta. ' + j.years + ' yıllık kayıt: ' + fmt(j.price) + ' + KDV.';
-        if (j.renewalPerYear) msg += ' Süre bitince yenileme yıllık yaklaşık ' + fmt(j.renewalPerYear) + ' + KDV (o günkü kura göre).';
+        var msg = s('ordj.d.free', { d: d, y: s('ord.y' + j.years), p: fmt(j.price) });
+        if (j.renewalPerYear) msg += s('ordj.d.renew', { p: fmt(j.renewalPerYear) });
         setDomainMsg('ok', msg);
         render();
       })
-      .catch(function () { setDomainMsg('bad', 'Bağlantı kurulamadı. Biraz sonra tekrar deneyin.'); })
+      .catch(function () { setDomainMsg('bad', s('ordj.d.conn')); })
       .then(function () { domainBtn.disabled = false; });
   }
   domainBtn.addEventListener('click', checkDomain);
@@ -231,7 +332,7 @@
   }
 
   /* ---------- Gönder ---------- */
-  var LABELS = { ad: 'ad', soyad: 'soyad', email: 'e-posta', telefon: 'cep telefonu', tckn: 'T.C. kimlik no', unvan: 'şirket unvanı', vergiDairesi: 'vergi dairesi', vkn: 'vergi no', adres: 'adres', il: 'il', isletme: 'işletme adı', alanAdi: 'alan adı', menuAdres: 'menü adresi', onBilgi: 'ön bilgilendirme onayı', sozlesme: 'sözleşme onayı', alanAdiOnay: 'alan adı kaydı onayı', paket: 'paket', urun3d: '3D ürün sayısı', cekim: 'ürün çekimi (yalnız İzmir içi)', onay3d: '3D model onayı', cekimOnay: 'ürün çekimi onayı' };
+  var LABELS = { ad: 'ordj.lb.ad', soyad: 'ordj.lb.soyad', email: 'ordj.lb.email', telefon: 'ordj.lb.telefon', tckn: 'ordj.lb.tckn', unvan: 'ordj.lb.unvan', vergiDairesi: 'ordj.lb.vergiDairesi', vkn: 'ordj.lb.vkn', adres: 'ordj.lb.adres', il: 'ordj.lb.il', isletme: 'ordj.lb.isletme', alanAdi: 'ordj.lb.alanAdi', menuAdres: 'ordj.lb.menuAdres', onBilgi: 'ordj.lb.onBilgi', sozlesme: 'ordj.lb.sozlesme', alanAdiOnay: 'ordj.lb.alanAdiOnay', paket: 'ordj.lb.paket', urun3d: 'ordj.lb.urun3d', cekim: 'ordj.lb.cekim', onay3d: 'ordj.lb.onay3d', cekimOnay: 'ordj.lb.cekimOnay' };
   var ALIAS = { cekim: 'foto' };
   // Radyo grubunda (RadioNodeList) işaretlenecek öğe son seçenektir
   var one = function (el) { return el && el.length !== undefined && el.tagName !== 'SELECT' ? el[el.length - 1] : el; };
@@ -273,20 +374,19 @@
 
   // Satış kapalıyken (form.fmjapps.com/durum) ödeme düğmesi pasif kalır; tek anahtar sunucudadır (SATIS_ACIK).
   var satisKapali = false;
-  var KAPALI_MSG = 'Online ödeme çok yakında açılıyor. Şimdilik siparişinizi WhatsApp’tan (+90 533 318 15 55) ya da contact@fmjapps.com adresinden verebilirsiniz.';
-  function kapat() { satisKapali = true; payBtn.disabled = true; showAlert(KAPALI_MSG); }
+    function kapat() { satisKapali = true; payBtn.disabled = true; showAlert(s('ordj.closed')); }
   fetch(API + '/durum').then(function (r) { return r.json(); }).then(function (j) { if (!j || !j.satis) kapat(); }).catch(function () {});
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (satisKapali) { showAlert(KAPALI_MSG); return; }
+    if (satisKapali) { showAlert(s('ordj.closed')); return; }
     var o = collect();
     var bad = localCheck(o);
     if (bad.length) {
       markInvalid(bad);
       showAlert(bad.indexOf('alanAdi') >= 0 && bad.length === 1
-        ? 'Devam etmek için alan adını sorgulayın.'
-        : 'Lütfen işaretli alanları kontrol edin: ' + bad.map(function (n) { return LABELS[n] || n; }).join(', ') + '.');
+        ? s('ordj.err.dom')
+        : s('ordj.err.fields', { list: bad.map(function (n) { return LABELS[n] ? s(LABELS[n]) : n; }).join(', ') }));
       return;
     }
     markInvalid([]);
@@ -303,25 +403,29 @@
           location.href = j.url;
           return;
         }
-        if (j.error === 'invalid' && j.fields) { markInvalid(j.fields); showAlert('Lütfen işaretli alanları kontrol edin.'); }
-        else if (j.error === 'domain-taken') { domain = null; render(); setDomainMsg('bad', 'Bu alan adı az önce alınmış görünüyor; başka bir ad deneyin.'); showAlert('Alan adı artık boşta değil; lütfen yeniden sorgulayın.'); }
+        if (j.error === 'invalid' && j.fields) { markInvalid(j.fields); showAlert(s('ordj.err.fields2')); }
+        else if (j.error === 'domain-taken') { domain = null; render(); setDomainMsg('bad', s('ordj.err.taken1')); showAlert(s('ordj.err.taken2')); }
         else if (j.error === 'kapali') kapat();
-        else if (j.error === 'bot') showAlert('Güvenlik doğrulaması tamamlanamadı. Sayfayı yenileyip tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55');
-        else if (j.error === 'rate') showAlert('Çok sık denediniz; bir dakika sonra tekrar deneyin.');
-        else showAlert('Ödeme sayfası şu an açılamadı. Biraz sonra tekrar deneyin ya da bize WhatsApp’tan yazın: +90 533 318 15 55');
+        else if (j.error === 'bot') showAlert(s('ordj.err.bot'));
+        else if (j.error === 'rate') showAlert(s('ordj.err.rate'));
+        else showAlert(s('ordj.err.pay'));
       })
-      .catch(function () { showAlert('Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.'); })
+      .catch(function () { showAlert(s('ordj.err.conn')); })
       .then(function () { payBtn.disabled = satisKapali; payBtn.classList.remove('busy'); });
   });
 
   /* ---------- Açılış ---------- */
+  var tl = document.getElementById('trLegal');
+  if (tl) tl.hidden = LANG === 'tr';
+  langReady.then(function () {
   loadDraft();
   var q = new URLSearchParams(location.search);
   var pk = q.get('paket');
   if (pk && PACKS[pk]) { var r = form.querySelector('input[name=paket][value="' + pk + '"]'); if (r) r.checked = true; }
   // Tanıtım sayfasındaki "QR Menü + 3D/AR" düğmesi: /siparis/?paket=qr&ek=3d
   if (pk === 'qr' && q.get('ek') === '3d') field('ek3d').checked = true;
-  if (q.get('hata')) showAlert('Ödeme tamamlanmadı; kartınızdan bir çekim yapıldıysa otomatik olarak iade edilir. Bilgileriniz duruyor, tekrar deneyebilirsiniz.');
+  if (q.get('hata')) showAlert(s('ordj.err.hata'));
   render();
   if (pkgKey() === 'web' && normDomain(domainIn.value)) checkDomain();
+  });
 })();

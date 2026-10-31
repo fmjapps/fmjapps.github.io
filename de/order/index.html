@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com 'sha256-6oEdQK3h+cOOHDNLXJ9DrbMAXmkHtOISua+mdHWanL8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://form.fmjapps.com https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bestellung · FMJ Apps</title>
+<meta name="description" content="Website oder QR-Menü bestellen (optional mit 3D-Modell und Augmented-Reality-Erweiterung): kein Konto nötig, Zahlung abgesichert durch iyzico.">
+<meta name="theme-color" content="#1C3334">
+<link rel="canonical" href="https://fmjapps.com/de/order/">
+<link rel="alternate" hreflang="tr" href="https://fmjapps.com/siparis/">
+<link rel="alternate" hreflang="en" href="https://fmjapps.com/en/order/">
+<link rel="alternate" hreflang="es" href="https://fmjapps.com/es/order/">
+<link rel="alternate" hreflang="pt" href="https://fmjapps.com/pt/order/">
+<link rel="alternate" hreflang="fr" href="https://fmjapps.com/fr/order/">
+<link rel="alternate" hreflang="de" href="https://fmjapps.com/de/order/">
+<link rel="alternate" hreflang="it" href="https://fmjapps.com/it/order/">
+<link rel="alternate" hreflang="ru" href="https://fmjapps.com/ru/order/">
+<link rel="alternate" hreflang="ar" href="https://fmjapps.com/ar/order/">
+<link rel="alternate" hreflang="hi" href="https://fmjapps.com/hi/order/">
+<link rel="alternate" hreflang="zh" href="https://fmjapps.com/zh/order/">
+<link rel="alternate" hreflang="ja" href="https://fmjapps.com/ja/order/">
+<link rel="alternate" hreflang="ko" href="https://fmjapps.com/ko/order/">
+<link rel="alternate" hreflang="id" href="https://fmjapps.com/id/order/">
+<link rel="alternate" hreflang="x-default" href="https://fmjapps.com/siparis/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css?v=311026g">
+<script>
+  // Tema ve dil, sayfa çizilmeden önce seçilir (yanıp sönmesin diye)
+  (function () {
+    var d = document.documentElement, t = null, l = null;
+    try { t = localStorage.getItem('fmj-tema'); l = localStorage.getItem('fmj-lang'); } catch (e) {}
+    if (!t) t = 'light';
+    d.setAttribute('data-theme', t);
+    // Sayfanın dili adresinden gelir: kök Türkçe, /en/ İngilizce...
+    var page = d.lang, ok = ['tr', 'en', 'es', 'pt', 'fr', 'de', 'it', 'ru', 'ar', 'hi', 'zh', 'ja', 'ko', 'id'];
+    d.setAttribute('data-lang', page);
+    d.className = 'js';
+    if (page !== 'tr') return;
+    // Kök adreste ziyaretçi kendi dilinin sayfasına geçer: önce ?lang=xx, sonra kayıtlı tercih,
+    // sonra tarayıcının dilleri, hiçbiri yoksa İngilizce. Arama motorları yönlenmez, Türkçe sayfayı okur.
+    var go = (location.search.match(/[?&]lang=([a-z]{2})/) || [])[1];
+    if (!go && !/bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|lighthouse|headless|preview/i.test(navigator.userAgent)) {
+      go = l;
+      if (!go || ok.indexOf(go) < 0) {
+        go = 'en';
+        var prefs = navigator.languages || [navigator.language || ''];
+        for (var i = 0; i < prefs.length; i++) { var c = String(prefs[i]).slice(0, 2).toLowerCase(); if (ok.indexOf(c) >= 0) { go = c; break; } }
+      }
+    }
+    var alt = go && go !== 'tr' && document.querySelector('link[rel="alternate"][hreflang="' + go + '"]');
+    if (alt) {
+      d.className = 'js i18n-wait';
+      location.replace(alt.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '') + location.search + location.hash);
+    }
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#top">İçeriğe geç</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/de/" data-en-href="/en/" aria-label="FMJ Apps">
+      <img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="196" height="36"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="196" height="36"><span class="brand-tag" data-i18n="co.tagline">Zuverlässige Lösungen, effiziente Ergebnisse</span>
+    </a>
+    <nav class="links" aria-label="Bölümler">
+      <div class="nav-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true">Mirus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu">
+          <a href="/de/mirus/" data-en-href="/en/mirus/" data-i18n="co.hero.cta2">Mirus kennenlernen</a>
+          <a href="/de/#sektorler" data-en-href="/en/#sektorler" data-i18n="nav.sectors">Branchen</a>
+          <a href="/de/#demo" data-en-href="/en/#demo" data-i18n="nav.demo">Live-Demo</a>
+          <a href="/de/#yetenekler" data-en-href="/en/#yetenekler" data-i18n="nav.features">Funktionen</a>
+        </div>
+      </div>
+      <a href="/de/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menu</a>
+      <a href="/de/website/" data-en-href="/en/website/" data-i18n="web.name">Website</a>
+      <a href="/de/apps/" data-en-href="/en/apps/" data-i18n="nav.apps">Apps</a>
+      <a href="/de/about/" data-en-href="/en/about/" data-i18n="nav.about">Über uns</a>
+      <div class="nav-drop refs-drop">
+        <button class="drop-btn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="co.refs.t">Unsere Kunden</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+        <div class="drop-menu refs-menu">
+          <a class="ref" href="https://unipakt.com/" target="_blank" rel="noopener"><span class="ref-logo ref-unipakt" role="img" aria-label="UniPakt"></span><small data-i18n="co.refs.web">Website</small></a>
+          <a class="ref" href="https://qr.fmjapps.com/americano" target="_blank" rel="noopener"><span class="ref-logo ref-americano" role="img" aria-label="Americano Concept Coffee"></span><small data-i18n="co.refs.qr">QR-Speisekarte</small></a>
+        </div>
+      </div>
+      <a class="buy-link" href="/de/order/" data-en-href="/en/order/" data-i18n="pk.buy">Jetzt kaufen</a>
+      <a class="cta-link" href="/de/#iletisim" data-en-href="/en/#iletisim" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" id="lang">
+        <button class="chip-btn" id="langBtn" type="button" aria-label="Dil / Language" aria-haspopup="listbox" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5Z"/></svg><span id="langCode">TR</span></button>
+        <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Dil / Language" hidden></ul>
+      </div>
+      <button class="icon-btn" id="themeBtn" type="button" data-i18n-aria="theme" aria-label="Design wechseln">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.6 1.6M17.7 17.7l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.6-1.6M17.7 6.3l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-i18n-aria="menu" aria-label="Menü" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" hidden aria-label="Menü" data-i18n-aria="menu"></nav>
+
+<main id="top" class="order-page">
+  <section class="order-wrap wrap">
+    <header class="order-head">
+      <p class="eyebrow" data-i18n="ord.eyebrow">Bestellung</p>
+      <h1 data-i18n="ord.h1">Bestellung aufgeben</h1>
+      <p class="lede" data-i18n="ord.lede">Kein Konto nötig. Geben Sie Ihre Daten ein, bestätigen Sie die Vereinbarungen und zahlen Sie per Karte auf der sicheren Zahlungsseite von iyzico.</p>
+    </header>
+
+    <p class="order-alert" id="orderAlert" role="alert" hidden></p>
+
+    <div class="order-grid">
+      <form class="order-form" id="orderForm" novalidate autocomplete="on">
+        <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+
+        <!-- 1. Paket -->
+        <fieldset class="o-step">
+          <legend><span class="o-num">1</span><span data-i18n="ord.s1">Paket</span></legend>
+          <div class="o-packs">
+            <label class="o-pack">
+              <input type="radio" name="paket" value="web" checked>
+              <span class="o-pack-in">
+                <b data-i18n="web.name">Website</b>
+                <span class="o-price" data-i18n-html="ord.web.price">3.700 TL <small>+ MwSt. (gesamt 4.440 TL) + Domainname</small></span>
+                <small data-i18n="ord.web.desc">Eine Website speziell für Ihr Unternehmen, Domainregistrierung, kostenloses Hosting, Basis-SEO</small>
+              </span>
+            </label>
+            <label class="o-pack">
+              <input type="radio" name="paket" value="qr">
+              <span class="o-pack-in">
+                <b data-i18n="ord.pack.qr">QR-Menü</b>
+                <span class="o-price" data-i18n-html="ord.qr.price">1.450 TL <small>+ MwSt. / Jahr (gesamt 1.740 TL)</small></span>
+                <small data-i18n="ord.qr.desc">Digitale Speisekarte, Verwaltungsbereich, QR-Tischkarten, Anleitung</small>
+              </span>
+            </label>
+          </div>
+
+          <!-- QR Menü eki: 3D model ve artırılmış gerçeklik (fiyat ve koşullar: mesafeli satış sözleşmesi madde 03-06).
+               Varsayılan kapalı; açılınca ürün sayısı, fotoğraf seçeneği ve fiyat görünür. -->
+          <div class="o-ek" data-for="qr" hidden>
+            <label class="o-addon">
+              <input type="checkbox" name="ek3d" id="ek3d">
+              <span class="o-addon-in">
+                <span class="o-switch" aria-hidden="true"></span>
+                <span class="o-addon-txt">
+                  <b data-i18n-html="ord.ek.t">3D-Modell und Augmented Reality hinzufügen <i class="o-new">Neu</i> <em>optional</em></b>
+                  <small data-i18n="ord.ek.d">+100 TL + MwSt. pro Produkt. Ihre Kunden drehen das Produkt auf dem Smartphone in 3D und sehen die Maße; auf unterstützten Geräten sehen sie es in Originalgröße auf dem Tisch.</small>
+                </span>
+              </span>
+            </label>
+
+            <div class="o-3d" data-ek="3d" hidden>
+              <label class="o-field"><span data-i18n="ord.ek.q">Für wie viele Produkte soll ein 3D-Modell erstellt werden?</span>
+                <span class="o-qty">
+                  <input name="urun3d" id="urun3d" type="number" inputmode="numeric" min="1" max="200" step="1" placeholder="z. B. 15" data-i18n-ph="ord.ek.ph">
+                  <i id="urun3dSum">ürün × 100 TL + KDV</i>
+                </span>
+              </label>
+              <div class="o-radios" role="radiogroup" aria-label="Fotos" data-i18n-aria="ord.ek.photos">
+                <label class="o-check"><input type="radio" name="foto" value="ben" checked><span data-i18n-html="ord.ek.r1"><b>Ich mache die Fotos selbst.</b> Mindestens 5 Fotos pro Produkt und dessen Maße genügen; wir erklären Ihnen, wie Sie fotografieren.</span></label>
+                <label class="o-check"><input type="radio" name="foto" value="cekim"><span data-i18n-html="ord.ek.r2"><b>Ich möchte ein Produktshooting</b> (nur im Raum Izmir): Wir kommen zu Ihnen und fotografieren, +1.000 TL + MwSt., ein Termin.</span></label>
+              </div>
+              <p class="o-domain-res bad" id="cekimRes" aria-live="polite"></p>
+              <p class="o-note" data-i18n-html="ord.ek.note">Wir erstellen die Modelle und zeigen sie Ihnen vorab als Vorschau; mit Ihrer Freigabe fügen wir sie Ihrem Menü hinzu. Probieren Sie ein Live-Beispiel auf Ihrem Smartphone: <a href="https://qr.fmjapps.com/fmj-3d-deneme" target="_blank" rel="noopener">qr.fmjapps.com/fmj-3d-deneme</a></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 2. Proje -->
+        <fieldset class="o-step">
+          <legend><span class="o-num">2</span><span data-i18n="ord.s2">Ihr Unternehmen</span></legend>
+          <div class="o-row">
+            <label class="o-field"><span data-i18n="ord.f.biz">Firmenname</span><input name="isletme" maxlength="120" required autocomplete="organization"></label>
+            <label class="o-field"><span data-i18n-html="ord.f.sector">Branche <em>(optional)</em></span><input name="sektor" maxlength="80" placeholder="Café, Kosmetikstudio, Praxis …" data-i18n-ph="ord.f.sector.ph"></label>
+          </div>
+
+          <div class="o-domain" data-for="web">
+            <label class="o-field"><span data-i18n="ord.f.domain">Gewünschter Domainname</span>
+              <span class="o-domain-row">
+                <input name="alanAdi" id="alanAdi" maxlength="80" placeholder="ihrunternehmen.com" autocapitalize="off" spellcheck="false" data-i18n-ph="ord.f.domain.ph">
+                <select name="yil" id="yil" aria-label="Registrierungsdauer" data-i18n-aria="ord.f.period">
+                  <option value="1" data-i18n="ord.y1">1 Jahr</option><option value="2" data-i18n="ord.y2">2 Jahre</option><option value="3" data-i18n="ord.y3">3 Jahre</option><option value="4" data-i18n="ord.y4">4 Jahre</option><option value="5" data-i18n="ord.y5">5 Jahre</option>
+                </select>
+                <button class="btn small ghost" type="button" id="domainBtn" data-i18n="ord.f.check">Prüfen</button>
+              </span>
+            </label>
+            <p class="o-domain-res" id="domainRes" aria-live="polite"></p>
+            <p class="o-note" data-i18n="ord.f.domain.note">Der Domainpreis wird anhand des aktuellen Preises von Cloudflare, über das wir die Domain registrieren, in TL umgerechnet und zum Bestellbetrag addiert. Fällt der Preis hoch aus, probieren Sie einen anderen Namen oder eine andere Endung (z. B. .com oder .net); sie kann günstiger sein. Wird die Domain am Ende der gewählten Laufzeit nicht verlängert, geht Ihre Website offline; wir erinnern Sie rechtzeitig vor Ablauf.</p>
+          </div>
+
+          <div class="o-qr" data-for="qr" hidden>
+            <label class="o-field"><span data-i18n-html="ord.f.menuaddr">Menü-Adresse <em>(optional)</em></span>
+              <span class="o-prefix"><i>qr.fmjapps.com/</i><input name="menuAdres" maxlength="40" placeholder="ihrunternehmen" autocapitalize="off" spellcheck="false" data-i18n-ph="ord.f.menuaddr.ph"></span>
+            </label>
+            <p class="o-note" data-i18n="ord.f.menuaddr.note">Ihr Menü wird unter dieser Adresse veröffentlicht; wenn Sie das Feld leer lassen, wählen wir eine Adresse passend zu Ihrem Firmennamen.</p>
+          </div>
+
+          <label class="o-field"><span data-i18n-html="ord.f.brief">Kurze Beschreibung <em>(optional)</em></span><textarea name="aciklama" rows="3" maxlength="2000" placeholder="Was Ihr Unternehmen macht, was die Website enthalten soll, Lieblingsfarben oder Beispielseiten …" data-i18n-ph="ord.f.brief.ph"></textarea></label>
+          <p class="o-note" data-i18n="ord.f.brief.note">Logo, Fotos und Speisekarte nehmen wir nach der Bestellung per WhatsApp oder E-Mail entgegen.</p>
+        </fieldset>
+
+        <!-- 3. İletişim -->
+        <fieldset class="o-step">
+          <legend><span class="o-num">3</span><span data-i18n="ord.s3">Kontaktdaten</span></legend>
+          <div class="o-row">
+            <label class="o-field"><span data-i18n="ord.f.first">Vorname</span><input name="ad" maxlength="60" required autocomplete="given-name"></label>
+            <label class="o-field"><span data-i18n="ord.f.last">Nachname</span><input name="soyad" maxlength="60" required autocomplete="family-name"></label>
+          </div>
+          <div class="o-row">
+            <label class="o-field"><span data-i18n="ord.f.email">E-Mail</span><input name="email" type="email" maxlength="120" required autocomplete="email"></label>
+            <label class="o-field"><span data-i18n="ord.f.phone">Mobiltelefon</span><input name="telefon" type="tel" maxlength="20" required autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+          </div>
+        </fieldset>
+
+        <!-- 4. Fatura -->
+        <fieldset class="o-step">
+          <legend><span class="o-num">4</span><span data-i18n="ord.s4">Rechnungsdaten</span></legend>
+          <div class="o-seg" role="radiogroup" aria-label="Rechnungsart" data-i18n-aria="ord.f.invtype">
+            <label><input type="radio" name="faturaTip" value="bireysel" checked><span data-i18n="ord.f.indiv">Privatperson</span></label>
+            <label><input type="radio" name="faturaTip" value="kurumsal"><span data-i18n="ord.f.corp">Unternehmen</span></label>
+          </div>
+          <div data-fatura="bireysel">
+            <label class="o-field"><span data-i18n-html="ord.f.tckn">Türkische Identitätsnummer (T.C. kimlik no) <em>(optional)</em></span><input name="tckn" inputmode="numeric" maxlength="11" autocomplete="off"></label>
+          </div>
+          <div data-fatura="kurumsal" hidden>
+            <label class="o-field"><span data-i18n="ord.f.company">Firmenbezeichnung</span><input name="unvan" maxlength="160" autocomplete="organization"></label>
+            <div class="o-row">
+              <label class="o-field"><span data-i18n="ord.f.taxoff">Finanzamt</span><input name="vergiDairesi" maxlength="80"></label>
+              <label class="o-field"><span data-i18n="ord.f.taxno">Steuernummer / türkische Identitätsnummer (T.C. kimlik no)</span><input name="vkn" inputmode="numeric" maxlength="11"></label>
+            </div>
+          </div>
+          <label class="o-field"><span data-i18n="ord.f.addr">Adresse</span><textarea name="adres" rows="2" maxlength="300" required autocomplete="street-address"></textarea></label>
+          <div class="o-row">
+            <label class="o-field"><span data-i18n="ord.f.district">Bezirk</span><input name="ilce" maxlength="40" autocomplete="address-level2"></label>
+            <label class="o-field"><span data-i18n="ord.f.city">Stadt / Provinz</span><input name="il" maxlength="40" required autocomplete="address-level1"></label>
+          </div>
+          <p class="o-note" data-i18n="ord.f.trnote">Der Verkauf erfolgt ausschließlich an Käufer mit Wohnsitz in der Türkei.</p>
+        </fieldset>
+
+        <!-- 5. Onay -->
+        <fieldset class="o-step">
+          <legend><span class="o-num">5</span><span data-i18n="ord.s5">Bestätigung und Zahlung</span></legend>
+          <label class="o-check"><input type="checkbox" name="onBilgi"><span data-i18n-html="ord.c.info">Ich habe das <a href="/sozlesmeler/on-bilgilendirme/" target="_blank" rel="noopener">Vorabinformationsformular</a> gelesen.</span></label>
+          <label class="o-check"><input type="checkbox" name="sozlesme"><span data-i18n-html="ord.c.terms">Ich habe den <a href="/sozlesmeler/mesafeli-satis/" target="_blank" rel="noopener">Fernabsatzvertrag</a> und die <a href="/sozlesmeler/teslimat-iade/" target="_blank" rel="noopener">Liefer- und Rückgabebedingungen</a> gelesen und akzeptiere sie.</span></label>
+          <p class="o-note" id="trLegal" data-i18n="ord.c.legaltr" hidden>Vertrags- und Informationstexte liegen auf Türkisch vor.</p>
+          <label class="o-check" data-for="web"><input type="checkbox" name="alanAdiOnay"><span data-i18n="ord.c.domain">Ich möchte, dass der Domainname unmittelbar nach der Zahlung auf meinen Namen registriert wird; mir ist bewusst, dass mein Widerrufsrecht für diese Position mit der Registrierung erlischt.</span></label>
+          <label class="o-check" data-ek="3d" hidden><input type="checkbox" name="onay3d"><span data-i18n="ord.c.3d">Ich möchte, dass die 3D-Modelle innerhalb der Widerrufsfrist erstellt und meinem Menü hinzugefügt werden; mir ist bewusst, dass mein Widerrufsrecht für veröffentlichte Modelle erlischt.</span></label>
+          <label class="o-check" data-cekim hidden><input type="checkbox" name="cekimOnay"><span data-i18n="ord.c.shoot">Ich möchte, dass das Produktshooting innerhalb der Widerrufsfrist stattfindet; mir ist bewusst, dass mein Widerrufsrecht für diese Position mit der Durchführung des Shootings erlischt.</span></label>
+          <p class="o-note" data-i18n-html="ord.c.privacy">Ihre personenbezogenen Daten werden verarbeitet, um Ihre Bestellung auszuführen und eine Rechnung auszustellen: <a href="/privacy/site/" target="_blank" rel="noopener">Datenschutz- und KVKK-Hinweis</a>. Ihre Kartendaten erhalten wir nie; die Zahlung erfolgt auf der Seite von iyzico.</p>
+          <button class="btn primary o-pay" type="submit" id="payBtn"><span data-i18n="ord.c.pay">Zahlungspflichtig bestellen</span> <b aria-hidden="true">→</b></button>
+          <img class="o-paylogos" src="/assets/pay/iyzico-band-colored.png" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" width="429" height="32">
+          <p class="o-secure"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><span data-i18n="ord.c.secure">Ihre Zahlung ist durch iyzico abgesichert · 14 Tage Widerrufsrecht ohne Angabe von Gründen</span><span data-cayma> (kaydedilen alan adı ücreti hariç)</span></p>
+        </fieldset>
+      </form>
+
+      <aside class="order-sum" aria-label="Bestellübersicht" data-i18n-aria="ord.sum.t">
+        <h2 data-i18n="ord.sum.t">Bestellübersicht</h2>
+        <ul class="sum-lines" id="sumLines"></ul>
+        <dl class="sum-tot">
+          <div><dt data-i18n="ord.sum.net">Zwischensumme</dt><dd id="sumNet">—</dd></div>
+          <div><dt data-i18n="ord.sum.vat">MwSt. (20 %)</dt><dd id="sumKdv">—</dd></div>
+          <div class="sum-grand"><dt data-i18n="ord.sum.total">Gesamt</dt><dd id="sumTotal">—</dd></div>
+        </dl>
+        <p class="o-note" id="sumHint" data-i18n="ord.sum.hint">Sobald Sie den Domainnamen prüfen, wird dessen Preis zur Übersicht hinzugefügt.</p>
+        <ul class="sum-trust">
+          <li data-i18n="ord.sum.t1">Keine Hosting-Gebühren</li>
+          <li><span data-i18n="ord.sum.t2">14 Tage Widerrufsrecht ohne Angabe von Gründen</span><span data-cayma> (kaydedilen alan adı ücreti hariç)</span></li>
+          <li data-i18n="ord.sum.t3">Verkauf mit Rechnung · FMJ Apps</li>
+        </ul>
+        <p class="sum-help" data-i18n-html="ord.sum.help">Fragen? <a href="https://wa.me/905333181555" target="_blank" rel="noopener">Schreiben Sie uns per WhatsApp</a> oder rufen Sie an: <a href="tel:+905333181555">+90 533 318 15 55</a></p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="foot-logo"><img class="logo on-light" src="/assets/brand/logo.svg" alt="" width="164" height="30"><img class="logo on-dark" src="/assets/brand/logo-koyu-zemin.svg" alt="" width="164" height="30"></span>
+      <span data-i18n="co.tagline">Zuverlässige Lösungen, effiziente Ergebnisse</span>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="nav.solutions">Lösungen</span>
+      <a href="/de/mirus/" data-en-href="/en/mirus/">Mirus</a>
+      <a href="/de/qr-menu/" data-en-href="/en/qr-menu/" data-i18n="qr.name">3D QR Menu</a>
+      <a href="/de/website/" data-en-href="/en/website/" data-i18n="web.name">Website</a>
+      <a href="/de/#iletisim" data-en-href="/en/#iletisim" data-i18n="co.foot.custom">Eine Lösung für Ihr Unternehmen</a>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="foot.contact">Kontakt</span>
+      <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a>
+      <a href="tel:+905333181555">+90 533 318 15 55</a>
+      <a href="https://wa.me/905333181555" target="_blank" rel="noopener">WhatsApp</a>
+      <nav class="foot-social" aria-label="Instagram, TikTok, YouTube, Facebook, Google Play"><a href="https://www.instagram.com/fmjapps" target="_blank" rel="noopener me" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a><a href="https://www.tiktok.com/@fmjsoftware" target="_blank" rel="noopener me" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.3 1.9 3.8 4.2 4v3.2a7.6 7.6 0 0 1-4.1-1.2v6.3A6 6 0 1 1 10.8 9.4v3.3a2.8 2.8 0 1 0 2.6 2.8V3Z"/></svg></a><a href="https://www.youtube.com/@fmjapps" target="_blank" rel="noopener me" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8ZM10 15V9l5.2 3Z"/></svg></a><a href="https://www.facebook.com/profile.php?id=61594978658646" target="_blank" rel="noopener me" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.5V21Z"/></svg></a><a href="https://play.google.com/store/apps/dev?id=7218143537890503046" target="_blank" rel="noopener me" aria-label="Google Play" title="Google Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.6 2.8 13.9 12l-9.3 9.2A1.3 1.3 0 0 1 4 20V4c0-.5.2-1 .6-1.2Zm10.4 10.3 2.3 2.3-10.6 6 8.3-8.3Zm0-2.2L6.7 2.6l10.6 6-2.3 2.3Zm3.7 3.6-2.6-2.5 2.6-2.5 2.7 1.5c.9.5.9 1.6 0 2.1Z"/></svg></a></nav>
+    </div>
+    <div class="foot-col">
+      <span class="foot-h" data-i18n="co.foot.company">Unternehmen</span>
+      <a href="/de/about/" data-en-href="/en/about/" data-i18n="nav.about">Über uns</a>
+      <a href="/de/about/#kunye" data-en-href="/en/about/#kunye" data-i18n="about.info.kick">Impressum</a>
+      <a href="/privacy/" data-i18n="about.privacy">Datenschutzerklärungen</a>
+      <a href="/sozlesmeler/mesafeli-satis/" data-i18n="foot.sales">Fernabsatzvertrag</a>
+      <a href="/sozlesmeler/teslimat-iade/" data-i18n="foot.returns">Lieferung und Rückerstattung</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year">2026</span> FMJ Apps</span>
+    <a href="#top" data-i18n="foot.top">Nach oben ↑</a>
+  </div>
+  <div class="wrap pay-band"><img src="/assets/pay/iyzico-band-white.png" alt="iyzico ile Öde, Mastercard, Visa, American Express, Troy" width="456" height="32" loading="lazy"></div>
+  <div class="wrap"><p class="foot-legal">Oğulcan Fidan – FMJ Apps · <span data-i18n="co.kunye.vd">Finanzamt Menemen</span> · <span data-i18n="co.kunye.vkn">Steuernr.</span> 3870844488 · ETBİS 4576267076 · İsmet İnönü Mah. 1267 Sk. Refah No: 12 İç Kapı No: 3, Menemen / İzmir, Türkiye · <a href="mailto:contact@fmjapps.com">contact@fmjapps.com</a> · <a href="tel:+905333181555">+90 533 318 15 55</a> · <a href="/de/about/" data-en-href="/en/about/" data-i18n="nav.about">Über uns</a></p></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/site.js?v=311026g" defer></script>
+<script src="/siparis/siparis.js?v=311026g" defer></script>
+<script src="https://mirus.fmjapps.com/widget.js" data-mirus="zYmfgbxrnjYCWGAk" data-color="#FF4F2E" async></script>
+<script src="/mirus-tema.js" defer></script>
+</body>
+</html>
