@@ -11,21 +11,8 @@
   // Mirus sunucusundaki site demosu (şifre gerekiyorsa sunucu söyler)
   var DEMO_API = 'https://mirus.fmjapps.com/api/site';
 
-  // İnsan doğrulaması: form.fmjapps.com/durum "pow" derse kendi iş kanıtımız (aşağıda); geçiş süresince Turnstile anahtarı verirse eski yol
+  // İnsan doğrulaması: form.fmjapps.com/durum "pow" derse kendi iş kanıtımız (aşağıda). Sunucu "pow" demezse doğrulama istenmiyor (null)
   // çalışır; yalnız şüpheli durumda sol altta küçük bir kutu çıkar. Anahtar yoksa ya da yüklenemezse null döner.
-  var tsLoading = null;
-  function tsLoad() {
-    if (window.turnstile) return Promise.resolve();
-    if (!tsLoading) tsLoading = new Promise(function (res, rej) {
-      var s = document.createElement('script');
-      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-      s.async = true;
-      s.onload = res;
-      s.onerror = function () { tsLoading = null; rej(); };
-      document.head.appendChild(s);
-    });
-    return tsLoading;
-  }
   // Kendi iş kanıtı doğrulamamız: form.fmjapps.com/zorluk imzalı bir bulmaca verir, tarayıcı çözer, çözüm formla birlikte gider.
   // Üçüncü tarafa istek gitmez. sha256(salt + sayı) = challenge olan sayıyı 0..maxnumber arasında arar.
   function solvePow(c) {
@@ -51,23 +38,7 @@
     return fetch(api + '/durum').then(function (r) { return r.json(); }).then(function (j) {
       if (!j) return null;
       if (j.pow) return fetch(api + '/zorluk').then(function (r) { return r.json(); }).then(solvePow);
-      if (!j.ts) return null;
-      return tsLoad().then(function () {
-        return new Promise(function (resolve) {
-          var box = document.createElement('div');
-          box.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483000';
-          document.body.appendChild(box);
-          var done = false, id;
-          function end(tok) {
-            if (done) return;
-            done = true;
-            resolve(tok || null);
-            setTimeout(function () { try { window.turnstile.remove(id); } catch (e) {} box.remove(); }, 0);
-          }
-          id = window.turnstile.render(box, { sitekey: j.ts, appearance: 'interaction-only', callback: end, 'error-callback': function () { end(null); }, 'expired-callback': function () { end(null); } });
-          setTimeout(function () { end(null); }, 45000);
-        });
-      });
+      return null;
     }).catch(function () { return null; });
   }
 

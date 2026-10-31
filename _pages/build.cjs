@@ -47,7 +47,7 @@ const orderPath = lang => lang === 'tr' ? '/siparis/' : '/' + lang + '/order/';
 // app.shots: [mağaza görselinin numarası, açıklama yazısının sırası]
 const shot = (app, s, lang) => '/assets/shots/' + lang + '/' + app.id + '-' + s[0] + '.webp';
 
-const CSP = "default-src 'self'; script-src 'self' https://mirus.fmjapps.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://mirus.fmjapps.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'";
+const CSP = "default-src 'self'; script-src 'self' https://mirus.fmjapps.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://mirus.fmjapps.com; frame-src; object-src 'none'; base-uri 'self'; form-action 'self'";
 
 // Uygulama sayfalarının üst menüsü: sitenin diğer sayfalarındakiyle birebir aynı (metin ve adres o dilin)
 const NAV_TR = { 'co.hero.cta2': 'Mirus’u tanıyın', 'nav.sectors': 'Sektörler', 'nav.demo': 'Canlı demo', 'nav.features': 'Özellikler', 'qr.name': '3D QR Menü', 'web.name': 'Web Sitesi', 'nav.apps': 'Uygulamalar', 'nav.about': 'Hakkımızda', 'co.refs.t': 'Referanslarımız', 'co.refs.web': 'Web sitesi', 'co.refs.qr': 'QR menü', 'pk.buy': 'Satın al', 'nav.contact': 'İletişim' };
@@ -179,7 +179,7 @@ ${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${BASE + urlOf(app
 <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/app.css?v=311026g">
+<link rel="stylesheet" href="/app.css?v=311026h">
 <script src="/app.js"></script>
 </head>
 <body style="--acc:${app.acc}${app.acc2 ? ';--acc-2:' + app.acc2 : ''}">
