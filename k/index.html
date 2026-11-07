@@ -39,7 +39,7 @@
   .ring.r2{animation-delay:calc(var(--t) + .7s);border-color:rgba(95,163,163,.7)}
   @keyframes ring{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(7)}}
 
-  .slogan{font-family:Sora,Inter,sans-serif;color:#C9D3D8;font-size:1rem;opacity:0;letter-spacing:.22em;animation:slog 1.4s calc(var(--t) + .5s) var(--ease) forwards}
+  .slogan{font-family:Sora,Inter,sans-serif;color:#C9D3D8;font-size:1rem;white-space:nowrap;opacity:0;letter-spacing:.04em;animation:slog 1.4s calc(var(--t) + .5s) var(--ease) forwards}
   @keyframes slog{to{opacity:1;letter-spacing:.01em}}
   .tanitim{color:#93A6AE;font-size:.95rem;line-height:1.5;margin:18px 0 26px;opacity:0;transform:translateY(10px);animation:rise .8s calc(var(--t) + .9s) var(--ease) forwards}
 
@@ -71,7 +71,7 @@
   @keyframes wipe{to{clip-path:inset(0 0 0 0);transform:none}}
   .intro .cizgi{position:relative;height:2px;width:0;margin-top:22px;border-radius:2px;background:linear-gradient(90deg,transparent,#FF4F2E,transparent);animation:cizgi 1.1s 1.2s var(--ease) forwards}
   @keyframes cizgi{to{width:180px}}
-  .intro .s{position:relative;margin-top:16px;font-family:Sora,Inter,sans-serif;color:#C9D3D8;font-size:.85rem;letter-spacing:.14em;text-align:center;padding:0 16px;opacity:0;animation:slog 1s 1.5s var(--ease) forwards}
+  .intro .s{position:relative;margin-top:16px;font-family:Sora,Inter,sans-serif;color:#C9D3D8;font-size:.85rem;letter-spacing:.14em;white-space:nowrap;text-align:center;padding:0 16px;opacity:0;animation:slog 1s 1.5s var(--ease) forwards}
   @keyframes introOut{to{opacity:0;transform:scale(1.15);filter:blur(8px);visibility:hidden}}
 
   @media (prefers-reduced-motion:reduce){
