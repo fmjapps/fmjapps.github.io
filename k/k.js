@@ -1,5 +1,11 @@
 (function () {
   var root = document.documentElement;
+  // Intro'ya dokununca atlanır
+  var intro = document.getElementById('intro');
+  if (intro) intro.addEventListener('click', function () {
+    root.classList.add('skip');
+    intro.style.display = 'none';
+  });
   // Arka plan ışığı imleci / parmağı yavaşça izler
   function izle(x, y) { root.style.setProperty('--px', x + 'px'); root.style.setProperty('--py', y + 'px'); }
   addEventListener('pointermove', function (e) { izle(e.clientX, e.clientY); }, { passive: true });
