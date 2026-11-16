@@ -62,7 +62,7 @@ const UI = {
 const APPS = [
   /* ------------------------------------------------------------------ */
   {
-    id: 'kayip', kind: 'game', acc: '#9CC98F', acc2: '#E9D9B4', status: 'test',
+    id: 'kayip', kind: 'game', acc: '#9CC98F', acc2: '#E9D9B4', status: 'live',
     privacy: '/privacy/kayip/', test: { group: 'kayip-esya-testers', pkg: 'com.oyunatolyesi.kayipesya' },
     shots: [[2, 0], [3, 1], [6, 2]],
     category: 'GameApplication',
@@ -156,7 +156,7 @@ const APPS = [
 
   /* ------------------------------------------------------------------ */
   {
-    id: 'koleksiyoncu', kind: 'game', acc: '#E2B75E', acc2: '#8A5A2B', status: 'test',
+    id: 'koleksiyoncu', kind: 'game', acc: '#E2B75E', acc2: '#8A5A2B', status: 'live',
     privacy: '/privacy/collector/', test: { group: 'the-collector-testers', pkg: 'com.fmjapps.collector' },
     shots: [[1, 0], [2, 1], [3, 2], [5, 3]],
     category: 'GameApplication',
@@ -340,7 +340,7 @@ const APPS = [
 
   /* ------------------------------------------------------------------ */
   {
-    id: 'ezber', kind: 'app', acc: '#2FC4A8', status: 'test',
+    id: 'ezber', kind: 'app', acc: '#2FC4A8', status: 'live',
     privacy: '/privacy/ezber/', test: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani' },
     shots: [[1, 0], [2, 1], [3, 2]],
     category: 'EducationalApplication',

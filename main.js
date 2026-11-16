@@ -11,15 +11,6 @@
   // İletişim formunun gönderildiği Cloudflare Worker
   var FORM_URL = 'https://form.fmjapps.com/';
 
-  // Kapalı testteki uygulamalar: Google Grubu ve Play paket adı
-  // soon: yayın onayı bekleniyor; 14 gün notu gösterilmez
-  var TESTS = {
-    kayip: { group: 'kayip-esya-testers', pkg: 'com.oyunatolyesi.kayipesya', acc: '#9CC98F' },
-    koleksiyoncu: { group: 'the-collector-testers', pkg: 'com.fmjapps.collector', acc: '#E2B75E' },
-    ezber: { group: 'memorize-testers', pkg: 'com.fmjapps.ezberasistani', acc: '#2FC4A8' },
-    paydos: { group: 'paydos-test', pkg: 'com.zamankilidi.app', acc: '#6E8BFF', soon: true }
-  };
-
   // Metni HTML'e yazmadan önce zararsız hâle getirir
   function esc(str) { return String(str).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
@@ -472,7 +463,6 @@
     var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
     if (!pages.length) return;
     var pager = document.getElementById('pager');
-    var modal = document.getElementById('joinModal');
     var navLinks = document.querySelectorAll('.links a');
     var cur = 0, anim = null, lockUntil = 0;
 
@@ -552,7 +542,7 @@
       return false;
     }
     function scrollableInside(target, dir) {
-      var el = target.closest && target.closest('.msgs, .modal-card, textarea');
+      var el = target.closest && target.closest('.msgs, textarea');
       if (!el) return false;
       if (dir > 0) return el.scrollTop + el.clientHeight < el.scrollHeight - 1;
       return el.scrollTop > 0;
@@ -561,7 +551,7 @@
     window.addEventListener('scroll', function () { if (!anim) { var n = nearest(); if (n !== cur) { cur = n; mark(); } } }, { passive: true });
 
     window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey || !modal.hidden || flat() || (e.target && e.target.shadowRoot)) return;
+      if (e.ctrlKey || flat() || (e.target && e.target.shadowRoot)) return;
       var dir = e.deltaY > 0 ? 1 : e.deltaY < 0 ? -1 : 0;
       if (!dir || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (scrollableInside(e.target, dir)) return;
@@ -574,7 +564,7 @@
 
     var ty = null, tx = 0, tMode = null;
     window.addEventListener('touchstart', function (e) {
-      if (!modal.hidden || e.touches.length > 1 || flat() || (e.target && e.target.shadowRoot)) { ty = null; return; }
+      if (e.touches.length > 1 || flat() || (e.target && e.target.shadowRoot)) { ty = null; return; }
       ty = e.touches[0].clientY; tx = e.touches[0].clientX; tMode = null;
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
@@ -598,7 +588,7 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (!modal.hidden || e.altKey || e.ctrlKey || e.metaKey || flat() || (e.target && e.target.shadowRoot)) return;
+      if (e.altKey || e.ctrlKey || e.metaKey || flat() || (e.target && e.target.shadowRoot)) return;
       var t = e.target;
       if (t.closest && t.closest('input, textarea, select, [contenteditable], .sc-stage, .screen, .sc-tabs, #lang')) return;
       var dir = 0;
@@ -740,68 +730,6 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
   }
-
-  /* ---------- Kapalı teste katılım penceresi ---------- */
-  (function () {
-    var modal = document.getElementById('joinModal');
-    var card = modal.querySelector('.modal-card');
-    var steps = modal.querySelectorAll('.step');
-    var links = [document.getElementById('jmGroup'), document.getElementById('jmOptin'), document.getElementById('jmPlay')];
-    var app = null, lastFocus = null;
-
-    function paint() {
-      var done = parseInt(load('fmj-join-' + app) || '0', 10);
-      steps.forEach(function (s, i) {
-        s.classList.toggle('done', i < done);
-        s.classList.toggle('current', i === Math.min(done, 2));
-      });
-    }
-    function open(key, trigger) {
-      var cfg = TESTS[key];
-      if (!cfg) return;
-      app = key;
-      lastFocus = trigger || document.activeElement;
-      var section = document.getElementById(key);
-      document.getElementById('jmTitle').textContent = section.querySelector('h3').textContent;
-      document.getElementById('jmIcon').src = section.querySelector('.p-icon').getAttribute('src');
-      card.style.setProperty('--acc', cfg.acc);
-      links[0].href = 'https://groups.google.com/g/' + cfg.group;
-      links[1].href = 'https://play.google.com/apps/testing/' + cfg.pkg;
-      links[2].href = 'https://play.google.com/store/apps/details?id=' + cfg.pkg;
-      modal.querySelector('.jm-note').hidden = !!cfg.soon;
-      paint();
-      modal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      modal.querySelector('.step.current .btn').focus();
-    }
-    function close() {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      if (lastFocus) lastFocus.focus();
-    }
-    links.forEach(function (a, i) {
-      a.addEventListener('click', function () {
-        var done = parseInt(load('fmj-join-' + app) || '0', 10);
-        if (i + 1 > done) store('fmj-join-' + app, String(i + 1));
-        setTimeout(paint, 250);
-      });
-    });
-    document.querySelectorAll('[data-join]').forEach(function (b) {
-      b.addEventListener('click', function () { open(b.getAttribute('data-join'), b); });
-    });
-    modal.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', close); });
-    document.addEventListener('keydown', function (e) {
-      if (modal.hidden) return;
-      if (e.key === 'Escape') close();
-      if (e.key === 'Tab') {
-        // Odak pencerenin içinde kalsın
-        var f = card.querySelectorAll('a[href], button');
-        var first = f[0], last = f[f.length - 1];
-        if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
-        else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
-      }
-    });
-  })();
 
   /* ---------- İletişim: e-posta kopyalama ---------- */
   document.getElementById('copyMail').addEventListener('click', function () {
