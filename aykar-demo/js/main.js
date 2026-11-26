@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.add('js');
+
   var PHONE = '905324789813';
   var EMAIL = 'info@marmarayotomat.com.tr';
 
@@ -161,6 +163,271 @@
     if (matched || qMachine) {
       document.getElementById('oneri').scrollIntoView();
     }
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header: kaydırınca küçülür, bulunduğun bölüm menüde işaretlenir
+  var header = document.querySelector('.site-header');
+  function onScroll() {
+    if (header) {
+      header.classList.toggle('scrolled', window.scrollY > 12);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var byId = {};
+    navLinks.forEach(function (a) {
+      byId[a.getAttribute('href').slice(1)] = a;
+    });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = byId[entry.target.id];
+        if (link && entry.isIntersecting) {
+          navLinks.forEach(function (a) {
+            a.classList.remove('current');
+          });
+          link.classList.add('current');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(byId).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        spy.observe(el);
+      }
+    });
+  }
+
+  // Hero fotoğraf geçişi
+  var slides = document.querySelectorAll('.slide');
+  var dotsBox = document.getElementById('slide-dots');
+  var current = 0;
+  var timer = null;
+  function go(i) {
+    slides[current].classList.remove('is-active');
+    dotsBox.children[current].setAttribute('aria-selected', 'false');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+    dotsBox.children[current].setAttribute('aria-selected', 'true');
+  }
+  function play() {
+    if (reduceMotion || slides.length < 2) {
+      return;
+    }
+    clearInterval(timer);
+    timer = setInterval(function () {
+      go(current + 1);
+    }, 5000);
+  }
+  if (slides.length && dotsBox) {
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', (i + 1) + '. fotoğraf');
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.addEventListener('click', function () {
+        go(i);
+        play();
+      });
+      dotsBox.appendChild(dot);
+    });
+    play();
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        clearInterval(timer);
+      } else {
+        play();
+      }
+    });
+  }
+
+  // Fotoğraf çerçevesi fareyle hafifçe eğilir
+  var media = document.getElementById('hero-media');
+  var frameEl = document.getElementById('slides');
+  if (media && frameEl && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    media.addEventListener('pointermove', function (e) {
+      var r = media.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      frameEl.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+      frameEl.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+    });
+    media.addEventListener('pointerleave', function () {
+      frameEl.style.setProperty('--ry', '0deg');
+      frameEl.style.setProperty('--rx', '0deg');
+    });
+  }
+
+  // Sayaçlar
+  function countUp(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (reduceMotion || !target) {
+      return;
+    }
+    var start = null;
+    function step(t) {
+      if (start === null) {
+        start = t;
+      }
+      var p = Math.min((t - start) / 1400, 1);
+      el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    el.textContent = '0';
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll('[data-count]').forEach(countUp);
+
+  // Marmaray hattı: istasyon listesinden çizilir
+  var lineEl = document.getElementById('line');
+  var stops = [];
+  if (lineEl && stations.length) {
+    var gapAfter = 13; // Sirkeci ile Üsküdar arası Boğaz
+    var units = stations.length - 1 + 2;
+    var pos = function (i) {
+      return ((i + (i > gapAfter ? 2 : 0)) / units) * 100;
+    };
+    var sea = document.createElement('div');
+    sea.className = 'sea';
+    sea.style.left = (pos(gapAfter) + 1) + '%';
+    sea.style.width = (pos(gapAfter + 1) - pos(gapAfter) - 2) + '%';
+    sea.innerHTML = '<span>BOĞAZ</span>';
+    lineEl.appendChild(sea);
+
+    stations.forEach(function (link, i) {
+      var stop = document.createElement('button');
+      stop.type = 'button';
+      stop.className = 'stop' + (i === 0 || i === stations.length - 1 ? ' end' : '');
+      stop.style.left = pos(i) + '%';
+      stop.setAttribute('aria-label', link.textContent);
+      var tip = document.createElement('span');
+      tip.className = 'tip';
+      tip.textContent = link.textContent;
+      stop.appendChild(tip);
+      if (stop.classList.contains('end')) {
+        var label = document.createElement('span');
+        label.className = 'label';
+        label.textContent = link.textContent;
+        stop.appendChild(label);
+      }
+      stop.addEventListener('click', function () {
+        link.click();
+      });
+      lineEl.appendChild(stop);
+      stops.push(stop);
+    });
+
+    var train = document.createElement('span');
+    train.className = 'train';
+    lineEl.appendChild(train);
+
+    stations.forEach(function (link, i) {
+      link.addEventListener('click', function () {
+        stops.forEach(function (s) {
+          s.classList.remove('active');
+        });
+        stops[i].classList.add('active');
+      });
+    });
+  }
+
+  // Kaydırınca beliren öğeler
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    var groups = ['.section-head', '.about > *', '.grid > *', '.steps li', '.line-wrap', '.stations-box', '.map-box', '.feedback > *', '.gallery figure', '.contact-grid > *', '.band'];
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealIO.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    groups.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el, i) {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          return;
+        }
+        el.classList.add('reveal');
+        el.style.setProperty('--d', Math.min(i % 4, 3) * 0.08 + 's');
+        revealIO.observe(el);
+      });
+    });
+  }
+
+  // Galeri büyütme
+  var lb = document.getElementById('lightbox');
+  var figures = Array.prototype.slice.call(document.querySelectorAll('.gallery figure'));
+  if (lb && figures.length && typeof lb.showModal === 'function') {
+    var lbImg = lb.querySelector('img');
+    var lbCap = lb.querySelector('figcaption');
+    var idx = 0;
+    var show = function (i) {
+      idx = (i + figures.length) % figures.length;
+      var img = figures[idx].querySelector('img');
+      var set = (img.getAttribute('srcset') || '').split(',').map(function (x) {
+        return x.trim().split(' ')[0];
+      }).filter(Boolean);
+      lbImg.src = set.length ? set[set.length - 1] : img.src;
+      lbImg.alt = img.alt;
+      lbCap.textContent = figures[idx].querySelector('figcaption').textContent;
+    };
+    figures.forEach(function (fig, i) {
+      fig.tabIndex = 0;
+      fig.setAttribute('role', 'button');
+      fig.addEventListener('click', function () {
+        show(i);
+        lb.showModal();
+      });
+      fig.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          show(i);
+          lb.showModal();
+        }
+      });
+    });
+    lb.querySelector('.lb-close').addEventListener('click', function () {
+      lb.close();
+    });
+    lb.querySelector('.lb-prev').addEventListener('click', function () {
+      show(idx - 1);
+    });
+    lb.querySelector('.lb-next').addEventListener('click', function () {
+      show(idx + 1);
+    });
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb) {
+        lb.close();
+      }
+    });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') {
+        show(idx - 1);
+      } else if (e.key === 'ArrowRight') {
+        show(idx + 1);
+      }
+    });
+    var touchX = null;
+    lb.addEventListener('touchstart', function (e) {
+      touchX = e.touches[0].clientX;
+    }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (touchX === null) {
+        return;
+      }
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) {
+        show(idx + (dx < 0 ? 1 : -1));
+      }
+      touchX = null;
+    });
   }
 
   var year = document.getElementById('year');
