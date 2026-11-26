@@ -344,7 +344,7 @@ p {
   width: 420px;
   height: auto;
   transform: translate(50%, -50%);
-  opacity: 0.05;
+  opacity: 0.035;
   filter: grayscale(1) brightness(3);
 }
 
@@ -468,62 +468,134 @@ p {
 
 .hero-media {
   position: relative;
-  perspective: 1200px;
 }
 
-.slides {
+.stage {
   position: relative;
-  aspect-ratio: 4 / 4.4;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
-  transform: rotateY(var(--ry, 0deg)) rotateX(var(--rx, 0deg));
-  transition: transform 0.4s ease;
-  background: #0a2440;
+  height: 520px;
+  touch-action: pan-y;
+  user-select: none;
 }
 
-.slide {
+.stage-glow {
   position: absolute;
-  inset: 0;
-  margin: 0;
+  left: 50%;
+  top: 46%;
+  width: 380px;
+  height: 380px;
+  margin: -190px 0 0 -190px;
+  border-radius: 50%;
+  background: var(--glow, #00aeef);
+  filter: blur(70px);
+  opacity: 0.45;
+  transition: background 0.8s ease;
+}
+
+.stage-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 340px;
+  height: 34px;
+  margin-left: -170px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.55), transparent);
+}
+
+.machine {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  width: 300px;
+  margin: 0 0 0 -150px;
   opacity: 0;
-  transition: opacity 0.9s ease;
+  transform: translateX(0) scale(0.6);
+  transition: transform 0.85s cubic-bezier(.22, .8, .2, 1), opacity 0.85s ease, filter 0.85s ease;
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
-.slide.is-active {
-  opacity: 1;
-}
-
-.slide img {
+.machine img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.45));
+}
+
+.machine figcaption {
+  display: none;
+}
+
+.machine.is-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.machine.is-prev,
+.machine.is-next {
+  opacity: 0.45;
+  filter: blur(1px) saturate(0.7);
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.machine.is-prev {
+  transform: translateX(-62%) scale(0.68);
+}
+
+.machine.is-next {
+  transform: translateX(62%) scale(0.68);
+}
+
+.machine.is-out-left {
+  transform: translateX(-120%) scale(0.5);
+}
+
+.machine.is-out-right {
+  transform: translateX(120%) scale(0.5);
+}
+
+.stage-ui {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.stage-cap {
+  margin: 0;
+  min-width: 15em;
+  text-align: center;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.stage-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.stage-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
   transform: scale(1.08);
-  transition: transform 6s ease-out;
-}
-
-.slide.is-active img {
-  transform: scale(1);
-}
-
-.slide figcaption {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(6, 26, 48, 0.72);
-  backdrop-filter: blur(6px);
-  font-size: 0.9rem;
-  font-weight: 600;
 }
 
 .slide-dots {
-  position: absolute;
-  right: 18px;
-  bottom: 22px;
   display: flex;
+  justify-content: center;
   gap: 6px;
+  margin-top: 14px;
 }
 
 .slide-dots button {
@@ -532,7 +604,7 @@ p {
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: width 0.3s ease, background 0.3s ease;
 }
@@ -1411,8 +1483,13 @@ p {
     gap: 40px;
   }
 
-  .slides {
-    aspect-ratio: 4 / 3;
+  .stage {
+    height: 440px;
+  }
+
+  .machine {
+    width: 250px;
+    margin-left: -125px;
   }
 
   .hero-mark {
@@ -1511,6 +1588,23 @@ p {
 
   .scroll-cue {
     display: none;
+  }
+
+  .stage {
+    height: 380px;
+  }
+
+  .machine {
+    width: 220px;
+    margin-left: -110px;
+  }
+
+  .machine.is-prev {
+    transform: translateX(-58%) scale(0.62);
+  }
+
+  .machine.is-next {
+    transform: translateX(58%) scale(0.62);
   }
 }
 

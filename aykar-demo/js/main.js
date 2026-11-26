@@ -202,41 +202,90 @@
     });
   }
 
-  // Hero fotoğraf geçişi
-  var slides = document.querySelectorAll('.slide');
+  // Hero vitrini: otomatlar sağa sola kayarak değişir
+  var machines = Array.prototype.slice.call(document.querySelectorAll('.machine'));
+  var stage = document.getElementById('stage');
   var dotsBox = document.getElementById('slide-dots');
+  var cap = document.getElementById('stage-cap');
   var current = 0;
   var timer = null;
+  function layout() {
+    var n = machines.length;
+    machines.forEach(function (m, i) {
+      var d = (i - current + n) % n;
+      m.className = 'machine' + (d === 0 ? ' is-active' : d === 1 ? ' is-next' : d === n - 1 ? ' is-prev' : (d < n / 2 ? ' is-out-right' : ' is-out-left'));
+      m.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+    });
+    if (stage) {
+      stage.style.setProperty('--glow', machines[current].getAttribute('data-glow'));
+    }
+    if (cap) {
+      cap.textContent = machines[current].querySelector('figcaption').textContent;
+    }
+    if (dotsBox) {
+      Array.prototype.forEach.call(dotsBox.children, function (dot, i) {
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+    }
+  }
   function go(i) {
-    slides[current].classList.remove('is-active');
-    dotsBox.children[current].setAttribute('aria-selected', 'false');
-    current = (i + slides.length) % slides.length;
-    slides[current].classList.add('is-active');
-    dotsBox.children[current].setAttribute('aria-selected', 'true');
+    current = (i + machines.length) % machines.length;
+    layout();
   }
   function play() {
-    if (reduceMotion || slides.length < 2) {
+    if (reduceMotion || machines.length < 2) {
       return;
     }
     clearInterval(timer);
     timer = setInterval(function () {
       go(current + 1);
-    }, 5000);
+    }, 4200);
   }
-  if (slides.length && dotsBox) {
-    slides.forEach(function (slide, i) {
+  if (machines.length && dotsBox) {
+    machines.forEach(function (m, i) {
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', (i + 1) + '. fotoğraf');
-      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.setAttribute('aria-label', (i + 1) + '. otomat');
       dot.addEventListener('click', function () {
         go(i);
         play();
       });
       dotsBox.appendChild(dot);
+      m.addEventListener('click', function () {
+        if (m.classList.contains('is-next') || m.classList.contains('is-prev')) {
+          go(i);
+          play();
+        }
+      });
     });
-    play();
+    document.getElementById('stage-prev').addEventListener('click', function () {
+      go(current - 1);
+      play();
+    });
+    document.getElementById('stage-next').addEventListener('click', function () {
+      go(current + 1);
+      play();
+    });
+    var sx = null;
+    stage.addEventListener('pointerdown', function (e) {
+      sx = e.clientX;
+    });
+    stage.addEventListener('pointerup', function (e) {
+      if (sx === null) {
+        return;
+      }
+      var dx = e.clientX - sx;
+      if (Math.abs(dx) > 40) {
+        go(current + (dx < 0 ? 1 : -1));
+        play();
+      }
+      sx = null;
+    });
+    stage.addEventListener('mouseenter', function () {
+      clearInterval(timer);
+    });
+    stage.addEventListener('mouseleave', play);
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) {
         clearInterval(timer);
@@ -244,23 +293,8 @@
         play();
       }
     });
-  }
-
-  // Fotoğraf çerçevesi fareyle hafifçe eğilir
-  var media = document.getElementById('hero-media');
-  var frameEl = document.getElementById('slides');
-  if (media && frameEl && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-    media.addEventListener('pointermove', function (e) {
-      var r = media.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top) / r.height - 0.5;
-      frameEl.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
-      frameEl.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
-    });
-    media.addEventListener('pointerleave', function () {
-      frameEl.style.setProperty('--ry', '0deg');
-      frameEl.style.setProperty('--rx', '0deg');
-    });
+    layout();
+    play();
   }
 
   // Sayaçlar

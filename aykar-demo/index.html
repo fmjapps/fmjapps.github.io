@@ -104,37 +104,44 @@
         </div>
 
         <div class="hero-media" id="hero-media">
-          <div class="slides" id="slides">
-            <figure class="slide is-active">
+          <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Otomatlarımız">
+            <div class="stage-glow" aria-hidden="true"></div>
+            <div class="stage-floor" aria-hidden="true"></div>
+            <figure class="machine" data-glow="#00aeef">
               <picture>
-                <source type="image/webp" srcset="img/otomat-peron-800.webp 800w, img/otomat-peron-1400.webp 1400w" sizes="(max-width: 960px) 100vw, 520px">
-                <img src="img/otomat-peron-800.jpg" srcset="img/otomat-peron-800.jpg 800w, img/otomat-peron-1400.jpg 1400w" sizes="(max-width: 960px) 100vw, 520px" width="800" height="683" alt="Marmaray peronunda içecek ve atıştırmalık otomatı" fetchpriority="high">
+                <source type="image/webp" srcset="img/kesim-siyah.webp">
+                <img src="img/kesim-siyah.png" width="608" height="900" alt="Siyah atıştırmalık ve içecek otomatı" fetchpriority="high">
               </picture>
-              <figcaption>Peronda atıştırmalık ve soğuk içecek</figcaption>
+              <figcaption>Atıştırmalık ve soğuk içecek</figcaption>
             </figure>
-            <figure class="slide">
+            <figure class="machine" data-glow="#ff3b3b">
               <picture>
-                <source type="image/webp" srcset="img/otomat-kirmizi-800.webp 800w, img/otomat-kirmizi-1400.webp 1400w" sizes="(max-width: 960px) 100vw, 520px">
-                <img src="img/otomat-kirmizi-800.jpg" srcset="img/otomat-kirmizi-800.jpg 800w, img/otomat-kirmizi-1400.jpg 1400w" sizes="(max-width: 960px) 100vw, 520px" width="800" height="1067" alt="Marmaray peronunda kırmızı otomat" loading="lazy">
+                <source type="image/webp" srcset="img/kesim-kirmizi.webp">
+                <img src="img/kesim-kirmizi.png" width="609" height="900" alt="Kırmızı otomat" loading="lazy">
               </picture>
               <figcaption>Her peronda bir mola noktası</figcaption>
             </figure>
-            <figure class="slide">
+            <figure class="machine" data-glow="#ffc21a">
               <picture>
-                <source type="image/webp" srcset="img/otomat-istasyon-ic-800.webp 800w, img/otomat-istasyon-ic-1400.webp 1400w" sizes="(max-width: 960px) 100vw, 520px">
-                <img src="img/otomat-istasyon-ic-800.jpg" srcset="img/otomat-istasyon-ic-800.jpg 800w, img/otomat-istasyon-ic-1400.jpg 1400w" sizes="(max-width: 960px) 100vw, 520px" width="800" height="677" alt="İstasyon içinde atıştırmalık, tost ve kahve otomatları" loading="lazy">
-              </picture>
-              <figcaption>Tost, çay ve kahve de var</figcaption>
-            </figure>
-            <figure class="slide">
-              <picture>
-                <source type="image/webp" srcset="img/otomat-sari-800.webp 800w" sizes="(max-width: 960px) 100vw, 520px">
-                <img src="img/otomat-sari-800.jpg" width="800" height="1422" alt="Marmaray peronunda sarı otomat" loading="lazy">
+                <source type="image/webp" srcset="img/kesim-sari.webp">
+                <img src="img/kesim-sari.png" width="602" height="900" alt="Sarı otomat" loading="lazy">
               </picture>
               <figcaption>Nakit ya da kartla öde</figcaption>
             </figure>
+            <figure class="machine" data-glow="#b04a8c">
+              <picture>
+                <source type="image/webp" srcset="img/kesim-bordo.webp">
+                <img src="img/kesim-bordo.png" width="584" height="900" alt="Bordo otomat" loading="lazy">
+              </picture>
+              <figcaption>Taze ürün, düzenli dolum</figcaption>
+            </figure>
           </div>
-          <div class="slide-dots" id="slide-dots" role="tablist" aria-label="Fotoğraflar"></div>
+          <div class="stage-ui">
+            <button class="stage-btn" type="button" id="stage-prev" aria-label="Önceki otomat">‹</button>
+            <p class="stage-cap" id="stage-cap" aria-live="polite">Atıştırmalık ve soğuk içecek</p>
+            <button class="stage-btn" type="button" id="stage-next" aria-label="Sonraki otomat">›</button>
+          </div>
+          <div class="slide-dots" id="slide-dots" role="tablist" aria-label="Otomatlar"></div>
         </div>
       </div>
       <a class="scroll-cue" href="#hakkimizda" aria-label="Aşağı kaydır"><span></span></a>
