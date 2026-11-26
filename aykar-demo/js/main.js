@@ -121,9 +121,13 @@
       e.preventDefault();
       var channel = (e.submitter && e.submitter.value) || 'wa';
       var station = form.elements.istasyon.value || 'Belirtilmedi';
+      var machine = form.elements.otomat.value.trim();
       var topic = form.elements.konu.value;
       var message = form.elements.mesaj.value.trim();
-      var body = 'İstasyon: ' + station + '\nKonu: ' + topic + (message ? '\n\n' + message : '');
+      var body = 'İstasyon: ' + station +
+        (machine ? '\nOtomat no: ' + machine : '') +
+        '\nKonu: ' + topic +
+        (message ? '\n\n' + message : '');
 
       if (channel === 'mail') {
         window.location.href = 'mailto:' + EMAIL +
@@ -133,6 +137,30 @@
         window.open(waUrl(body), '_blank', 'noopener');
       }
     });
+  }
+
+  // QR ile gelindiyse: ?istasyon=Bostancı&otomat=12
+  if (form) {
+    var params = new URLSearchParams(window.location.search);
+    var qStation = params.get('istasyon');
+    var qMachine = params.get('otomat');
+    var select = form.elements.istasyon;
+    var matched = false;
+    if (qStation) {
+      var wanted = plain(qStation.trim());
+      Array.prototype.forEach.call(select.options, function (opt) {
+        if (!matched && opt.value && plain(opt.value) === wanted) {
+          select.value = opt.value;
+          matched = true;
+        }
+      });
+    }
+    if (qMachine) {
+      form.elements.otomat.value = qMachine.slice(0, 20);
+    }
+    if (matched || qMachine) {
+      document.getElementById('oneri').scrollIntoView();
+    }
   }
 
   var year = document.getElementById('year');
