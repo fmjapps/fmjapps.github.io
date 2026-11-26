@@ -61,6 +61,16 @@
     });
   }
 
+  // Header'daki Harita butonu: bölüme iner ve haritayı açar
+  var navMap = document.querySelector('.nav-map');
+  if (navMap && map) {
+    navMap.addEventListener('click', function () {
+      if (!frame) {
+        showMap(map.getAttribute('data-src'));
+      }
+    });
+  }
+
   var stations = document.querySelectorAll('.station');
   stations.forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -233,7 +243,7 @@
     layout();
   }
   function play() {
-    if (reduceMotion || machines.length < 2) {
+    if (machines.length < 2) {
       return;
     }
     clearInterval(timer);
