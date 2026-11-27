@@ -333,22 +333,7 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Header: kaydırınca küçülür, bulunduğun bölüm menüde işaretlenir
-  var header = document.querySelector('.site-header');
-  function onScroll() {
-    if (!header) {
-      return;
-    }
-    var y = window.scrollY;
-    if (y > 40) {
-      header.classList.add('scrolled');
-    } else if (y < 8) {
-      header.classList.remove('scrolled');
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
+  // Menüde bulunduğun bölüm işaretlenir
   var navLinks = document.querySelectorAll('.nav a[href^="#"]');
   if ('IntersectionObserver' in window && navLinks.length) {
     var byId = {};
@@ -374,18 +359,99 @@
     });
   }
 
-  // Hero: ödeme etiketleri sırayla parlar
-  var chips = document.querySelectorAll('#chips .chip');
-  if (chips.length) {
-    var chipAt = 0;
-    var lightChip = function () {
-      chips.forEach(function (c, i) {
-        c.classList.toggle('lit', i === chipAt);
+  // Hero vitrini: otomatlar sağa sola kayarak değişir
+  var machines = Array.prototype.slice.call(document.querySelectorAll('.machine'));
+  var stage = document.getElementById('stage');
+  var dotsBox = document.getElementById('slide-dots');
+  var cap = document.getElementById('stage-cap');
+  var current = 0;
+  var timer = null;
+  function layout() {
+    var n = machines.length;
+    machines.forEach(function (m, i) {
+      var d = (i - current + n) % n;
+      m.className = 'machine' + (d === 0 ? ' is-active' : d === 1 ? ' is-next' : d === n - 1 ? ' is-prev' : (d < n / 2 ? ' is-out-right' : ' is-out-left'));
+      m.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+    });
+    if (stage) {
+      stage.style.setProperty('--glow', machines[current].getAttribute('data-glow'));
+    }
+    if (cap) {
+      cap.textContent = machines[current].querySelector('figcaption').textContent;
+    }
+    if (dotsBox) {
+      Array.prototype.forEach.call(dotsBox.children, function (dot, i) {
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
       });
-      chipAt = (chipAt + 1) % chips.length;
-    };
-    lightChip();
-    setInterval(lightChip, 1800);
+    }
+  }
+  function go(i) {
+    current = (i + machines.length) % machines.length;
+    layout();
+  }
+  function play() {
+    if (reduceMotion || machines.length < 2) {
+      return;
+    }
+    clearInterval(timer);
+    timer = setInterval(function () {
+      go(current + 1);
+    }, 4200);
+  }
+  if (machines.length && dotsBox) {
+    machines.forEach(function (m, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', (i + 1) + '. otomat');
+      dot.addEventListener('click', function () {
+        go(i);
+        play();
+      });
+      dotsBox.appendChild(dot);
+      m.addEventListener('click', function () {
+        if (m.classList.contains('is-next') || m.classList.contains('is-prev')) {
+          go(i);
+          play();
+        }
+      });
+    });
+    document.getElementById('stage-prev').addEventListener('click', function () {
+      go(current - 1);
+      play();
+    });
+    document.getElementById('stage-next').addEventListener('click', function () {
+      go(current + 1);
+      play();
+    });
+    var sx = null;
+    stage.addEventListener('pointerdown', function (e) {
+      sx = e.clientX;
+    });
+    stage.addEventListener('pointerup', function (e) {
+      if (sx === null) {
+        return;
+      }
+      var dx = e.clientX - sx;
+      if (Math.abs(dx) > 40) {
+        go(current + (dx < 0 ? 1 : -1));
+        play();
+      }
+      sx = null;
+    });
+    stage.addEventListener('mouseenter', function () {
+      clearInterval(timer);
+    });
+    stage.addEventListener('mouseleave', play);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        clearInterval(timer);
+      } else {
+        play();
+      }
+    });
+    layout();
+    play();
   }
 
   // Ödeme rehberi: yöntem seçilir, adımlar animasyonla döner

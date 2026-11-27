@@ -23,14 +23,14 @@
 
   <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=7">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Marmaray Otomat",
-    "legalName": "Aykar Otomat",
+    "legalName": "Aykar",
     "description": "Marmaray istasyonlarında içecek, atıştırmalık, sandviç, tost ve sıcak içecek otomatları.",
     "url": "https://fmjapps.com/aykar-demo/",
     "logo": "https://fmjapps.com/aykar-demo/img/mark.png",
@@ -110,23 +110,44 @@
         </div>
 
         <div class="hero-media" id="hero-media">
-          <div class="stage" id="stage">
+          <div class="stage" id="stage" aria-roledescription="carousel" aria-label="Otomatlarımız">
             <div class="stage-glow" aria-hidden="true"></div>
             <div class="stage-floor" aria-hidden="true"></div>
-            <figure class="machine is-active">
+            <figure class="machine" data-glow="#00aeef">
               <picture>
                 <source type="image/webp" srcset="img/kesim-siyah.webp">
-                <img src="img/kesim-siyah.png" width="608" height="900" alt="Marmaray peronundaki atıştırmalık ve içecek otomatı" fetchpriority="high">
+                <img src="img/kesim-siyah.png" width="608" height="900" alt="Siyah atıştırmalık ve içecek otomatı" fetchpriority="high">
               </picture>
+              <figcaption>Atıştırmalık ve soğuk içecek</figcaption>
             </figure>
-            <ul class="chips" id="chips" aria-label="Ödeme yöntemleri">
-              <li class="chip c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>Kredi kartı</li>
-              <li class="chip c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h3v3H6zM13 15h5"/></svg>Banka kartı</li>
-              <li class="chip c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg>QR ile öde</li>
-              <li class="chip c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="13" height="17" rx="2"/><path d="M19 8a5 5 0 0 1 0 8M21.5 5.5a9 9 0 0 1 0 13"/></svg>İstanbulkart</li>
-              <li class="chip c5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18 12 4l9 14Z"/><path d="M6 14h12"/></svg>Sandviçler her gün taze</li>
-            </ul>
+            <figure class="machine" data-glow="#ff3b3b">
+              <picture>
+                <source type="image/webp" srcset="img/kesim-kirmizi.webp">
+                <img src="img/kesim-kirmizi.png" width="609" height="900" alt="Kırmızı otomat" loading="lazy">
+              </picture>
+              <figcaption>Her peronda bir mola noktası</figcaption>
+            </figure>
+            <figure class="machine" data-glow="#ffc21a">
+              <picture>
+                <source type="image/webp" srcset="img/kesim-sari.webp">
+                <img src="img/kesim-sari.png" width="602" height="900" alt="Sarı otomat" loading="lazy">
+              </picture>
+              <figcaption>Kart, QR ve İstanbulkart ile öde</figcaption>
+            </figure>
+            <figure class="machine" data-glow="#b04a8c">
+              <picture>
+                <source type="image/webp" srcset="img/kesim-bordo.webp">
+                <img src="img/kesim-bordo.png" width="584" height="900" alt="Bordo otomat" loading="lazy">
+              </picture>
+              <figcaption>Sandviçler her gün taze</figcaption>
+            </figure>
           </div>
+          <div class="stage-ui">
+            <button class="stage-btn" type="button" id="stage-prev" aria-label="Önceki otomat">‹</button>
+            <p class="stage-cap" id="stage-cap" aria-live="polite">Atıştırmalık ve soğuk içecek</p>
+            <button class="stage-btn" type="button" id="stage-next" aria-label="Sonraki otomat">›</button>
+          </div>
+          <div class="slide-dots" id="slide-dots" role="tablist" aria-label="Otomatlar"></div>
         </div>
       </div>
       <a class="scroll-cue" href="#hakkimizda" aria-label="Aşağı kaydır"><span></span></a>
@@ -159,7 +180,7 @@
           <p>Otomatlarımızdan soğuk içecek, atıştırmalık, her gün taze gelen sandviçler, tost, çay ve kahveye 7/24 ulaşabilir; kredi kartı, banka kartı, QR ve İstanbulkart ile ödeme yapabilirsiniz. Hijyen ve kalite standartlarımızla müşteri memnuniyetini her zaman ön planda tutuyoruz.</p>
           <div class="signature">
             <img src="img/logo.png" alt="Aykar" width="142" height="160" loading="lazy">
-            <p>Marmaray Otomat, bir <strong>Aykar Otomat</strong> hizmetidir.</p>
+            <p>Marmaray Otomat, bir <strong>Aykar</strong> hizmetidir.</p>
           </div>
         </div>
         <ul class="stats">
@@ -530,9 +551,40 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <span>© <span id="year">2026</span> Marmaray Otomat</span>
-      <a href="tel:+905324789813">0532 478 98 13</a>
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="foot-logo" href="#top">
+          <img src="img/mark.png" alt="" width="40" height="35">
+          <span><strong>MARMARAY</strong> <small>OTOMAT</small></span>
+        </a>
+        <p>Marmaray hattında 43 istasyonda 126 otomatla, 7/24 taze ürün ve kolay ödeme.</p>
+        <p class="foot-aykar">Marmaray Otomat, bir <strong>Aykar</strong> hizmetidir.</p>
+      </div>
+      <nav class="foot-col" aria-label="Alt menü">
+        <h3>Sayfa</h3>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#rehber">Ödeme rehberi</a>
+        <a href="#marmaray">Otomat haritası</a>
+        <a href="#sss">Sık sorulan sorular</a>
+      </nav>
+      <div class="foot-col">
+        <h3>Destek</h3>
+        <a href="#oneri">Öneri / Şikayet</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#iletisim">İletişim</a>
+      </div>
+      <div class="foot-col foot-contact">
+        <h3>İletişim</h3>
+        <a href="tel:+905324789813">0532 478 98 13</a>
+        <a class="wa-link" href="https://wa.me/905324789813" data-wa-text="Merhaba, bilgi almak istiyorum." target="_blank" rel="noopener">WhatsApp ile yazın</a>
+        <a href="mailto:info@marmarayotomat.com.tr">info@marmarayotomat.com.tr</a>
+        <span>Otomatlar 7/24 hizmette</span>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <span>© <span id="year">2026</span> Marmaray Otomat. Tüm hakları saklıdır.</span>
+      <a href="#top">Başa dön ↑</a>
     </div>
   </footer>
 
@@ -551,6 +603,6 @@
   </dialog>
 
   <script src="js/otomatlar.js?v=5" defer></script>
-  <script src="js/main.js?v=5" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 </body>
 </html>
