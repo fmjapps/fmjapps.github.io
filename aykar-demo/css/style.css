@@ -333,6 +333,7 @@ body {
 
 /* Hero */
 .hero {
+  scroll-margin-top: 120px;
   position: relative;
   overflow: hidden;
   background: radial-gradient(120% 120% at 0% 0%, #0f3c66 0%, var(--brand) 55%, #061a30 100%);
@@ -590,40 +591,6 @@ body {
 
 .machine.is-out-right {
   transform: translateX(120%) scale(0.5);
-}
-
-.scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 22px;
-  width: 26px;
-  height: 42px;
-  margin-left: -13px;
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  border-radius: 14px;
-}
-
-.scroll-cue span {
-  position: absolute;
-  left: 50%;
-  top: 8px;
-  width: 4px;
-  height: 8px;
-  margin-left: -2px;
-  border-radius: 2px;
-  background: #fff;
-  animation: cue 1.8s ease-in-out infinite;
-}
-
-@keyframes cue {
-  60% {
-    transform: translateY(12px);
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }
 
 /* About */
@@ -1666,10 +1633,6 @@ body {
 
   .counters dd {
     font-size: 1.9rem;
-  }
-
-  .scroll-cue {
-    display: none;
   }
 
   .stage {
