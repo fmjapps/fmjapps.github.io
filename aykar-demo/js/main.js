@@ -90,6 +90,7 @@
       var station = form && form.elements.istasyon;
       if (station) {
         station.value = link.textContent;
+        station.dispatchEvent(new Event('change', { bubbles: true }));
       }
       if (window.matchMedia('(max-width: 960px)').matches) {
         map.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -127,50 +128,205 @@
     });
   }
 
-  // Öneri / şikayet formu: WhatsApp ya da e-posta taslağı açar
+  // Öneri / şikayet formu: zorunlu alanlar, otomat listesi, taslak mesaj
+  var OTOMATLAR = window.OTOMATLAR || [];
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var channel = (e.submitter && e.submitter.value) || 'wa';
-      var station = form.elements.istasyon.value || 'Belirtilmedi';
-      var machine = form.elements.otomat.value.trim();
-      var topic = form.elements.konu.value;
-      var message = form.elements.mesaj.value.trim();
-      var body = 'İstasyon: ' + station +
-        (machine ? '\nOtomat no: ' + machine : '') +
-        '\nKonu: ' + topic +
-        (message ? '\n\n' + message : '');
+    var fe = form.elements;
+    var otomatField = form.querySelector('.otomat-field');
+    var kindBox = form.querySelector('.kind');
+    var draftBox = document.getElementById('draft');
+    var errBox = document.getElementById('form-error');
+    var fromQr = document.getElementById('from-qr');
+    var konuGroups = form.querySelectorAll('select[name="konu"] optgroup');
 
-      if (channel === 'mail') {
-        window.location.href = 'mailto:' + EMAIL +
-          '?subject=' + encodeURIComponent('Öneri / Şikayet: ' + topic) +
-          '&body=' + encodeURIComponent(body);
-      } else {
-        window.open(waUrl(body), '_blank', 'noopener');
+    var fillMachines = function (station, selectedId) {
+      var sel = fe.otomat;
+      sel.length = 1;
+      var list = OTOMATLAR.filter(function (m) {
+        return m.s === station;
+      });
+      list.forEach(function (m) {
+        var o = document.createElement('option');
+        o.value = m.id;
+        o.textContent = m.n;
+        sel.appendChild(o);
+      });
+      otomatField.hidden = list.length === 0;
+      sel.value = selectedId || '';
+    };
+
+    var kind = function () {
+      var r = form.querySelector('input[name="tur"]:checked');
+      return r ? r.value : '';
+    };
+
+    var syncKind = function () {
+      var k = kind();
+      konuGroups.forEach(function (g) {
+        var on = !k || g.getAttribute('data-kind') === k;
+        g.hidden = !on;
+        g.disabled = !on;
+      });
+      var cur = fe.konu.options[fe.konu.selectedIndex];
+      if (!cur || cur.parentNode.disabled) {
+        var first = form.querySelector('select[name="konu"] optgroup:not([disabled]) option');
+        if (first) {
+          first.selected = true;
+        }
+      }
+      fe.mesaj.placeholder = k === 'Öneri' ? 'Önerinizi kısaca yazın.' : 'Ne oldu? Tarih ve saat de yazabilirsiniz.';
+    };
+
+    var machineText = function () {
+      var o = fe.otomat.options[fe.otomat.selectedIndex];
+      return o && o.value ? o.textContent + ' (no: ' + o.value + ')' : '';
+    };
+
+    var phoneDigits = function () {
+      return fe.telefon.value.replace(/\D/g, '');
+    };
+
+    var phoneOk = function () {
+      var d = phoneDigits();
+      if (d.indexOf('90') === 0) {
+        return d.length === 12;
+      }
+      if (d.indexOf('0') === 0) {
+        return d.length === 11;
+      }
+      return d.length >= 10 && d.length <= 15;
+    };
+
+    var buildText = function () {
+      var k = kind();
+      var lines = [
+        'Merhaba, Marmaray Otomat\'a ' + (k === 'Öneri' ? 'bir öneri' : k === 'Şikayet' ? 'bir şikayet' : 'bir bildirim') + ' iletmek istiyorum.',
+        '',
+        'Tür: ' + (k || '-'),
+        'Konu: ' + fe.konu.value,
+        'İstasyon: ' + (fe.istasyon.value || '-')
+      ];
+      var mt = machineText();
+      if (mt) {
+        lines.push('Otomat: ' + mt);
+      }
+      if (fe.ad.value.trim()) {
+        lines.push('Ad: ' + fe.ad.value.trim());
+      }
+      lines.push('Telefon: ' + (phoneDigits().length > 2 ? fe.telefon.value.trim() : '-'));
+      var msg = fe.mesaj.value.trim();
+      if (msg) {
+        lines.push('', msg);
+      }
+      return lines.join('\n');
+    };
+
+    var updateDraft = function () {
+      if (draftBox) {
+        draftBox.textContent = buildText();
+      }
+    };
+
+    var check = function () {
+      var missing = [];
+      var bad = [];
+      if (!kind()) {
+        missing.push('bildirim türü');
+        bad.push(kindBox.querySelector('input'));
+      }
+      if (!fe.istasyon.value) {
+        missing.push('istasyon');
+        bad.push(fe.istasyon);
+      }
+      if (!phoneOk()) {
+        missing.push('geçerli bir telefon numarası');
+        bad.push(fe.telefon);
+      }
+      kindBox.classList.toggle('invalid', !kind());
+      fe.istasyon.classList.toggle('invalid', !fe.istasyon.value);
+      fe.telefon.classList.toggle('invalid', !phoneOk());
+      if (errBox) {
+        errBox.hidden = missing.length === 0;
+        errBox.textContent = missing.length ? 'Lütfen doldurun: ' + missing.join(', ') + '.' : '';
+      }
+      return bad;
+    };
+
+    form.addEventListener('change', function (e) {
+      if (e.target.name === 'istasyon') {
+        fillMachines(fe.istasyon.value);
+      }
+      if (e.target.name === 'tur') {
+        syncKind();
+      }
+      if (form.classList.contains('tried')) {
+        check();
+      }
+      updateDraft();
+    });
+
+    form.addEventListener('input', function () {
+      if (form.classList.contains('tried')) {
+        check();
+      }
+      updateDraft();
+    });
+
+    fe.telefon.addEventListener('focus', function () {
+      if (!fe.telefon.value.trim()) {
+        fe.telefon.value = '+90 ';
       }
     });
-  }
 
-  // QR ile gelindiyse: ?istasyon=Bostancı&otomat=12
-  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.classList.add('tried');
+      var bad = check();
+      if (bad.length) {
+        bad[0].focus();
+        return;
+      }
+      var text = buildText();
+      var subject = kind() + ' - ' + fe.istasyon.value.replace(/ \(.*\)$/, '') + ' - ' + fe.konu.value;
+      var channel = (e.submitter && e.submitter.value) || 'wa';
+      if (channel === 'mail') {
+        window.location.href = 'mailto:' + EMAIL +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(text);
+      } else {
+        window.open(waUrl(text), '_blank', 'noopener');
+      }
+    });
+
+    // QR ile gelindiyse: ?o=22-1 (otomat no). Eski biçim: ?istasyon=Bostancı
     var params = new URLSearchParams(window.location.search);
-    var qStation = params.get('istasyon');
-    var qMachine = params.get('otomat');
-    var select = form.elements.istasyon;
-    var matched = false;
-    if (qStation) {
-      var wanted = plain(qStation.trim());
-      Array.prototype.forEach.call(select.options, function (opt) {
-        if (!matched && opt.value && plain(opt.value) === wanted) {
-          select.value = opt.value;
-          matched = true;
+    var qId = (params.get('o') || '').trim();
+    var qStation = (params.get('istasyon') || '').trim();
+    var hit = null;
+    OTOMATLAR.forEach(function (m) {
+      if (m.id === qId) {
+        hit = m;
+      }
+    });
+    if (hit) {
+      fe.istasyon.value = hit.s;
+      fillMachines(hit.s, hit.id);
+      if (fromQr) {
+        fromQr.hidden = false;
+        fromQr.textContent = hit.s + ' istasyonu, ' + hit.n + ' otomatı seçildi. Şikayet ya da öneri seçip telefonunuzu yazmanız yeterli.';
+      }
+    } else if (qStation) {
+      var wanted = plain(qStation);
+      Array.prototype.forEach.call(fe.istasyon.options, function (opt) {
+        if (opt.value && plain(opt.value) === wanted) {
+          fe.istasyon.value = opt.value;
+          fillMachines(opt.value);
         }
       });
     }
-    if (qMachine) {
-      form.elements.otomat.value = qMachine.slice(0, 20);
-    }
-    if (matched || qMachine) {
+    syncKind();
+    updateDraft();
+    if (hit || qStation) {
       document.getElementById('oneri').scrollIntoView();
     }
   }
@@ -180,8 +336,14 @@
   // Header: kaydırınca küçülür, bulunduğun bölüm menüde işaretlenir
   var header = document.querySelector('.site-header');
   function onScroll() {
-    if (header) {
-      header.classList.toggle('scrolled', window.scrollY > 12);
+    if (!header) {
+      return;
+    }
+    var y = window.scrollY;
+    if (y > 40) {
+      header.classList.add('scrolled');
+    } else if (y < 8) {
+      header.classList.remove('scrolled');
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -212,99 +374,65 @@
     });
   }
 
-  // Hero vitrini: otomatlar sağa sola kayarak değişir
-  var machines = Array.prototype.slice.call(document.querySelectorAll('.machine'));
-  var stage = document.getElementById('stage');
-  var dotsBox = document.getElementById('slide-dots');
-  var cap = document.getElementById('stage-cap');
-  var current = 0;
-  var timer = null;
-  function layout() {
-    var n = machines.length;
-    machines.forEach(function (m, i) {
-      var d = (i - current + n) % n;
-      m.className = 'machine' + (d === 0 ? ' is-active' : d === 1 ? ' is-next' : d === n - 1 ? ' is-prev' : (d < n / 2 ? ' is-out-right' : ' is-out-left'));
-      m.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
-    });
-    if (stage) {
-      stage.style.setProperty('--glow', machines[current].getAttribute('data-glow'));
-    }
-    if (cap) {
-      cap.textContent = machines[current].querySelector('figcaption').textContent;
-    }
-    if (dotsBox) {
-      Array.prototype.forEach.call(dotsBox.children, function (dot, i) {
-        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+  // Hero: ödeme etiketleri sırayla parlar
+  var chips = document.querySelectorAll('#chips .chip');
+  if (chips.length) {
+    var chipAt = 0;
+    var lightChip = function () {
+      chips.forEach(function (c, i) {
+        c.classList.toggle('lit', i === chipAt);
       });
-    }
+      chipAt = (chipAt + 1) % chips.length;
+    };
+    lightChip();
+    setInterval(lightChip, 1800);
   }
-  function go(i) {
-    current = (i + machines.length) % machines.length;
-    layout();
-  }
-  function play() {
-    if (machines.length < 2) {
-      return;
-    }
-    clearInterval(timer);
-    timer = setInterval(function () {
-      go(current + 1);
-    }, 4200);
-  }
-  if (machines.length && dotsBox) {
-    machines.forEach(function (m, i) {
-      var dot = document.createElement('button');
-      dot.type = 'button';
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', (i + 1) + '. otomat');
-      dot.addEventListener('click', function () {
-        go(i);
-        play();
+
+  // Ödeme rehberi: yöntem seçilir, adımlar animasyonla döner
+  var guide = document.getElementById('guide');
+  if (guide) {
+    var gTabs = guide.querySelectorAll('[role="tab"]');
+    var gSteps = guide.querySelectorAll('.guide-steps li');
+    var gScreen = guide.querySelector('.scr-2');
+    var gLabel = { kart: 'Kartı okutun', banka: 'Kartı okutun', qr: 'QR kodu okutun', ikart: 'Kartı okutun' };
+    var gStep = 1;
+    var gTimer = null;
+    var setStep = function (n) {
+      gStep = n;
+      guide.setAttribute('data-step', String(n));
+      gSteps.forEach(function (li) {
+        li.classList.toggle('on', li.getAttribute('data-step') === String(n));
       });
-      dotsBox.appendChild(dot);
-      m.addEventListener('click', function () {
-        if (m.classList.contains('is-next') || m.classList.contains('is-prev')) {
-          go(i);
-          play();
-        }
+    };
+    var restart = function () {
+      clearInterval(gTimer);
+      gTimer = setInterval(function () {
+        setStep(gStep % 3 + 1);
+      }, 2800);
+    };
+    var setMethod = function (m) {
+      guide.setAttribute('data-method', m);
+      gTabs.forEach(function (t) {
+        t.setAttribute('aria-selected', t.getAttribute('data-method') === m ? 'true' : 'false');
+      });
+      if (gScreen) {
+        gScreen.textContent = gLabel[m];
+      }
+      setStep(1);
+      restart();
+    };
+    gTabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        setMethod(t.getAttribute('data-method'));
       });
     });
-    document.getElementById('stage-prev').addEventListener('click', function () {
-      go(current - 1);
-      play();
+    gSteps.forEach(function (li) {
+      li.addEventListener('click', function () {
+        setStep(parseInt(li.getAttribute('data-step'), 10));
+        restart();
+      });
     });
-    document.getElementById('stage-next').addEventListener('click', function () {
-      go(current + 1);
-      play();
-    });
-    var sx = null;
-    stage.addEventListener('pointerdown', function (e) {
-      sx = e.clientX;
-    });
-    stage.addEventListener('pointerup', function (e) {
-      if (sx === null) {
-        return;
-      }
-      var dx = e.clientX - sx;
-      if (Math.abs(dx) > 40) {
-        go(current + (dx < 0 ? 1 : -1));
-        play();
-      }
-      sx = null;
-    });
-    stage.addEventListener('mouseenter', function () {
-      clearInterval(timer);
-    });
-    stage.addEventListener('mouseleave', play);
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) {
-        clearInterval(timer);
-      } else {
-        play();
-      }
-    });
-    layout();
-    play();
+    setMethod('kart');
   }
 
   // Sayaçlar
