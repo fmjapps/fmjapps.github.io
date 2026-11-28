@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=12">
+  <link rel="stylesheet" href="../css/style.css?v=13">
 
   <script type="application/ld+json">
   {
@@ -257,6 +257,7 @@
             <button type="button" role="tab" data-method="ikart" aria-selected="false">İstanbulkart</button>
           </div>
           <div class="guide-body">
+            <div class="guide-player">
             <div class="guide-art" aria-hidden="true">
               <div class="panel">
                 <div class="screen"><span class="scr scr-1">Товар №: <b>24</b></span><span class="scr scr-2"></span><span class="scr scr-3">Приятного аппетита!</span></div>
@@ -268,11 +269,18 @@
               <div class="pay pay-ikart"><span>İstanbulkart</span></div>
               <div class="pay pay-phone"><span class="qr"></span></div>
             </div>
+            <div class="guide-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
             <ol class="guide-steps">
               <li data-step="1"><h3>Выберите товар</h3><p>Наберите номер, указанный на полке нужного товара. На экране появятся товар и цена.</p></li>
               <li data-step="2"><h3>Оплатите</h3><p class="m m-kart">Приложите кредитную карту к считывателю (бесконтактно) или вставьте её. При необходимости введите ПИН-код.</p><p class="m m-banka">Приложите дебетовую карту к считывателю (бесконтактно) или вставьте её. При необходимости введите ПИН-код.</p><p class="m m-qr">Отсканируйте QR-код на экране в мобильном приложении банка и подтвердите оплату.</p><p class="m m-ikart">Приложите İstanbulkart к считывателю — сумма спишется с баланса.</p></li>
               <li data-step="3"><h3>Заберите товар</h3><p>После подтверждения оплаты товар падает в нижний лоток. Если что-то пошло не так, отсканируйте QR-код на автомате и напишите нам.</p></li>
             </ol>
+            <div class="guide-nav">
+              <button type="button" class="g-prev" aria-label="Предыдущий шаг">‹</button>
+              <span class="g-count" aria-live="polite"></span>
+              <button type="button" class="g-next" aria-label="Следующий шаг">›</button>
+            </div>
           </div>
           <p class="guide-note">Анимация носит иллюстративный характер; экран автомата может выглядеть иначе.</p>
         </div>
@@ -661,8 +669,17 @@
     </div>
   </dialog>
 
-  <script src="../js/i18n/ru.js?v=2" defer></script>
+  <dialog class="guide-sheet" id="guide-sheet" aria-labelledby="guide-sheet-title">
+    <div class="guide-sheet-head">
+      <h2 id="guide-sheet-title">Инструкция</h2>
+      <button class="guide-sheet-x" type="button" aria-label="Закрыть">×</button>
+    </div>
+    <div class="guide-sheet-body"></div>
+    <a class="btn guide-sheet-help" href="#oneri" data-go="oneri">Возникла проблема? Сообщите нам</a>
+  </dialog>
+
+  <script src="../js/i18n/ru.js?v=3" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=12" defer></script>
+  <script src="../js/main.js?v=13" defer></script>
 </body>
 </html>

@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=12">
+  <link rel="stylesheet" href="../css/style.css?v=13">
 
   <script type="application/ld+json">
   {
@@ -257,6 +257,7 @@
             <button type="button" role="tab" data-method="ikart" aria-selected="false">İstanbulkart</button>
           </div>
           <div class="guide-body">
+            <div class="guide-player">
             <div class="guide-art" aria-hidden="true">
               <div class="panel">
                 <div class="screen"><span class="scr scr-1">Producto n.º <b>24</b></span><span class="scr scr-2"></span><span class="scr scr-3">¡Buen provecho!</span></div>
@@ -268,11 +269,18 @@
               <div class="pay pay-ikart"><span>İstanbulkart</span></div>
               <div class="pay pay-phone"><span class="qr"></span></div>
             </div>
+            <div class="guide-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
             <ol class="guide-steps">
               <li data-step="1"><h3>Elige el producto</h3><p>Marca el número que aparece en el estante del producto. En la pantalla verás el producto y el precio.</p></li>
               <li data-step="2"><h3>Paga</h3><p class="m m-kart">Acerca tu tarjeta de crédito al lector (sin contacto) o insértala. Introduce tu PIN si se solicita.</p><p class="m m-banka">Acerca tu tarjeta de débito al lector (sin contacto) o insértala. Introduce tu PIN si se solicita.</p><p class="m m-qr">Escanea el código QR de la pantalla con la app de tu banco y confirma el pago.</p><p class="m m-ikart">Acerca tu İstanbulkart al lector y el importe se descontará de tu saldo.</p></li>
               <li data-step="3"><h3>Recoge tu producto</h3><p>Al aprobarse el pago, el producto cae en la bandeja inferior. Si hay algún problema, escanea el código QR de la máquina y escríbenos.</p></li>
             </ol>
+            <div class="guide-nav">
+              <button type="button" class="g-prev" aria-label="Paso anterior">‹</button>
+              <span class="g-count" aria-live="polite"></span>
+              <button type="button" class="g-next" aria-label="Paso siguiente">›</button>
+            </div>
           </div>
           <p class="guide-note">La animación es solo ilustrativa; la pantalla de la máquina puede verse diferente.</p>
         </div>
@@ -661,8 +669,17 @@
     </div>
   </dialog>
 
-  <script src="../js/i18n/es.js?v=2" defer></script>
+  <dialog class="guide-sheet" id="guide-sheet" aria-labelledby="guide-sheet-title">
+    <div class="guide-sheet-head">
+      <h2 id="guide-sheet-title">Guía de uso</h2>
+      <button class="guide-sheet-x" type="button" aria-label="Cerrar">×</button>
+    </div>
+    <div class="guide-sheet-body"></div>
+    <a class="btn guide-sheet-help" href="#oneri" data-go="oneri">¿Tiene algún problema? Avísenos</a>
+  </dialog>
+
+  <script src="../js/i18n/es.js?v=3" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=12" defer></script>
+  <script src="../js/main.js?v=13" defer></script>
 </body>
 </html>

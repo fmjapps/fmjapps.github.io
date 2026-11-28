@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=12">
+  <link rel="stylesheet" href="../css/style.css?v=13">
 
   <script type="application/ld+json">
   {
@@ -257,6 +257,7 @@
             <button type="button" role="tab" data-method="ikart" aria-selected="false">İstanbulkart</button>
           </div>
           <div class="guide-body">
+            <div class="guide-player">
             <div class="guide-art" aria-hidden="true">
               <div class="panel">
                 <div class="screen"><span class="scr scr-1">شمارهٔ محصول: <b>24</b></span><span class="scr scr-2"></span><span class="scr scr-3">نوش جان!</span></div>
@@ -268,11 +269,18 @@
               <div class="pay pay-ikart"><span>İstanbulkart</span></div>
               <div class="pay pay-phone"><span class="qr"></span></div>
             </div>
+            <div class="guide-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
             <ol class="guide-steps">
               <li data-step="1"><h3>محصول را انتخاب کنید</h3><p>شمارهٔ روی قفسهٔ محصول دلخواه را وارد کنید. محصول و قیمت روی صفحه نمایش داده می‌شود.</p></li>
               <li data-step="2"><h3>پرداخت کنید</h3><p class="m m-kart">کارت اعتباری را به کارت‌خوان نزدیک کنید (بدون تماس) یا وارد کنید. در صورت نیاز رمز را بزنید.</p><p class="m m-banka">کارت بانکی را به کارت‌خوان نزدیک کنید (بدون تماس) یا وارد کنید. در صورت نیاز رمز را بزنید.</p><p class="m m-qr">کد QR روی صفحه را با اپلیکیشن بانک خود اسکن کنید و پرداخت را تأیید کنید.</p><p class="m m-ikart">İstanbulkart را به کارت‌خوان نزدیک کنید تا مبلغ از موجودی کسر شود.</p></li>
               <li data-step="3"><h3>محصول را بردارید</h3><p>پس از تأیید پرداخت، محصول در محفظهٔ پایین می‌افتد. اگر مشکلی پیش آمد، کد QR روی دستگاه را اسکن کنید و برای ما بنویسید.</p></li>
             </ol>
+            <div class="guide-nav">
+              <button type="button" class="g-prev" aria-label="مرحلهٔ قبل">‹</button>
+              <span class="g-count" aria-live="polite"></span>
+              <button type="button" class="g-next" aria-label="مرحلهٔ بعد">›</button>
+            </div>
           </div>
           <p class="guide-note">این انیمیشن صرفاً نمایشی است؛ صفحهٔ دستگاه ممکن است متفاوت باشد.</p>
         </div>
@@ -661,8 +669,17 @@
     </div>
   </dialog>
 
-  <script src="../js/i18n/fa.js?v=2" defer></script>
+  <dialog class="guide-sheet" id="guide-sheet" aria-labelledby="guide-sheet-title">
+    <div class="guide-sheet-head">
+      <h2 id="guide-sheet-title">راهنمای استفاده</h2>
+      <button class="guide-sheet-x" type="button" aria-label="بستن">×</button>
+    </div>
+    <div class="guide-sheet-body"></div>
+    <a class="btn guide-sheet-help" href="#oneri" data-go="oneri">مشکلی پیش آمد؟ به ما اطلاع دهید</a>
+  </dialog>
+
+  <script src="../js/i18n/fa.js?v=3" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=12" defer></script>
+  <script src="../js/main.js?v=13" defer></script>
 </body>
 </html>

@@ -612,27 +612,49 @@
     play();
   }
 
-  // Ödeme rehberi: yöntem seçilir, adımlar animasyonla döner
+  // Kullanım rehberi: yöntem seçilir, adımlar animasyonla döner.
+  // Mobilde tek adım gösterilir; ilerleme çubuğu, ileri/geri ve kaydırma vardır.
   var guide = document.getElementById('guide');
+  var openGuide = null;
   if (guide) {
     var gTabs = guide.querySelectorAll('[role="tab"]');
     var gSteps = guide.querySelectorAll('.guide-steps li');
+    var gBars = guide.querySelectorAll('.guide-progress i');
+    var gCount = guide.querySelector('.g-count');
+    var gPlayer = guide.querySelector('.guide-player');
+    var gArt = guide.querySelector('.guide-art');
     var gScreen = guide.querySelector('.scr-2');
     var gLabel = { kart: T.scanCard, banka: T.scanCard, qr: T.scanQr, ikart: T.scanCard };
+    var G_TIME = 4200;
     var gStep = 1;
     var gTimer = null;
+    guide.style.setProperty('--gtime', G_TIME + 'ms');
     var setStep = function (n) {
       gStep = n;
       guide.setAttribute('data-step', String(n));
       gSteps.forEach(function (li) {
         li.classList.toggle('on', li.getAttribute('data-step') === String(n));
       });
+      Array.prototype.forEach.call(gBars, function (b, i) {
+        b.className = i < n - 1 ? 'done' : '';
+      });
+      if (gBars[n - 1]) {
+        void gBars[n - 1].offsetWidth;
+        gBars[n - 1].className = 'cur';
+      }
+      if (gCount) {
+        gCount.textContent = n + ' / 3';
+      }
     };
     var restart = function () {
       clearInterval(gTimer);
       gTimer = setInterval(function () {
         setStep(gStep % 3 + 1);
-      }, 2800);
+      }, G_TIME);
+    };
+    var gGo = function (d) {
+      setStep((gStep + d + 2) % 3 + 1);
+      restart();
     };
     var setMethod = function (m) {
       guide.setAttribute('data-method', m);
@@ -645,6 +667,13 @@
       setStep(1);
       restart();
     };
+    // Çizim dar ekranda kutuya sığacak kadar küçültülür
+    var fitArt = function () {
+      if (gArt && gPlayer) {
+        var s = Math.min(1, gPlayer.clientWidth / 360);
+        gArt.style.setProperty('--gs', String(Math.round(s * 1000) / 1000));
+      }
+    };
     gTabs.forEach(function (t) {
       t.addEventListener('click', function () {
         setMethod(t.getAttribute('data-method'));
@@ -656,7 +685,69 @@
         restart();
       });
     });
+    var gPrev = guide.querySelector('.g-prev');
+    var gNext = guide.querySelector('.g-next');
+    if (gPrev && gNext) {
+      gPrev.addEventListener('click', function () {
+        gGo(-1);
+      });
+      gNext.addEventListener('click', function () {
+        gGo(1);
+      });
+    }
+    if (gPlayer) {
+      var gx = null;
+      gPlayer.addEventListener('touchstart', function (e) {
+        gx = e.touches[0].clientX;
+      }, { passive: true });
+      gPlayer.addEventListener('touchend', function (e) {
+        if (gx === null) {
+          return;
+        }
+        var dx = e.changedTouches[0].clientX - gx;
+        var rtl = document.documentElement.dir === 'rtl';
+        if (Math.abs(dx) > 40) {
+          gGo((dx < 0) !== rtl ? 1 : -1);
+        }
+        gx = null;
+      });
+    }
+    window.addEventListener('resize', fitArt);
+    fitArt();
     setMethod('kart');
+
+    // Tam ekran rehber (QR karşılama ekranından açılır)
+    var gSheet = document.getElementById('guide-sheet');
+    if (gSheet && typeof gSheet.showModal === 'function') {
+      var gHome = document.createComment('rehber');
+      var gBody = gSheet.querySelector('.guide-sheet-body');
+      openGuide = function () {
+        guide.parentNode.insertBefore(gHome, guide);
+        gBody.appendChild(guide);
+        gSheet.showModal();
+        gSheet.scrollTop = 0;
+        fitArt();
+        setMethod(guide.getAttribute('data-method') || 'kart');
+      };
+      gSheet.addEventListener('close', function () {
+        if (gHome.parentNode) {
+          gHome.parentNode.insertBefore(guide, gHome);
+          gHome.parentNode.removeChild(gHome);
+        }
+        fitArt();
+      });
+      gSheet.querySelector('.guide-sheet-x').addEventListener('click', function () {
+        gSheet.close();
+      });
+      gSheet.querySelector('.guide-sheet-help').addEventListener('click', function (e) {
+        e.preventDefault();
+        gSheet.close();
+        var f = document.getElementById('feedback-form');
+        if (f) {
+          f.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+      });
+    }
   }
 
   // Sayaçlar
@@ -868,10 +959,10 @@
       bar.dir = pick === 'ar' || pick === 'fa' ? 'rtl' : 'ltr';
       var txt = document.createElement('span');
       txt.textContent = T.offer[pick][0];
-      var go = document.createElement('a');
-      go.className = 'btn btn-sm';
-      go.href = target.href;
-      go.textContent = T.offer[pick][1];
+      var offerGo = document.createElement('a');
+      offerGo.className = 'btn btn-sm';
+      offerGo.href = target.href;
+      offerGo.textContent = T.offer[pick][1];
       var x = document.createElement('button');
       x.type = 'button';
       x.className = 'lang-offer-x';
@@ -886,7 +977,7 @@
         }
       });
       bar.appendChild(txt);
-      bar.appendChild(go);
+      bar.appendChild(offerGo);
       bar.appendChild(x);
       document.body.appendChild(bar);
     }
@@ -917,6 +1008,10 @@
       e.preventDefault();
       sheet.close();
       var go = btn.getAttribute('data-go');
+      if (go === 'rehber' && openGuide) {
+        openGuide();
+        return;
+      }
       var el = document.getElementById(go === 'oneri' ? 'feedback-form' : go);
       if (el) {
         el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });

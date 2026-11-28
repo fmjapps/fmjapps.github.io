@@ -2893,3 +2893,287 @@ a[href^="mailto:"] {
     transition: none;
   }
 }
+
+/* Kullanım rehberi: ilerleme çubuğu ve adım düğmeleri */
+.guide-player {
+  min-width: 0;
+}
+
+.guide-progress {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  max-width: 360px;
+  margin: 14px auto 0;
+}
+
+.guide-progress i {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.guide-progress i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+[dir="rtl"] .guide-progress i::after {
+  transform-origin: right center;
+}
+
+.guide-progress i.done::after {
+  transform: scaleX(1);
+}
+
+.guide-progress i.cur::after {
+  animation: gfill var(--gtime, 4s) linear forwards;
+}
+
+@keyframes gfill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.guide-nav {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .guide {
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+
+  .guide-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .guide-tabs button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    border-width: 1.5px;
+  }
+
+  .guide-body {
+    display: block;
+  }
+
+  .guide-player {
+    overflow: hidden;
+    direction: ltr;
+  }
+
+  .guide-art {
+    margin: 0 0 calc(330px * (var(--gs, 1) - 1));
+    transform: scale(var(--gs, 1));
+    transform-origin: top left;
+  }
+
+  .guide-progress {
+    max-width: none;
+    margin-top: 12px;
+  }
+
+  [dir="rtl"] .guide-progress {
+    direction: rtl;
+  }
+
+  .guide-steps {
+    display: block;
+    margin-top: 14px;
+    min-height: 118px;
+  }
+
+  .guide-steps li {
+    display: none;
+    padding: 0 0 0 48px;
+    border: 0;
+    background: none;
+    cursor: default;
+  }
+
+  [dir="rtl"] .guide-steps li {
+    padding: 0 48px 0 0;
+  }
+
+  .guide-steps li.on {
+    display: block;
+    transform: none;
+    box-shadow: none;
+    animation: gstep 0.35s ease;
+  }
+
+  .guide-steps li::before {
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+  }
+
+  [dir="rtl"] .guide-steps li::before {
+    left: auto;
+    right: 0;
+  }
+
+  .guide-steps h3 {
+    font-size: 1.15rem;
+  }
+
+  .guide-steps p {
+    font-size: 1rem;
+  }
+
+  .guide-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .guide-nav button {
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid var(--line);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--brand);
+    font: inherit;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .guide-nav .g-next {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  [dir="rtl"] .guide-nav button {
+    transform: scaleX(-1);
+  }
+
+  .g-count {
+    color: var(--muted);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .guide-note {
+    margin-top: 10px;
+  }
+}
+
+@keyframes gstep {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Tam ekran rehber (QR'dan açılır) */
+.guide-sheet {
+  width: min(960px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: var(--bg-soft);
+  color: var(--ink);
+  box-shadow: 0 20px 60px rgba(6, 26, 48, 0.35);
+}
+
+.guide-sheet::backdrop {
+  background: rgba(6, 26, 48, 0.75);
+}
+
+.guide-sheet-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--brand);
+  color: #fff;
+}
+
+.guide-sheet-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.guide-sheet-x {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.guide-sheet-body {
+  padding: 16px;
+}
+
+.guide-sheet-help {
+  display: flex;
+  justify-content: center;
+  margin: 0 16px 18px;
+}
+
+@media (max-width: 760px) {
+  .guide-sheet {
+    width: 100vw;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .guide-sheet-body {
+    padding: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-progress i.cur::after {
+    animation: none !important;
+    transform: scaleX(1);
+  }
+}
+
+.guide-steps li::before {
+  content: attr(data-step);
+}
+
+.guide-sheet-head h2 {
+  color: #fff;
+}
+
+.g-count {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

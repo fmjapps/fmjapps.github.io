@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=12">
+  <link rel="stylesheet" href="../css/style.css?v=13">
 
   <script type="application/ld+json">
   {
@@ -257,6 +257,7 @@
             <button type="button" role="tab" data-method="ikart" aria-selected="false">İstanbulkart</button>
           </div>
           <div class="guide-body">
+            <div class="guide-player">
             <div class="guide-art" aria-hidden="true">
               <div class="panel">
                 <div class="screen"><span class="scr scr-1">رقم المنتج: <b>24</b></span><span class="scr scr-2"></span><span class="scr scr-3">بالهناء والشفاء!</span></div>
@@ -268,11 +269,18 @@
               <div class="pay pay-ikart"><span>İstanbulkart</span></div>
               <div class="pay pay-phone"><span class="qr"></span></div>
             </div>
+            <div class="guide-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+            </div>
             <ol class="guide-steps">
               <li data-step="1"><h3>اختر المنتج</h3><p>أدخل الرقم الموجود على رف المنتج الذي تريده. يظهر المنتج والسعر على الشاشة.</p></li>
               <li data-step="2"><h3>ادفع</h3><p class="m m-kart">قرّب بطاقة الائتمان من القارئ (بدون تلامس) أو أدخلها. أدخل الرقم السري إذا طُلب منك.</p><p class="m m-banka">قرّب بطاقتك المصرفية من القارئ (بدون تلامس) أو أدخلها. أدخل الرقم السري إذا طُلب منك.</p><p class="m m-qr">امسح رمز QR الظاهر على الشاشة بتطبيق البنك على هاتفك وأكّد الدفع.</p><p class="m m-ikart">قرّب بطاقة İstanbulkart من القارئ ليُخصم المبلغ من رصيدك.</p></li>
               <li data-step="3"><h3>استلم منتجك</h3><p>بعد تأكيد الدفع يسقط المنتج في الدرج السفلي. إذا حدثت مشكلة، امسح رمز QR الموجود على الآلة واكتب لنا.</p></li>
             </ol>
+            <div class="guide-nav">
+              <button type="button" class="g-prev" aria-label="الخطوة السابقة">‹</button>
+              <span class="g-count" aria-live="polite"></span>
+              <button type="button" class="g-next" aria-label="الخطوة التالية">›</button>
+            </div>
           </div>
           <p class="guide-note">الرسوم المتحركة توضيحية فقط؛ قد تبدو شاشة الآلة مختلفة.</p>
         </div>
@@ -661,8 +669,17 @@
     </div>
   </dialog>
 
-  <script src="../js/i18n/ar.js?v=2" defer></script>
+  <dialog class="guide-sheet" id="guide-sheet" aria-labelledby="guide-sheet-title">
+    <div class="guide-sheet-head">
+      <h2 id="guide-sheet-title">دليل الاستخدام</h2>
+      <button class="guide-sheet-x" type="button" aria-label="إغلاق">×</button>
+    </div>
+    <div class="guide-sheet-body"></div>
+    <a class="btn guide-sheet-help" href="#oneri" data-go="oneri">هل واجهت مشكلة؟ أخبرنا</a>
+  </dialog>
+
+  <script src="../js/i18n/ar.js?v=3" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=12" defer></script>
+  <script src="../js/main.js?v=13" defer></script>
 </body>
 </html>
