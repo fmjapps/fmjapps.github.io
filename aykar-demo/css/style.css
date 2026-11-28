@@ -2672,3 +2672,224 @@ a[href^="mailto:"] {
   gap: 12px;
   margin-top: 24px;
 }
+
+/* Telefon: ülke kodu seçici */
+.tel-wrap {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+}
+
+.tel-field {
+  display: flex;
+  gap: 8px;
+  direction: ltr;
+}
+
+.tel-cc {
+  position: relative;
+  flex: none;
+}
+
+.tel-cc-val {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 30px 0 12px;
+  border: 1px solid #cdd5df;
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tel-cc-val::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -5px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+}
+
+.form .tel-cc select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.tel-cc:focus-within .tel-cc-val {
+  outline: 2px solid var(--brand-2);
+  outline-offset: 1px;
+}
+
+.tel-field input {
+  min-width: 0;
+  flex: 1;
+}
+
+[dir="rtl"] .tel-field input {
+  text-align: left;
+}
+
+.form {
+  scroll-margin-top: 90px;
+}
+
+/* QR ile gelince istasyon ve otomat kilitli */
+.form .locked select:disabled {
+  opacity: 1;
+  color: var(--ink);
+  background: var(--bg-soft);
+  cursor: not-allowed;
+}
+
+.guide-note {
+  margin: 14px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* QR karşılama ekranı */
+.qr-sheet {
+  width: min(440px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 18px 18px 22px;
+  border: 0;
+  border-radius: 22px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 20px 60px rgba(6, 26, 48, 0.35);
+  overflow: auto;
+}
+
+.qr-sheet::backdrop {
+  background: radial-gradient(120% 120% at 0% 0%, rgba(15, 60, 102, 0.92), rgba(6, 26, 48, 0.96));
+}
+
+.qr-sheet-langs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.qr-sheet-langs a {
+  min-width: 34px;
+  padding: 4px 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--brand);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.qr-sheet-langs a[aria-current="true"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.qr-sheet-head {
+  text-align: center;
+}
+
+.qr-sheet-head img {
+  display: block;
+  width: 64px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.qr-sheet-hi {
+  margin: 6px 0 0;
+  color: var(--brand-2);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.qr-sheet-place {
+  margin: 2px 0 0;
+  color: var(--brand);
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+.qr-sheet-machine {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.qr-sheet-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.qs-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-soft);
+  color: var(--brand);
+  text-decoration: none;
+  text-align: start;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.qs-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.qs-btn svg {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  color: var(--accent);
+}
+
+.qs-btn span {
+  display: grid;
+}
+
+.qs-btn strong {
+  font-size: 1.05rem;
+}
+
+.qs-btn small {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.qs-btn.qs-main {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.qs-btn.qs-main small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qs-btn {
+    transition: none;
+  }
+}

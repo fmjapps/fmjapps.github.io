@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=11">
+  <link rel="stylesheet" href="../css/style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -246,8 +246,8 @@
     <section class="section" id="rehber">
       <div class="wrap">
         <div class="section-head">
-          <h2>So bezahlen Sie</h2>
-          <p>An unseren Automaten können Sie auf vier Arten bezahlen. Wählen Sie Ihre Methode und folgen Sie den Schritten.</p>
+          <h2>Bedienungsanleitung</h2>
+          <p>Unsere Automaten nutzen Sie in drei Schritten. Wählen Sie Ihre Zahlungsart und folgen Sie den Schritten.</p>
         </div>
         <div class="guide" id="guide" data-method="kart" data-step="1">
           <div class="guide-tabs" role="tablist" aria-label="Zahlungsart">
@@ -274,6 +274,7 @@
               <li data-step="3"><h3>Produkt entnehmen</h3><p>Nach der Bestätigung fällt das Produkt in das Ausgabefach. Gibt es ein Problem, scannen Sie den QR-Code am Automaten und schreiben Sie uns.</p></li>
             </ol>
           </div>
+          <p class="guide-note">Die Animation dient nur zur Veranschaulichung; der Bildschirm des Automaten kann anders aussehen.</p>
         </div>
       </div>
     </section>
@@ -492,9 +493,16 @@
             <label><span>Ihr Name <small>(optional)</small></span>
               <input type="text" name="ad" maxlength="60" autocomplete="name">
             </label>
-            <label><span>Telefon <span class="req">*</span></span>
-              <input type="tel" name="telefon" value="+90 " inputmode="tel" maxlength="20" autocomplete="tel" required>
-            </label>
+            <div class="tel-wrap">
+              <label for="telefon"><span>Telefon <span class="req">*</span></span></label>
+              <div class="tel-field">
+                <div class="tel-cc">
+                  <span class="tel-cc-val" aria-hidden="true"></span>
+                  <select name="ulke" aria-label="Ländervorwahl"></select>
+                </div>
+                <input type="tel" name="telefon" id="telefon" inputmode="tel" maxlength="20" autocomplete="tel-national" required>
+              </div>
+            </div>
           </div>
           <label>Ihre Nachricht
             <textarea name="mesaj" placeholder="Was ist passiert? Gern mit Datum und Uhrzeit."></textarea>
@@ -587,7 +595,7 @@
         <h3>Seite</h3>
         <a href="#hakkimizda">Über uns</a>
         <a href="#hizmetler">Leistungen</a>
-        <a href="#rehber">So bezahlen Sie</a>
+        <a href="#rehber">Bedienungsanleitung</a>
         <a href="#marmaray">Automatenkarte</a>
         <a href="#sss">Häufige Fragen</a>
       </nav>
@@ -630,8 +638,31 @@
     <button class="lb-next" type="button" aria-label="Weiter">›</button>
   </dialog>
 
-  <script src="../js/i18n/de.js?v=1" defer></script>
+  <dialog class="qr-sheet" id="qr-sheet" aria-labelledby="qr-sheet-place">
+    <div class="qr-sheet-head">
+      <img src="../img/mark.png" alt="" width="140" height="122">
+      <p class="qr-sheet-hi">Willkommen</p>
+      <h2 class="qr-sheet-place" id="qr-sheet-place"></h2>
+      <p class="qr-sheet-machine" id="qr-sheet-machine"></p>
+    </div>
+    <div class="qr-sheet-actions">
+      <a class="qs-btn" href="#rehber" data-go="rehber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 15.5 12 10 15.5Z"/></svg>
+        <span><strong>Wie funktioniert es?</strong><small>Schritt-für-Schritt-Anleitung</small></span>
+      </a>
+      <a class="qs-btn qs-main" href="#oneri" data-go="oneri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M12 7v4M12 14h.01"/></svg>
+        <span><strong>Problem melden</strong><small>Formular für Vorschläge und Beschwerden</small></span>
+      </a>
+      <a class="qs-btn" href="#anasayfa" data-go="anasayfa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span><strong>Unsere Website</strong><small>Unsere Automaten, Stationen und Kontakt</small></span>
+      </a>
+    </div>
+  </dialog>
+
+  <script src="../js/i18n/de.js?v=2" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=11" defer></script>
+  <script src="../js/main.js?v=12" defer></script>
 </body>
 </html>

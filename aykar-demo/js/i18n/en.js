@@ -38,6 +38,7 @@ window.I18N = {
   "sea": "BOSPHORUS",
   "offerText": "This page is also available in English.",
   "offerGo": "Switch to English",
+  "qrMachine": "Machine: {n} · No. {id}",
   "close": "Close",
   "loc": {
     "dir": "towards {x}",

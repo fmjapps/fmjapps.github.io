@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=11">
+  <link rel="stylesheet" href="../css/style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -246,8 +246,8 @@
     <section class="section" id="rehber">
       <div class="wrap">
         <div class="section-head">
-          <h2>Как оплатить</h2>
-          <p>В наших автоматах можно оплатить четырьмя способами. Выберите способ и следуйте шагам.</p>
+          <h2>Инструкция</h2>
+          <p>Пользоваться нашими автоматами просто — всего три шага. Выберите способ оплаты и следуйте инструкции.</p>
         </div>
         <div class="guide" id="guide" data-method="kart" data-step="1">
           <div class="guide-tabs" role="tablist" aria-label="Способ оплаты">
@@ -274,6 +274,7 @@
               <li data-step="3"><h3>Заберите товар</h3><p>После подтверждения оплаты товар падает в нижний лоток. Если что-то пошло не так, отсканируйте QR-код на автомате и напишите нам.</p></li>
             </ol>
           </div>
+          <p class="guide-note">Анимация носит иллюстративный характер; экран автомата может выглядеть иначе.</p>
         </div>
       </div>
     </section>
@@ -492,9 +493,16 @@
             <label><span>Ваше имя <small>(необязательно)</small></span>
               <input type="text" name="ad" maxlength="60" autocomplete="name">
             </label>
-            <label><span>Телефон <span class="req">*</span></span>
-              <input type="tel" name="telefon" value="+90 " inputmode="tel" maxlength="20" autocomplete="tel" required>
-            </label>
+            <div class="tel-wrap">
+              <label for="telefon"><span>Телефон <span class="req">*</span></span></label>
+              <div class="tel-field">
+                <div class="tel-cc">
+                  <span class="tel-cc-val" aria-hidden="true"></span>
+                  <select name="ulke" aria-label="Код страны"></select>
+                </div>
+                <input type="tel" name="telefon" id="telefon" inputmode="tel" maxlength="20" autocomplete="tel-national" required>
+              </div>
+            </div>
           </div>
           <label>Сообщение
             <textarea name="mesaj" placeholder="Что случилось? Можно указать дату и время."></textarea>
@@ -587,7 +595,7 @@
         <h3>Разделы</h3>
         <a href="#hakkimizda">О нас</a>
         <a href="#hizmetler">Услуги</a>
-        <a href="#rehber">Как оплатить</a>
+        <a href="#rehber">Инструкция</a>
         <a href="#marmaray">Карта автоматов</a>
         <a href="#sss">Частые вопросы</a>
       </nav>
@@ -630,8 +638,31 @@
     <button class="lb-next" type="button" aria-label="Вперёд">›</button>
   </dialog>
 
-  <script src="../js/i18n/ru.js?v=1" defer></script>
+  <dialog class="qr-sheet" id="qr-sheet" aria-labelledby="qr-sheet-place">
+    <div class="qr-sheet-head">
+      <img src="../img/mark.png" alt="" width="140" height="122">
+      <p class="qr-sheet-hi">Добро пожаловать</p>
+      <h2 class="qr-sheet-place" id="qr-sheet-place"></h2>
+      <p class="qr-sheet-machine" id="qr-sheet-machine"></p>
+    </div>
+    <div class="qr-sheet-actions">
+      <a class="qs-btn" href="#rehber" data-go="rehber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 15.5 12 10 15.5Z"/></svg>
+        <span><strong>Как пользоваться?</strong><small>Пошаговая инструкция</small></span>
+      </a>
+      <a class="qs-btn qs-main" href="#oneri" data-go="oneri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M12 7v4M12 14h.01"/></svg>
+        <span><strong>Сообщить о проблеме</strong><small>Форма для предложений и жалоб</small></span>
+      </a>
+      <a class="qs-btn" href="#anasayfa" data-go="anasayfa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span><strong>Наш сайт</strong><small>Наши автоматы, станции и контакты</small></span>
+      </a>
+    </div>
+  </dialog>
+
+  <script src="../js/i18n/ru.js?v=2" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=11" defer></script>
+  <script src="../js/main.js?v=12" defer></script>
 </body>
 </html>

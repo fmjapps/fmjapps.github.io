@@ -38,6 +38,7 @@ window.I18N = {
   "sea": "BOĞAZ",
   "offerText": "",
   "offerGo": "",
+  "qrMachine": "{n} otomatı · No {id}",
   "close": "Kapat",
   "loc": null,
   "offer": {

@@ -32,7 +32,7 @@
 
   <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -246,8 +246,8 @@
     <section class="section" id="rehber">
       <div class="wrap">
         <div class="section-head">
-          <h2>Ödeme rehberi</h2>
-          <p>Otomatlarımızda dört farklı yolla ödeme yapabilirsiniz. Yönteminizi seçin, adımları izleyin.</p>
+          <h2>Kullanım rehberi</h2>
+          <p>Otomatlarımızı kullanmak üç adım. Ödeme yönteminizi seçin, adımları izleyin.</p>
         </div>
         <div class="guide" id="guide" data-method="kart" data-step="1">
           <div class="guide-tabs" role="tablist" aria-label="Ödeme yöntemi">
@@ -274,6 +274,7 @@
               <li data-step="3"><h3>Ürününüzü alın</h3><p>Ödeme onaylanınca ürün alt bölmeye düşer. Bir sorun olursa otomatın üzerindeki QR kodu okutup bize yazın.</p></li>
             </ol>
           </div>
+          <p class="guide-note">Animasyon temsilidir; otomatın ekranı farklı görünebilir.</p>
         </div>
       </div>
     </section>
@@ -492,9 +493,16 @@
             <label><span>Adınız <small>(isteğe bağlı)</small></span>
               <input type="text" name="ad" maxlength="60" autocomplete="name">
             </label>
-            <label><span>Telefon <span class="req">*</span></span>
-              <input type="tel" name="telefon" value="+90 " inputmode="tel" maxlength="20" autocomplete="tel" required>
-            </label>
+            <div class="tel-wrap">
+              <label for="telefon"><span>Telefon <span class="req">*</span></span></label>
+              <div class="tel-field">
+                <div class="tel-cc">
+                  <span class="tel-cc-val" aria-hidden="true"></span>
+                  <select name="ulke" aria-label="Ülke kodu"></select>
+                </div>
+                <input type="tel" name="telefon" id="telefon" inputmode="tel" maxlength="20" autocomplete="tel-national" required>
+              </div>
+            </div>
           </div>
           <label>Mesajınız
             <textarea name="mesaj" placeholder="Ne oldu? Tarih ve saat de yazabilirsiniz."></textarea>
@@ -587,7 +595,7 @@
         <h3>Sayfa</h3>
         <a href="#hakkimizda">Hakkımızda</a>
         <a href="#hizmetler">Hizmetler</a>
-        <a href="#rehber">Ödeme rehberi</a>
+        <a href="#rehber">Kullanım rehberi</a>
         <a href="#marmaray">Otomat haritası</a>
         <a href="#sss">Sık sorulan sorular</a>
       </nav>
@@ -630,8 +638,31 @@
     <button class="lb-next" type="button" aria-label="Sonraki">›</button>
   </dialog>
 
-  <script src="js/i18n/tr.js?v=1" defer></script>
+  <dialog class="qr-sheet" id="qr-sheet" aria-labelledby="qr-sheet-place">
+    <div class="qr-sheet-head">
+      <img src="img/mark.png" alt="" width="140" height="122">
+      <p class="qr-sheet-hi">Hoş geldiniz</p>
+      <h2 class="qr-sheet-place" id="qr-sheet-place"></h2>
+      <p class="qr-sheet-machine" id="qr-sheet-machine"></p>
+    </div>
+    <div class="qr-sheet-actions">
+      <a class="qs-btn" href="#rehber" data-go="rehber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 15.5 12 10 15.5Z"/></svg>
+        <span><strong>Nasıl kullanırım?</strong><small>Adım adım kullanım rehberi</small></span>
+      </a>
+      <a class="qs-btn qs-main" href="#oneri" data-go="oneri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M12 7v4M12 14h.01"/></svg>
+        <span><strong>Sorun bildir</strong><small>Öneri ve şikayet formu</small></span>
+      </a>
+      <a class="qs-btn" href="#anasayfa" data-go="anasayfa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span><strong>Web sitemiz</strong><small>Otomatlarımız, istasyonlar ve iletişim</small></span>
+      </a>
+    </div>
+  </dialog>
+
+  <script src="js/i18n/tr.js?v=2" defer></script>
   <script src="js/otomatlar.js?v=5" defer></script>
-  <script src="js/main.js?v=11" defer></script>
+  <script src="js/main.js?v=12" defer></script>
 </body>
 </html>

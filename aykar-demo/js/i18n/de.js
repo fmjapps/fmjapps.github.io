@@ -38,6 +38,7 @@ window.I18N = {
   "sea": "BOSPORUS",
   "offerText": "Diese Seite gibt es auch auf Deutsch.",
   "offerGo": "Auf Deutsch lesen",
+  "qrMachine": "Automat: {n} · Nr. {id}",
   "close": "Schließen",
   "loc": {
     "dir": "Richtung {x}",

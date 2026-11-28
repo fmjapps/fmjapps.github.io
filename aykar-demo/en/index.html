@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=11">
+  <link rel="stylesheet" href="../css/style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -246,8 +246,8 @@
     <section class="section" id="rehber">
       <div class="wrap">
         <div class="section-head">
-          <h2>Payment guide</h2>
-          <p>You can pay at our machines in four ways. Choose your method and follow the steps.</p>
+          <h2>User guide</h2>
+          <p>Using our machines takes three steps. Choose your payment method and follow the steps.</p>
         </div>
         <div class="guide" id="guide" data-method="kart" data-step="1">
           <div class="guide-tabs" role="tablist" aria-label="Payment method">
@@ -274,6 +274,7 @@
               <li data-step="3"><h3>Collect your item</h3><p>Once the payment is approved, the item drops into the tray below. If something goes wrong, scan the QR code on the machine and write to us.</p></li>
             </ol>
           </div>
+          <p class="guide-note">The animation is for illustration only; the machine's screen may look different.</p>
         </div>
       </div>
     </section>
@@ -492,9 +493,16 @@
             <label><span>Your name <small>(optional)</small></span>
               <input type="text" name="ad" maxlength="60" autocomplete="name">
             </label>
-            <label><span>Phone <span class="req">*</span></span>
-              <input type="tel" name="telefon" value="+90 " inputmode="tel" maxlength="20" autocomplete="tel" required>
-            </label>
+            <div class="tel-wrap">
+              <label for="telefon"><span>Phone <span class="req">*</span></span></label>
+              <div class="tel-field">
+                <div class="tel-cc">
+                  <span class="tel-cc-val" aria-hidden="true"></span>
+                  <select name="ulke" aria-label="Country code"></select>
+                </div>
+                <input type="tel" name="telefon" id="telefon" inputmode="tel" maxlength="20" autocomplete="tel-national" required>
+              </div>
+            </div>
           </div>
           <label>Your message
             <textarea name="mesaj" placeholder="What happened? You can add the date and time."></textarea>
@@ -587,7 +595,7 @@
         <h3>Page</h3>
         <a href="#hakkimizda">About us</a>
         <a href="#hizmetler">Services</a>
-        <a href="#rehber">Payment guide</a>
+        <a href="#rehber">User guide</a>
         <a href="#marmaray">Machine map</a>
         <a href="#sss">FAQ</a>
       </nav>
@@ -630,8 +638,31 @@
     <button class="lb-next" type="button" aria-label="Next">›</button>
   </dialog>
 
-  <script src="../js/i18n/en.js?v=1" defer></script>
+  <dialog class="qr-sheet" id="qr-sheet" aria-labelledby="qr-sheet-place">
+    <div class="qr-sheet-head">
+      <img src="../img/mark.png" alt="" width="140" height="122">
+      <p class="qr-sheet-hi">Welcome</p>
+      <h2 class="qr-sheet-place" id="qr-sheet-place"></h2>
+      <p class="qr-sheet-machine" id="qr-sheet-machine"></p>
+    </div>
+    <div class="qr-sheet-actions">
+      <a class="qs-btn" href="#rehber" data-go="rehber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 15.5 12 10 15.5Z"/></svg>
+        <span><strong>How do I use it?</strong><small>Step-by-step user guide</small></span>
+      </a>
+      <a class="qs-btn qs-main" href="#oneri" data-go="oneri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M12 7v4M12 14h.01"/></svg>
+        <span><strong>Report a problem</strong><small>Suggestion and complaint form</small></span>
+      </a>
+      <a class="qs-btn" href="#anasayfa" data-go="anasayfa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span><strong>Our website</strong><small>Our machines, stations and contact</small></span>
+      </a>
+    </div>
+  </dialog>
+
+  <script src="../js/i18n/en.js?v=2" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=11" defer></script>
+  <script src="../js/main.js?v=12" defer></script>
 </body>
 </html>

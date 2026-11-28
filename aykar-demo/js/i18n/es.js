@@ -38,6 +38,7 @@ window.I18N = {
   "sea": "BÓSFORO",
   "offerText": "Esta página también está en español.",
   "offerGo": "Ver en español",
+  "qrMachine": "Máquina: {n} · N.º {id}",
   "close": "Cerrar",
   "loc": {
     "dir": "dirección {x}",

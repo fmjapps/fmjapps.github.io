@@ -38,6 +38,7 @@ window.I18N = {
   "sea": "BOSPHORE",
   "offerText": "Cette page existe aussi en français.",
   "offerGo": "Lire en français",
+  "qrMachine": "Distributeur : {n} · N° {id}",
   "close": "Fermer",
   "loc": {
     "dir": "direction {x}",

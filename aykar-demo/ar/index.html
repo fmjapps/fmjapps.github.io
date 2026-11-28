@@ -32,7 +32,7 @@
 
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=11">
+  <link rel="stylesheet" href="../css/style.css?v=12">
 
   <script type="application/ld+json">
   {
@@ -246,8 +246,8 @@
     <section class="section" id="rehber">
       <div class="wrap">
         <div class="section-head">
-          <h2>دليل الدفع</h2>
-          <p>يمكنك الدفع في آلاتنا بأربع طرق. اختر طريقتك واتبع الخطوات.</p>
+          <h2>دليل الاستخدام</h2>
+          <p>استخدام آلاتنا يتم في ثلاث خطوات. اختر طريقة الدفع واتبع الخطوات.</p>
         </div>
         <div class="guide" id="guide" data-method="kart" data-step="1">
           <div class="guide-tabs" role="tablist" aria-label="طريقة الدفع">
@@ -274,6 +274,7 @@
               <li data-step="3"><h3>استلم منتجك</h3><p>بعد تأكيد الدفع يسقط المنتج في الدرج السفلي. إذا حدثت مشكلة، امسح رمز QR الموجود على الآلة واكتب لنا.</p></li>
             </ol>
           </div>
+          <p class="guide-note">الرسوم المتحركة توضيحية فقط؛ قد تبدو شاشة الآلة مختلفة.</p>
         </div>
       </div>
     </section>
@@ -492,9 +493,16 @@
             <label><span>اسمك <small>(اختياري)</small></span>
               <input type="text" name="ad" maxlength="60" autocomplete="name">
             </label>
-            <label><span>الهاتف <span class="req">*</span></span>
-              <input type="tel" name="telefon" value="+90 " inputmode="tel" maxlength="20" autocomplete="tel" required>
-            </label>
+            <div class="tel-wrap">
+              <label for="telefon"><span>الهاتف <span class="req">*</span></span></label>
+              <div class="tel-field">
+                <div class="tel-cc">
+                  <span class="tel-cc-val" aria-hidden="true"></span>
+                  <select name="ulke" aria-label="رمز الدولة"></select>
+                </div>
+                <input type="tel" name="telefon" id="telefon" inputmode="tel" maxlength="20" autocomplete="tel-national" required>
+              </div>
+            </div>
           </div>
           <label>رسالتك
             <textarea name="mesaj" placeholder="ماذا حدث؟ يمكنك كتابة التاريخ والوقت أيضًا."></textarea>
@@ -587,7 +595,7 @@
         <h3>الصفحة</h3>
         <a href="#hakkimizda">من نحن</a>
         <a href="#hizmetler">الخدمات</a>
-        <a href="#rehber">دليل الدفع</a>
+        <a href="#rehber">دليل الاستخدام</a>
         <a href="#marmaray">خريطة الآلات</a>
         <a href="#sss">الأسئلة الشائعة</a>
       </nav>
@@ -630,8 +638,31 @@
     <button class="lb-next" type="button" aria-label="التالي">›</button>
   </dialog>
 
-  <script src="../js/i18n/ar.js?v=1" defer></script>
+  <dialog class="qr-sheet" id="qr-sheet" aria-labelledby="qr-sheet-place">
+    <div class="qr-sheet-head">
+      <img src="../img/mark.png" alt="" width="140" height="122">
+      <p class="qr-sheet-hi">أهلًا وسهلًا</p>
+      <h2 class="qr-sheet-place" id="qr-sheet-place"></h2>
+      <p class="qr-sheet-machine" id="qr-sheet-machine"></p>
+    </div>
+    <div class="qr-sheet-actions">
+      <a class="qs-btn" href="#rehber" data-go="rehber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5 15.5 12 10 15.5Z"/></svg>
+        <span><strong>كيف أستخدمها؟</strong><small>دليل الاستخدام خطوة بخطوة</small></span>
+      </a>
+      <a class="qs-btn qs-main" href="#oneri" data-go="oneri">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M12 7v4M12 14h.01"/></svg>
+        <span><strong>الإبلاغ عن مشكلة</strong><small>نموذج الاقتراحات والشكاوى</small></span>
+      </a>
+      <a class="qs-btn" href="#anasayfa" data-go="anasayfa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span><strong>موقعنا الإلكتروني</strong><small>آلاتنا والمحطات ومعلومات الاتصال</small></span>
+      </a>
+    </div>
+  </dialog>
+
+  <script src="../js/i18n/ar.js?v=2" defer></script>
   <script src="../js/otomatlar.js?v=5" defer></script>
-  <script src="../js/main.js?v=11" defer></script>
+  <script src="../js/main.js?v=12" defer></script>
 </body>
 </html>
