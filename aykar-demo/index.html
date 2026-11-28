@@ -8,6 +8,15 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0b2a4a">
   <link rel="canonical" href="https://fmjapps.com/aykar-demo/">
+  <link rel="alternate" hreflang="tr" href="https://fmjapps.com/aykar-demo/">
+  <link rel="alternate" hreflang="en" href="https://fmjapps.com/aykar-demo/en/">
+  <link rel="alternate" hreflang="ar" href="https://fmjapps.com/aykar-demo/ar/">
+  <link rel="alternate" hreflang="ru" href="https://fmjapps.com/aykar-demo/ru/">
+  <link rel="alternate" hreflang="de" href="https://fmjapps.com/aykar-demo/de/">
+  <link rel="alternate" hreflang="fa" href="https://fmjapps.com/aykar-demo/fa/">
+  <link rel="alternate" hreflang="fr" href="https://fmjapps.com/aykar-demo/fr/">
+  <link rel="alternate" hreflang="es" href="https://fmjapps.com/aykar-demo/es/">
+  <link rel="alternate" hreflang="x-default" href="https://fmjapps.com/aykar-demo/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="tr_TR">
@@ -23,7 +32,7 @@
 
   <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=11">
 
   <script type="application/ld+json">
   {
@@ -80,6 +89,19 @@
           0532 478 98 13
         </a>
       </nav>
+      <details class="lang" id="lang">
+        <summary aria-label="Dil seçin / Language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span>TR</span></summary>
+        <ul>
+          <li><a href="./" hreflang="tr" lang="tr" aria-current="true">Türkçe</a></li>
+          <li><a href="en/" hreflang="en" lang="en">English</a></li>
+          <li><a href="ar/" hreflang="ar" lang="ar">العربية</a></li>
+          <li><a href="ru/" hreflang="ru" lang="ru">Русский</a></li>
+          <li><a href="de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="fa/" hreflang="fa" lang="fa">فارسی</a></li>
+          <li><a href="fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+        </ul>
+      </details>
     </div>
   </header>
 
@@ -328,6 +350,7 @@
           <div class="map-box">
             <div class="map" id="map" data-src="https://www.google.com/maps?q=Marmaray%2C%20%C4%B0stanbul&amp;output=embed">
               <button class="btn btn-line" type="button" id="map-load">Haritayı göster</button>
+              <small class="map-consent">Harita Google Haritalar'dan yüklenir; Google kendi çerezlerini kullanabilir.</small>
             </div>
             <p class="map-note"><span id="map-label">Bir istasyona dokunun, harita o istasyonu göstersin.</span> <a id="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=Marmaray" target="_blank" rel="noopener">Google Haritalar'da aç</a></p>
           </div>
@@ -385,8 +408,8 @@
           <p class="from-qr" id="from-qr" hidden></p>
           <fieldset class="kind">
             <legend>Bildirim türü <span class="req">*</span></legend>
-            <label><input type="radio" name="tur" value="Şikayet" required> <span>Şikayet</span></label>
-            <label><input type="radio" name="tur" value="Öneri"> <span>Öneri</span></label>
+            <label><input type="radio" name="tur" value="sikayet" required> <span>Şikayet</span></label>
+            <label><input type="radio" name="tur" value="oneri"> <span>Öneri</span></label>
           </fieldset>
           <label><span>İstasyon <span class="req">*</span></span>
             <select name="istasyon" required>
@@ -448,7 +471,7 @@
           </label>
           <label>Konu
             <select name="konu">
-              <optgroup label="Şikayet" data-kind="Şikayet">
+              <optgroup label="Şikayet" data-kind="sikayet">
                 <option>Ödeme alındı, ürün düşmedi</option>
                 <option>Ürün takıldı</option>
                 <option>Kart / QR / İstanbulkart okumuyor</option>
@@ -457,7 +480,7 @@
                 <option>Temizlik</option>
                 <option>Diğer</option>
               </optgroup>
-              <optgroup label="Öneri" data-kind="Öneri">
+              <optgroup label="Öneri" data-kind="oneri">
                 <option>Ürün önerisi</option>
                 <option>Yeni otomat yeri önerisi</option>
                 <option>Hizmet önerisi</option>
@@ -486,6 +509,7 @@
             <button class="btn btn-line" type="submit" name="kanal" value="mail">E-posta ile gönder</button>
           </div>
           <p class="hint"><span class="req">*</span> işaretli alanlar zorunludur. Gönder'e basınca yukarıdaki mesaj, WhatsApp ya da e-posta uygulamanızda taslak olarak açılır; kontrol edip gönderin.</p>
+          <p class="hint kvkk-note">Paylaştığınız bilgiler yalnızca bildiriminizi yanıtlamak için kullanılır. Ayrıntılar için <a href="kvkk.html">KVKK Aydınlatma Metni</a>.</p>
         </form>
       </div>
     </section>
@@ -583,6 +607,11 @@
     </div>
     <div class="wrap foot-bottom">
       <span>© <span id="year">2026</span> Marmaray Otomat. Tüm hakları saklıdır.</span>
+      <nav class="foot-legal" aria-label="Yasal">
+        <a href="kvkk.html">KVKK Aydınlatma Metni</a>
+        <a href="cerez-politikasi.html">Çerez Politikası</a>
+        <a href="yasal-bilgiler.html">Yasal Bilgiler</a>
+      </nav>
       <a href="#anasayfa">Başa dön ↑</a>
     </div>
   </footer>
@@ -601,7 +630,8 @@
     <button class="lb-next" type="button" aria-label="Sonraki">›</button>
   </dialog>
 
+  <script src="js/i18n/tr.js?v=1" defer></script>
   <script src="js/otomatlar.js?v=5" defer></script>
-  <script src="js/main.js?v=8" defer></script>
+  <script src="js/main.js?v=11" defer></script>
 </body>
 </html>

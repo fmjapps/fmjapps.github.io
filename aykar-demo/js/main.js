@@ -6,6 +6,41 @@
   var PHONE = '905324789813';
   var EMAIL = 'info@marmarayotomat.com.tr';
 
+  // Dil metinleri: js/i18n/<dil>.js
+  var T = window.I18N || {};
+  function fmt(str, data) {
+    return String(str || '').replace(/\{(\w+)\}/g, function (_, k) {
+      return data[k] !== undefined ? data[k] : '';
+    });
+  }
+
+  // Otomat konum adlarını çevirir (Gebze yönü, Metro girişi 1 ...)
+  function loc(name) {
+    var L = T.loc;
+    if (!L) {
+      return name;
+    }
+    var word = function (x) {
+      return L.w[x] || x;
+    };
+    var out = name
+      .replace(/(\S+) yönü/g, function (_, x) {
+        return fmt(L.dir, { x: x });
+      })
+      .replace(/(\S+) girişi/g, function (_, x) {
+        return fmt(L.ent, { x: word(x) });
+      })
+      .replace(/(\S+) çıkışı/g, function (_, x) {
+        return fmt(L.exit, { x: word(x) });
+      });
+    Object.keys(L.w).sort(function (a, b) {
+      return b.length - a.length;
+    }).forEach(function (k) {
+      out = out.split(k).join(L.w[k]);
+    });
+    return out.charAt(0).toUpperCase() + out.slice(1);
+  }
+
   // Mobil menü
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('menu');
@@ -13,13 +48,13 @@
     toggle.addEventListener('click', function () {
       var open = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
+      toggle.setAttribute('aria-label', open ? T.menuClose : T.menuOpen);
     });
     nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
         nav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Menüyü aç');
+        toggle.setAttribute('aria-label', T.menuOpen);
       }
     });
   }
@@ -47,7 +82,7 @@
     }
     if (!frame) {
       frame = document.createElement('iframe');
-      frame.title = 'Marmaray otomat konumları';
+      frame.title = T.mapTitle;
       frame.referrerPolicy = 'no-referrer-when-downgrade';
       map.innerHTML = '';
       map.appendChild(frame);
@@ -82,7 +117,7 @@
       link.classList.add('active');
       showMap('https://www.google.com/maps?q=' + q + '&output=embed');
       if (mapLabel) {
-        mapLabel.textContent = link.textContent + ' istasyonu gösteriliyor.';
+        mapLabel.textContent = fmt(T.showing, { s: link.textContent });
       }
       if (mapOpen) {
         mapOpen.href = link.href;
@@ -148,7 +183,7 @@
       list.forEach(function (m) {
         var o = document.createElement('option');
         o.value = m.id;
-        o.textContent = m.n;
+        o.textContent = loc(m.n);
         sel.appendChild(o);
       });
       otomatField.hidden = list.length === 0;
@@ -174,12 +209,12 @@
           first.selected = true;
         }
       }
-      fe.mesaj.placeholder = k === 'Öneri' ? 'Önerinizi kısaca yazın.' : 'Ne oldu? Tarih ve saat de yazabilirsiniz.';
+      fe.mesaj.placeholder = k === 'oneri' ? T.phOneri : T.phSikayet;
     };
 
     var machineText = function () {
       var o = fe.otomat.options[fe.otomat.selectedIndex];
-      return o && o.value ? o.textContent + ' (no: ' + o.value + ')' : '';
+      return o && o.value ? o.textContent + ' (' + T.lbl.no + ': ' + o.value + ')' : '';
     };
 
     var phoneDigits = function () {
@@ -200,20 +235,20 @@
     var buildText = function () {
       var k = kind();
       var lines = [
-        'Merhaba, Marmaray Otomat\'a ' + (k === 'Öneri' ? 'bir öneri' : k === 'Şikayet' ? 'bir şikayet' : 'bir bildirim') + ' iletmek istiyorum.',
+        T.hello[k] || T.hello.none,
         '',
-        'Tür: ' + (k || '-'),
-        'Konu: ' + fe.konu.value,
-        'İstasyon: ' + (fe.istasyon.value || '-')
+        T.lbl.kind + ': ' + (T.kind[k] || '-'),
+        T.lbl.topic + ': ' + fe.konu.value,
+        T.lbl.station + ': ' + (fe.istasyon.value || '-')
       ];
       var mt = machineText();
       if (mt) {
-        lines.push('Otomat: ' + mt);
+        lines.push(T.lbl.machine + ': ' + mt);
       }
       if (fe.ad.value.trim()) {
-        lines.push('Ad: ' + fe.ad.value.trim());
+        lines.push(T.lbl.name + ': ' + fe.ad.value.trim());
       }
-      lines.push('Telefon: ' + (phoneDigits().length > 2 ? fe.telefon.value.trim() : '-'));
+      lines.push(T.lbl.phone + ': ' + (phoneDigits().length > 2 ? fe.telefon.value.trim() : '-'));
       var msg = fe.mesaj.value.trim();
       if (msg) {
         lines.push('', msg);
@@ -231,15 +266,15 @@
       var missing = [];
       var bad = [];
       if (!kind()) {
-        missing.push('bildirim türü');
+        missing.push(T.miss.kind);
         bad.push(kindBox.querySelector('input'));
       }
       if (!fe.istasyon.value) {
-        missing.push('istasyon');
+        missing.push(T.miss.station);
         bad.push(fe.istasyon);
       }
       if (!phoneOk()) {
-        missing.push('geçerli bir telefon numarası');
+        missing.push(T.miss.phone);
         bad.push(fe.telefon);
       }
       kindBox.classList.toggle('invalid', !kind());
@@ -247,7 +282,7 @@
       fe.telefon.classList.toggle('invalid', !phoneOk());
       if (errBox) {
         errBox.hidden = missing.length === 0;
-        errBox.textContent = missing.length ? 'Lütfen doldurun: ' + missing.join(', ') + '.' : '';
+        errBox.textContent = missing.length ? fmt(T.fill, { list: missing.join(', ') }) : '';
       }
       return bad;
     };
@@ -287,7 +322,7 @@
         return;
       }
       var text = buildText();
-      var subject = kind() + ' - ' + fe.istasyon.value.replace(/ \(.*\)$/, '') + ' - ' + fe.konu.value;
+      var subject = T.kind[kind()] + ' - ' + fe.istasyon.value.replace(/ \(.*\)$/, '') + ' - ' + fe.konu.value;
       var channel = (e.submitter && e.submitter.value) || 'wa';
       if (channel === 'mail') {
         window.location.href = 'mailto:' + EMAIL +
@@ -313,7 +348,7 @@
       fillMachines(hit.s, hit.id);
       if (fromQr) {
         fromQr.hidden = false;
-        fromQr.textContent = hit.s + ' istasyonu, ' + hit.n + ' otomatı seçildi. Şikayet ya da öneri seçip telefonunuzu yazmanız yeterli.';
+        fromQr.textContent = fmt(T.fromQr, { s: hit.s, n: loc(hit.n) });
       }
     } else if (qStation) {
       var wanted = plain(qStation);
@@ -403,7 +438,7 @@
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-label', (i + 1) + '. otomat');
+      dot.setAttribute('aria-label', fmt(T.dot, { n: i + 1 }));
       dot.addEventListener('click', function () {
         go(i);
         play();
@@ -460,7 +495,7 @@
     var gTabs = guide.querySelectorAll('[role="tab"]');
     var gSteps = guide.querySelectorAll('.guide-steps li');
     var gScreen = guide.querySelector('.scr-2');
-    var gLabel = { kart: 'Kartı okutun', banka: 'Kartı okutun', qr: 'QR kodu okutun', ikart: 'Kartı okutun' };
+    var gLabel = { kart: T.scanCard, banka: T.scanCard, qr: T.scanQr, ikart: T.scanCard };
     var gStep = 1;
     var gTimer = null;
     var setStep = function (n) {
@@ -536,7 +571,8 @@
     sea.className = 'sea';
     sea.style.left = (pos(gapAfter) + 1) + '%';
     sea.style.width = (pos(gapAfter + 1) - pos(gapAfter) - 2) + '%';
-    sea.innerHTML = '<span>BOĞAZ</span>';
+    sea.innerHTML = '<span></span>';
+    sea.firstChild.textContent = T.sea;
     lineEl.appendChild(sea);
 
     stations.forEach(function (link, i) {
@@ -666,6 +702,71 @@
       }
       touchX = null;
     });
+  }
+
+  // Dil seçici: sorgu (QR otomat no) ve çapa korunur, dışarı tıklayınca kapanır
+  var langBox = document.getElementById('lang');
+  if (langBox) {
+    langBox.querySelectorAll('a').forEach(function (a) {
+      a.href = a.getAttribute('href') + window.location.search + window.location.hash;
+    });
+    document.addEventListener('click', function (e) {
+      if (langBox.open && !langBox.contains(e.target)) {
+        langBox.open = false;
+      }
+    });
+  }
+
+  // Türkçe sayfada tarayıcı dili başka bir dilse o dildeki sürüm önerilir
+  if (T.offer && langBox) {
+    var dismissed = false;
+    try {
+      dismissed = sessionStorage.getItem('dil-oneri') === '1';
+    } catch (err) {
+      dismissed = false;
+    }
+    var wanted = (navigator.languages || [navigator.language || '']).map(function (l) {
+      return String(l).slice(0, 2).toLowerCase();
+    });
+    var pick = null;
+    for (var li = 0; li < wanted.length && !pick; li += 1) {
+      if (wanted[li] === 'tr') {
+        break;
+      }
+      if (T.offer[wanted[li]]) {
+        pick = wanted[li];
+      }
+    }
+    var target = pick && langBox.querySelector('a[hreflang="' + pick + '"]');
+    if (target && !dismissed) {
+      var bar = document.createElement('div');
+      bar.className = 'lang-offer';
+      bar.setAttribute('lang', pick);
+      bar.dir = pick === 'ar' || pick === 'fa' ? 'rtl' : 'ltr';
+      var txt = document.createElement('span');
+      txt.textContent = T.offer[pick][0];
+      var go = document.createElement('a');
+      go.className = 'btn btn-sm';
+      go.href = target.href;
+      go.textContent = T.offer[pick][1];
+      var x = document.createElement('button');
+      x.type = 'button';
+      x.className = 'lang-offer-x';
+      x.setAttribute('aria-label', T.close);
+      x.textContent = '×';
+      x.addEventListener('click', function () {
+        bar.remove();
+        try {
+          sessionStorage.setItem('dil-oneri', '1');
+        } catch (err) {
+          return;
+        }
+      });
+      bar.appendChild(txt);
+      bar.appendChild(go);
+      bar.appendChild(x);
+      document.body.appendChild(bar);
+    }
   }
 
   var year = document.getElementById('year');
